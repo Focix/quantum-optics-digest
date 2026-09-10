@@ -156,7 +156,7 @@ First run shows the whole 7-day window (long). Backfill in phase 1 marks older p
 
 ## Risks and later work
 
-- **Cloud egress** depends on the allowlist entry (arXiv) and the API credential (S2); verified in phase 0. Fallback: launchd + `claude -p` locally, page as a Claude artifact.
+- **Cloud egress** depends on the allowlist entries for `export.arxiv.org` and `api.openalex.org`; verified in phase 0. Fallback: launchd + `claude -p` locally, page as a Claude artifact.
 - **Git push from the routine** depends on `/web-setup` and an unprotected main with only Focix commits. A failed push leaves the run log as the only record; the next run redoes the work since seen.json was never committed.
 - **Ranking variance** day to day; rubric + fixed statements reduce it. v2: pin a paper's score at first display.
 - **Public reading list**; switch to private repo + rendered Markdown if uncomfortable.
