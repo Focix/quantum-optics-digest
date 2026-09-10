@@ -10,8 +10,3 @@ query = '''abs:"superconducting qubit" OR (abs:superconducting AND abs:qubit) OR
 label = "Quantum optics on other platforms"
 categories = ["quant-ph", "physics.optics", "physics.atom-ph"]
 query = '''abs:"cavity QED" OR abs:"waveguide QED" OR abs:"single photon" OR abs:"single-photon" OR abs:"photon statistics" OR abs:"resonance fluorescence" OR abs:"squeezed light" OR abs:"quantum emitter" OR abs:"giant atom" OR abs:optomechanical OR (abs:Rydberg AND abs:photon) OR (abs:"trapped ion" AND abs:photon) OR (abs:"quantum dot" AND abs:photon)'''
-
-[pools.C]
-label = "Dark matter with superconducting devices"
-categories = ["quant-ph", "hep-ex", "hep-ph", "physics.ins-det"]
-query = '''(abs:"dark matter" OR abs:axion OR abs:"dark photon" OR abs:"hidden photon") AND (abs:qubit OR abs:superconducting OR abs:"single photon" OR abs:haloscope OR abs:"photon counting" OR abs:"microwave cavity")'''

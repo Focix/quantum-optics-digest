@@ -33,13 +33,13 @@ def test_fetch_daily_writes_candidates_status_and_next_seen(paths: Paths) -> Non
 
     status = fetch_daily(load_config(paths), paths, fetch_xml=fetch_xml, today=TODAY)
 
-    assert len(urls) == 3
+    assert len(urls) == 2
     candidates = json.loads(paths.candidates.read_text())
     # the same two papers come back for every pool; A wins, so B and C add nothing; newest id first
     assert [(c["id"], c["pool"]) for c in candidates] == [("2609.09426", "A"), ("2609.08348", "A")]
     assert candidates[0]["tags"] == ["platform:sc"]
-    assert status["pools"] == {"A": "ok", "B": "ok", "C": "ok"}
-    assert status["counts"] == {"A": 2, "B": 0, "C": 0}
+    assert status["pools"] == {"A": "ok", "B": "ok"}
+    assert status["counts"] == {"A": 2, "B": 0}
     assert status["citations"] == "disabled"
     assert "error" not in status
     assert json.loads(paths.status.read_text()) == status
@@ -59,14 +59,14 @@ def test_overflow_is_noted_in_status_without_error(paths: Paths) -> None:
 
 def test_fetch_daily_records_pool_failure_and_keeps_going(paths: Paths) -> None:
     def fetch_xml(url: str) -> str:
-        if "hep-ex" in url:
+        if "physics.optics" in url:
             raise RuntimeError("503 Service Unavailable")
         return FIXTURE
 
     status = fetch_daily(load_config(paths), paths, fetch_xml=fetch_xml, today=TODAY)
 
-    assert status["pools"]["C"].startswith("error: 503")
-    assert "pool C" in status["error"]
+    assert status["pools"]["B"].startswith("error: 503")
+    assert "pool B" in status["error"]
     assert len(json.loads(paths.candidates.read_text())) == 2
 
 

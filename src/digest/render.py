@@ -10,11 +10,10 @@ from typing import Any
 SECTION_TITLES = {
     "A": "A · Superconducting artificial atoms",
     "B": "B · Quantum optics on other platforms",
-    "C": "C · Dark matter with superconducting devices",
     "computing": "Superconducting quantum computing (held for Saturday)",
     "weekly": "This week in superconducting quantum computing",
 }
-SECTION_ORDER = ["A", "B", "C", "weekly", "computing"]
+SECTION_ORDER = ["A", "B", "weekly", "computing"]
 TOP_N = 10
 PREVIOUS_DAYS = 14
 SITE_TITLE = "Quantum Optics Digest"
@@ -184,7 +183,7 @@ def render_index(
 
     parts = [
         f"<h1><a href=\"./\">{SITE_TITLE}</a></h1>",
-        '<p class="sub">New arXiv papers on superconducting artificial atoms, quantum optics and dark matter searches, ranked each weekday morning.</p>',
+        '<p class="sub">New arXiv papers on superconducting artificial atoms and quantum optics, ranked each weekday morning.</p>',
         _banner(latest, today, error, log_url),
     ]
     if latest:

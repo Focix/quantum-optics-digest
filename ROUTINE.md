@@ -9,7 +9,7 @@ You are running inside a Claude Code cloud routine with this repository cloned. 
    uv run scripts/fetch.py --mode daily
    ```
    It prints a status object. Exit code 1 means a partial failure that is already recorded in `out/status.json`; continue anyway if `out/candidates.json` exists. If the script crashed (no `out/candidates.json`), go to step 5.
-2. Read `prompts/rank_daily.md`, the three files in `interests/`, and `out/candidates.json`. Rank the candidates per the prompt and write `out/ranking.json`. Use today's date in Moscow for `run`.
+2. Read `prompts/rank_daily.md`, `interests/a_superconducting.md`, `interests/b_other_platforms.md`, and `out/candidates.json`. Rank the candidates per the prompt and write `out/ranking.json`. Use today's date in Moscow for `run`.
 3. Render:
    ```
    uv run scripts/render.py --mode daily

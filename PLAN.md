@@ -4,7 +4,7 @@ Rev 2, 2026-09-10. Interactive version: https://claude.ai/code/artifact/58ccfec2
 
 ## Summary
 
-Every weekday at 09:00 Moscow a Claude Code cloud routine clones this repo, runs a Python script that pulls the last seven days of arXiv listings for three fixed query sets, drops anything already shown, enriches the rest with OpenAlex citation metadata, and hands the candidates to the routine's own model. The model sorts them into three sections, scores each against a written interest statement, writes a one-line reason per paper, and a render script turns the result into a static page committed to `docs/` and served by GitHub Pages. Saturday at 10:00 a second routine does the same for the week's superconducting quantum computing papers with a stronger model.
+Every weekday at 09:00 Moscow a Claude Code cloud routine clones this repo, runs a Python script that pulls the last seven days of arXiv listings for two fixed query sets, drops anything already shown, enriches the rest with OpenAlex citation metadata, and hands the candidates to the routine's own model. The model sorts them into two sections, scores each against a written interest statement, writes a one-line reason per paper, and a render script turns the result into a static page committed to `docs/` and served by GitHub Pages. Saturday at 10:00 a second routine does the same for the week's superconducting quantum computing papers with a stronger model.
 
 No MCP server is involved in the routine. The arxiv and Semantic Scholar MCP servers (the latter now unused) are thin wrappers over the same public APIs and cannot be attached to a cloud routine; they are for interactive sessions only.
 
@@ -12,7 +12,7 @@ No MCP server is involved in the routine. The arxiv and Semantic Scholar MCP ser
 
 | Decision | Answer |
 |---|---|
-| Topic | One digest, three daily sections. **A** superconducting artificial atoms, quantum-optics side only. **B** quantum optics on other platforms, ranked for novelty. **C** dark matter / axion searches with superconducting qubits or single microwave photon detection. |
+| Topic | One digest, two daily sections. **A** superconducting artificial atoms, quantum-optics side only. **B** quantum optics on other platforms, ranked for novelty. (A third section on dark-matter searches was dropped on 2026-09-10.) |
 | Excluded daily | Superconducting quantum computing (error correction, processors, gate benchmarks). Held for the weekly section. |
 | Sources | Daily: arXiv for candidates, OpenAlex for citation counts and venues (Semantic Scholar rejected the key request, 2026-09-10). Weekly: arXiv plus an OpenAlex journal search for papers not on arXiv. |
 | Window | Rolling 7 days, deduplicated against `state/seen.json` committed to the repo. |
@@ -77,7 +77,6 @@ arXiv search syntax, `sortBy=submittedDate`, `max_results=200`, client-side 7-da
 |---|---|---|---|
 | A + weekly pool | quant-ph, cond-mat.mes-hall, cond-mat.supr-con | `abs:"superconducting qubit" OR abs:transmon OR abs:fluxonium OR abs:"circuit QED" OR abs:"circuit quantum electrodynamics" OR abs:"artificial atom" OR abs:"microwave photon" OR abs:"Josephson junction"` | 20–40, of which 3–8 optics |
 | B | quant-ph, physics.optics, physics.atom-ph | `abs:"cavity QED" OR abs:"waveguide QED" OR abs:"single photon" OR abs:"single-photon" OR abs:"photon statistics" OR abs:"resonance fluorescence" OR abs:"squeezed light" OR abs:"quantum emitter" OR abs:"giant atom" OR abs:optomechanical OR (abs:Rydberg AND abs:photon) OR (abs:"trapped ion" AND abs:photon) OR (abs:"quantum dot" AND abs:photon)` minus the A pool | 20–40 |
-| C | quant-ph, hep-ex, hep-ph, physics.ins-det | `(abs:"dark matter" OR abs:axion OR abs:"dark photon" OR abs:"hidden photon") AND (abs:qubit OR abs:superconducting OR abs:"single photon" OR abs:haloscope OR abs:"photon counting" OR abs:"microwave cavity")` | 0–3 |
 
 The A pool is split by the model: optics → A, computing → tagged and held for Saturday. B candidates also in the A pool are removed so a paper appears once. Weekly adds one OpenAlex journal search: `"superconducting qubit" OR transmon OR fluxonium`, last 14 days, journal articles without an arXiv version.
 
@@ -86,8 +85,6 @@ The A pool is split by the model: optics → A, computing → tagged and held fo
 **A. Superconducting artificial atoms — relevant.** Quantum optics with superconducting circuits: single- and few-photon microwave sources; photon correlation measurements (g2, cross-correlation, antibunching); temporal/spectral shaping of itinerant microwave photons; quantum state transfer between qubits, cavities or nodes; quantum information protocols on a few qubits where the physics, not the benchmark, is the point; time-domain and time-bin entangled states; waveguide QED, giant atoms, dressed states, scattering off one or a few artificial atoms. Not relevant daily: error correction, surface codes, multi-qubit processors, gate fidelity records, fabrication-only papers, calibration tooling → tag `computing`, low daily score.
 
 **B. Other platforms — already standard.** Score low unless there is a genuinely new twist: transmission and reflection measurements of a single emitter coupled to an open transmission line or open waveguide, including the usual extinction, Mollow triplet and power-broadening results. Score high: experiments or theory showing an effect, regime or protocol not obvious from the standard cavity/waveguide QED toolbox, on any platform (atoms, ions, quantum dots, colour centres, optomechanics, photonic circuits).
-
-**C. Dark matter with superconducting devices.** Proposals and results using superconducting qubits, resonators, single microwave photon detectors or quantum sensing protocols to search for axions, dark photons or other dark matter candidates. Include instrumentation papers if the detector is qubit- or photon-counting-based. Exclude pure astrophysics.
 
 **Weekly — superconducting quantum computing, what is hot.** From the week's computing-tagged papers pick ten a researcher in superconducting qubits would want to have heard of: new records, new qubit designs or couplers, new architectures, error-correction milestones, results from major groups, anything already collecting citations. Prefer results over surveys.
 
@@ -107,7 +104,7 @@ The A pool is split by the model: optics → A, computing → tagged and held fo
 ```
 
 - `score` 0–100 against the section statement. ≥80 read today; 50–79 worth the title; <50 matched the query, not the interest.
-- `section` ∈ {A, B, C, computing}. `computing` items are held for Saturday.
+- `section` ∈ {A, B, computing}. `computing` items are held for Saturday.
 - `why` ≤ 25 words, present tense, names the concrete result, never restates the title.
 - Cap 120 candidates per run (newest kept, overflow noted in status). ~60 abstracts ≈ 15k input tokens.
 - Render: top 10 per section with why-line; the rest titles-only. Nothing dropped.
@@ -116,7 +113,7 @@ The A pool is split by the model: optics → A, computing → tagged and held fo
 
 Static, Moscow dates, no JS required (details/summary for collapsed lists).
 - **Banner** only when status has an error or the newest digest is >1 working day old; carries the failing step, error text, and a link to the run log.
-- **Today**: sections A, B, C — title → abstract page, first three authors, date, why-line, OpenAlex citation count and venue when present; collapsed "also matched" list per section.
+- **Today**: sections A and B — title → abstract page, first three authors, date, why-line, OpenAlex citation count and venue when present; collapsed "also matched" list per section.
 - **This week** (Saturdays): the weekly ten with citation counts.
 - **Previous days**: last 14, collapsed, with counts.
 - **Archive** links at the foot.

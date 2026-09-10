@@ -1,6 +1,6 @@
 # quantum-optics-digest
 
-Morning digest of new arXiv papers on superconducting artificial atoms and quantum optics, ranked by a Claude Code cloud routine and published on GitHub Pages.
+Morning digest of new arXiv papers on superconducting artificial atoms and quantum optics on other platforms, ranked by a Claude Code cloud routine and published on GitHub Pages.
 
 Design: [PLAN.md](PLAN.md). Routine steps: [ROUTINE.md](ROUTINE.md).
 

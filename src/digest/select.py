@@ -9,7 +9,7 @@ from datetime import date, timedelta
 from digest.models import Candidate, Paper
 
 # Pools are processed in this order; a paper already placed stays in its first pool.
-POOL_ORDER = ["A", "B", "C"]
+POOL_ORDER = ["A", "B"]
 
 _COMPUTING_RE = re.compile(
     r"surface code|error[- ]correct|logical qubit|quantum processor|gate fidelit|"

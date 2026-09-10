@@ -6,7 +6,7 @@ from typing import Any
 
 from digest.models import Candidate
 
-DAILY_SECTIONS = {"A", "B", "C", "computing"}
+DAILY_SECTIONS = {"A", "B", "computing"}
 WEEKLY_SECTIONS = {"weekly"}
 
 

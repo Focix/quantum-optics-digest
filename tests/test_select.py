@@ -46,7 +46,7 @@ def test_a_pool_gets_platform_tag_and_computing_heuristic() -> None:
             paper("1", "2026-09-09", abstract="We measure g2 of a shaped microwave photon."),
             paper("2", "2026-09-09", abstract="We demonstrate a surface code below threshold."),
         ],
-        "C": [paper("3", "2026-09-09", abstract="Axion search with a qubit.")],
+        "B": [paper("3", "2026-09-09", abstract="Photon blockade in a cavity.")],
     }
     result = select_candidates(pools, seen={}, today=TODAY, window_days=7, cap=120)
     by_id = {c.id: c for c in result.candidates}
