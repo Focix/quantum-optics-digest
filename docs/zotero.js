@@ -93,17 +93,23 @@
     const btn = ev.target.closest("button.zot");
     if (btn && cfg && !btn.classList.contains("zot-done")) { ev.preventDefault(); add(btn); }
     const setup = ev.target.closest("a.zot-setup");
-    if (setup && dialog) {
-      ev.preventDefault();
-      if (cfg) { form.userId.value = cfg.userId; form.apiKey.value = cfg.apiKey; form.collection.value = cfg.collectionName; }
-      status.textContent = cfg ? "Connected. Collection: " + cfg.collectionName + "." : "";
-      dialog.showModal();
-    }
+    if (setup && dialog) { ev.preventDefault(); showDialog(); }
   });
+  function showDialog() {
+    form.classList.toggle("connected", !!cfg);
+    form.userId.value = ""; form.apiKey.value = "";
+    form.collection.value = cfg ? cfg.collectionName : "to-read";
+    form.userId.required = form.apiKey.required = !cfg;
+    status.textContent = cfg ? "Connected as user " + cfg.userId + ", saving to \u201c" + cfg.collectionName + "\u201d. The key stays in this browser." : "";
+    dialog.showModal();
+  }
   if (form) {
     form.addEventListener("submit", async (ev) => {
       const action = ev.submitter && ev.submitter.value;
-      if (action === "disconnect") { cfg = null; try { localStorage.removeItem(KEY); } catch (e) {} refresh(); return; }
+      if (action === "disconnect") {
+        ev.preventDefault(); cfg = null; try { localStorage.removeItem(KEY); } catch (e) {}
+        refresh(); showDialog(); status.textContent = "Disconnected. Enter a user ID and key to connect again."; return;
+      }
       if (action !== "save") return;
       ev.preventDefault();
       status.textContent = "Checking\u2026";

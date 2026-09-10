@@ -49,6 +49,8 @@ dialog input { display:block; width:100%; box-sizing:border-box; margin-top:.2re
 dialog menu { display:flex; gap:.5rem; justify-content:flex-end; padding:0; margin:1rem 0 0; }
 dialog button { font:inherit; padding:.3rem .8rem; border:1px solid var(--line); border-radius:4px; background:transparent; color:inherit; cursor:pointer; }
 dialog button.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+form.connected .zot-creds, form.connected .zot-when-off, form:not(.connected) .zot-when-on { display:none; }
+form.connected #zot-status { color:var(--e); }
 footer { margin-top:3rem; color:var(--muted); font-size:.9rem; }
 footer p a { color:inherit; }
 footer ul { columns:2; padding-left:1.25rem; }

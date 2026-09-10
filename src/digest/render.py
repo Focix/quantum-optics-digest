@@ -92,6 +92,8 @@ dialog input { display:block; width:100%; box-sizing:border-box; margin-top:.2re
 dialog menu { display:flex; gap:.5rem; justify-content:flex-end; padding:0; margin:1rem 0 0; }
 dialog button { font:inherit; padding:.3rem .8rem; border:1px solid var(--line); border-radius:4px; background:transparent; color:inherit; cursor:pointer; }
 dialog button.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+form.connected .zot-creds, form.connected .zot-when-off, form:not(.connected) .zot-when-on { display:none; }
+form.connected #zot-status { color:var(--e); }
 footer { margin-top:3rem; color:var(--muted); font-size:.9rem; }
 footer p a { color:inherit; }
 footer ul { columns:2; padding-left:1.25rem; }
@@ -193,17 +195,23 @@ ZOTERO_JS = r"""
     const btn = ev.target.closest("button.zot");
     if (btn && cfg && !btn.classList.contains("zot-done")) { ev.preventDefault(); add(btn); }
     const setup = ev.target.closest("a.zot-setup");
-    if (setup && dialog) {
-      ev.preventDefault();
-      if (cfg) { form.userId.value = cfg.userId; form.apiKey.value = cfg.apiKey; form.collection.value = cfg.collectionName; }
-      status.textContent = cfg ? "Connected. Collection: " + cfg.collectionName + "." : "";
-      dialog.showModal();
-    }
+    if (setup && dialog) { ev.preventDefault(); showDialog(); }
   });
+  function showDialog() {
+    form.classList.toggle("connected", !!cfg);
+    form.userId.value = ""; form.apiKey.value = "";
+    form.collection.value = cfg ? cfg.collectionName : "to-read";
+    form.userId.required = form.apiKey.required = !cfg;
+    status.textContent = cfg ? "Connected as user " + cfg.userId + ", saving to \u201c" + cfg.collectionName + "\u201d. The key stays in this browser." : "";
+    dialog.showModal();
+  }
   if (form) {
     form.addEventListener("submit", async (ev) => {
       const action = ev.submitter && ev.submitter.value;
-      if (action === "disconnect") { cfg = null; try { localStorage.removeItem(KEY); } catch (e) {} refresh(); return; }
+      if (action === "disconnect") {
+        ev.preventDefault(); cfg = null; try { localStorage.removeItem(KEY); } catch (e) {}
+        refresh(); showDialog(); status.textContent = "Disconnected. Enter a user ID and key to connect again."; return;
+      }
       if (action !== "save") return;
       ev.preventDefault();
       status.textContent = "Checking\u2026";
@@ -221,12 +229,12 @@ ZOTERO_DIALOG = (
     '<p class="meta">Stored only in this browser. Create a key at <a href="https://www.zotero.org/settings/keys/new">'
     "zotero.org/settings/keys</a> with write access to your personal library; your user ID is shown on the keys page. "
     "Papers go to the collection named below, created if missing.</p>"
-    '<label>User ID <input name="userId" required inputmode="numeric" autocomplete="off"></label>'
-    '<label>API key <input name="apiKey" required autocomplete="off"></label>'
-    '<label>Collection <input name="collection" value="to-read"></label>'
+    '<div class="zot-creds"><label>User ID <input name="userId" required inputmode="numeric" autocomplete="off"></label>'
+    '<label>API key <input name="apiKey" type="password" required autocomplete="off"></label>'
+    '<label>Collection <input name="collection" value="to-read"></label></div>'
     '<p id="zot-status" class="meta"></p>'
-    '<menu><button value="cancel">Cancel</button><button value="disconnect">Disconnect</button>'
-    '<button value="save" class="primary">Connect</button></menu>'
+    '<menu><button value="cancel">Close</button><button value="disconnect" class="zot-when-on">Disconnect</button>'
+    '<button value="save" class="primary zot-when-off">Connect</button></menu>'
     "</form></dialog>"
 )
 
