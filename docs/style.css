@@ -39,7 +39,8 @@ ul.titles li { margin:.2rem 0; }
 button.zot { display:none; margin-left:.5rem; font:inherit; font-size:.75rem; line-height:1.4; padding:0 .4em; border:1px solid var(--line); border-radius:3px; background:transparent; color:var(--muted); cursor:pointer; vertical-align:middle; }
 .zot-on button.zot { display:inline-block; }
 button.zot:hover { color:var(--accent); border-color:var(--accent); }
-button.zot.zot-done { color:var(--e); border-color:var(--e); cursor:default; }
+button.zot.zot-done { color:var(--e); border-color:var(--e); }
+button.zot.zot-done:hover { color:var(--warn); border-color:var(--warn); }
 a.zot-setup { color:var(--muted); }
 dialog { background:var(--bg); color:var(--fg); border:1px solid var(--line); border-radius:8px; padding:1rem 1.25rem; max-width:26rem; width:calc(100% - 2rem); }
 dialog::backdrop { background:rgba(0,0,0,.4); }

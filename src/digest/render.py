@@ -82,7 +82,8 @@ ul.titles li { margin:.2rem 0; }
 button.zot { display:none; margin-left:.5rem; font:inherit; font-size:.75rem; line-height:1.4; padding:0 .4em; border:1px solid var(--line); border-radius:3px; background:transparent; color:var(--muted); cursor:pointer; vertical-align:middle; }
 .zot-on button.zot { display:inline-block; }
 button.zot:hover { color:var(--accent); border-color:var(--accent); }
-button.zot.zot-done { color:var(--e); border-color:var(--e); cursor:default; }
+button.zot.zot-done { color:var(--e); border-color:var(--e); }
+button.zot.zot-done:hover { color:var(--warn); border-color:var(--warn); }
 a.zot-setup { color:var(--muted); }
 dialog { background:var(--bg); color:var(--fg); border:1px solid var(--line); border-radius:8px; padding:1rem 1.25rem; max-width:26rem; width:calc(100% - 2rem); }
 dialog::backdrop { background:rgba(0,0,0,.4); }
@@ -105,7 +106,9 @@ ZOTERO_JS = r"""
   const load = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch (e) { return d; } };
   const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
   let cfg = load(KEY, null);
-  const added = new Set(load(ADDED, []));
+  // id -> {key, children} for items this page created, or null for papers already in the library
+  let added = load(ADDED, {});
+  if (Array.isArray(added)) added = Object.fromEntries(added.map((id) => [id, null]));
   const cache = {};
   const root = document.body.dataset.root || "";
   const dialog = document.getElementById("zot-dialog");
@@ -127,11 +130,16 @@ ZOTERO_JS = r"""
     return r.successful;
   }
 
+  function markDone(b) {
+    b.classList.add("zot-done"); b.textContent = "\u2713"; b.disabled = false;
+    b.title = added[b.dataset.id] ? "saved to " + cfg.collectionName + " \u00b7 click to remove" : "already in your library";
+  }
+  function markTodo(b) {
+    b.classList.remove("zot-done"); b.textContent = "+Z"; b.title = "Save to Zotero"; b.disabled = false;
+  }
   function refresh() {
     document.body.classList.toggle("zot-on", !!cfg);
-    document.querySelectorAll("button.zot").forEach((b) => {
-      if (added.has(b.dataset.id)) { b.classList.add("zot-done"); b.textContent = "\u2713"; b.title = "in Zotero"; }
-    });
+    document.querySelectorAll("button.zot").forEach((b) => { if (b.dataset.id in added) markDone(b); });
   }
 
   async function connect(userId, apiKey, name) {
@@ -174,26 +182,42 @@ ZOTERO_JS = r"""
     try {
       const rec = await record(btn);
       const q = await api("/items?limit=1&qmode=everything&q=" + encodeURIComponent(rec.id));
-      if (Number(q.headers.get("Total-Results") || "0") > 0) { btn.title = "already in your library"; }
+      if (Number(q.headers.get("Total-Results") || "0") > 0) { added[rec.id] = null; }
       else {
         const { item, pdf } = itemFor(rec);
         const key = (await post("/items", [item]))["0"].key;
         const children = [];
         if (pdf) children.push({ itemType: "attachment", linkMode: "linked_url", parentItem: key, title: "arXiv PDF", url: pdf, contentType: "application/pdf" });
         if (rec.why) children.push({ itemType: "note", parentItem: key, note: "<p>" + rec.why + (rec.score != null ? " (digest score " + rec.score + ")" : "") + "</p>" });
-        if (children.length) await post("/items", children);
-        btn.title = "saved to " + cfg.collectionName;
+        const made = children.length ? await post("/items", children) : {};
+        added[rec.id] = { key: key, children: Object.values(made).map((c) => c.key) };
       }
-      added.add(rec.id); save(ADDED, Array.from(added));
-      btn.classList.add("zot-done"); btn.textContent = "\u2713";
+      save(ADDED, added); markDone(btn);
     } catch (e) {
+      btn.textContent = "!"; btn.title = String(e.message || e); btn.disabled = false;
+    }
+  }
+
+  async function remove(btn) {
+    const entry = added[btn.dataset.id];
+    if (!entry) return; // not created by this page: nothing to undo
+    if (!window.confirm("Remove this paper (with its PDF link and note) from Zotero?")) return;
+    btn.disabled = true; btn.textContent = "\u2026";
+    try {
+      const head = await api("/items/" + entry.key);
+      const version = head.headers.get("Last-Modified-Version");
+      const keys = [entry.key].concat(entry.children || []);
+      await api("/items?itemKey=" + keys.join(","), { method: "DELETE", headers: { "If-Unmodified-Since-Version": version } });
+      delete added[btn.dataset.id]; save(ADDED, added); markTodo(btn);
+    } catch (e) {
+      if (/Zotero 404/.test(String(e.message))) { delete added[btn.dataset.id]; save(ADDED, added); markTodo(btn); return; }
       btn.textContent = "!"; btn.title = String(e.message || e); btn.disabled = false;
     }
   }
 
   document.addEventListener("click", (ev) => {
     const btn = ev.target.closest("button.zot");
-    if (btn && cfg && !btn.classList.contains("zot-done")) { ev.preventDefault(); add(btn); }
+    if (btn && cfg && !btn.disabled) { ev.preventDefault(); if (btn.classList.contains("zot-done")) remove(btn); else add(btn); }
     const setup = ev.target.closest("a.zot-setup");
     if (setup && dialog) { ev.preventDefault(); showDialog(); }
   });
