@@ -1,0 +1,316 @@
+<title>Quantum Optics Digest</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F3F4F6; --surface:#FFFFFF; --ink:#1B2230; --muted:#5B6472;
+  --line:#D5D9E0; --accent:#B5651D; --accent-ink:#8F4E13; --blue:#2E5E8C;
+  --warn-bg:#FBEDE3; --code-bg:#ECEEF2;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#12161C; --surface:#1A2028; --ink:#E6E9EE; --muted:#97A0AD;
+    --line:#2A323D; --accent:#D98A3F; --accent-ink:#E6A363; --blue:#6FA3D8;
+    --warn-bg:#2C2119; --code-bg:#20262F;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#12161C; --surface:#1A2028; --ink:#E6E9EE; --muted:#97A0AD;
+  --line:#2A323D; --accent:#D98A3F; --accent-ink:#E6A363; --blue:#6FA3D8;
+  --warn-bg:#2C2119; --code-bg:#20262F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:"Source Sans 3",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:17px;line-height:1.55;padding-inline:16px;padding-block:0 80px}
+.wrap{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:220px minmax(0,1fr);gap:48px}
+@media (max-width:820px){.wrap{grid-template-columns:minmax(0,1fr)}nav.toc{position:static;border:0;padding:0}}
+header.masthead{grid-column:1/-1;padding-block:56px 32px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)}
+h1{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:clamp(34px,5vw,50px);line-height:1.08;margin:10px 0 14px;text-wrap:balance;letter-spacing:-.01em}
+.lede{font-size:20px;max-width:64ch;color:var(--muted);margin:0}
+nav.toc{position:sticky;top:24px;align-self:start;font-size:14px;border-left:2px solid var(--line);padding-left:16px}
+nav.toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 0}
+nav.toc a:hover,nav.toc a:focus-visible{color:var(--accent-ink);outline:none}
+main{min-width:0;max-width:72ch}
+h2{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:28px;margin:56px 0 12px;line-height:1.15;text-wrap:balance}
+h2:first-child{margin-top:40px}
+h3{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:20px;margin:30px 0 8px;text-wrap:balance}
+p{margin:0 0 14px}
+ul,ol{padding-left:22px;margin:0 0 14px}
+li{margin-bottom:6px}
+a{color:var(--blue)}
+code,pre{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.86em}
+code{background:var(--code-bg);padding:1px 5px;border-radius:3px}
+pre{background:var(--code-bg);padding:14px 16px;border-radius:4px;overflow-x:auto;line-height:1.5;margin:0 0 16px}
+pre code{background:none;padding:0}
+.tablewrap{overflow-x:auto;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px}
+th,td{text-align:left;vertical-align:top;padding:9px 10px;border-bottom:1px solid var(--line)}
+th{font-weight:600;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+td:first-child{font-weight:600;white-space:nowrap}
+tr.you td:first-child::before{content:"you";display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;background:var(--accent);color:#fff;padding:1px 6px;border-radius:2px;margin-right:8px;vertical-align:middle}
+tr.me td:first-child::before{content:"claude";display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;background:var(--blue);color:#fff;padding:1px 6px;border-radius:2px;margin-right:8px;vertical-align:middle}
+.facts{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);padding:14px 18px;margin:0 0 20px;border-radius:0 4px 4px 0}
+.facts p:last-child{margin:0}
+.diagram{overflow-x:auto;margin:8px 0 22px;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px}
+.diagram svg{display:block;min-width:820px;width:100%;height:auto}
+.diagram .box{fill:var(--ground);stroke:var(--line);stroke-width:1.2}
+.diagram .box.llm{fill:var(--warn-bg);stroke:var(--accent)}
+.diagram .box.state{stroke:var(--blue);stroke-dasharray:4 3}
+.diagram text{font-family:"Source Sans 3",sans-serif;font-size:13px;fill:var(--ink)}
+.diagram text.small{font-size:11px;fill:var(--muted)}
+.diagram .arrow{stroke:var(--muted);stroke-width:1.4;fill:none;marker-end:url(#ah)}
+.diagram #ah path{fill:var(--muted)}
+.tree{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:13.5px;line-height:1.55;background:var(--code-bg);padding:14px 16px;border-radius:4px;overflow-x:auto;white-space:pre;margin:0 0 16px}
+.tree span{color:var(--muted)}
+.callout{border:1px solid var(--line);background:var(--surface);padding:12px 16px;border-radius:4px;margin:0 0 16px;font-size:15.5px}
+.callout b{color:var(--accent-ink)}
+.num{font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:no-preference){nav.toc a{transition:color .15s}}
+</style>
+
+<div class="wrap">
+<header class="masthead">
+  <div class="eyebrow">System design &amp; implementation plan · 10 Sep 2026 · rev 2</div>
+  <h1>Quantum Optics Digest</h1>
+  <p class="lede">A morning page of new arXiv papers on superconducting artificial atoms and quantum optics, ranked by a Claude Code cloud routine and published on GitHub Pages. This document records what was decided, why, and the order in which to build it.</p>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#summary">Summary</a>
+  <a href="#decisions">Decisions</a>
+  <a href="#facts">Constraints found</a>
+  <a href="#architecture">Architecture</a>
+  <a href="#repo">Repository layout</a>
+  <a href="#queries">Queries</a>
+  <a href="#statements">Interest statements</a>
+  <a href="#ranking">Ranking contract</a>
+  <a href="#page">The page</a>
+  <a href="#routines">Routines</a>
+  <a href="#limits">Rate limits &amp; failure</a>
+  <a href="#plan">Implementation plan</a>
+  <a href="#risks">Risks &amp; later work</a>
+</nav>
+
+<main>
+
+<h2 id="summary">Summary</h2>
+<p>Every weekday at 09:00 Moscow time a cloud routine clones the repo, runs a Python script that pulls the last seven days of arXiv listings for three fixed query sets, drops anything already shown, enriches the rest with Semantic Scholar metadata, and hands the candidates to the routine's own model. The model sorts them into three sections, scores each against a written statement of your interests, writes a one-line reason per paper, and commits a JSON digest. A render script turns the digest into a static page and the commit lands on GitHub Pages. Saturday at 10:00 a second routine does the same for the week's superconducting quantum computing papers, using a stronger model.</p>
+<p>No MCP server is involved in the routine. The arxiv and Semantic Scholar MCP servers you installed are thin wrappers over the same public APIs and cannot be attached to a cloud routine. They will be registered in Claude Code for your interactive sessions only.</p>
+
+<h2 id="decisions">Decisions</h2>
+<p>Settled during the design interview. Each row is a branch of the design tree.</p>
+<div class="tablewrap"><table>
+<tr><th>Decision</th><th>Answer</th></tr>
+<tr><td>Topic</td><td>One digest, three daily sections. <b>A</b> superconducting artificial atoms, quantum-optics side only. <b>B</b> quantum optics on other platforms, ranked for novelty. <b>C</b> dark matter and axion searches using superconducting qubits or single microwave photon detection.</td></tr>
+<tr><td>Excluded daily</td><td>Superconducting quantum computing papers: error correction, processors, gate benchmarks. They feed the weekly section instead.</td></tr>
+<tr><td>Sources</td><td>Daily: arXiv for candidates, Semantic Scholar for enrichment only. Weekly: arXiv plus a Semantic Scholar bulk search for journal papers not on arXiv.</td></tr>
+<tr><td>Window</td><td>Rolling seven days, deduplicated against a seen-IDs file committed to the repo.</td></tr>
+<tr><td>Runner</td><td>Claude Code cloud routine with the repo cloned. Python does fetch and dedupe. The routine's model does ranking. No MCP.</td></tr>
+<tr><td>Intelligence</td><td>Model relevance ranking with a one-line "why" per paper. Top 10 per section, then a titles-only list of everything else that matched.</td></tr>
+<tr><td>Output</td><td>Static HTML on GitHub Pages from a public repo. Today plus the previous 14 days on one page, older days as dated archive pages.</td></tr>
+<tr><td>Failure</td><td>Red banner on the page carrying the error text. No email.</td></tr>
+<tr><td>Schedule</td><td>Weekdays 09:00 Moscow, cron <code>0 6 * * 1-5</code> UTC. Saturday 10:00 Moscow, cron <code>0 7 * * 6</code> UTC. Moscow has no daylight saving so these hold all year.</td></tr>
+<tr><td>Models</td><td>Sonnet 5 for the daily routine. Opus 5 for the weekly.</td></tr>
+<tr><td>Feedback</td><td>Read-only in version 1. You edit the interest statements by hand when your taste drifts.</td></tr>
+<tr><td>Repo</td><td><code>github.com/Focix/quantum-optics-digest</code>, cloned to <code>~/Projects/quantum-optics-digest</code>.</td></tr>
+</table></div>
+
+<h2 id="facts">Constraints found</h2>
+<div class="facts">
+<p><b>Cloud routines cannot attach local MCP servers.</b> Routines run in Anthropic's cloud and accept only claude.ai connectors over HTTP. Your arxiv and Semantic Scholar servers are stdio processes installed with uv on this Mac. They are registered today only in Codex, not in Claude Code.</p>
+<p><b>Routines have no persistent disk.</b> Anything that must survive between runs lives in the git repo and is committed.</p>
+<p><b>The routine's network is an allowlist.</b> The Default environment reaches package registries and GitHub only. <code>export.arxiv.org</code> must be added under Custom network access with the default list kept. <code>api.semanticscholar.org</code> is reached by storing the key as an environment API credential, which both attaches the key outside the sandbox and opens the host. Python, uv, and gh are preinstalled on the Ubuntu VM.</p>
+<p><b>Pushes to main are conditional.</b> A routine may push to a branch other than <code>claude/*</code> only if that branch is unprotected, nobody else has an open pull request from it, and every commit on it is yours. Routine commits carry your GitHub identity, so a solo unprotected main satisfies this permanently.</p>
+<p><b>Semantic Scholar terms you accepted.</b> One request per second on all endpoints. Exponential backoff on 429 responses. A key unused for about 60 days may be revoked. The weekday schedule uses the key at least five times a week, so revocation is not a concern while the routine runs.</p>
+<p><b>arXiv API.</b> Around three seconds between requests, occasional 503 responses, and new papers announced Sunday to Thursday around 20:00 US Eastern. Saturday and Sunday mornings in Moscow have no new listings, which is why the daily routine runs weekdays only.</p>
+<p><b>GitHub Pages</b> on a free account requires a public repo. Your query sets and interest statements will be visible to anyone with the URL.</p>
+<p><b>Your machine is a MacBook Air.</b> A local scheduler would run only while the lid is open, which is why the cloud routine won.</p>
+</div>
+
+<h2 id="architecture">Architecture</h2>
+<p>Deterministic work stays in Python so it is cheap, testable, and reproducible. The model touches only the step that needs judgment. State crosses the boundary as JSON files.</p>
+<div class="diagram">
+<svg viewBox="0 0 860 250" role="img" aria-label="Pipeline: arXiv and Semantic Scholar feed fetch.py, which writes candidates.json; the routine model ranks into ranking.json; render.py writes docs; git push publishes to GitHub Pages; seen.json and s2_cache.json are read and updated by fetch.py.">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z"/></marker></defs>
+<rect class="box" x="10" y="20" width="110" height="44" rx="3"/><text x="65" y="46" text-anchor="middle">arXiv API</text>
+<rect class="box" x="10" y="86" width="110" height="44" rx="3"/><text x="65" y="105" text-anchor="middle">Semantic</text><text x="65" y="121" text-anchor="middle">Scholar API</text>
+<rect class="box" x="170" y="50" width="120" height="54" rx="3"/><text x="230" y="73" text-anchor="middle">fetch.py</text><text x="230" y="91" text-anchor="middle" class="small">query · dedupe · enrich</text>
+<rect class="box state" x="170" y="160" width="120" height="54" rx="3"/><text x="230" y="183" text-anchor="middle">state/</text><text x="230" y="199" text-anchor="middle" class="small">seen.json · s2_cache.json</text>
+<rect class="box llm" x="340" y="50" width="130" height="54" rx="3"/><text x="405" y="73" text-anchor="middle">routine model</text><text x="405" y="91" text-anchor="middle" class="small">section · score · why</text>
+<rect class="box" x="520" y="50" width="110" height="54" rx="3"/><text x="575" y="73" text-anchor="middle">render.py</text><text x="575" y="91" text-anchor="middle" class="small">JSON → HTML</text>
+<rect class="box" x="680" y="50" width="110" height="54" rx="3"/><text x="735" y="73" text-anchor="middle">git commit</text><text x="735" y="91" text-anchor="middle" class="small">+ push</text>
+<rect class="box" x="680" y="160" width="110" height="44" rx="3"/><text x="735" y="186" text-anchor="middle">GitHub Pages</text>
+<path class="arrow" d="M120,42 L170,66"/>
+<path class="arrow" d="M120,108 L170,88"/>
+<path class="arrow" d="M230,104 L230,160"/>
+<path class="arrow" d="M290,77 L340,77"/><text x="315" y="68" text-anchor="middle" class="small">candidates</text>
+<path class="arrow" d="M470,77 L520,77"/><text x="495" y="68" text-anchor="middle" class="small">ranking</text>
+<path class="arrow" d="M630,77 L680,77"/><text x="655" y="68" text-anchor="middle" class="small">docs/</text>
+<path class="arrow" d="M735,104 L735,160"/>
+<text x="230" y="238" text-anchor="middle" class="small">dashed = committed state · copper = the only step that needs a model</text>
+</svg>
+</div>
+
+<h3>Components</h3>
+<ul>
+<li><b>fetch.py</b> runs one arXiv query per section over the last seven days sorted by submission date, drops IDs present in the seen file, tags each survivor with keyword flags such as <code>computing</code> or <code>platform:sc</code>, sends the remaining arXiv IDs to Semantic Scholar in one batch call, and writes <code>out/candidates.json</code> plus <code>out/status.json</code>. It updates the seen file only after a successful write so a crash never marks papers as shown.</li>
+<li><b>The routine model</b> reads the candidates and the three interest statements, and writes <code>out/ranking.json</code> following the contract below. It never fetches anything itself.</li>
+<li><b>render.py</b> merges candidates and ranking into <code>digests/YYYY-MM-DD.json</code>, then regenerates <code>docs/index.html</code> from the last 15 digest files and one archive page per older day. It reads <code>out/status.json</code> and prints the banner when any step reported an error or when the newest digest is older than expected.</li>
+<li><b>Scripts declare dependencies inline</b> with PEP 723 metadata and run through <code>uv run</code>, matching how Python is managed on your machine. Expected dependencies: <code>httpx</code> and <code>feedparser</code>. Nothing else.</li>
+</ul>
+
+<h2 id="repo">Repository layout</h2>
+<div class="tree">quantum-optics-digest/
+├── scripts/
+│   ├── fetch.py          <span># arXiv + S2, dedupe, tagging</span>
+│   ├── render.py         <span># digests/*.json → docs/</span>
+│   └── s2.py             <span># client with 1 rps throttle + backoff</span>
+├── config/
+│   ├── queries.toml      <span># one query block per section</span>
+│   └── settings.toml     <span># window days, caps, timezone</span>
+├── interests/
+│   ├── a_superconducting.md
+│   ├── b_other_platforms.md
+│   ├── c_dark_matter.md
+│   └── weekly_computing.md
+├── prompts/
+│   ├── rank_daily.md     <span># the routine's ranking instructions</span>
+│   └── rank_weekly.md
+├── state/
+│   ├── seen.json         <span># {arxiv_id: first_seen_date}</span>
+│   └── s2_cache.json     <span># {arxiv_id: {citationCount, tldr, venue, ...}}</span>
+├── digests/
+│   └── 2026-09-14.json   <span># source of truth, one per run</span>
+├── docs/                 <span># GitHub Pages root</span>
+│   ├── index.html
+│   ├── style.css
+│   └── archive/2026-09-14.html
+├── out/                  <span># gitignored, per-run scratch</span>
+├── ROUTINE.md            <span># the exact prompt the routine receives</span>
+└── PLAN.md               <span># this document</span></div>
+
+<h2 id="queries">Queries</h2>
+<p>arXiv search syntax, fetched with <code>sortBy=submittedDate</code>, <code>max_results=200</code>, and a client-side date filter for the last seven days. Queries are kept broad on purpose. Exclusion is the model's job, guided by the interest statements, because an <code>ANDNOT</code> on "error correction" would drop an optics paper that mentions it in passing.</p>
+<div class="tablewrap"><table>
+<tr><th>Section</th><th>Categories</th><th>Query core</th><th>Expected per day</th></tr>
+<tr><td>A + weekly pool</td><td>quant-ph, cond-mat.mes-hall, cond-mat.supr-con</td><td><code>abs:"superconducting qubit" OR abs:transmon OR abs:fluxonium OR abs:"circuit QED" OR abs:"circuit quantum electrodynamics" OR abs:"artificial atom" OR abs:"microwave photon" OR abs:"Josephson junction"</code></td><td class="num">20 to 40, of which 3 to 8 are optics</td></tr>
+<tr><td>B</td><td>quant-ph, physics.optics, physics.atom-ph</td><td><code>abs:"cavity QED" OR abs:"waveguide QED" OR abs:"single photon" OR abs:"single-photon" OR abs:"photon statistics" OR abs:"resonance fluorescence" OR abs:"squeezed light" OR abs:"quantum emitter" OR abs:"giant atom" OR abs:optomechanical OR (abs:Rydberg AND abs:photon) OR (abs:"trapped ion" AND abs:photon) OR (abs:"quantum dot" AND abs:photon)</code>, minus anything in the A pool</td><td class="num">20 to 40</td></tr>
+<tr><td>C</td><td>quant-ph, hep-ex, hep-ph, physics.ins-det</td><td><code>(abs:"dark matter" OR abs:axion OR abs:"dark photon" OR abs:"hidden photon") AND (abs:qubit OR abs:superconducting OR abs:"single photon" OR abs:haloscope OR abs:"photon counting" OR abs:"microwave cavity")</code></td><td class="num">0 to 3</td></tr>
+</table></div>
+<p>The pool for section A is split by the model: optics papers go to A, computing papers are tagged <code>computing</code> and held for Saturday. Section B candidates that also match the A query are removed before ranking so a paper appears once.</p>
+<p>The weekly run adds one Semantic Scholar bulk search: query <code>"superconducting qubit" | transmon | fluxonium</code>, publication date within the last 14 days, fields of study Physics, limited to papers without an arXiv ID, so only journal-first publications enter.</p>
+
+<h2 id="statements">Interest statements</h2>
+<p>Drafted from your bullets. These are the files you edit when the digest drifts. The model receives them verbatim.</p>
+<h3>A. Superconducting artificial atoms, what counts as relevant</h3>
+<pre><code>Quantum optics with superconducting circuits. Relevant: single-photon and
+few-photon sources in the microwave domain; photon correlation measurements
+(g2, cross-correlation, antibunching); temporal and spectral shaping of
+itinerant microwave photons; quantum state transfer between qubits, cavities
+or nodes; quantum information protocols carried out on a few qubits where
+the physics, not the benchmark, is the point; time-domain and time-bin
+entangled states; waveguide QED, giant atoms, dressed states, scattering off
+one or a few artificial atoms. Not relevant for the daily digest: error
+correction, surface codes, multi-qubit processors, gate fidelity records,
+fabrication-only papers, and calibration tooling. Tag those "computing"
+and give them a low daily score.</code></pre>
+<h3>B. Other platforms, what is already standard</h3>
+<pre><code>Well known and to be scored low unless there is a genuinely new twist:
+transmission and reflection measurements of a single emitter coupled to an
+open transmission line or open waveguide, including the usual extinction,
+Mollow triplet and power-broadening results. Score high: experiments or
+theory that show an effect, regime or protocol not obvious from the
+standard cavity or waveguide QED toolbox, on any platform (atoms, ions,
+quantum dots, colour centres, optomechanics, photonic circuits).</code></pre>
+<h3>C. Dark matter with superconducting devices</h3>
+<pre><code>Proposals and results that use superconducting qubits, resonators, single
+microwave photon detectors or quantum sensing protocols to search for axions,
+dark photons or other dark matter candidates. Include instrumentation papers
+if the detector is qubit or photon-counting based. Exclude pure astrophysics.</code></pre>
+<h3>Weekly. Superconducting quantum computing, what is hot</h3>
+<pre><code>From the week's computing-tagged papers pick ten that a researcher in
+superconducting qubits would want to have heard of: new records, new qubit
+designs or couplers, new architectures, error-correction milestones,
+results from major groups, and anything already collecting citations.
+Prefer results over surveys.</code></pre>
+
+<h2 id="ranking">Ranking contract</h2>
+<p>The routine prompt asks the model to read <code>out/candidates.json</code> and write <code>out/ranking.json</code>. The shape is fixed so render.py never has to interpret prose.</p>
+<pre><code>// out/candidates.json  (written by fetch.py)
+[{ "id": "2609.01234", "title": "...", "authors": ["..."], "abstract": "...",
+   "categories": ["quant-ph"], "submitted": "2026-09-13", "pool": "A",
+   "tags": ["platform:sc", "computing"],
+   "s2": { "citationCount": 0, "tldr": "...", "venue": "" } }]
+
+// out/ranking.json  (written by the model)
+{ "run": "2026-09-14", "mode": "daily",
+  "items": [{ "id": "2609.01234", "section": "A", "score": 82,
+              "why": "First g2 measurement of a shaped microwave photon from a fluxonium." }] }</code></pre>
+<ul>
+<li><b>Score</b> is 0 to 100 against the section's statement. The rubric is written into the prompt: 80 and above means "read today", 50 to 79 "worth the title", below 50 "matched the query but not the interest".</li>
+<li><b>Section</b> is one of A, B, C, or <code>computing</code>. A candidate from the A pool that the model tags computing is held for Saturday and not shown daily.</li>
+<li><b>Why</b> is at most 25 words, present tense, names the concrete result, never restates the title.</li>
+<li><b>Caps.</b> At most 120 candidates per run are sent to the model. If fetch.py finds more, it keeps the newest 120 and reports the overflow in status. Around 60 abstracts of 250 tokens each is roughly 15k input tokens, so cost is not a factor.</li>
+<li><b>Rendering rule.</b> Top 10 per section by score, shown with the why line. Everything else in that section goes to a titles-only list. Nothing is dropped, so the query tuning stays visible.</li>
+</ul>
+
+<h2 id="page">The page</h2>
+<p>One static page. Dates in Moscow time. No JavaScript needed except a details toggle for the titles-only lists, which works without it.</p>
+<ul>
+<li><b>Banner.</b> Shown only when <code>status.json</code> has an error or when the newest digest is more than one working day old. Carries the failing step and the error text, and a link to the routine's run log.</li>
+<li><b>Today.</b> Three sections A, B, C. Each entry: title linked to the abstract page, first three authors, submission date, the why line, and the Semantic Scholar citation count and venue when present. A collapsed "also matched" list below each section.</li>
+<li><b>This week</b> section, refreshed Saturdays, with the weekly ten and their citation counts.</li>
+<li><b>Previous days</b>, the last 14, each collapsed by default with a count of shown papers.</li>
+<li><b>Archive</b> link list at the foot, one page per older day, generated from the digest files.</li>
+</ul>
+
+<h2 id="routines">Routines</h2>
+<p>Two routines in the Default environment. The prompt is kept in the repo as <code>ROUTINE.md</code> so it is versioned, and the routine's message is only "read ROUTINE.md and follow it for mode daily". Both routines get the tools Bash, Read, Write, Edit, Glob, and Grep, and nothing else.</p>
+<div class="tablewrap"><table>
+<tr><th>Routine</th><th>Cron (UTC)</th><th>Model</th><th>Steps in ROUTINE.md</th></tr>
+<tr><td>Daily digest</td><td><code>0 6 * * 1-5</code></td><td>Sonnet 5</td><td>1. <code>uv run scripts/fetch.py --mode daily</code>. 2. Read candidates and interests, write ranking.json. 3. <code>uv run scripts/render.py</code>. 4. Commit digests, state, docs. Push. 5. If any step failed, still run render with <code>--error "text"</code> and commit so the banner shows.</td></tr>
+<tr><td>Weekly computing</td><td><code>0 7 * * 6</code></td><td>Opus 5</td><td>Same steps with <code>--mode weekly</code>, which loads the week's computing-tagged digests plus the Semantic Scholar venue search.</td></tr>
+</table></div>
+<p>The Semantic Scholar key is stored as an <b>API credential</b> on the Default environment: host <code>api.semanticscholar.org</code>, header name <code>x-api-key</code>, no prefix. Anthropic's proxy adds the header after the request leaves the VM, so the key never appears in the repo, the session, or any environment variable. fetch.py sends no key itself. If the credential is absent it notes "unauthenticated" in status and the digest still appears.</p>
+
+<h2 id="limits">Rate limits and failure handling</h2>
+<ul>
+<li><b>Semantic Scholar.</b> A single client in <code>s2.py</code> enforces at most one request per second, retries 429 and 5xx with exponential backoff starting at two seconds and capped at five attempts, and caches every answer in <code>state/s2_cache.json</code> so a paper is never requested twice. Daily traffic is one batch call for up to 100 IDs. Weekly traffic adds one or two bulk searches.</li>
+<li><b>arXiv.</b> Three seconds between requests, three sections plus pagination gives under ten requests a run. 503 responses are retried after ten seconds, three times.</li>
+<li><b>Missed run.</b> The seven-day window means a failed Tuesday is absorbed by Wednesday's run. Nothing needs manual replay.</li>
+<li><b>Partial failure.</b> If Semantic Scholar fails, the digest is produced without enrichment and the banner says so. If arXiv fails for one section, the other two sections still render.</li>
+<li><b>Bad model output.</b> render.py validates ranking.json against the contract. On a violation it renders the raw candidate list unranked and shows the banner, so you always get something.</li>
+</ul>
+
+<h2 id="plan">Implementation plan</h2>
+<p>Five phases. Each one ends with a check you can see. Rows marked "you" are steps only you can do.</p>
+<div class="tablewrap"><table>
+<tr><th>Phase</th><th>Steps</th><th>Done when</th></tr>
+<tr class="you"><td>0 · Access</td><td>Run <code>/web-setup</code> in a Claude Code terminal to sync the gh token for Focix to your claude.ai account. At claude.ai/code open the Default environment, set network access to Custom, add <code>export.arxiv.org</code>, keep "include default list" checked. When the Semantic Scholar key arrives, add it as an API credential on the same environment: host <code>api.semanticscholar.org</code>, header <code>x-api-key</code>, no prefix.</td><td>A cloud session started from the repo can run <code>curl -I https://export.arxiv.org/api/query?search_query=all:test</code> and a Semantic Scholar call with the key attached.</td></tr>
+<tr class="me"><td>0 · Local</td><td>Register the arxiv and Semantic Scholar MCP servers in Claude Code at user scope for interactive use. Create the public repo and local clone.</td><td><code>claude mcp list</code> shows both connected. Repo exists with README.</td></tr>
+<tr class="me"><td>1 · Fetch</td><td>Write s2.py, fetch.py, queries.toml, settings.toml. Run locally with a 14-day window to backfill and to measure volumes per section. Tune query phrases until daily counts sit in the expected ranges above.</td><td>Candidate counts per section for the last two weeks printed and within range. seen.json populated.</td></tr>
+<tr class="me"><td>2 · Ranking</td><td>Write the four interest statements and rank_daily.md. Run the ranking twice by hand in a local Claude Code session on two different days of real candidates.</td><td>You review both top-10 lists and approve, or edit the statements and rerun once.</td></tr>
+<tr class="me"><td>3 · Page</td><td>Write render.py and style.css. Generate docs from the backfilled digests. Enable GitHub Pages on the docs folder.</td><td>Page loads at the Pages URL on phone and laptop, both themes, with 14 days visible.</td></tr>
+<tr class="me"><td>4 · Routines</td><td>Write ROUTINE.md. Create the daily routine and trigger it once by hand. Read the run log. Confirm the commit landed and the page updated. Then create the weekly routine and trigger it once.</td><td>Both routines have one successful manual run each and a commit on main authored by the routine.</td></tr>
+<tr class="you"><td>5 · Observe</td><td>Read the digest for five weekdays. Note papers ranked too high or too low. Edit the interest statements once at the end of the week.</td><td>One week of digests, one edit to the statements, decision on version 2 items.</td></tr>
+</table></div>
+<div class="callout"><b>First run behaviour.</b> The first digest shows the whole seven-day window, so it will be long. The backfill in phase 1 marks everything older as seen, so from day two the digest contains only papers submitted since the previous run.</div>
+
+<h2 id="risks">Risks and later work</h2>
+<h3>Risks</h3>
+<ul>
+<li><b>Cloud egress.</b> Reaching arXiv depends on the Custom allowlist entry, and Semantic Scholar on the API credential. Both are verified in phase 0 before anything is built on them. If either proves unreliable, the fallback is a launchd job running the same scripts locally with <code>claude -p</code> and the page published as a Claude artifact.</li>
+<li><b>Git push from the routine.</b> Depends on the GitHub connection granted in phase 0. A failed push leaves the run log as the only record, and the next run redoes the work because seen.json was never committed.</li>
+<li><b>Day-to-day ranking variance.</b> The same paper can score differently on different days. The rubric in the prompt and fixed statements reduce this. Version 2 can pin scores per paper in the digest file so a paper never moves after first display.</li>
+<li><b>Public reading list.</b> The repo shows your query sets, statements, and what you read. Switch to a private repo and read rendered Markdown on github.com if that becomes uncomfortable.</li>
+<li><b>Query drift.</b> arXiv phrasing changes over time. The titles-only list exists so misses inside the pool are visible. Misses outside the pool are not, so revisit queries.toml quarterly.</li>
+</ul>
+<h3>Version 2 candidates, in rough order of value</h3>
+<ol>
+<li>Feedback buttons on the page that write to a small shared store and feed the next ranking prompt.</li>
+<li>Author watchlist section: any paper by a named list of groups, regardless of query match.</li>
+<li>Export of "read today" papers to Zotero through the zotero MCP server in a local session.</li>
+<li>Telegram or email push of the top three, if opening the page proves to be the step that gets skipped.</li>
+</ol>
+
+</main>
+</div>
