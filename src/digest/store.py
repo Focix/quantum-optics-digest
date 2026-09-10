@@ -11,6 +11,11 @@ from digest.models import Candidate
 from digest.ranking import validate_ranking
 
 
+def add_error(status: dict[str, Any], message: str) -> None:
+    """Append a failure message to status["error"], keeping earlier ones."""
+    status["error"] = f"{status['error']} | {message}" if status.get("error") else message
+
+
 def build_digest(
     candidates: list[Candidate],
     ranking: Any,
@@ -26,8 +31,7 @@ def build_digest(
     if ranked:
         by_id = {item["id"]: item for item in ranking["items"]}
     else:
-        detail = "; ".join(errors[:5])
-        status["error"] = f"ranking invalid: {detail}" if "error" not in status else f"{status['error']} | ranking invalid: {detail}"
+        add_error(status, "ranking invalid: " + "; ".join(errors[:5]))
 
     items: list[dict[str, Any]] = []
     for c in candidates:
@@ -37,7 +41,9 @@ def build_digest(
         entry["score"] = r["score"] if r else None
         entry["why"] = r["why"].strip() if r else None
         items.append(entry)
-    items.sort(key=lambda e: (-(e["score"] if e["score"] is not None else -1), e["submitted"]), reverse=False)
+    # highest score first; unranked items keep the newest-first order they arrived in
+    if ranked:
+        items.sort(key=lambda e: -(e["score"] if e["score"] is not None else -1))
 
     return {
         "run": run.isoformat(),

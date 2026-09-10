@@ -21,12 +21,13 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--mode", choices=["daily", "weekly"], default="daily")
     parser.add_argument("--error", help="the run failed at some step; render a banner instead of a digest")
+    parser.add_argument("--log-url", help="link to the run log, shown in the banner")
     parser.add_argument("--today", help="override the run date (YYYY-MM-DD), default: today in Moscow")
     args = parser.parse_args()
 
     paths = Paths(root=Path(__file__).resolve().parent.parent)
     today = date.fromisoformat(args.today) if args.today else today_in(load_config(paths))
-    digest = publish(paths, mode=args.mode, today=today, error=args.error)
+    digest = publish(paths, mode=args.mode, today=today, error=args.error, log_url=args.log_url)
     if digest is None:
         print(f"rendered error banner: {args.error}")
         return 0

@@ -43,6 +43,16 @@ def test_fetch_daily_writes_candidates_status_and_next_seen(paths: Paths) -> Non
     assert not paths.seen.exists()  # state only advances on publish
 
 
+def test_overflow_is_noted_in_status_without_error(paths: Paths) -> None:
+    config = load_config(paths)
+    config["run"]["cap"] = 1
+    status = fetch_daily(config, paths, fetch_xml=lambda url: FIXTURE, today=TODAY)
+
+    assert status["overflow"].startswith("1 oldest candidates dropped")
+    assert "error" not in status
+    assert len(json.loads(paths.candidates.read_text())) == 1
+
+
 def test_fetch_daily_records_pool_failure_and_keeps_going(paths: Paths) -> None:
     def fetch_xml(url: str) -> str:
         if "hep-ex" in url:

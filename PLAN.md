@@ -46,15 +46,17 @@ S2 API ─────┘   │ ▲
             state/ (seen.json, s2_cache.json)   [committed]
 ```
 
-- **fetch.py** — one arXiv query per section, last 7 days, sorted by submission date; drops seen IDs; tags survivors (`platform:sc`, `computing`, …); one S2 `POST /paper/batch` for the remaining IDs; writes `out/candidates.json` and `out/status.json`. Updates `seen.json` only after a successful write.
+- **fetch.py** — one arXiv query per section, last 7 days, sorted by submission date; drops seen IDs; tags survivors (`platform:sc`, `computing`, …); one S2 `POST /paper/batch` for the remaining IDs; writes `out/candidates.json`, `out/status.json` and `out/seen_next.json`. `state/seen.json` is advanced by render.py only when a digest is written, so a failed ranking re-shows the same candidates next run.
 - **Routine model** — reads candidates + `interests/*.md`, writes `out/ranking.json` per the contract below. Never fetches.
 - **render.py** — merges into `digests/YYYY-MM-DD.json`, regenerates `docs/index.html` from the last 15 digests plus one archive page per older day; shows the banner when `status.json` reports an error or the newest digest is stale.
-- Scripts use PEP 723 inline metadata and run with `uv run`. Deps: `httpx`, `feedparser`.
+- A uv project (`pyproject.toml`): logic in the `src/digest` package, `scripts/` are thin CLIs run with `uv run`. Deps: `httpx`, `tzdata`; the Atom feed is parsed with the standard library. Tests with pytest, `mypy --strict`.
 
 ## Repository layout
 
 ```
-scripts/      fetch.py  render.py  s2.py
+scripts/      fetch.py  render.py                      thin CLIs
+src/digest/   arxiv.py select.py s2.py ranking.py store.py render.py pipeline.py
+tests/        pytest suite (mock transports, no network)
 config/       queries.toml  settings.toml
 interests/    a_superconducting.md  b_other_platforms.md  c_dark_matter.md  weekly_computing.md
 prompts/      rank_daily.md  rank_weekly.md
@@ -128,7 +130,7 @@ Both use the Default environment, tools Bash/Read/Write/Edit/Glob/Grep only. The
 | Daily digest | `0 6 * * 1-5` | Sonnet 5 | 1 `uv run scripts/fetch.py --mode daily` · 2 rank → `out/ranking.json` · 3 `uv run scripts/render.py` · 4 commit digests/state/docs, push main · 5 on any failure still run render with `--error "text"` and commit |
 | Weekly computing | `0 7 * * 6` | Opus 5 | same with `--mode weekly` (week's computing-tagged digests + S2 venue search) |
 
-**Semantic Scholar key**: stored as an API credential on the Default environment — host `api.semanticscholar.org`, header `x-api-key`, no prefix. The proxy attaches it after the request leaves the VM; nothing in the repo or session sees it. Without it fetch.py notes "unauthenticated" in status and continues.
+**Semantic Scholar key**: stored as an API credential on the Default environment — host `api.semanticscholar.org`, header `x-api-key`, no prefix. The proxy attaches it after the request leaves the VM; nothing in the repo or session sees it. Until it exists, `[s2] enabled = false` in `config/settings.toml` skips enrichment and status reads `"s2": "disabled"`.
 
 ## Rate limits and failure handling
 

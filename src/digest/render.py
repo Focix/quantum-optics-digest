@@ -141,7 +141,7 @@ def previous_working_day(today: date) -> date:
     return d
 
 
-def _banner(latest_daily: dict[str, Any] | None, today: date, error: str | None) -> str:
+def _banner(latest_daily: dict[str, Any] | None, today: date, error: str | None, log_url: str | None = None) -> str:
     messages: list[str] = []
     if error:
         messages.append(error)
@@ -156,7 +156,8 @@ def _banner(latest_daily: dict[str, Any] | None, today: date, error: str | None)
     if not messages:
         return ""
     body = "<br>".join(f"<code>{_esc(m)}</code>" for m in messages)
-    return f'<div class="banner"><strong>Problem.</strong> {body}</div>'
+    link = f' <a href="{_esc(log_url)}">run log</a>' if log_url else ""
+    return f'<div class="banner"><strong>Problem.</strong> {body}{link}</div>'
 
 
 def _page(title: str, body: str, *, css_href: str) -> str:
@@ -173,7 +174,9 @@ def _archive_name(digest: dict[str, Any]) -> str:
     return f"{digest['run']}{suffix}.html"
 
 
-def render_index(digests: list[dict[str, Any]], *, today: date, error: str | None = None) -> str:
+def render_index(
+    digests: list[dict[str, Any]], *, today: date, error: str | None = None, log_url: str | None = None
+) -> str:
     dailies = [d for d in digests if d["mode"] == "daily"]
     weeklies = [d for d in digests if d["mode"] == "weekly"]
     latest = dailies[0] if dailies else None
@@ -182,7 +185,7 @@ def render_index(digests: list[dict[str, Any]], *, today: date, error: str | Non
     parts = [
         f"<h1><a href=\"./\">{SITE_TITLE}</a></h1>",
         '<p class="sub">New arXiv papers on superconducting artificial atoms, quantum optics and dark matter searches, ranked each weekday morning.</p>',
-        _banner(latest, today, error),
+        _banner(latest, today, error, log_url),
     ]
     if latest:
         parts.append(f"<h2>Today · {_pretty_date(latest['run'])}</h2>")
@@ -217,10 +220,12 @@ def render_archive(digest: dict[str, Any]) -> str:
     return _page(f"{SITE_TITLE} · {digest['run']}", body, css_href="../style.css")
 
 
-def render_site(digests: list[dict[str, Any]], docs: Path, *, today: date, error: str | None = None) -> None:
+def render_site(
+    digests: list[dict[str, Any]], docs: Path, *, today: date, error: str | None = None, log_url: str | None = None
+) -> None:
     (docs / "archive").mkdir(parents=True, exist_ok=True)
     (docs / "style.css").write_text(STYLE.strip() + "\n")
-    (docs / "index.html").write_text(render_index(digests, today=today, error=error))
+    (docs / "index.html").write_text(render_index(digests, today=today, error=error, log_url=log_url))
     (docs / ".nojekyll").touch()
     for d in digests:
         (docs / "archive" / _archive_name(d)).write_text(render_archive(d))

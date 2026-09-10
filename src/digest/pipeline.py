@@ -20,7 +20,7 @@ from digest.models import Candidate, Paper
 from digest.render import render_site
 from digest.s2 import S2Client
 from digest.select import mark_seen, select_candidates
-from digest.store import build_digest, load_digests, write_digest
+from digest.store import add_error, build_digest, load_digests, write_digest
 
 FetchXml = Callable[[str], str]
 
@@ -99,22 +99,27 @@ def _write_json(path: Path, data: Any) -> None:
 def make_arxiv_fetcher(config: dict[str, Any], sleep: Callable[[float], None] = time.sleep) -> FetchXml:
     arxiv = config["arxiv"]
     client = httpx.Client(timeout=60, headers={"User-Agent": "quantum-optics-digest (github.com/Focix)"})
-    state = {"calls": 0}
+    calls = 0
 
     def fetch(url: str) -> str:
-        if state["calls"]:
+        nonlocal calls
+        if calls:
             sleep(float(arxiv["delay_seconds"]))
-        state["calls"] += 1
+        calls += 1
         last: Exception | None = None
         for attempt in range(1 + int(arxiv["retries"])):
             if attempt:
                 sleep(float(arxiv["retry_wait_seconds"]))
             try:
                 response = client.get(url)
-                response.raise_for_status()
-                return response.text
-            except (httpx.HTTPError, OSError) as exc:  # 503, timeouts, resets
+            except (httpx.TransportError, OSError) as exc:  # timeouts, resets
                 last = exc
+                continue
+            if response.status_code >= 500:  # arXiv's occasional 503
+                last = RuntimeError(f"HTTP {response.status_code}")
+                continue
+            response.raise_for_status()  # 4xx: a bad query, do not retry
+            return response.text
         raise RuntimeError(f"arXiv request failed after {1 + int(arxiv['retries'])} attempts: {last}")
 
     return fetch
@@ -133,18 +138,15 @@ def _enrich(candidates: list[Candidate], client: S2Client | None, status: dict[s
     if client is None:
         status["s2"] = "disabled"
         return
+    arxiv_papers = [c for c in candidates if not c.url]  # S2-sourced weekly items already carry s2
     try:
-        found = client.enrich([c.id for c in candidates if not c.url])
-        for c in candidates:
+        found = client.enrich([c.id for c in arxiv_papers])
+        for c in arxiv_papers:
             c.s2 = found.get(c.id)
-        status["s2"] = f"ok ({len(found)}/{len(candidates)} found)" + ("" if client.api_key else ", unauthenticated")
+        status["s2"] = f"ok ({len(found)}/{len(arxiv_papers)} found)"
     except Exception as exc:  # S2 down: digest still goes out, banner explains
         status["s2"] = f"error: {exc}"
-        _add_error(status, f"S2 enrichment failed: {exc}")
-
-
-def _add_error(status: dict[str, Any], message: str) -> None:
-    status["error"] = f"{status['error']} | {message}" if status.get("error") else message
+        add_error(status, f"S2 enrichment failed: {exc}")
 
 
 # -- daily -----------------------------------------------------------------
@@ -161,7 +163,7 @@ def fetch_daily(config: dict[str, Any], paths: Paths, *, fetch_xml: FetchXml, to
             status["pools"][name] = "ok"
         except Exception as exc:
             status["pools"][name] = f"error: {exc}"
-            _add_error(status, f"pool {name}: {exc}")
+            add_error(status, f"pool {name}: {exc}")
 
     seen: dict[str, str] = _read_json(paths.seen, {})
     selection = select_candidates(
@@ -170,9 +172,8 @@ def fetch_daily(config: dict[str, Any], paths: Paths, *, fetch_xml: FetchXml, to
     status["counts"] = {name: selection.per_pool.get(name, 0) for name in config["pools"]}
     status["dropped_seen"] = selection.dropped_seen
     status["dropped_old"] = selection.dropped_old
-    if selection.overflow:
-        status["overflow"] = selection.overflow
-        _add_error(status, f"{selection.overflow} candidates over the cap of {run_cfg['cap']} were dropped")
+    if selection.overflow:  # noted, not an error: the page stays green
+        status["overflow"] = f"{selection.overflow} oldest candidates dropped over the cap of {run_cfg['cap']}"
 
     _enrich(selection.candidates, _s2_client(config, paths), status)
 
@@ -219,14 +220,14 @@ def fetch_weekly(config: dict[str, Any], paths: Paths, *, today: date) -> dict[s
                         submitted=date.fromisoformat(record["publicationDate"]) if record.get("publicationDate") else today,
                         pool="weekly",
                         tags=["source:s2"],
-                        s2=S2Client._slim(record),
+                        s2=S2Client.slim(record),
                         url=f"https://www.semanticscholar.org/paper/{record['paperId']}",
                     )
                 )
             status["s2_search"] = "ok"
         except Exception as exc:
             status["s2_search"] = f"error: {exc}"
-            _add_error(status, f"S2 search failed: {exc}")
+            add_error(status, f"S2 search failed: {exc}")
 
     _enrich(candidates, client, status)
     candidates.sort(key=lambda c: c.submitted, reverse=True)
@@ -239,7 +240,9 @@ def fetch_weekly(config: dict[str, Any], paths: Paths, *, today: date) -> dict[s
 # -- publish ---------------------------------------------------------------
 
 
-def publish(paths: Paths, *, mode: str, today: date, error: str | None = None) -> dict[str, Any] | None:
+def publish(
+    paths: Paths, *, mode: str, today: date, error: str | None = None, log_url: str | None = None
+) -> dict[str, Any] | None:
     """Merge out/ into a digest file (unless the run failed), then regenerate docs/."""
     digest: dict[str, Any] | None = None
     if error is None:
@@ -250,5 +253,5 @@ def publish(paths: Paths, *, mode: str, today: date, error: str | None = None) -
         write_digest(paths.digests, digest)
         if mode == "daily" and paths.seen_next.exists():
             _write_json(paths.seen, _read_json(paths.seen_next, {}))
-    render_site(load_digests(paths.digests), paths.docs, today=today, error=error)
+    render_site(load_digests(paths.digests), paths.docs, today=today, error=error, log_url=log_url)
     return digest

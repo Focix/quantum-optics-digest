@@ -23,7 +23,7 @@ You are running inside a Claude Code cloud routine with this repository cloned. 
    ```
 5. On any failure you cannot recover from, still publish the banner so the page tells the reader what went wrong:
    ```
-   uv run scripts/render.py --mode daily --error "step N: <one line with the error text>"
+   uv run scripts/render.py --mode daily --error "step N: <one line with the error text>" --log-url "<URL of this run's log if you know it>"
    git add docs && git commit -m "Daily digest failed: <short reason>" && git push origin main
    ```
 

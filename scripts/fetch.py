@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
@@ -22,10 +23,8 @@ def main() -> int:
 
     paths = Paths(root=Path(__file__).resolve().parent.parent)
     config = load_config(paths)
-    if args.window_days:
+    if args.window_days is not None:
         config["run"]["window_days"] = args.window_days
-    from datetime import date
-
     today = date.fromisoformat(args.today) if args.today else today_in(config)
 
     if args.mode == "daily":

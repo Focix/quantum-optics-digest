@@ -1,7 +1,7 @@
 {
  "run": "2026-09-10",
  "mode": "daily",
- "generated": "2026-09-10T11:43:29+00:00",
+ "generated": "2026-09-10T11:47:39+00:00",
  "ranked": true,
  "status": {
   "run": "2026-09-10",
@@ -229,35 +229,54 @@
    "why": "Rising and falling edge triggering on a series SNSPD assigns photon number 1 to 3 per event and shows jitter falls with n."
   },
   {
-   "id": "2609.03879",
-   "title": "Multi-tesla operation of high-temperature superconducting cavities for accelerated axion dark matter searches",
+   "id": "2609.08925",
+   "title": "Resilience Beyond the Light Cone: Error-Detected Primitives for Practical Dynamic Circuits",
    "authors": [
-    "Danho Ahn",
-    "Jinsu Kim",
-    "Seongtae Park",
-    "Jiwon Lee",
-    "Ohjoon Kwon",
-    "Woohyun Chung",
-    "HeeSu Byun",
-    "Sergey Uchaikin",
-    "Arajan Ferdinand van Loo",
-    "Yasunobu Nakamura",
-    "Dojun Youm",
-    "SungWoo Youn",
-    "Yannis K. Semertzidis"
+    "Kevin C. Smith",
+    "Bibek Pokharel",
+    "Satvik Maurya",
+    "Maika Takita"
    ],
-   "abstract": "Axion haloscopes use radio-frequency cavities immersed in a magnetic field to search for dark-matter axions, which could resolve two central puzzles in fundamental physics: the strong charge-parity problem in quantum chromodynamics and the nature of dark matter. Multi-tesla fields trigger axion-to-photon conversion but induce severe vortex dissipation in standard superconductors, whereas copper cavities are limited by the anomalous skin effect ($Q \\lesssim 10^5$). Here, we overcome these barriers by introducing a pole-to-pole 3-dimensional cavity architecture constructed from strain-controlled, mechanically delaminated rare-earth barium copper oxide (REBCO) tapes. By selectively stripping the lossy metallic substrate while utilizing the copper stabilizer as a \"conductive backing\" we convert the longitudinal assembly gaps into waveguides below cutoff, effectively suppressing cross-seam RF leakage. Employing a two-track strategy, we first unveiled the intrinsic high-field potential of the material with a 5.4 GHz resonant cavity, achieving an unloaded quality-factor ($Q_0$) of $1.4 \\times 10^7$ in an 8 T magnetic field, exceeding conventional copper baselines by two orders of magnitude. Second, prioritizing practical haloscope integration, we engineered a tunable, volume-maximized 2.3 GHz pathfinder cavity. Deployed in the Pilot Axion Cavity Experiment at the Center for Axion and Precision Physics Research (CAPP-PACE), this system achieved a 180 mK noise temperature and a 5-fold $Q$ enhancement over copper, cumulatively delivering a $\\sim$8.4-fold scan-rate acceleration.",
+   "abstract": "Dynamic circuits, which augment unitary operations with mid-circuit measurements and classical feedforward, can generate long-range entanglement in constant depth, enabling low-depth primitives ranging from nontrivial state preparation to many-qubit entangling gates. Escaping the light-cone constraints of unitary circuits, however, comes at a cost: these primitives typically require a number of mid-circuit measurements that scales with system size and that, together with feedforward latency, can introduce errors that degrade the long-range entanglement they rely on. Here, we alleviate this tension by showing that many such primitives, when cast into a common framework, admit an error-detection scheme that trades infidelity for postselection overhead with no additional ancillas. Our framework thus unifies and upgrades a broad class of primitives including fan-out gates, multi-qubit Pauli rotations, the preparation of W and higher-weight Dicke states, and certain non-normal matrix product states. We also introduce a reduced-depth, error-detected implementation of the Hadamard test, extending the use cases of dynamic circuits to a key algorithmic primitive. Finally, we establish the practical utility of our scheme through experiments on a superconducting quantum processor. We demonstrate the error-detected preparation of a long-range entangled Bell pair spanning a 100-qubit chain with fidelity $F=0.59\\pm0.02$, surpassing the entanglement-certification threshold $F>0.5$ that the baseline dynamic-circuit implementation fails to reach ($0.39\\pm0.01$). Separately, we demonstrate constant-depth preparation of W states of up to 20 qubits by consuming GHZ states of up to 40 qubits, finding absolute fidelity improvements of $ΔF\\approx 0.2$ across the largest sizes studied. Altogether, these results bring low-depth dynamic-circuit primitives within practical reach on present-day hardware.",
    "categories": [
-    "hep-ex"
+    "quant-ph"
    ],
-   "submitted": "2026-09-03",
-   "pool": "C",
-   "tags": [],
+   "submitted": "2026-09-08",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
    "s2": null,
    "url": null,
-   "section": "C",
+   "section": "computing",
    "score": 55,
-   "why": "REBCO tape cavities reach Q of 1.4e7 in 8 T, two orders above copper, for haloscopes."
+   "why": "Error-detected dynamic-circuit primitives, Bell pair across a 100-qubit chain with postselection instead of ancillas."
+  },
+  {
+   "id": "2609.06471",
+   "title": "Generation of entanglement statistics with a large-scale integrated photonic-electronic circuit",
+   "authors": [
+    "Volkan Gurses",
+    "Ali Hajimiri"
+   ],
+   "abstract": "Continuous-variable quantum processors scale with the modes they can transform, and each transformation adds loss. We demonstrate optoelectronic quantum information processing, moving the mixing into radio-frequency electronics after homodyne detection. Squeezed vacuum falls on a large-scale integrated photonic-electronic circuit, a 32-channel coherent receiver array whose radio-frequency network mixes the analog photocurrents. A local-oscillator ramp reconstructs the two-mode covariance at the aperture, which is physical, and its partial transpose has smallest symplectic eigenvalue 0.99270, three standard deviations below the separability bound. Mode transformation becomes a circuit function whose scale follows integrated electronics. With electro-optic transducers in place of the photodiodes, the same receiver would transfer optical modes into superconducting circuits and back, toward a photonic-electronic quantum computer spanning the optical and microwave bands.",
+   "categories": [
+    "quant-ph",
+    "eess.SP",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-06",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "s2": null,
+   "url": null,
+   "section": "B",
+   "score": 55,
+   "why": "Mixes homodyne photocurrents from squeezed vacuum in a 32-channel RF network to certify two-mode entanglement electronically."
   },
   {
    "id": "2609.05659",
@@ -336,31 +355,6 @@
    "why": "Maps chaos and unbound-resonance thresholds for strongly driven Josephson circuits and confirms the flux-bias dependence in a SQUID."
   },
   {
-   "id": "2609.06471",
-   "title": "Generation of entanglement statistics with a large-scale integrated photonic-electronic circuit",
-   "authors": [
-    "Volkan Gurses",
-    "Ali Hajimiri"
-   ],
-   "abstract": "Continuous-variable quantum processors scale with the modes they can transform, and each transformation adds loss. We demonstrate optoelectronic quantum information processing, moving the mixing into radio-frequency electronics after homodyne detection. Squeezed vacuum falls on a large-scale integrated photonic-electronic circuit, a 32-channel coherent receiver array whose radio-frequency network mixes the analog photocurrents. A local-oscillator ramp reconstructs the two-mode covariance at the aperture, which is physical, and its partial transpose has smallest symplectic eigenvalue 0.99270, three standard deviations below the separability bound. Mode transformation becomes a circuit function whose scale follows integrated electronics. With electro-optic transducers in place of the photodiodes, the same receiver would transfer optical modes into superconducting circuits and back, toward a photonic-electronic quantum computer spanning the optical and microwave bands.",
-   "categories": [
-    "quant-ph",
-    "eess.SP",
-    "physics.optics"
-   ],
-   "submitted": "2026-09-06",
-   "pool": "A",
-   "tags": [
-    "platform:sc",
-    "computing"
-   ],
-   "s2": null,
-   "url": null,
-   "section": "B",
-   "score": 55,
-   "why": "Mixes homodyne photocurrents from squeezed vacuum in a 32-channel RF network to certify two-mode entanglement electronically."
-  },
-  {
    "id": "2609.07616",
    "title": "Topological Edge States and Collective Radiation in a One-Dimensional Atomic Chain",
    "authors": [
@@ -381,31 +375,6 @@
    "section": "B",
    "score": 55,
    "why": "Diatomic emitter chain in vacuum hosts topological edge states alongside sub- and superradiant modes, with far-field signatures."
-  },
-  {
-   "id": "2609.08925",
-   "title": "Resilience Beyond the Light Cone: Error-Detected Primitives for Practical Dynamic Circuits",
-   "authors": [
-    "Kevin C. Smith",
-    "Bibek Pokharel",
-    "Satvik Maurya",
-    "Maika Takita"
-   ],
-   "abstract": "Dynamic circuits, which augment unitary operations with mid-circuit measurements and classical feedforward, can generate long-range entanglement in constant depth, enabling low-depth primitives ranging from nontrivial state preparation to many-qubit entangling gates. Escaping the light-cone constraints of unitary circuits, however, comes at a cost: these primitives typically require a number of mid-circuit measurements that scales with system size and that, together with feedforward latency, can introduce errors that degrade the long-range entanglement they rely on. Here, we alleviate this tension by showing that many such primitives, when cast into a common framework, admit an error-detection scheme that trades infidelity for postselection overhead with no additional ancillas. Our framework thus unifies and upgrades a broad class of primitives including fan-out gates, multi-qubit Pauli rotations, the preparation of W and higher-weight Dicke states, and certain non-normal matrix product states. We also introduce a reduced-depth, error-detected implementation of the Hadamard test, extending the use cases of dynamic circuits to a key algorithmic primitive. Finally, we establish the practical utility of our scheme through experiments on a superconducting quantum processor. We demonstrate the error-detected preparation of a long-range entangled Bell pair spanning a 100-qubit chain with fidelity $F=0.59\\pm0.02$, surpassing the entanglement-certification threshold $F>0.5$ that the baseline dynamic-circuit implementation fails to reach ($0.39\\pm0.01$). Separately, we demonstrate constant-depth preparation of W states of up to 20 qubits by consuming GHZ states of up to 40 qubits, finding absolute fidelity improvements of $ΔF\\approx 0.2$ across the largest sizes studied. Altogether, these results bring low-depth dynamic-circuit primitives within practical reach on present-day hardware.",
-   "categories": [
-    "quant-ph"
-   ],
-   "submitted": "2026-09-08",
-   "pool": "A",
-   "tags": [
-    "platform:sc",
-    "computing"
-   ],
-   "s2": null,
-   "url": null,
-   "section": "computing",
-   "score": 55,
-   "why": "Error-detected dynamic-circuit primitives, Bell pair across a 100-qubit chain with postselection instead of ancillas."
   },
   {
    "id": "2609.09717",
@@ -439,46 +408,35 @@
    "why": "Auxetically tuned TM020 haloscope with near-quantum-limited receiver covers 4.98 to 5.07 GHz near KSVZ sensitivity."
   },
   {
-   "id": "2609.05634",
-   "title": "Fast universal parametric spin control in an acoustically modulated quantum dot",
+   "id": "2609.03879",
+   "title": "Multi-tesla operation of high-temperature superconducting cavities for accelerated axion dark matter searches",
    "authors": [
-    "Mateusz Kuniej",
-    "Michał Gawełczyk"
+    "Danho Ahn",
+    "Jinsu Kim",
+    "Seongtae Park",
+    "Jiwon Lee",
+    "Ohjoon Kwon",
+    "Woohyun Chung",
+    "HeeSu Byun",
+    "Sergey Uchaikin",
+    "Arajan Ferdinand van Loo",
+    "Yasunobu Nakamura",
+    "Dojun Youm",
+    "SungWoo Youn",
+    "Yannis K. Semertzidis"
    ],
-   "abstract": "Quantum communication, distributed computing, and hybrid architectures rely on nodes enabling coherent control of qubits and coupling to propagating quantum modes. While semiconductor quantum-dot (QD) spins couple to microwave and optical photons, weak interaction with mechanical waves has limited the integration of single-QD spin qubits into on-chip, acoustically coupled hybrid systems. The existing theory of acoustic QD spin control suffers from a limited range of rotation-axis angles, enforcing complex realizations of gate primitives and long gate times, leaving little margin against decoherence from trion decay and quasi-static nuclear-spin noise. We propose parametric control that overcomes these problems. We use far-detuned optical coupling to a trion state to dress and thus mix spin states, combined with acoustic modulation of the optical transition energy. Instead of relying on direct acoustic resonance with the spin splitting that leads to significant bottlenecks, we induce spin rotations parametrically via resonance with the dressed-spin splitting. We thus develop a spin analog of the ``swing-up'' charge-state excitation. Our scheme provides fast universal qubit control with nearly arbitrary rotation axes. Our ${\\sim}$155 ps Pauli-$X$ gate duration is ${\\sim}290\\times$ faster than in the previous acousto-optical formulation and ${\\sim}14\\times$ faster than optical Faraday-geometry spin rotation. The parametric scheme naturally enables higher-harmonic processes. Numerical simulations for ${\\sim}44$ GHz acoustic driving show average gate fidelity $\\ge99.9\\%$ even for uncooled nuclear-spin environments of GaAs and InAs QDs for trion lifetime $\\gtrsim1.25$ ns. These metrics suggest practically usable control and may introduce a spin-phonon interface with high interaction rates, versatility, and multi-phonon processes, essential for future acoustically coupled hybrid architectures.",
+   "abstract": "Axion haloscopes use radio-frequency cavities immersed in a magnetic field to search for dark-matter axions, which could resolve two central puzzles in fundamental physics: the strong charge-parity problem in quantum chromodynamics and the nature of dark matter. Multi-tesla fields trigger axion-to-photon conversion but induce severe vortex dissipation in standard superconductors, whereas copper cavities are limited by the anomalous skin effect ($Q \\lesssim 10^5$). Here, we overcome these barriers by introducing a pole-to-pole 3-dimensional cavity architecture constructed from strain-controlled, mechanically delaminated rare-earth barium copper oxide (REBCO) tapes. By selectively stripping the lossy metallic substrate while utilizing the copper stabilizer as a \"conductive backing\" we convert the longitudinal assembly gaps into waveguides below cutoff, effectively suppressing cross-seam RF leakage. Employing a two-track strategy, we first unveiled the intrinsic high-field potential of the material with a 5.4 GHz resonant cavity, achieving an unloaded quality-factor ($Q_0$) of $1.4 \\times 10^7$ in an 8 T magnetic field, exceeding conventional copper baselines by two orders of magnitude. Second, prioritizing practical haloscope integration, we engineered a tunable, volume-maximized 2.3 GHz pathfinder cavity. Deployed in the Pilot Axion Cavity Experiment at the Center for Axion and Precision Physics Research (CAPP-PACE), this system achieved a 180 mK noise temperature and a 5-fold $Q$ enhancement over copper, cumulatively delivering a $\\sim$8.4-fold scan-rate acceleration.",
    "categories": [
-    "cond-mat.mes-hall",
-    "quant-ph"
+    "hep-ex"
    ],
-   "submitted": "2026-09-04",
-   "pool": "B",
+   "submitted": "2026-09-03",
+   "pool": "C",
    "tags": [],
    "s2": null,
    "url": null,
-   "section": "B",
-   "score": 50,
-   "why": "Parametric acoustic modulation of a dressed quantum-dot spin gives 155 ps X gates with arbitrary rotation axes."
-  },
-  {
-   "id": "2609.09227",
-   "title": "Finite-energy Gottesman-Kitaev-Preskill state-enhanced optical interferometry",
-   "authors": [
-    "Ashmita Roy",
-    "R. Srikanth",
-    "Deepak Pandey"
-   ],
-   "abstract": "We present the case of a Gottesman-Kitaev-Preskill (GKP) state-enhanced optical interferometry with detailed analysis of the phase sensitivity for both the SU(2) and SU(1,1) interferometers. The conventional quantum-enhanced SU(2) interferometer, employing coherent light at one input port and squeezed light at the other, is compared with a modified configuration using coherent light and a GKP state. While it is known that the squeezed vacuum state is the optimal Gaussian resource input mode when paired with the coherent state, we show that the finite-energy GKP state with sufficiently broad envelope outperforms the squeezed vacuum injection, irrespective of the presence of optical losses. This can be attributed to the enhanced robustness coming from the availability of multiple squeezed peaks in the GKP case. However, because lowering the mean photon number reduces the GKP envelope width, the squeezed vacuum input performs better when compared with a GKP state of equal or lower mean photon number. We also observe that optical losses tend to diminish the relative advantage of either input state, since both states approach the (unsqueezed) vacuum state asymptotically. Our work demonstrates the direct application of finite-energy GKP states in optical interferometry along with a methodology for estimating the quantum Fisher information (QFI) and presents a phase estimation procedure using non-Gaussian resources in comparison with conventional Gaussian states.",
-   "categories": [
-    "quant-ph"
-   ],
-   "submitted": "2026-09-07",
-   "pool": "B",
-   "tags": [],
-   "s2": null,
-   "url": null,
-   "section": "B",
-   "score": 50,
-   "why": "Finite-energy GKP input beats squeezed vacuum in SU(2) and SU(1,1) interferometers at fixed envelope width."
+   "section": "C",
+   "score": 55,
+   "why": "REBCO tape cavities reach Q of 1.4e7 in 8 T, two orders above copper, for haloscopes."
   },
   {
    "id": "2609.08348",
@@ -508,6 +466,48 @@
    "section": "computing",
    "score": 50,
    "why": "Describes strongly driven parametric gates as rotations between instantaneous eigenstates, matching numerics where idle-frame theory fails."
+  },
+  {
+   "id": "2609.09227",
+   "title": "Finite-energy Gottesman-Kitaev-Preskill state-enhanced optical interferometry",
+   "authors": [
+    "Ashmita Roy",
+    "R. Srikanth",
+    "Deepak Pandey"
+   ],
+   "abstract": "We present the case of a Gottesman-Kitaev-Preskill (GKP) state-enhanced optical interferometry with detailed analysis of the phase sensitivity for both the SU(2) and SU(1,1) interferometers. The conventional quantum-enhanced SU(2) interferometer, employing coherent light at one input port and squeezed light at the other, is compared with a modified configuration using coherent light and a GKP state. While it is known that the squeezed vacuum state is the optimal Gaussian resource input mode when paired with the coherent state, we show that the finite-energy GKP state with sufficiently broad envelope outperforms the squeezed vacuum injection, irrespective of the presence of optical losses. This can be attributed to the enhanced robustness coming from the availability of multiple squeezed peaks in the GKP case. However, because lowering the mean photon number reduces the GKP envelope width, the squeezed vacuum input performs better when compared with a GKP state of equal or lower mean photon number. We also observe that optical losses tend to diminish the relative advantage of either input state, since both states approach the (unsqueezed) vacuum state asymptotically. Our work demonstrates the direct application of finite-energy GKP states in optical interferometry along with a methodology for estimating the quantum Fisher information (QFI) and presents a phase estimation procedure using non-Gaussian resources in comparison with conventional Gaussian states.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-07",
+   "pool": "B",
+   "tags": [],
+   "s2": null,
+   "url": null,
+   "section": "B",
+   "score": 50,
+   "why": "Finite-energy GKP input beats squeezed vacuum in SU(2) and SU(1,1) interferometers at fixed envelope width."
+  },
+  {
+   "id": "2609.05634",
+   "title": "Fast universal parametric spin control in an acoustically modulated quantum dot",
+   "authors": [
+    "Mateusz Kuniej",
+    "Michał Gawełczyk"
+   ],
+   "abstract": "Quantum communication, distributed computing, and hybrid architectures rely on nodes enabling coherent control of qubits and coupling to propagating quantum modes. While semiconductor quantum-dot (QD) spins couple to microwave and optical photons, weak interaction with mechanical waves has limited the integration of single-QD spin qubits into on-chip, acoustically coupled hybrid systems. The existing theory of acoustic QD spin control suffers from a limited range of rotation-axis angles, enforcing complex realizations of gate primitives and long gate times, leaving little margin against decoherence from trion decay and quasi-static nuclear-spin noise. We propose parametric control that overcomes these problems. We use far-detuned optical coupling to a trion state to dress and thus mix spin states, combined with acoustic modulation of the optical transition energy. Instead of relying on direct acoustic resonance with the spin splitting that leads to significant bottlenecks, we induce spin rotations parametrically via resonance with the dressed-spin splitting. We thus develop a spin analog of the ``swing-up'' charge-state excitation. Our scheme provides fast universal qubit control with nearly arbitrary rotation axes. Our ${\\sim}$155 ps Pauli-$X$ gate duration is ${\\sim}290\\times$ faster than in the previous acousto-optical formulation and ${\\sim}14\\times$ faster than optical Faraday-geometry spin rotation. The parametric scheme naturally enables higher-harmonic processes. Numerical simulations for ${\\sim}44$ GHz acoustic driving show average gate fidelity $\\ge99.9\\%$ even for uncooled nuclear-spin environments of GaAs and InAs QDs for trion lifetime $\\gtrsim1.25$ ns. These metrics suggest practically usable control and may introduce a spin-phonon interface with high interaction rates, versatility, and multi-phonon processes, essential for future acoustically coupled hybrid architectures.",
+   "categories": [
+    "cond-mat.mes-hall",
+    "quant-ph"
+   ],
+   "submitted": "2026-09-04",
+   "pool": "B",
+   "tags": [],
+   "s2": null,
+   "url": null,
+   "section": "B",
+   "score": 50,
+   "why": "Parametric acoustic modulation of a dressed quantum-dot spin gives 155 ps X gates with arbitrary rotation axes."
   },
   {
    "id": "2609.08144",
@@ -567,6 +567,29 @@
    "why": "Single-tone drive on a transmon between two cavities engineers a code-agnostic CROT gate for bosonic codes."
   },
   {
+   "id": "2609.05672",
+   "title": "Kerr Induced Control of Synchronization and Quantum State Recovery in a Driven van der Pol Oscillator",
+   "authors": [
+    "Amir Hossein Houshmand Almani",
+    "Ali Mortezapour",
+    "Alireza Nourmandipour"
+   ],
+   "abstract": "We investigate how Kerr nonlinearity modifies quantum synchronization in a squeezed quantum van der Pol oscillator. We show that the Kerr interaction produces an amplitude-dependent frequency shift that drives a saddle-node bifurcation, transforming the classical phase-space structure from bistable to monostable dynamics. In the quantum regime, this transition manifests as systematic frequency pulling and spectral broadening, while the steady-state Wigner function reveals a continuous correspondence between the quantum state and the semiclassical attractor despite finite quantum fluctuations. By constructing global synchronization phase diagrams in the squeezing--Kerr parameter space, we uncover a remarkably linear dependence of the critical squeezing strength required to maintain phase locking on the Kerr nonlinearity. We further demonstrate that the synchronization boundary does not coincide with the crossover between super- and sub-Poissonian photon statistics, showing that synchronization and photon-number statistics characterize distinct aspects of the quantum steady state. These results provide quantitative design principles for controlling quantum synchronization through Kerr nonlinearity, with potential relevance to trapped-ion, superconducting-circuit, and optomechanical platforms.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-04",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "s2": null,
+   "url": null,
+   "section": "A",
+   "score": 45,
+   "why": "Kerr nonlinearity shifts the synchronization boundary of a squeezed van der Pol oscillator, decoupled from photon statistics."
+  },
+  {
    "id": "2609.03737",
    "title": "Analog quantum simulation of bosonic and anyonic models with flux-driven transmons",
    "authors": [
@@ -591,27 +614,35 @@
    "why": "Flux-modulated transmon lattices simulate Bose-Hubbard and anyon-Hubbard models with tunable density-dependent hopping."
   },
   {
-   "id": "2609.05672",
-   "title": "Kerr Induced Control of Synchronization and Quantum State Recovery in a Driven van der Pol Oscillator",
+   "id": "2609.08455",
+   "title": "Magic-free coexisting photonic and phononic moiré flat bands",
    "authors": [
-    "Amir Hossein Houshmand Almani",
-    "Ali Mortezapour",
-    "Alireza Nourmandipour"
+    "Ziming Chen",
+    "Kaiyu Cui",
+    "Ning Wu",
+    "Shuyuan Li",
+    "Chenxuan Wang",
+    "Xue Feng",
+    "Fang Liu",
+    "Wei Zhang",
+    "Hao Sun",
+    "Yongzhuo Li",
+    "Yidong Huang"
    ],
-   "abstract": "We investigate how Kerr nonlinearity modifies quantum synchronization in a squeezed quantum van der Pol oscillator. We show that the Kerr interaction produces an amplitude-dependent frequency shift that drives a saddle-node bifurcation, transforming the classical phase-space structure from bistable to monostable dynamics. In the quantum regime, this transition manifests as systematic frequency pulling and spectral broadening, while the steady-state Wigner function reveals a continuous correspondence between the quantum state and the semiclassical attractor despite finite quantum fluctuations. By constructing global synchronization phase diagrams in the squeezing--Kerr parameter space, we uncover a remarkably linear dependence of the critical squeezing strength required to maintain phase locking on the Kerr nonlinearity. We further demonstrate that the synchronization boundary does not coincide with the crossover between super- and sub-Poissonian photon statistics, showing that synchronization and photon-number statistics characterize distinct aspects of the quantum steady state. These results provide quantitative design principles for controlling quantum synchronization through Kerr nonlinearity, with potential relevance to trapped-ion, superconducting-circuit, and optomechanical platforms.",
+   "abstract": "Moiré flat bands enhance localization and interactions through suppressed group velocity, but existing approaches largely target a single physical field because distinct excitations generally require different, finely tuned magic configurations. Here we introduce a flat-band mechanism based on strong diffractive hybridization among moiré-folded bands. Period-mismatched modulations open distinct coupling channels whose hybridization renormalizes the band dispersion. An effective Hamiltonian shows that increasing the diffractive coupling progressively suppresses the group velocity, driving the system toward a flat-band regime without field-specific magic configurations. This coupling-induced mechanism enables band flattening across distinct physical excitations. We demonstrate this mechanism in a single-layer moiré optomechanical crystal, where photonic and phononic flat bands are simultaneously realized, and their localized modes and optomechanical interaction are experimentally observed. Beyond photonic and phononic systems, this mechanism may extend to other wave and quasiparticle platforms, providing a general route to co-localizing and coupling distinct physical fields in moiré systems.",
    "categories": [
-    "quant-ph"
+    "physics.optics",
+    "cond-mat.mes-hall",
+    "physics.app-ph"
    ],
-   "submitted": "2026-09-04",
-   "pool": "A",
-   "tags": [
-    "platform:sc"
-   ],
+   "submitted": "2026-09-08",
+   "pool": "B",
+   "tags": [],
    "s2": null,
    "url": null,
-   "section": "A",
+   "section": "B",
    "score": 45,
-   "why": "Kerr nonlinearity shifts the synchronization boundary of a squeezed van der Pol oscillator, decoupled from photon statistics."
+   "why": "Diffractive hybridization flattens photonic and phononic bands together in one moire optomechanical crystal."
   },
   {
    "id": "2609.05387",
@@ -674,37 +705,6 @@
    "why": "CASPEr-electric uses broadband SQUID NMR on 207Pb to bound axion EDM coupling in the 20 neV range."
   },
   {
-   "id": "2609.08455",
-   "title": "Magic-free coexisting photonic and phononic moiré flat bands",
-   "authors": [
-    "Ziming Chen",
-    "Kaiyu Cui",
-    "Ning Wu",
-    "Shuyuan Li",
-    "Chenxuan Wang",
-    "Xue Feng",
-    "Fang Liu",
-    "Wei Zhang",
-    "Hao Sun",
-    "Yongzhuo Li",
-    "Yidong Huang"
-   ],
-   "abstract": "Moiré flat bands enhance localization and interactions through suppressed group velocity, but existing approaches largely target a single physical field because distinct excitations generally require different, finely tuned magic configurations. Here we introduce a flat-band mechanism based on strong diffractive hybridization among moiré-folded bands. Period-mismatched modulations open distinct coupling channels whose hybridization renormalizes the band dispersion. An effective Hamiltonian shows that increasing the diffractive coupling progressively suppresses the group velocity, driving the system toward a flat-band regime without field-specific magic configurations. This coupling-induced mechanism enables band flattening across distinct physical excitations. We demonstrate this mechanism in a single-layer moiré optomechanical crystal, where photonic and phononic flat bands are simultaneously realized, and their localized modes and optomechanical interaction are experimentally observed. Beyond photonic and phononic systems, this mechanism may extend to other wave and quasiparticle platforms, providing a general route to co-localizing and coupling distinct physical fields in moiré systems.",
-   "categories": [
-    "physics.optics",
-    "cond-mat.mes-hall",
-    "physics.app-ph"
-   ],
-   "submitted": "2026-09-08",
-   "pool": "B",
-   "tags": [],
-   "s2": null,
-   "url": null,
-   "section": "B",
-   "score": 45,
-   "why": "Diffractive hybridization flattens photonic and phononic bands together in one moire optomechanical crystal."
-  },
-  {
    "id": "2609.04492",
    "title": "Gradient-based optimal control of the non-Hermitian skin effect in optomechanical arrays",
    "authors": [
@@ -752,28 +752,27 @@
    "why": "Argues a laboratory-frame residual detuning in the anti-Jaynes-Cummings model cannot be cancelled by Kerr for squeezed vacuum."
   },
   {
-   "id": "2609.06423",
-   "title": "A Mean-Field Approach to the Dielectric Response of Bulk Superconductors for Light Dark Matter Direct Detection",
+   "id": "2609.10037",
+   "title": "Semi-device-independent quantum randomness certification in semiconductor spin-noise measurements",
    "authors": [
-    "Chengyao Gan",
-    "Hui Li",
-    "Wenjing Li",
-    "Zheng-Liang Liang",
-    "Lin Zhang",
-    "Fawei Zheng"
+    "Hamid Tebyanian",
+    "Marius Cizauskas",
+    "Manfred Bayer",
+    "Marc Assmann",
+    "Alex Greilich"
    ],
-   "abstract": "The dielectric function is central to describing many-body screening effects in dark matter (DM) direct detection with condensed matter targets. Current superconducting detector analyses employ the free-electron Lindhard dielectric function to model in-medium effects, an approximation whose validity in the superconducting state remains untested. We derive the electronic dielectric function for bulk superconductors within the Bardeen-Cooper-Schrieffer (BCS) framework, incorporating the full Bogoliubov quasiparticle coherence factors in the random-phase approximation. A systematic comparison with the Lindhard function for aluminum and tungsten silicide (WSi) reveals good agreement for energy depositions $ω\\gtrsim5Δ$, establishing the Lindhard function as a robust approximation for superconducting DM detectors operating in this regime.",
+   "abstract": "Complex solid-state systems are promising platforms for scalable, high-bandwidth quantum random-number generation, yet certifying the quantum origin of their fluctuations remains difficult because the underlying microscopic dynamics are hard to model and validate. Here we demonstrate semi-device-independent quantum randomness certification from semiconductor spin noise, to our knowledge the first such certificate on any spin-noise source, without relying on a microscopic model of the spin system. The untrusted optical source is constrained by an experimentally tested mean-photon-number bound together with a declared analogue-range and per-sample clipping ceiling, while the trusted receiver is described as a calibrated, noisy, coarse-grained homodyne measurement. Using a semidefinite programme with rigorously controlled Fock-space truncation, we certify randomness that remains private against an adversary holding arbitrary quantum side information. Offline analysis yields certified entropy rates of $3.2$--$3.4$\\,Gbit/s from a singly charged (In,Ga)As quantum-dot ensemble and $33$\\,Mbit/s from $n$-GaAs in a spin-noise-matched detection mode. This exceeds the certified entropy rate of earlier spin-noise generators by more than two orders of magnitude, and the certificate tolerates a resolved per-symbol energy contribution from the solid-state emitter itself rather than requiring a near-vacuum input.",
    "categories": [
-    "hep-ph"
+    "quant-ph"
    ],
-   "submitted": "2026-09-06",
-   "pool": "C",
+   "submitted": "2026-09-09",
+   "pool": "B",
    "tags": [],
    "s2": null,
    "url": null,
-   "section": "C",
+   "section": "B",
    "score": 40,
-   "why": "BCS dielectric function for superconducting dark-matter targets agrees with Lindhard above five times the gap."
+   "why": "Certifies Gbit/s quantum randomness from quantum-dot spin noise without a microscopic model of the spins."
   },
   {
    "id": "2609.07892",
@@ -827,84 +826,51 @@
    "why": "Low-gain nonlinear interferometer keeps a phase-sensitivity advantage from entanglement, shifting the optimum to the dark fringe."
   },
   {
-   "id": "2609.10037",
-   "title": "Semi-device-independent quantum randomness certification in semiconductor spin-noise measurements",
+   "id": "2609.06423",
+   "title": "A Mean-Field Approach to the Dielectric Response of Bulk Superconductors for Light Dark Matter Direct Detection",
    "authors": [
-    "Hamid Tebyanian",
-    "Marius Cizauskas",
-    "Manfred Bayer",
-    "Marc Assmann",
-    "Alex Greilich"
+    "Chengyao Gan",
+    "Hui Li",
+    "Wenjing Li",
+    "Zheng-Liang Liang",
+    "Lin Zhang",
+    "Fawei Zheng"
    ],
-   "abstract": "Complex solid-state systems are promising platforms for scalable, high-bandwidth quantum random-number generation, yet certifying the quantum origin of their fluctuations remains difficult because the underlying microscopic dynamics are hard to model and validate. Here we demonstrate semi-device-independent quantum randomness certification from semiconductor spin noise, to our knowledge the first such certificate on any spin-noise source, without relying on a microscopic model of the spin system. The untrusted optical source is constrained by an experimentally tested mean-photon-number bound together with a declared analogue-range and per-sample clipping ceiling, while the trusted receiver is described as a calibrated, noisy, coarse-grained homodyne measurement. Using a semidefinite programme with rigorously controlled Fock-space truncation, we certify randomness that remains private against an adversary holding arbitrary quantum side information. Offline analysis yields certified entropy rates of $3.2$--$3.4$\\,Gbit/s from a singly charged (In,Ga)As quantum-dot ensemble and $33$\\,Mbit/s from $n$-GaAs in a spin-noise-matched detection mode. This exceeds the certified entropy rate of earlier spin-noise generators by more than two orders of magnitude, and the certificate tolerates a resolved per-symbol energy contribution from the solid-state emitter itself rather than requiring a near-vacuum input.",
+   "abstract": "The dielectric function is central to describing many-body screening effects in dark matter (DM) direct detection with condensed matter targets. Current superconducting detector analyses employ the free-electron Lindhard dielectric function to model in-medium effects, an approximation whose validity in the superconducting state remains untested. We derive the electronic dielectric function for bulk superconductors within the Bardeen-Cooper-Schrieffer (BCS) framework, incorporating the full Bogoliubov quasiparticle coherence factors in the random-phase approximation. A systematic comparison with the Lindhard function for aluminum and tungsten silicide (WSi) reveals good agreement for energy depositions $ω\\gtrsim5Δ$, establishing the Lindhard function as a robust approximation for superconducting DM detectors operating in this regime.",
    "categories": [
-    "quant-ph"
+    "hep-ph"
    ],
-   "submitted": "2026-09-09",
-   "pool": "B",
+   "submitted": "2026-09-06",
+   "pool": "C",
    "tags": [],
    "s2": null,
    "url": null,
-   "section": "B",
+   "section": "C",
    "score": 40,
-   "why": "Certifies Gbit/s quantum randomness from quantum-dot spin noise without a microscopic model of the spins."
+   "why": "BCS dielectric function for superconducting dark-matter targets agrees with Lindhard above five times the gap."
   },
   {
-   "id": "2609.03543",
-   "title": "Pulse-Controlled Topologically Protected Quantum Batteries",
+   "id": "2609.07250",
+   "title": "Qubit-Based Benchmarking of InP HEMT LNAs: Readout Fidelity Versus Power Consumption",
    "authors": [
-    "Jin Yang",
-    "Biao Xiong",
-    "Jibing Liu",
-    "Houguo Yu",
-    "Dehua Liu",
-    "Feng Mei",
-    "Chuanjia Shan"
+    "Junjie Li"
    ],
-   "abstract": "Quantum batteries have emerged as a promising new generation of energy-storage devices for powering quantum technologies. Long-distance charging is particularly attractive because it minimizes interference between the charger and the battery, thereby attracting considerable interest. Here, we propose a topologically protected long-distance charging protocol for quantum batteries based on a pulse-controlled superconducting qubit chain. By dynamically modulating the pulse-mediated couplings, we realize topologically protected energy transfer from the charger to the battery. We show that the charging process is free of energy backflow and remains robust against imperfections in pulse control. Moreover, the energy stored in the battery at the target time is fully extractable, and the protocol remains effective for relatively large system sizes. To further accelerate charging, we optimize the pulse shape and elucidate the underlying physical mechanism. Our pulse-controlled topological quantum battery protocol provides a versatile framework for implementing long-distance topological charging and establishes a theoretical foundation for designing optimal-control strategies to enhance quantum battery performance.",
+   "abstract": "High-fidelity single-shot readout of superconducting qubits is essential for fault-tolerant quantum computation. Without a quantum-limited amplifier such as a Josephson parametric amplifier, the cryogenic high-electron-mobility-transistor (HEMT) low-noise amplifier (LNA) at the 4 K stage is the dominant noise source in the readout chain. HEMT LNAs are conventionally characterized by Y-factor measurements of the noise temperature $T_N$, independently of the quantum measurement they ultimately serve. Here we present a qubit-in-the-loop benchmarking method. The method uses the two-dimensional IQ histogram of single-shot readout as a direct figure of merit. We apply it to three state-of-the-art cryogenic InP HEMT LNAs with 53\\%, 60\\%, and 70\\% channel indium content, together with a commercial reference amplifier. The 60\\% and 70\\% devices have similar $T_N$ in Y-factor measurements, both lower than the 53\\% device. The 70\\% device has the highest gain, but qubit readout SNR and assignment fidelity $\\mathcal{F}_a$ instead peak at 60\\%. Using this method, we map $\\mathcal{F}_a$ against HEMT LNA dc power consumption for each device. $\\mathcal{F}_a$ does not simply saturate with increasing power. For several devices it declines above a device-dependent power well below typical operating points. For the 60\\% device, which has the highest overall $\\mathcal{F}_a$, about 1~mW is needed to maintain $\\mathcal{F}_a > 85\\%$. Across all four devices, $\\mathcal{F}_a > 80\\%$ is reached with as little as about 0.3~mW, roughly an order of magnitude below typical operating points. These results establish a qubit-referenced benchmarking methodology and provide practical guidance for amplifier selection and bias in power-constrained multi-qubit readout systems.",
    "categories": [
-    "quant-ph"
+    "quant-ph",
+    "physics.app-ph"
    ],
-   "submitted": "2026-09-03",
+   "submitted": "2026-09-07",
    "pool": "A",
    "tags": [
-    "platform:sc"
+    "platform:sc",
+    "computing"
    ],
    "s2": null,
    "url": null,
-   "section": "A",
+   "section": "computing",
    "score": 35,
-   "why": "Proposes topologically protected long-distance energy transfer along a pulse-modulated superconducting qubit chain."
-  },
-  {
-   "id": "2609.04171",
-   "title": "Twin-photon generation in a silicon nitride microresonator",
-   "authors": [
-    "Franz Pacher",
-    "Haochen Yan",
-    "Alekhya Ghosh",
-    "Arghadeep Pal",
-    "Toby Bi",
-    "Hao Zhang",
-    "Lixing You",
-    "Hao Li",
-    "Daniela Salvoni",
-    "Shuangyou Zhang",
-    "Pascal Del'Haye"
-   ],
-   "abstract": "Photonic chips with silicon nitride ($\\mathrm{Si_3N_4}$) microring resonators are well established as heralded single-photon sources, but their operation as frequency-degenerate twin-photon sources has not previously been demonstrated. Here, we realise a twin-photon source at telecommunication wavelengths in a $\\mathrm{Si_3N_4}$ ring microresonator via an inverse four-wave mixing (FWM) process, in which two photons from spectrally distinct pumps are converted into a pair of identical twin photons. The measurements show a maximum coincidence-to-accidental ratio (CAR) of $5.4\\pm0.6$. In addition, the microresonator functions as a heralded single-photon source through pump-degenerate spontaneous four-wave mixing (SFWM), exhibiting a spectral purity of $P=0.67\\pm0.05$ and a heralded anti-bunching of $g^{(2)}_h(0)=0.0042\\pm0.0015$. Together, these results demonstrate both photon-generation schemes on a single integrated $\\mathrm{Si_3N_4}$ platform, highlighting its potential for scalable, tailored quantum light generation.",
-   "categories": [
-    "physics.optics",
-    "quant-ph"
-   ],
-   "submitted": "2026-09-03",
-   "pool": "B",
-   "tags": [],
-   "s2": null,
-   "url": null,
-   "section": "B",
-   "score": 35,
-   "why": "Silicon nitride microring generates frequency-degenerate twin photons by inverse four-wave mixing, CAR 5.4."
+   "why": "Benchmarks cryogenic HEMT amplifiers by qubit readout fidelity versus power, fidelity drops above device-dependent power."
   },
   {
    "id": "2609.05838",
@@ -940,27 +906,31 @@
    "why": "Variational Trotter compression on a 9-qubit processor extracts eigenenergies of H2 and Fermi-Hubbard to 2e-3."
   },
   {
-   "id": "2609.07250",
-   "title": "Qubit-Based Benchmarking of InP HEMT LNAs: Readout Fidelity Versus Power Consumption",
+   "id": "2609.03543",
+   "title": "Pulse-Controlled Topologically Protected Quantum Batteries",
    "authors": [
-    "Junjie Li"
+    "Jin Yang",
+    "Biao Xiong",
+    "Jibing Liu",
+    "Houguo Yu",
+    "Dehua Liu",
+    "Feng Mei",
+    "Chuanjia Shan"
    ],
-   "abstract": "High-fidelity single-shot readout of superconducting qubits is essential for fault-tolerant quantum computation. Without a quantum-limited amplifier such as a Josephson parametric amplifier, the cryogenic high-electron-mobility-transistor (HEMT) low-noise amplifier (LNA) at the 4 K stage is the dominant noise source in the readout chain. HEMT LNAs are conventionally characterized by Y-factor measurements of the noise temperature $T_N$, independently of the quantum measurement they ultimately serve. Here we present a qubit-in-the-loop benchmarking method. The method uses the two-dimensional IQ histogram of single-shot readout as a direct figure of merit. We apply it to three state-of-the-art cryogenic InP HEMT LNAs with 53\\%, 60\\%, and 70\\% channel indium content, together with a commercial reference amplifier. The 60\\% and 70\\% devices have similar $T_N$ in Y-factor measurements, both lower than the 53\\% device. The 70\\% device has the highest gain, but qubit readout SNR and assignment fidelity $\\mathcal{F}_a$ instead peak at 60\\%. Using this method, we map $\\mathcal{F}_a$ against HEMT LNA dc power consumption for each device. $\\mathcal{F}_a$ does not simply saturate with increasing power. For several devices it declines above a device-dependent power well below typical operating points. For the 60\\% device, which has the highest overall $\\mathcal{F}_a$, about 1~mW is needed to maintain $\\mathcal{F}_a > 85\\%$. Across all four devices, $\\mathcal{F}_a > 80\\%$ is reached with as little as about 0.3~mW, roughly an order of magnitude below typical operating points. These results establish a qubit-referenced benchmarking methodology and provide practical guidance for amplifier selection and bias in power-constrained multi-qubit readout systems.",
+   "abstract": "Quantum batteries have emerged as a promising new generation of energy-storage devices for powering quantum technologies. Long-distance charging is particularly attractive because it minimizes interference between the charger and the battery, thereby attracting considerable interest. Here, we propose a topologically protected long-distance charging protocol for quantum batteries based on a pulse-controlled superconducting qubit chain. By dynamically modulating the pulse-mediated couplings, we realize topologically protected energy transfer from the charger to the battery. We show that the charging process is free of energy backflow and remains robust against imperfections in pulse control. Moreover, the energy stored in the battery at the target time is fully extractable, and the protocol remains effective for relatively large system sizes. To further accelerate charging, we optimize the pulse shape and elucidate the underlying physical mechanism. Our pulse-controlled topological quantum battery protocol provides a versatile framework for implementing long-distance topological charging and establishes a theoretical foundation for designing optimal-control strategies to enhance quantum battery performance.",
    "categories": [
-    "quant-ph",
-    "physics.app-ph"
+    "quant-ph"
    ],
-   "submitted": "2026-09-07",
+   "submitted": "2026-09-03",
    "pool": "A",
    "tags": [
-    "platform:sc",
-    "computing"
+    "platform:sc"
    ],
    "s2": null,
    "url": null,
-   "section": "computing",
+   "section": "A",
    "score": 35,
-   "why": "Benchmarks cryogenic HEMT amplifiers by qubit readout fidelity versus power, fidelity drops above device-dependent power."
+   "why": "Proposes topologically protected long-distance energy transfer along a pulse-modulated superconducting qubit chain."
   },
   {
    "id": "2609.08591",
@@ -989,45 +959,24 @@
    "why": "Characterizes multimode squeezing from single-pass OPAs versus local-oscillator spectral shape using Schmidt modes."
   },
   {
-   "id": "2609.03421",
-   "title": "Tunable topological enhancement of covariant quantum Fisher information via non-Bloch skin effect in non-Hermitian SSH lattices",
+   "id": "2609.04171",
+   "title": "Twin-photon generation in a silicon nitride microresonator",
    "authors": [
-    "Qi-Cheng Wu",
-    "Yan-Hui Zhou",
-    "Tong Liu",
-    "Dong-Xu Chen",
-    "Chui-Ping Yang"
+    "Franz Pacher",
+    "Haochen Yan",
+    "Alekhya Ghosh",
+    "Arghadeep Pal",
+    "Toby Bi",
+    "Hao Zhang",
+    "Lixing You",
+    "Hao Li",
+    "Daniela Salvoni",
+    "Shuangyou Zhang",
+    "Pascal Del'Haye"
    ],
-   "abstract": "The covariant quantum Fisher information (CQFI) has recently been established as the ultimate precision benchmark for pseudo-Hermitian sensors [Phys. Rev. Lett. 136, 080802 (2026)], yet existing analyses are limited to single-mode systems. Here we extend the CQFI formalism to multi-mode non-Hermitian Su-Schrieffer-Heeger lattices and reveal tunable topological enhancement enabled by the non-Hermitian skin effect (NHSE). Under open boundary conditions, the NHSE deforms the conventional Brillouin zone into a generalized Brillouin zone of radius r = exp(\\k{appa}), where \\k{appa} denotes the non-Bloch decay rate. While the total CQFI scales linearly with system size N, its prefactor depends critically on \\k{appa}, yielding an enhancement factor E(N) = F_OBC / F_PBC that exceeds 30 for N ~ 30, substantially outperforming periodic-boundary sensors. The enhancement is robust against moderate local disorder and supports multi-parameter estimation, with the joint Cramér-Rao bound reduced by up to 15 orders of magnitude. These findings establish a spatial-domain mechanism for quantum metrology that complements time-domain strategies and is experimentally accessible using topoelectrical circuits, photonic lattices, and superconducting circuits with current technology.",
+   "abstract": "Photonic chips with silicon nitride ($\\mathrm{Si_3N_4}$) microring resonators are well established as heralded single-photon sources, but their operation as frequency-degenerate twin-photon sources has not previously been demonstrated. Here, we realise a twin-photon source at telecommunication wavelengths in a $\\mathrm{Si_3N_4}$ ring microresonator via an inverse four-wave mixing (FWM) process, in which two photons from spectrally distinct pumps are converted into a pair of identical twin photons. The measurements show a maximum coincidence-to-accidental ratio (CAR) of $5.4\\pm0.6$. In addition, the microresonator functions as a heralded single-photon source through pump-degenerate spontaneous four-wave mixing (SFWM), exhibiting a spectral purity of $P=0.67\\pm0.05$ and a heralded anti-bunching of $g^{(2)}_h(0)=0.0042\\pm0.0015$. Together, these results demonstrate both photon-generation schemes on a single integrated $\\mathrm{Si_3N_4}$ platform, highlighting its potential for scalable, tailored quantum light generation.",
    "categories": [
-    "quant-ph"
-   ],
-   "submitted": "2026-09-03",
-   "pool": "A",
-   "tags": [
-    "platform:sc"
-   ],
-   "s2": null,
-   "url": null,
-   "section": "A",
-   "score": 30,
-   "why": "Extends covariant quantum Fisher information to non-Hermitian SSH lattices, skin effect gives 30x enhancement."
-  },
-  {
-   "id": "2609.04368",
-   "title": "Three-Photon and Hybrid Coherent-Fock Interference in a Two-Phase Six-Port Mach-Zehnder Interferometer",
-   "authors": [
-    "P. O. Amadi",
-    "P. Pewkhom",
-    "N. Sitpathom",
-    "R. Endut",
-    "N. Ali",
-    "S. A. Aljunid",
-    "S. Suryadi",
-    "P. Kalasuwan"
-   ],
-   "abstract": "We present a unified theoretical analysis of three-photon quantum interference in a Six-Port Mach-Zehnder Interferometer (6p-MZI) constructed from two cascaded tritters, with two independent phase modulators placed between the tritter arms. We analytically derive the transfer matrix of the 6p-MZI and show how they organize into three symmetry classes, governed by the discrete Fourier transform (DFT) structure of the tritter and the conjugate relations. Furthermore, we analyze two input regimes: First, three indistinguishable single photons are injected into the tritter, and the output probability distributions $P_{[111]}$, $P_{[\\{300\\}]}$, and $P_{[\\{210\\}]}$ are derived as functions of the two relative phases $(φ_1, φ_2)$. At $φ_2 = 0$, the single-phase limit is recovered, which confirms 100\\% visibility of the even-distribution fringe. Second, a hybrid coherent-Fock input $|α\\rangle_1|α\\rangle_2|1\\rangle_3$ is analyzed via the density matrix formalism. The average photon number at each output port exhibits amplitude-dependent phase shifts. Our results establish the 6p-MZI as a programmable platform for tripartite quantum state manipulation and coherent amplitude sensing.",
-   "categories": [
+    "physics.optics",
     "quant-ph"
    ],
    "submitted": "2026-09-03",
@@ -1036,62 +985,8 @@
    "s2": null,
    "url": null,
    "section": "B",
-   "score": 30,
-   "why": "Analyses three-photon interference in a six-port interferometer built from two tritters with two phases."
-  },
-  {
-   "id": "2609.05226",
-   "title": "TETRIS-Q: Tiling-based Effective Transient-fault Reduction on Interleaved Superconducting Qubits",
-   "authors": [
-    "Marzio Vallero",
-    "Gioele Casagranda",
-    "Flavio Vella",
-    "Paolo Rech"
-   ],
-   "abstract": "The struggle of the hour in quantum computing research is achieving effective suppression of the error mechanisms induced by the interaction of external radiation with superconducting quantum devices. Despite the rapid advancements in quantum error correction (QEC) of recent years, radiation-induced faults are yet to be fully addressed. These events are known to be the cause of simultaneous correlated defects in qubits that lie onto a single substrate, ultimately jeopardising QEC code effectiveness. In this paper, we propose to selectively combine substrate-level phonon barriers and QEC interleaving via a planar-mesh tiling algorithm, TETRIS-Q, reaching efficient and effective suppression of radiation events. Our cross-layer solution comes at no extra cost in terms of QEC code execution or decoding time. We model and simulate radiation-induced transient faults over a plethora of barrier and QEC interleaving configurations. Through more than 51 million quantum circuit simulations, we show peak logical error reductions of more than $99.8 \\%$, together with an $80\\%$ reduction of the observable transient duration with permeable barriers. We find that sparser tiling can reach comparable performance to single qubit tiling, prompting cost reductions of upwards of $87 \\%$ in barrier tracing. By leveraging independent QEC code interleaving, we measure up to one order of magnitude average logical error rate reductions without the use of permeable barriers, and up to three orders of magnitude with the joint usage of barriers.",
-   "categories": [
-    "quant-ph",
-    "cs.AR"
-   ],
-   "submitted": "2026-09-04",
-   "pool": "A",
-   "tags": [
-    "platform:sc",
-    "computing"
-   ],
-   "s2": null,
-   "url": null,
-   "section": "computing",
-   "score": 30,
-   "why": "Simulates phonon barriers plus interleaved QEC tiling to suppress radiation-induced correlated errors."
-  },
-  {
-   "id": "2609.07708",
-   "title": "Single- and Two-Qubit Gates Driven by an Integrated Photonic Laser",
-   "authors": [
-    "Chris Caron",
-    "Zhenyu Wei",
-    "Andrei Isichenko",
-    "David Heim",
-    "Meiting Song",
-    "Nick Montifiore",
-    "Kaikai Liu",
-    "Josiah Dill",
-    "Daniel J. Blumenthal",
-    "Robert J. Niffenegger"
-   ],
-   "abstract": "Trapped ions are a leading technology for quantum computing, but their reliance on bespoke tabletop laser and optical systems remains a major obstacle to scaling and robustness. Integrated silicon nitride lasers, compatible with future monolithic integration with surface electrode ion traps, have recently demonstrated frequency-selective qubit state preparation and measurement as well as interrogation of an optical clock transition. However, coherent qubit gates driven by integrated laser sources have not yet been demonstrated because coherent quantum logic imposes substantially more stringent performance requirements on the laser. Here, we use a visible-wavelength integrated Brillouin laser stabilized to an integrated coil resonator to drive coherent single- and two-qubit gates with $^{88}$Sr$^+$ optical qubits. We measure an average single-qubit fidelity of 99.61% $\\pm$ 0.03% per Clifford gate with randomized benchmarking and use a two-qubit Mølmer-Sørensen interaction to generate an entangled Bell state with a fidelity of 92.35% $\\pm$ 1.50%. The qubit exhibits a bare Ramsey coherence time of 660 $\\pm$ 9 $μ$s, extended to 1.750 $\\pm$ 0.033 ms by spin echo. These results demonstrate that integrated visible-wavelength narrow-linewidth photonic lasers can meet the phase-noise requirements for coherent trapped ion quantum logic, providing a path for scalable optical systems integrated within trapped ion quantum processors.",
-   "categories": [
-    "quant-ph"
-   ],
-   "submitted": "2026-09-07",
-   "pool": "B",
-   "tags": [],
-   "s2": null,
-   "url": null,
-   "section": "B",
-   "score": 30,
-   "why": "Integrated Brillouin laser drives Sr+ single- and two-qubit gates, Bell fidelity 92 percent."
+   "score": 35,
+   "why": "Silicon nitride microring generates frequency-degenerate twin photons by inverse four-wave mixing, CAR 5.4."
   },
   {
    "id": "2609.08908",
@@ -1122,28 +1017,154 @@
    "why": "Platform-aware compiler gives end-to-end resource estimates across hardware and error-correction models."
   },
   {
-   "id": "2609.05402",
-   "title": "Parametric and feedback-controlled multiparameter quantum estimation in a double cavity optomechanics: steady and dynamical state",
+   "id": "2609.05226",
+   "title": "TETRIS-Q: Tiling-based Effective Transient-fault Reduction on Interleaved Superconducting Qubits",
    "authors": [
-    "Hamza Harraf",
-    "Mohamed Amazioug",
-    "Amjad Sohail",
-    "Mojtaba Mazaheri",
-    "Rachid Ahl Laamara"
+    "Marzio Vallero",
+    "Gioele Casagranda",
+    "Flavio Vella",
+    "Paolo Rech"
    ],
-   "abstract": "Multiparameter quantum estimation in open optomechanical systems is fundamentally constrained by dissipation, thermal fluctuations, and measurement incompatibility. In this work, we investigate a coupled-cavity optomechanical platform in which two mechanical modes interact with driven optical cavities, two-mode squeezed vacuum, intracavity degenerate parametric amplification, and coherent optical feedback. Using the continuous-variable Gaussian-state formalism, we derive the linearized quantum Langevin dynamics and steady-state covariance matrix and evaluate the quantum Fisher information matrices associated with simultaneous estimation of the optomechanical coupling strength and cavity dissipation rate. We characterize the precision bounds using the symmetric and right logarithmic derivative formalisms and employ $\\mathcal{B}_{\\rm MI}=\\max\\{\\mathcal{B}_S,\\mathcal{B}_R\\}$ as a comparative figure of merit within the SLD/RLD framework. We find that parametric amplification can substantially reduce , demonstrating an enhancement of multiparameter sensitivity over a broad range of operating conditions. In contrast, coherent feedback produces a nonmonotonic modification of the estimation precision, with its effect depending sensitively on the feedback reflectivity, phase, squeezing strength, and thermal occupation. This behavior reveals that coherent feedback acts not simply as an enhancing or degrading mechanism, but as a tunable resource for engineering the quantum fluctuations and parameter-dependent correlations of the optomechanical state. We further analyze the transient and steady-state regimes and identify parameter regions in which squeezing and parametric amplification provide the largest metrological gain.",
+   "abstract": "The struggle of the hour in quantum computing research is achieving effective suppression of the error mechanisms induced by the interaction of external radiation with superconducting quantum devices. Despite the rapid advancements in quantum error correction (QEC) of recent years, radiation-induced faults are yet to be fully addressed. These events are known to be the cause of simultaneous correlated defects in qubits that lie onto a single substrate, ultimately jeopardising QEC code effectiveness. In this paper, we propose to selectively combine substrate-level phonon barriers and QEC interleaving via a planar-mesh tiling algorithm, TETRIS-Q, reaching efficient and effective suppression of radiation events. Our cross-layer solution comes at no extra cost in terms of QEC code execution or decoding time. We model and simulate radiation-induced transient faults over a plethora of barrier and QEC interleaving configurations. Through more than 51 million quantum circuit simulations, we show peak logical error reductions of more than $99.8 \\%$, together with an $80\\%$ reduction of the observable transient duration with permeable barriers. We find that sparser tiling can reach comparable performance to single qubit tiling, prompting cost reductions of upwards of $87 \\%$ in barrier tracing. By leveraging independent QEC code interleaving, we measure up to one order of magnitude average logical error rate reductions without the use of permeable barriers, and up to three orders of magnitude with the joint usage of barriers.",
    "categories": [
     "quant-ph",
-    "physics.optics"
+    "cs.AR"
    ],
    "submitted": "2026-09-04",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "s2": null,
+   "url": null,
+   "section": "computing",
+   "score": 30,
+   "why": "Simulates phonon barriers plus interleaved QEC tiling to suppress radiation-induced correlated errors."
+  },
+  {
+   "id": "2609.03421",
+   "title": "Tunable topological enhancement of covariant quantum Fisher information via non-Bloch skin effect in non-Hermitian SSH lattices",
+   "authors": [
+    "Qi-Cheng Wu",
+    "Yan-Hui Zhou",
+    "Tong Liu",
+    "Dong-Xu Chen",
+    "Chui-Ping Yang"
+   ],
+   "abstract": "The covariant quantum Fisher information (CQFI) has recently been established as the ultimate precision benchmark for pseudo-Hermitian sensors [Phys. Rev. Lett. 136, 080802 (2026)], yet existing analyses are limited to single-mode systems. Here we extend the CQFI formalism to multi-mode non-Hermitian Su-Schrieffer-Heeger lattices and reveal tunable topological enhancement enabled by the non-Hermitian skin effect (NHSE). Under open boundary conditions, the NHSE deforms the conventional Brillouin zone into a generalized Brillouin zone of radius r = exp(\\k{appa}), where \\k{appa} denotes the non-Bloch decay rate. While the total CQFI scales linearly with system size N, its prefactor depends critically on \\k{appa}, yielding an enhancement factor E(N) = F_OBC / F_PBC that exceeds 30 for N ~ 30, substantially outperforming periodic-boundary sensors. The enhancement is robust against moderate local disorder and supports multi-parameter estimation, with the joint Cramér-Rao bound reduced by up to 15 orders of magnitude. These findings establish a spatial-domain mechanism for quantum metrology that complements time-domain strategies and is experimentally accessible using topoelectrical circuits, photonic lattices, and superconducting circuits with current technology.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-03",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "s2": null,
+   "url": null,
+   "section": "A",
+   "score": 30,
+   "why": "Extends covariant quantum Fisher information to non-Hermitian SSH lattices, skin effect gives 30x enhancement."
+  },
+  {
+   "id": "2609.07708",
+   "title": "Single- and Two-Qubit Gates Driven by an Integrated Photonic Laser",
+   "authors": [
+    "Chris Caron",
+    "Zhenyu Wei",
+    "Andrei Isichenko",
+    "David Heim",
+    "Meiting Song",
+    "Nick Montifiore",
+    "Kaikai Liu",
+    "Josiah Dill",
+    "Daniel J. Blumenthal",
+    "Robert J. Niffenegger"
+   ],
+   "abstract": "Trapped ions are a leading technology for quantum computing, but their reliance on bespoke tabletop laser and optical systems remains a major obstacle to scaling and robustness. Integrated silicon nitride lasers, compatible with future monolithic integration with surface electrode ion traps, have recently demonstrated frequency-selective qubit state preparation and measurement as well as interrogation of an optical clock transition. However, coherent qubit gates driven by integrated laser sources have not yet been demonstrated because coherent quantum logic imposes substantially more stringent performance requirements on the laser. Here, we use a visible-wavelength integrated Brillouin laser stabilized to an integrated coil resonator to drive coherent single- and two-qubit gates with $^{88}$Sr$^+$ optical qubits. We measure an average single-qubit fidelity of 99.61% $\\pm$ 0.03% per Clifford gate with randomized benchmarking and use a two-qubit Mølmer-Sørensen interaction to generate an entangled Bell state with a fidelity of 92.35% $\\pm$ 1.50%. The qubit exhibits a bare Ramsey coherence time of 660 $\\pm$ 9 $μ$s, extended to 1.750 $\\pm$ 0.033 ms by spin echo. These results demonstrate that integrated visible-wavelength narrow-linewidth photonic lasers can meet the phase-noise requirements for coherent trapped ion quantum logic, providing a path for scalable optical systems integrated within trapped ion quantum processors.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-07",
    "pool": "B",
    "tags": [],
    "s2": null,
    "url": null,
    "section": "B",
+   "score": 30,
+   "why": "Integrated Brillouin laser drives Sr+ single- and two-qubit gates, Bell fidelity 92 percent."
+  },
+  {
+   "id": "2609.04368",
+   "title": "Three-Photon and Hybrid Coherent-Fock Interference in a Two-Phase Six-Port Mach-Zehnder Interferometer",
+   "authors": [
+    "P. O. Amadi",
+    "P. Pewkhom",
+    "N. Sitpathom",
+    "R. Endut",
+    "N. Ali",
+    "S. A. Aljunid",
+    "S. Suryadi",
+    "P. Kalasuwan"
+   ],
+   "abstract": "We present a unified theoretical analysis of three-photon quantum interference in a Six-Port Mach-Zehnder Interferometer (6p-MZI) constructed from two cascaded tritters, with two independent phase modulators placed between the tritter arms. We analytically derive the transfer matrix of the 6p-MZI and show how they organize into three symmetry classes, governed by the discrete Fourier transform (DFT) structure of the tritter and the conjugate relations. Furthermore, we analyze two input regimes: First, three indistinguishable single photons are injected into the tritter, and the output probability distributions $P_{[111]}$, $P_{[\\{300\\}]}$, and $P_{[\\{210\\}]}$ are derived as functions of the two relative phases $(φ_1, φ_2)$. At $φ_2 = 0$, the single-phase limit is recovered, which confirms 100\\% visibility of the even-distribution fringe. Second, a hybrid coherent-Fock input $|α\\rangle_1|α\\rangle_2|1\\rangle_3$ is analyzed via the density matrix formalism. The average photon number at each output port exhibits amplitude-dependent phase shifts. Our results establish the 6p-MZI as a programmable platform for tripartite quantum state manipulation and coherent amplitude sensing.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-03",
+   "pool": "B",
+   "tags": [],
+   "s2": null,
+   "url": null,
+   "section": "B",
+   "score": 30,
+   "why": "Analyses three-photon interference in a six-port interferometer built from two tritters with two phases."
+  },
+  {
+   "id": "2609.09495",
+   "title": "Certifying bipartite entanglement on a superconducting processor from a corrected QAOA cost layer",
+   "authors": [
+    "Carlos-Miguel Lorenzo"
+   ],
+   "abstract": "The Quantum Approximate Optimisation Algorithm is the canonical near-term heuristic, yet on real superconducting hardware its behaviour is set by device physics, not by the algorithm. Hardware demonstrations rarely prove the intended coupling is realised, that genuine entanglement is prepared, or what controls it. We report a pre-registered single-device study on the nine-qubit superconducting processor Red at the Barcelona Supercomputing Center, using its five-qubit component. Across six calibrations we certify bipartite entanglement of a corrected QAOA cost layer on the good coupler at depth one by two-qubit tomographic negativity: 0.077, BCa 95% CI [0.065, 0.091], excluding zero every day, while the coupling-off twin stays separable and the degraded coupler equals zero. We then measure the device physics directly: in a pre-registered manipulation on a fixed Bell preparation (not the QAOA layer), reducing the CZ pulse amplitude causally reduces the certified negativity along a positive, well-fit slope (R^2 = 0.83-0.96), every rung-level interval excluding zero and surviving Holm and Benjamini-Hochberg correction. This is a local linearisation of a peaked response, not a global monotone law: the negativity peaks at conditional phase |zeta| = pi, which the nominal amplitude overshoots. The J=0 twin is a separate off-state control and the fringe visibility is constant, so the effect is coherent. The average gate fidelity is non-monotone in the drive and is reported only as a diagnostic. A per-circuit statevector guardrail excludes a diagonal compilation fault we disclose and repair. A randomized-measurement witness is consistent with entanglement but underpowered. The certificate collapses by depth three, and a pre-registered sixteen-instance depth-three ensemble shows no optimisation signal (one-sided Wilcoxon p = 0.15). We claim no advantage; the instances are classically trivial.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-08",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "s2": null,
+   "url": null,
+   "section": "computing",
    "score": 25,
-   "why": "Gaussian-state multiparameter estimation in a double-cavity optomechanical system with parametric gain and feedback."
+   "why": "Certifies bipartite entanglement of a QAOA layer on a five-qubit processor and tracks it against CZ pulse amplitude."
+  },
+  {
+   "id": "2609.08727",
+   "title": "Adaptive AI for Pulse-Level Quantum Control",
+   "authors": [
+    "Sanjeev Shapkota",
+    "Yayu Mo",
+    "Sanjaya Lohani"
+   ],
+   "abstract": "The Control Variational Quantum Eigensolver (ctrl-VQE) directly optimizes microwave pulses to enable faster and lower-error quantum-state preparation, but its continuous control landscape re- quires efficient search strategies. We demonstrate that a reinforcement-learning agent based on a deep Q learning network can autonomously discover high-performance pulse sequences using only system parameters and a reward function. The approach is fully general for superconducting qubit platforms, requires no ansatz, and operates at nanosecond resolution compatible with hardware con- straints. As a proof of concept, we apply the method to ground-state preparation of the Hydrogen molecule on a simulated superconducting device. The agent consistently identifies optimized control sequences that achieve high fidelity and outperform random-search baselines. These results highlight adaptive learning as a promising hardware-ready framework for pulse-level quantum control.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-08",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "s2": null,
+   "url": null,
+   "section": "computing",
+   "score": 25,
+   "why": "Deep Q-learning agent finds pulse sequences for ctrl-VQE ground-state preparation in simulation."
   },
   {
    "id": "2609.07393",
@@ -1206,74 +1227,28 @@
    "why": "Planar metal-semiconductor antennas keep quantum-dot linewidths while allowing electrical and strain tuning."
   },
   {
-   "id": "2609.09495",
-   "title": "Certifying bipartite entanglement on a superconducting processor from a corrected QAOA cost layer",
+   "id": "2609.05402",
+   "title": "Parametric and feedback-controlled multiparameter quantum estimation in a double cavity optomechanics: steady and dynamical state",
    "authors": [
-    "Carlos-Miguel Lorenzo"
+    "Hamza Harraf",
+    "Mohamed Amazioug",
+    "Amjad Sohail",
+    "Mojtaba Mazaheri",
+    "Rachid Ahl Laamara"
    ],
-   "abstract": "The Quantum Approximate Optimisation Algorithm is the canonical near-term heuristic, yet on real superconducting hardware its behaviour is set by device physics, not by the algorithm. Hardware demonstrations rarely prove the intended coupling is realised, that genuine entanglement is prepared, or what controls it. We report a pre-registered single-device study on the nine-qubit superconducting processor Red at the Barcelona Supercomputing Center, using its five-qubit component. Across six calibrations we certify bipartite entanglement of a corrected QAOA cost layer on the good coupler at depth one by two-qubit tomographic negativity: 0.077, BCa 95% CI [0.065, 0.091], excluding zero every day, while the coupling-off twin stays separable and the degraded coupler equals zero. We then measure the device physics directly: in a pre-registered manipulation on a fixed Bell preparation (not the QAOA layer), reducing the CZ pulse amplitude causally reduces the certified negativity along a positive, well-fit slope (R^2 = 0.83-0.96), every rung-level interval excluding zero and surviving Holm and Benjamini-Hochberg correction. This is a local linearisation of a peaked response, not a global monotone law: the negativity peaks at conditional phase |zeta| = pi, which the nominal amplitude overshoots. The J=0 twin is a separate off-state control and the fringe visibility is constant, so the effect is coherent. The average gate fidelity is non-monotone in the drive and is reported only as a diagnostic. A per-circuit statevector guardrail excludes a diagonal compilation fault we disclose and repair. A randomized-measurement witness is consistent with entanglement but underpowered. The certificate collapses by depth three, and a pre-registered sixteen-instance depth-three ensemble shows no optimisation signal (one-sided Wilcoxon p = 0.15). We claim no advantage; the instances are classically trivial.",
-   "categories": [
-    "quant-ph"
-   ],
-   "submitted": "2026-09-08",
-   "pool": "A",
-   "tags": [
-    "platform:sc",
-    "computing"
-   ],
-   "s2": null,
-   "url": null,
-   "section": "computing",
-   "score": 25,
-   "why": "Certifies bipartite entanglement of a QAOA layer on a five-qubit processor and tracks it against CZ pulse amplitude."
-  },
-  {
-   "id": "2609.08727",
-   "title": "Adaptive AI for Pulse-Level Quantum Control",
-   "authors": [
-    "Sanjeev Shapkota",
-    "Yayu Mo",
-    "Sanjaya Lohani"
-   ],
-   "abstract": "The Control Variational Quantum Eigensolver (ctrl-VQE) directly optimizes microwave pulses to enable faster and lower-error quantum-state preparation, but its continuous control landscape re- quires efficient search strategies. We demonstrate that a reinforcement-learning agent based on a deep Q learning network can autonomously discover high-performance pulse sequences using only system parameters and a reward function. The approach is fully general for superconducting qubit platforms, requires no ansatz, and operates at nanosecond resolution compatible with hardware con- straints. As a proof of concept, we apply the method to ground-state preparation of the Hydrogen molecule on a simulated superconducting device. The agent consistently identifies optimized control sequences that achieve high fidelity and outperform random-search baselines. These results highlight adaptive learning as a promising hardware-ready framework for pulse-level quantum control.",
-   "categories": [
-    "quant-ph"
-   ],
-   "submitted": "2026-09-08",
-   "pool": "A",
-   "tags": [
-    "platform:sc"
-   ],
-   "s2": null,
-   "url": null,
-   "section": "computing",
-   "score": 25,
-   "why": "Deep Q-learning agent finds pulse sequences for ctrl-VQE ground-state preparation in simulation."
-  },
-  {
-   "id": "2609.04447",
-   "title": "Proof-of-principle long-distance Sagnac twin-field quantum key distribution network",
-   "authors": [
-    "Reem Mandil",
-    "Yen-An Shih",
-    "Abhay Verma",
-    "Li Qian",
-    "Hoi-Kwong Lo"
-   ],
-   "abstract": "Twin-field (TF) quantum key distribution (QKD) offers a promising approach to long-distance QKD networks due to its superior performance over large channel losses. Due to specialized hardware requirements, nearly all long-distance TFQKD demonstrations have only two users exchanging keys, rather than a network with three or more users. In this work, we experimentally demonstrate a proof-of-principle three-user-pair Sagnac TFQKD network spanning 127-km using single-photon avalanche detectors without any active phase stabilization or postcompensation. We implement efficient procedures for maintaining polarization stability and circumventing Rayleigh backscattering noise to achieve a stable Sagnac interference visibility of $93\\pm1$% over one hour. A secure key rate of $1.398\\times10^{-5}$ bits per pulse is achieved over an asymmetric communication channel with 102-km fiber and 45-dB overall loss. To our knowledge, this is the first TFQKD network without active phase stabilization or postcompensation achieved over long fibers. Our results represent a highly practical and cost-effective approach to long-distance QKD networks.",
+   "abstract": "Multiparameter quantum estimation in open optomechanical systems is fundamentally constrained by dissipation, thermal fluctuations, and measurement incompatibility. In this work, we investigate a coupled-cavity optomechanical platform in which two mechanical modes interact with driven optical cavities, two-mode squeezed vacuum, intracavity degenerate parametric amplification, and coherent optical feedback. Using the continuous-variable Gaussian-state formalism, we derive the linearized quantum Langevin dynamics and steady-state covariance matrix and evaluate the quantum Fisher information matrices associated with simultaneous estimation of the optomechanical coupling strength and cavity dissipation rate. We characterize the precision bounds using the symmetric and right logarithmic derivative formalisms and employ $\\mathcal{B}_{\\rm MI}=\\max\\{\\mathcal{B}_S,\\mathcal{B}_R\\}$ as a comparative figure of merit within the SLD/RLD framework. We find that parametric amplification can substantially reduce , demonstrating an enhancement of multiparameter sensitivity over a broad range of operating conditions. In contrast, coherent feedback produces a nonmonotonic modification of the estimation precision, with its effect depending sensitively on the feedback reflectivity, phase, squeezing strength, and thermal occupation. This behavior reveals that coherent feedback acts not simply as an enhancing or degrading mechanism, but as a tunable resource for engineering the quantum fluctuations and parameter-dependent correlations of the optomechanical state. We further analyze the transient and steady-state regimes and identify parameter regions in which squeezing and parametric amplification provide the largest metrological gain.",
    "categories": [
     "quant-ph",
-    "physics.app-ph",
     "physics.optics"
    ],
-   "submitted": "2026-09-03",
+   "submitted": "2026-09-04",
    "pool": "B",
    "tags": [],
    "s2": null,
    "url": null,
    "section": "B",
-   "score": 20,
-   "why": "Three-user Sagnac twin-field QKD network over 127 km without active phase stabilization."
+   "score": 25,
+   "why": "Gaussian-state multiparameter estimation in a double-cavity optomechanical system with parametric gain and feedback."
   },
   {
    "id": "2609.09426",
@@ -1360,31 +1335,29 @@
    "why": "Overlapping hBN flakes raise quantum emitter density 15-fold without degrading optical quality."
   },
   {
-   "id": "2609.05192",
-   "title": "Dynamical Reduction of Two Series Josephson Junctions to a Synthetic High-Transparency Josephson Element",
+   "id": "2609.04447",
+   "title": "Proof-of-principle long-distance Sagnac twin-field quantum key distribution network",
    "authors": [
-    "Claudio Guarcello",
-    "Sergio Pagano",
-    "Carlo Barone",
-    "Alessandro Bruno",
-    "A. Mert Bozkurt",
-    "Giovanni Filatrella"
+    "Reem Mandil",
+    "Yen-An Shih",
+    "Abhay Verma",
+    "Li Qian",
+    "Hoi-Kwong Lo"
    ],
-   "abstract": "Two conventional Josephson junctions connected in series can reproduce, in the static limit in which the currents through the capacitive and resistive channels are negligible, the current-phase relation of a single effective weak link with tunable transparency. Therefore, the two-junction series can be treated as a single synthetic high-transparency element. Here, we investigate to what extent this mapping remains valid under finite-frequency drive and retaining the junctions' resistive and capacitive terms. The full resistively and capacitively shunted junction equations are compared with an effective synthetic element with tunable transparency that retains the synthetic tunable-transparency current-phase relation together with effective capacitive and dissipative terms, thus reducing the two second order degree of freedom system to a single second order degree of freedom. The resulting single-element dynamics is compared with the complete two-junction system under ac excitation. The agreement is quantified through a normalized root-mean-square error between the full and effective voltage waveforms. A broad low-error region is found at low drive frequency, while pronounced deviations emerge as the drive frequency approaches the relevant plasma-frequency scale and at larger drive amplitudes. The results provide a quantitative dynamical criterion for using the reduced single-element description of a synthetic high-transparency Josephson element in superconducting circuits.",
+   "abstract": "Twin-field (TF) quantum key distribution (QKD) offers a promising approach to long-distance QKD networks due to its superior performance over large channel losses. Due to specialized hardware requirements, nearly all long-distance TFQKD demonstrations have only two users exchanging keys, rather than a network with three or more users. In this work, we experimentally demonstrate a proof-of-principle three-user-pair Sagnac TFQKD network spanning 127-km using single-photon avalanche detectors without any active phase stabilization or postcompensation. We implement efficient procedures for maintaining polarization stability and circumventing Rayleigh backscattering noise to achieve a stable Sagnac interference visibility of $93\\pm1$% over one hour. A secure key rate of $1.398\\times10^{-5}$ bits per pulse is achieved over an asymmetric communication channel with 102-km fiber and 45-dB overall loss. To our knowledge, this is the first TFQKD network without active phase stabilization or postcompensation achieved over long fibers. Our results represent a highly practical and cost-effective approach to long-distance QKD networks.",
    "categories": [
-    "cond-mat.supr-con",
-    "cond-mat.mes-hall"
+    "quant-ph",
+    "physics.app-ph",
+    "physics.optics"
    ],
-   "submitted": "2026-09-04",
-   "pool": "A",
-   "tags": [
-    "platform:sc"
-   ],
+   "submitted": "2026-09-03",
+   "pool": "B",
+   "tags": [],
    "s2": null,
    "url": null,
-   "section": "computing",
-   "score": 15,
-   "why": "Checks when two series Josephson junctions still act as one high-transparency element under ac drive."
+   "section": "B",
+   "score": 20,
+   "why": "Three-user Sagnac twin-field QKD network over 127 km without active phase stabilization."
   },
   {
    "id": "2609.09371",
@@ -1439,31 +1412,22 @@
    "why": "Fabricates Nb/Al-AlOx/Nb cross-type junctions with CMP planarisation for SQUIDs."
   },
   {
-   "id": "2609.03650",
-   "title": "Low-Frequency Charge Noise in Bilayer Graphene Quantum Dots",
+   "id": "2609.05192",
+   "title": "Dynamical Reduction of Two Series Josephson Junctions to a Synthetic High-Transparency Josephson Element",
    "authors": [
-    "Jessica Richter",
-    "Max J. Ruckriegel",
-    "Jonas D. Gerber",
-    "Tijl Degroote",
-    "Christoph Adam",
-    "Markus Niese",
-    "Lara Ostertag",
-    "Clara Galante",
-    "Kenji Watanabe",
-    "Takashi Taniguchi",
-    "Petar Tomic",
-    "Artem O. Denisov",
-    "Hadrien Duprez",
-    "Klaus Ensslin",
-    "Thomas Ihn"
+    "Claudio Guarcello",
+    "Sergio Pagano",
+    "Carlo Barone",
+    "Alessandro Bruno",
+    "A. Mert Bozkurt",
+    "Giovanni Filatrella"
    ],
-   "abstract": "Bilayer graphene (BLG) quantum dots (QDs) are a promising platform for semiconductor qubits. However, the low-frequency charge noise that may ultimately limit coherence has remained largely unexplored. Here, we systematically characterize charge noise in gate-defined BLG QDs using transport-based noise spectroscopy. We extract a median amplitude of $ S_μ^{1/2} (1~\\text{Hz}) = 1.16~μ\\text{eV}/\\sqrt{\\text{Hz}}$, placing BLG well within the range reported for established semiconductor quantum-dot platforms. Across variations in charge occupation, confinement, source-drain bias, and charge-sensor operating conditions, neither the noise amplitude nor the spectral dependence shows a reproducible trend in electrostatic tuning, indicating that we extracted the intrinsic semiconductor noise. Consistent noise levels are further observed in double QDs and confirmed using an independent superconducting resonator-based dispersive readout. Extending the study to BLG devices incorporating transition metal dichalcogenide layers reveals no measurable charge noise increase in weakly proximitized QDs. These results validate BLG as a viable platform for coherent quantum information processing.",
+   "abstract": "Two conventional Josephson junctions connected in series can reproduce, in the static limit in which the currents through the capacitive and resistive channels are negligible, the current-phase relation of a single effective weak link with tunable transparency. Therefore, the two-junction series can be treated as a single synthetic high-transparency element. Here, we investigate to what extent this mapping remains valid under finite-frequency drive and retaining the junctions' resistive and capacitive terms. The full resistively and capacitively shunted junction equations are compared with an effective synthetic element with tunable transparency that retains the synthetic tunable-transparency current-phase relation together with effective capacitive and dissipative terms, thus reducing the two second order degree of freedom system to a single second order degree of freedom. The resulting single-element dynamics is compared with the complete two-junction system under ac excitation. The agreement is quantified through a normalized root-mean-square error between the full and effective voltage waveforms. A broad low-error region is found at low drive frequency, while pronounced deviations emerge as the drive frequency approaches the relevant plasma-frequency scale and at larger drive amplitudes. The results provide a quantitative dynamical criterion for using the reduced single-element description of a synthetic high-transparency Josephson element in superconducting circuits.",
    "categories": [
-    "cond-mat.mes-hall",
-    "quant-ph"
+    "cond-mat.supr-con",
+    "cond-mat.mes-hall"
    ],
-   "submitted": "2026-09-03",
+   "submitted": "2026-09-04",
    "pool": "A",
    "tags": [
     "platform:sc"
@@ -1471,8 +1435,8 @@
    "s2": null,
    "url": null,
    "section": "computing",
-   "score": 10,
-   "why": "Measures low-frequency charge noise in bilayer graphene quantum dots, partly with resonator dispersive readout."
+   "score": 15,
+   "why": "Checks when two series Josephson junctions still act as one high-transparency element under ac drive."
   },
   {
    "id": "2609.09097",
@@ -1519,6 +1483,42 @@
    "section": "computing",
    "score": 10,
    "why": "Neel vector of a PT-symmetric antiferromagnet switches the Josephson diode effect on and off."
+  },
+  {
+   "id": "2609.03650",
+   "title": "Low-Frequency Charge Noise in Bilayer Graphene Quantum Dots",
+   "authors": [
+    "Jessica Richter",
+    "Max J. Ruckriegel",
+    "Jonas D. Gerber",
+    "Tijl Degroote",
+    "Christoph Adam",
+    "Markus Niese",
+    "Lara Ostertag",
+    "Clara Galante",
+    "Kenji Watanabe",
+    "Takashi Taniguchi",
+    "Petar Tomic",
+    "Artem O. Denisov",
+    "Hadrien Duprez",
+    "Klaus Ensslin",
+    "Thomas Ihn"
+   ],
+   "abstract": "Bilayer graphene (BLG) quantum dots (QDs) are a promising platform for semiconductor qubits. However, the low-frequency charge noise that may ultimately limit coherence has remained largely unexplored. Here, we systematically characterize charge noise in gate-defined BLG QDs using transport-based noise spectroscopy. We extract a median amplitude of $ S_μ^{1/2} (1~\\text{Hz}) = 1.16~μ\\text{eV}/\\sqrt{\\text{Hz}}$, placing BLG well within the range reported for established semiconductor quantum-dot platforms. Across variations in charge occupation, confinement, source-drain bias, and charge-sensor operating conditions, neither the noise amplitude nor the spectral dependence shows a reproducible trend in electrostatic tuning, indicating that we extracted the intrinsic semiconductor noise. Consistent noise levels are further observed in double QDs and confirmed using an independent superconducting resonator-based dispersive readout. Extending the study to BLG devices incorporating transition metal dichalcogenide layers reveals no measurable charge noise increase in weakly proximitized QDs. These results validate BLG as a viable platform for coherent quantum information processing.",
+   "categories": [
+    "cond-mat.mes-hall",
+    "quant-ph"
+   ],
+   "submitted": "2026-09-03",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "s2": null,
+   "url": null,
+   "section": "computing",
+   "score": 10,
+   "why": "Measures low-frequency charge noise in bilayer graphene quantum dots, partly with resonator dispersive readout."
   }
  ]
 }
