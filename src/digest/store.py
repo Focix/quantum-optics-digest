@@ -55,6 +55,18 @@ def build_digest(
     }
 
 
+def merge_digests(earlier: dict[str, Any], later: dict[str, Any]) -> dict[str, Any]:
+    """Combine two digests for the same run: the later run's items win, earlier-only items are kept."""
+    later_ids = {i["id"] for i in later["items"]}
+    kept = [i for i in earlier["items"] if i["id"] not in later_ids]
+    merged = dict(later)
+    merged["items"] = list(later["items"]) + kept
+    merged["items"].sort(key=lambda e: -(e["score"] if e.get("score") is not None else -1))
+    merged["ranked"] = bool(later.get("ranked", True) and earlier.get("ranked", True))
+    merged["status"] = {**later.get("status", {}), "merged": f"{len(kept)} item(s) kept from an earlier run today"}
+    return merged
+
+
 def digest_path(directory: Path, run: date, mode: str) -> Path:
     suffix = "" if mode == "daily" else f"-{mode}"
     return directory / f"{run.isoformat()}{suffix}.json"

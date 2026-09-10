@@ -20,7 +20,7 @@ from digest.models import Candidate, Paper
 from digest.render import render_site
 from digest.openalex import OpenAlexClient
 from digest.select import mark_seen, select_candidates
-from digest.store import add_error, build_digest, load_digests, write_digest
+from digest.store import add_error, build_digest, digest_path, load_digests, merge_digests, write_digest
 
 FetchXml = Callable[[str], str]
 
@@ -251,6 +251,9 @@ def publish(
         ranking = _read_json(paths.ranking, None)
         status = _read_json(paths.status, {})
         digest = build_digest(candidates, ranking, status=status, run=today, mode=mode)
+        existing = digest_path(paths.digests, today, mode)
+        if existing.exists():  # a second run today (manual or retried) must not lose the first
+            digest = merge_digests(json.loads(existing.read_text()), digest)
         write_digest(paths.digests, digest)
         if mode == "daily" and paths.seen_next.exists():
             _write_json(paths.seen, _read_json(paths.seen_next, {}))

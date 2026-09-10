@@ -42,3 +42,18 @@ def test_digest_path_and_load_newest_first(tmp_path: Path) -> None:
 
     digests = load_digests(tmp_path)
     assert [(d["run"], d["mode"]) for d in digests] == [("2026-09-12", "weekly"), ("2026-09-10", "daily"), ("2026-09-08", "daily")]
+
+
+def test_merge_digests_keeps_earlier_items_and_prefers_new_ranking() -> None:
+    from digest.store import merge_digests
+
+    earlier = {"run": "2026-09-10", "mode": "daily", "ranked": True, "status": {"counts": {"A": 2}},
+               "items": [{"id": "1", "section": "A", "score": 80, "why": "old"}, {"id": "2", "section": "B", "score": 40, "why": "old"}]}
+    later = {"run": "2026-09-10", "mode": "daily", "ranked": True, "status": {"counts": {"A": 1}},
+             "items": [{"id": "3", "section": "A", "score": 90, "why": "new"}, {"id": "2", "section": "B", "score": 45, "why": "new"}]}
+
+    merged = merge_digests(earlier, later)
+
+    assert [(i["id"], i["why"]) for i in merged["items"]] == [("3", "new"), ("1", "old"), ("2", "new")]
+    assert merged["status"]["merged"] == "1 item(s) kept from an earlier run today"
+    assert merged["ranked"] is True
