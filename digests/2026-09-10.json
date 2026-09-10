@@ -1,7 +1,7 @@
 {
  "run": "2026-09-10",
  "mode": "daily",
- "generated": "2026-09-10T12:07:21+00:00",
+ "generated": "2026-09-10T12:14:19+00:00",
  "ranked": true,
  "status": {
   "run": "2026-09-10",
@@ -11,12 +11,13 @@
    "B": "ok"
   },
   "counts": {
-   "A": 30,
-   "B": 21
+   "A": 0,
+   "B": 0
   },
-  "dropped_seen": 0,
-  "dropped_old": 541,
-  "citations": "ok (45/56 found)"
+  "dropped_seen": 54,
+  "dropped_old": 346,
+  "citations": "ok (0/0 found)",
+  "merged": "51 item(s) kept from an earlier run today"
  },
  "items": [
   {
