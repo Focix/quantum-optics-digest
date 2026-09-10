@@ -31,8 +31,8 @@ class Candidate:
     submitted: date
     pool: str
     tags: list[str] = field(default_factory=list)
-    s2: dict[str, Any] | None = None
-    url: str | None = None  # only for non-arXiv papers (weekly S2 search)
+    cite: dict[str, Any] | None = None  # citation count and venue from OpenAlex
+    url: str | None = None  # only for non-arXiv papers (weekly journal search)
 
     @classmethod
     def from_paper(cls, paper: Paper, pool: str, tags: list[str]) -> Candidate:
@@ -63,6 +63,6 @@ class Candidate:
             submitted=date.fromisoformat(data["submitted"]),
             pool=data["pool"],
             tags=list(data.get("tags", [])),
-            s2=data.get("s2"),
+            cite=data.get("cite"),
             url=data.get("url"),
         )

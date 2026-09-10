@@ -35,4 +35,4 @@ Same as daily with `--mode weekly`, `prompts/rank_weekly.md`, `interests/weekly_
 
 - `out/` is scratch and is gitignored. `state/seen.json` is only advanced by a successful render, so a failed run repeats the same candidates next time.
 - Never edit `interests/`, `config/` or `prompts/` from a routine; the owner edits those by hand.
-- Semantic Scholar enrichment is disabled in `config/settings.toml` until the API key exists; the status shows `"s2": "disabled"` and that is not an error.
+- Citation counts come from OpenAlex (no key). If `api.openalex.org` is unreachable the status shows `"citations": "error: ..."`, the digest still renders, and the banner explains.

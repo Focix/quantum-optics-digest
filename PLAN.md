@@ -4,9 +4,9 @@ Rev 2, 2026-09-10. Interactive version: https://claude.ai/code/artifact/58ccfec2
 
 ## Summary
 
-Every weekday at 09:00 Moscow a Claude Code cloud routine clones this repo, runs a Python script that pulls the last seven days of arXiv listings for three fixed query sets, drops anything already shown, enriches the rest with Semantic Scholar metadata, and hands the candidates to the routine's own model. The model sorts them into three sections, scores each against a written interest statement, writes a one-line reason per paper, and a render script turns the result into a static page committed to `docs/` and served by GitHub Pages. Saturday at 10:00 a second routine does the same for the week's superconducting quantum computing papers with a stronger model.
+Every weekday at 09:00 Moscow a Claude Code cloud routine clones this repo, runs a Python script that pulls the last seven days of arXiv listings for three fixed query sets, drops anything already shown, enriches the rest with OpenAlex citation metadata, and hands the candidates to the routine's own model. The model sorts them into three sections, scores each against a written interest statement, writes a one-line reason per paper, and a render script turns the result into a static page committed to `docs/` and served by GitHub Pages. Saturday at 10:00 a second routine does the same for the week's superconducting quantum computing papers with a stronger model.
 
-No MCP server is involved in the routine. The arxiv and Semantic Scholar MCP servers are thin wrappers over the same public APIs and cannot be attached to a cloud routine; they are for interactive sessions only.
+No MCP server is involved in the routine. The arxiv and Semantic Scholar MCP servers (the latter now unused) are thin wrappers over the same public APIs and cannot be attached to a cloud routine; they are for interactive sessions only.
 
 ## Decisions
 
@@ -14,7 +14,7 @@ No MCP server is involved in the routine. The arxiv and Semantic Scholar MCP ser
 |---|---|
 | Topic | One digest, three daily sections. **A** superconducting artificial atoms, quantum-optics side only. **B** quantum optics on other platforms, ranked for novelty. **C** dark matter / axion searches with superconducting qubits or single microwave photon detection. |
 | Excluded daily | Superconducting quantum computing (error correction, processors, gate benchmarks). Held for the weekly section. |
-| Sources | Daily: arXiv for candidates, Semantic Scholar for enrichment. Weekly: arXiv plus a Semantic Scholar bulk search for journal papers not on arXiv. |
+| Sources | Daily: arXiv for candidates, OpenAlex for citation counts and venues (Semantic Scholar rejected the key request, 2026-09-10). Weekly: arXiv plus an OpenAlex journal search for papers not on arXiv. |
 | Window | Rolling 7 days, deduplicated against `state/seen.json` committed to the repo. |
 | Runner | Claude Code cloud routine, repo cloned. Python does fetch/dedupe/enrich; the routine's model ranks. No MCP. |
 | Intelligence | Model relevance ranking, one-line "why" per paper. Top 10 per section, titles-only list for the rest. |
@@ -31,7 +31,7 @@ No MCP server is involved in the routine. The arxiv and Semantic Scholar MCP ser
 - **Routines have no persistent disk.** State survives only by being committed.
 - **The routine's network is an allowlist.** The Default environment reaches package registries and GitHub only. `export.arxiv.org` must be added under Custom network access (keep the default list). `api.semanticscholar.org` is reached by storing the key as an environment *API credential*, which attaches the key outside the sandbox and opens the host. Python, uv, gh are preinstalled (Ubuntu 24.04 x86_64).
 - **Pushes to main are conditional.** A routine may push to a non-`claude/*` branch only if it is unprotected, nobody else has an open PR from it, and every commit is the user's. Routine commits carry the user's GitHub identity, so a solo unprotected main is fine.
-- **Semantic Scholar terms.** 1 request/second, exponential backoff on 429, keys unused ~60 days may be revoked (weekday use keeps it alive).
+- **OpenAlex terms.** No key; 100k requests/day, ~10 rps; a `mailto` parameter selects the polite pool. Semantic Scholar rejected the key request (2026-09-10).
 - **arXiv API.** ~3 s between requests, occasional 503, announcements Sun–Thu ~20:00 US Eastern → nothing new on Sat/Sun mornings in Moscow.
 - **GitHub Pages** on a free account needs a public repo; queries and interest statements will be public.
 - **Machine is a MacBook Air.** Local scheduling rejected because the lid is often closed.
@@ -41,12 +41,12 @@ No MCP server is involved in the routine. The arxiv and Semantic Scholar MCP ser
 ```
 arXiv API ──┐
             ├─► fetch.py ──candidates──► routine model ──ranking──► render.py ──docs/──► git push ──► GitHub Pages
-S2 API ─────┘   │ ▲
+OpenAlex ───┘   │ ▲
                 ▼ │
-            state/ (seen.json, s2_cache.json)   [committed]
+            state/ (seen.json, openalex_cache.json)   [committed]
 ```
 
-- **fetch.py** — one arXiv query per section, last 7 days, sorted by submission date; drops seen IDs; tags survivors (`platform:sc`, `computing`, …); one S2 `POST /paper/batch` for the remaining IDs; writes `out/candidates.json`, `out/status.json` and `out/seen_next.json`. `state/seen.json` is advanced by render.py only when a digest is written, so a failed ranking re-shows the same candidates next run.
+- **fetch.py** — one arXiv query per section, last 7 days, sorted by submission date; drops seen IDs; tags survivors (`platform:sc`, `computing`, …); one OpenAlex works lookup per 50 remaining IDs; writes `out/candidates.json`, `out/status.json` and `out/seen_next.json`. `state/seen.json` is advanced by render.py only when a digest is written, so a failed ranking re-shows the same candidates next run.
 - **Routine model** — reads candidates + `interests/*.md`, writes `out/ranking.json` per the contract below. Never fetches.
 - **render.py** — merges into `digests/YYYY-MM-DD.json`, regenerates `docs/index.html` from the last 15 digests plus one archive page per older day; shows the banner when `status.json` reports an error or the newest digest is stale.
 - A uv project (`pyproject.toml`): logic in the `src/digest` package, `scripts/` are thin CLIs run with `uv run`. Deps: `httpx`, `tzdata`; the Atom feed is parsed with the standard library. Tests with pytest, `mypy --strict`.
@@ -55,12 +55,12 @@ S2 API ─────┘   │ ▲
 
 ```
 scripts/      fetch.py  render.py                      thin CLIs
-src/digest/   arxiv.py select.py s2.py ranking.py store.py render.py pipeline.py
+src/digest/   arxiv.py select.py openalex.py ranking.py store.py render.py pipeline.py
 tests/        pytest suite (mock transports, no network)
 config/       queries.toml  settings.toml
 interests/    a_superconducting.md  b_other_platforms.md  c_dark_matter.md  weekly_computing.md
 prompts/      rank_daily.md  rank_weekly.md
-state/        seen.json  s2_cache.json
+state/        seen.json  openalex_cache.json
 digests/      YYYY-MM-DD.json
 docs/         index.html  style.css  archive/YYYY-MM-DD.html      (GitHub Pages root)
 out/          gitignored per-run scratch
@@ -79,7 +79,7 @@ arXiv search syntax, `sortBy=submittedDate`, `max_results=200`, client-side 7-da
 | B | quant-ph, physics.optics, physics.atom-ph | `abs:"cavity QED" OR abs:"waveguide QED" OR abs:"single photon" OR abs:"single-photon" OR abs:"photon statistics" OR abs:"resonance fluorescence" OR abs:"squeezed light" OR abs:"quantum emitter" OR abs:"giant atom" OR abs:optomechanical OR (abs:Rydberg AND abs:photon) OR (abs:"trapped ion" AND abs:photon) OR (abs:"quantum dot" AND abs:photon)` minus the A pool | 20–40 |
 | C | quant-ph, hep-ex, hep-ph, physics.ins-det | `(abs:"dark matter" OR abs:axion OR abs:"dark photon" OR abs:"hidden photon") AND (abs:qubit OR abs:superconducting OR abs:"single photon" OR abs:haloscope OR abs:"photon counting" OR abs:"microwave cavity")` | 0–3 |
 
-The A pool is split by the model: optics → A, computing → tagged and held for Saturday. B candidates also in the A pool are removed so a paper appears once. Weekly adds one S2 bulk search: `"superconducting qubit" | transmon | fluxonium`, last 14 days, Physics, papers without an arXiv ID.
+The A pool is split by the model: optics → A, computing → tagged and held for Saturday. B candidates also in the A pool are removed so a paper appears once. Weekly adds one OpenAlex journal search: `"superconducting qubit" OR transmon OR fluxonium`, last 14 days, journal articles without an arXiv version.
 
 ## Interest statements (drafts; edit in `interests/`)
 
@@ -116,7 +116,7 @@ The A pool is split by the model: optics → A, computing → tagged and held fo
 
 Static, Moscow dates, no JS required (details/summary for collapsed lists).
 - **Banner** only when status has an error or the newest digest is >1 working day old; carries the failing step, error text, and a link to the run log.
-- **Today**: sections A, B, C — title → abstract page, first three authors, date, why-line, S2 citation count and venue when present; collapsed "also matched" list per section.
+- **Today**: sections A, B, C — title → abstract page, first three authors, date, why-line, OpenAlex citation count and venue when present; collapsed "also matched" list per section.
 - **This week** (Saturdays): the weekly ten with citation counts.
 - **Previous days**: last 14, collapsed, with counts.
 - **Archive** links at the foot.
@@ -128,23 +128,23 @@ Both use the Default environment, tools Bash/Read/Write/Edit/Glob/Grep only. The
 | Routine | Cron (UTC) | Model | Steps |
 |---|---|---|---|
 | Daily digest | `0 6 * * 1-5` | Sonnet 5 | 1 `uv run scripts/fetch.py --mode daily` · 2 rank → `out/ranking.json` · 3 `uv run scripts/render.py` · 4 commit digests/state/docs, push main · 5 on any failure still run render with `--error "text"` and commit |
-| Weekly computing | `0 7 * * 6` | Opus 5 | same with `--mode weekly` (week's computing-tagged digests + S2 venue search) |
+| Weekly computing | `0 7 * * 6` | Opus 5 | same with `--mode weekly` (week's computing-tagged digests + OpenAlex journal search) |
 
-**Semantic Scholar key**: stored as an API credential on the Default environment — host `api.semanticscholar.org`, header `x-api-key`, no prefix. The proxy attaches it after the request leaves the VM; nothing in the repo or session sees it. Until it exists, `[s2] enabled = false` in `config/settings.toml` skips enrichment and status reads `"s2": "disabled"`.
+**Citations**: OpenAlex, no key. `api.openalex.org` must be on the environment's allowed domains next to `export.arxiv.org`. `[citations] enabled = false` in `config/settings.toml` switches it off.
 
 ## Rate limits and failure handling
 
-- **S2**: single client in `s2.py`, ≤1 rps, retries 429/5xx with exponential backoff from 2 s, max 5 attempts, caches every answer in `state/s2_cache.json`. Daily traffic: one batch call ≤100 IDs. Weekly: plus 1–2 bulk searches.
+- **OpenAlex**: single client in `openalex.py`, ≤1 rps, retries 429/5xx with exponential backoff from 2 s, max 5 attempts, caches every answer with a fetch date in `state/openalex_cache.json` (misses retried after 1 day, hits after 7). Daily traffic: one request per 50 IDs. Weekly: plus one journal search.
 - **arXiv**: 3 s between requests, <10 requests per run, 503 retried ×3 after 10 s.
 - **Missed run**: absorbed by the 7-day window; no replay needed.
-- **Partial failure**: S2 down → digest without enrichment + banner. One arXiv section down → other sections still render.
+- **Partial failure**: OpenAlex down → digest without enrichment + banner. One arXiv section down → other sections still render.
 - **Bad model output**: render.py validates ranking.json; on violation renders the raw candidate list unranked + banner.
 
 ## Implementation plan
 
 | Phase | Owner | Steps | Done when |
 |---|---|---|---|
-| 0 · Access | you | Run `/web-setup` in a Claude Code terminal (syncs the Focix gh token to claude.ai). At claude.ai/code edit the Default environment: network Custom, add `export.arxiv.org`, keep "include default list". When the S2 key arrives add it as an API credential (host `api.semanticscholar.org`, header `x-api-key`, no prefix). | A cloud session from the repo can curl `export.arxiv.org` and call S2 with the key attached. |
+| 0 · Access | you | Run `/web-setup` in a Claude Code terminal (syncs the Focix gh token to claude.ai). At claude.ai/code open the cloud-icon environment selector, edit the environment: network Custom, add `export.arxiv.org` and `api.openalex.org`, keep "include default list". | A cloud session from the repo can curl both hosts. |
 | 0 · Local | claude | Register arxiv + s2 MCP servers in Claude Code at user scope. Create the public GitHub repo from this folder and push. | `claude mcp list` shows both connected; repo exists. |
 | 1 · Fetch | claude | s2.py, fetch.py, queries.toml, settings.toml. Backfill 14 days locally, measure volumes, tune phrases. | Per-section counts for two weeks within expected ranges; seen.json populated. |
 | 2 · Ranking | claude | Interest statements + rank_daily.md. Two manual ranking runs on real candidates in a local session. | You approve both top-10 lists, or edit statements and rerun once. |

@@ -72,11 +72,11 @@ def _paper_li(item: dict[str, Any]) -> str:
     cls = ' class="read"' if isinstance(score, int) and score >= 80 else ""
     score_html = f'<span class="score">{score}</span>' if score is not None else ""
     meta = [_authors(item.get("authors", [])), item.get("submitted", "")]
-    s2 = item.get("s2") or {}
-    if s2.get("citationCount"):
-        meta.append(f"{s2['citationCount']} citations")
-    if s2.get("venue"):
-        meta.append(s2["venue"])
+    cite = item.get("cite") or {}
+    if cite.get("citationCount"):
+        meta.append(f"{cite['citationCount']} citations")
+    if cite.get("venue"):
+        meta.append(cite["venue"])
     why = f'<p class="why">{_esc(item["why"])}</p>' if item.get("why") else ""
     return (
         f"<li{cls}>{score_html}<span class=\"title\"><a href=\"{_esc(_url(item))}\">"

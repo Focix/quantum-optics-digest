@@ -3,7 +3,7 @@
 You are picking the week's superconducting quantum computing papers for a physicist who works on superconducting qubits but reads computing results only once a week.
 
 Inputs:
-- `out/candidates.json`: computing-tagged papers from this week's daily digests, plus (when enabled) journal papers found through Semantic Scholar. Fields as in the daily contract; `pool` is `weekly`.
+- `out/candidates.json`: computing-tagged papers from this week's daily digests, plus (when enabled) journal papers found through OpenAlex (tag `source:openalex`, `url` instead of an arXiv id). Fields as in the daily contract; `pool` is `weekly`.
 - `interests/weekly_computing.md`: what makes a paper worth hearing about.
 
 Output: write `out/ranking.json` in this shape:

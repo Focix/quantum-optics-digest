@@ -3,7 +3,7 @@
 You are ranking new arXiv papers for a physicist who works on superconducting artificial atoms and microwave quantum optics.
 
 Inputs:
-- `out/candidates.json`: the candidates. Each has `id`, `title`, `authors`, `abstract`, `categories`, `submitted`, `pool` (A, B or C), `tags`, and optional `s2` enrichment.
+- `out/candidates.json`: the candidates. Each has `id`, `title`, `authors`, `abstract`, `categories`, `submitted`, `pool` (A, B or C), `tags`, and optional `cite` (OpenAlex citation count and venue).
 - `interests/a_superconducting.md`, `interests/b_other_platforms.md`, `interests/c_dark_matter.md`: what each section is for.
 
 Output: write `out/ranking.json` exactly in this shape:

@@ -18,7 +18,7 @@ import httpx
 from digest.arxiv import build_query_url, parse_feed
 from digest.models import Candidate, Paper
 from digest.render import render_site
-from digest.s2 import S2Client
+from digest.openalex import OpenAlexClient
 from digest.select import mark_seen, select_candidates
 from digest.store import add_error, build_digest, load_digests, write_digest
 
@@ -42,8 +42,8 @@ class Paths:
         return self.state / "seen.json"
 
     @property
-    def s2_cache(self) -> Path:
-        return self.state / "s2_cache.json"
+    def cite_cache(self) -> Path:
+        return self.state / "openalex_cache.json"
 
     @property
     def out(self) -> Path:
@@ -125,28 +125,29 @@ def make_arxiv_fetcher(config: dict[str, Any], sleep: Callable[[float], None] = 
     return fetch
 
 
-# -- Semantic Scholar ------------------------------------------------------
+# -- citations (OpenAlex) --------------------------------------------------
 
 
-def _s2_client(config: dict[str, Any], paths: Paths) -> S2Client | None:
-    if not config["s2"].get("enabled"):
+def _citation_client(config: dict[str, Any], paths: Paths) -> OpenAlexClient | None:
+    cfg = config.get("citations", {})
+    if not cfg.get("enabled"):
         return None
-    return S2Client(cache_path=paths.s2_cache, api_key=os.environ.get("S2_API_KEY") or None)
+    return OpenAlexClient(cache_path=paths.cite_cache, mailto=cfg.get("mailto") or None)
 
 
-def _enrich(candidates: list[Candidate], client: S2Client | None, status: dict[str, Any]) -> None:
+def _enrich(candidates: list[Candidate], client: OpenAlexClient | None, status: dict[str, Any]) -> None:
     if client is None:
-        status["s2"] = "disabled"
+        status["citations"] = "disabled"
         return
-    arxiv_papers = [c for c in candidates if not c.url]  # S2-sourced weekly items already carry s2
+    arxiv_papers = [c for c in candidates if not c.url]  # journal-search items already carry cite
     try:
         found = client.enrich([c.id for c in arxiv_papers])
         for c in arxiv_papers:
-            c.s2 = found.get(c.id)
-        status["s2"] = f"ok ({len(found)}/{len(arxiv_papers)} found)"
-    except Exception as exc:  # S2 down: digest still goes out, banner explains
-        status["s2"] = f"error: {exc}"
-        add_error(status, f"S2 enrichment failed: {exc}")
+            c.cite = found.get(c.id)
+        status["citations"] = f"ok ({len(found)}/{len(arxiv_papers)} found)"
+    except Exception as exc:  # OpenAlex down: digest still goes out, banner explains
+        status["citations"] = f"error: {exc}"
+        add_error(status, f"citation lookup failed: {exc}")
 
 
 # -- daily -----------------------------------------------------------------
@@ -175,7 +176,7 @@ def fetch_daily(config: dict[str, Any], paths: Paths, *, fetch_xml: FetchXml, to
     if selection.overflow:  # noted, not an error: the page stays green
         status["overflow"] = f"{selection.overflow} oldest candidates dropped over the cap of {run_cfg['cap']}"
 
-    _enrich(selection.candidates, _s2_client(config, paths), status)
+    _enrich(selection.candidates, _citation_client(config, paths), status)
 
     _write_json(paths.candidates, [c.to_json() for c in selection.candidates])
     _write_json(paths.seen_next, mark_seen(seen, selection.candidates, today=today, keep_days=int(run_cfg["seen_keep_days"])))
@@ -202,32 +203,32 @@ def fetch_weekly(config: dict[str, Any], paths: Paths, *, today: date) -> dict[s
                 c.pool = "weekly"
                 candidates.append(c)
 
-    client = _s2_client(config, paths)
-    if client is not None:
+    client = _citation_client(config, paths)
+    if client is not None and weekly.get("journal_search_query"):
         try:
-            after = (today - timedelta(days=int(weekly["s2_lookback_days"]))).isoformat()
-            for record in client.search_bulk(weekly["s2_search_query"], published_after=after):
-                ext = record.get("externalIds") or {}
-                if ext.get("ArXiv") or not record.get("paperId"):
+            after = (today - timedelta(days=int(weekly["journal_lookback_days"]))).isoformat()
+            for record in client.search_journal(weekly["journal_search_query"], published_after=after):
+                if record["hasArxiv"] or record["id"] in seen_ids:
                     continue  # arXiv papers are already covered by the daily pool
+                seen_ids.add(record["id"])
                 candidates.append(
                     Candidate(
-                        id=f"s2:{record['paperId']}",
-                        title=record.get("title") or "",
-                        authors=[a.get("name", "") for a in record.get("authors") or []],
-                        abstract=(record.get("tldr") or {}).get("text") or "",
+                        id=record["id"],
+                        title=record["title"],
+                        authors=record["authors"],
+                        abstract=record["abstract"],
                         categories=[],
-                        submitted=date.fromisoformat(record["publicationDate"]) if record.get("publicationDate") else today,
+                        submitted=date.fromisoformat(record["publicationDate"]) if record["publicationDate"] else today,
                         pool="weekly",
-                        tags=["source:s2"],
-                        s2=S2Client.slim(record),
-                        url=f"https://www.semanticscholar.org/paper/{record['paperId']}",
+                        tags=["source:openalex"],
+                        cite=record["cite"],
+                        url=record["url"],
                     )
                 )
-            status["s2_search"] = "ok"
+            status["journal_search"] = "ok"
         except Exception as exc:
-            status["s2_search"] = f"error: {exc}"
-            add_error(status, f"S2 search failed: {exc}")
+            status["journal_search"] = f"error: {exc}"
+            add_error(status, f"journal search failed: {exc}")
 
     _enrich(candidates, client, status)
     candidates.sort(key=lambda c: c.submitted, reverse=True)

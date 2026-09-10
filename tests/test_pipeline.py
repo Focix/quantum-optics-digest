@@ -17,6 +17,10 @@ def paths(tmp_path: Path) -> Paths:
     (tmp_path / "config").mkdir()
     for name in ("queries.toml", "settings.toml"):
         (tmp_path / "config" / name).write_text((ROOT / "config" / name).read_text())
+    # tests never touch the network
+    (tmp_path / "config" / "settings.toml").write_text(
+        (tmp_path / "config" / "settings.toml").read_text().replace("enabled = true", "enabled = false")
+    )
     return p
 
 
@@ -36,7 +40,7 @@ def test_fetch_daily_writes_candidates_status_and_next_seen(paths: Paths) -> Non
     assert candidates[0]["tags"] == ["platform:sc"]
     assert status["pools"] == {"A": "ok", "B": "ok", "C": "ok"}
     assert status["counts"] == {"A": 2, "B": 0, "C": 0}
-    assert status["s2"] == "disabled"
+    assert status["citations"] == "disabled"
     assert "error" not in status
     assert json.loads(paths.status.read_text()) == status
     assert set(json.loads(paths.seen_next.read_text())) == {"2609.08348", "2609.09426"}
@@ -98,12 +102,12 @@ def test_fetch_weekly_collects_computing_items_from_recent_digests(paths: Paths)
     paths.digests.mkdir()
     old = {"run": "2026-09-01", "mode": "daily", "ranked": True, "status": {}, "items": [
         {"id": "old", "title": "Old", "authors": [], "abstract": "", "categories": [], "submitted": "2026-09-01",
-         "pool": "A", "tags": ["platform:sc"], "s2": None, "section": "computing", "score": 40, "why": "x"}]}
+         "pool": "A", "tags": ["platform:sc"], "cite": None, "section": "computing", "score": 40, "why": "x"}]}
     recent = {"run": "2026-09-09", "mode": "daily", "ranked": True, "status": {}, "items": [
         {"id": "new", "title": "New", "authors": [], "abstract": "", "categories": [], "submitted": "2026-09-09",
-         "pool": "A", "tags": ["platform:sc"], "s2": None, "section": "computing", "score": 40, "why": "x"},
+         "pool": "A", "tags": ["platform:sc"], "cite": None, "section": "computing", "score": 40, "why": "x"},
         {"id": "optics", "title": "Optics", "authors": [], "abstract": "", "categories": [], "submitted": "2026-09-09",
-         "pool": "A", "tags": ["platform:sc"], "s2": None, "section": "A", "score": 90, "why": "x"}]}
+         "pool": "A", "tags": ["platform:sc"], "cite": None, "section": "A", "score": 90, "why": "x"}]}
     for d in (old, recent):
         (paths.digests / f"{d['run']}.json").write_text(json.dumps(d))
 
@@ -112,4 +116,4 @@ def test_fetch_weekly_collects_computing_items_from_recent_digests(paths: Paths)
     candidates = json.loads(paths.candidates.read_text())
     assert [(c["id"], c["pool"]) for c in candidates] == [("new", "weekly")]
     assert status["counts"] == {"weekly": 1}
-    assert status["s2"] == "disabled"
+    assert status["citations"] == "disabled"

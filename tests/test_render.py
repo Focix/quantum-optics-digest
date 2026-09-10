@@ -9,7 +9,7 @@ def item(id: str, section: str, score: int | None, why: str | None = "does a thi
     return {
         "id": id, "title": f"Title {id}", "authors": ["A One", "B Two", "C Three", "D Four"],
         "abstract": "abs", "categories": ["quant-ph"], "submitted": "2026-09-09", "pool": section,
-        "tags": [], "s2": {"citationCount": 2, "venue": "PRL", "tldr": ""} if id == "a1" else None,
+        "tags": [], "cite": {"citationCount": 2, "venue": "PRL"} if id == "a1" else None,
         "section": section, "score": score, "why": why,
     }
 

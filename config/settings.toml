@@ -10,13 +10,14 @@ delay_seconds = 3        # pause between arXiv requests
 retries = 3              # extra attempts on 503 / network errors
 retry_wait_seconds = 10
 
-[s2]
-# Semantic Scholar enrichment. Off until the API key is provisioned as an
-# environment credential on the cloud routine (host api.semanticscholar.org,
-# header x-api-key). Locally, export S2_API_KEY to send the header yourself.
-enabled = false
+[citations]
+# Citation counts and venues from OpenAlex (api.openalex.org, no key). Add the host
+# to the cloud environment's allowed domains. An email in `mailto` puts requests
+# in OpenAlex's polite pool; leave empty to use the common pool.
+enabled = true
+mailto = ""
 
 [weekly]
 lookback_days = 7        # daily digests to pull computing-tagged papers from
-s2_search_query = '"superconducting qubit" | transmon | fluxonium'
-s2_lookback_days = 14
+journal_search_query = '"superconducting qubit" OR transmon OR fluxonium'
+journal_lookback_days = 14
