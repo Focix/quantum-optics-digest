@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/aaFqoksJs2b8F2NxU7NoS1Ho+M4</id>
+  <title>arXiv Query: search_query=abs:transmon&amp;id_list=&amp;start=0&amp;max_results=2</title>
+  <updated>2026-09-10T11:30:16Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=abs:transmon&amp;start=0&amp;max_results=2&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>2</opensearch:itemsPerPage>
+  <opensearch:totalResults>1474</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2609.09426v1</id>
+    <title>Josephson energy of superconducting junctions: amorphous versus crystalline tunnel barriers</title>
+    <updated>2026-09-08T20:25:04Z</updated>
+    <link href="https://arxiv.org/abs/2609.09426v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.09426v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>The Josephson energy $E_J$ is a key parameter governing the properties of transmon superconducting qubits. In Al/AlO$_x$/Al junctions, $E_J$ is set by electron tunneling through an ultrathin oxide barrier and therefore depends exponentially on the atomic structure of the barrier. We compute $E_J$ by first-principles device modeling based on the NEGF-DFT quantum-transport method, comparing a junction with a crystalline Al$_2$O$_3$ barrier against ten junctions with melt--quenched amorphous Al$_2$O$_3$ barriers of the same thickness. From the Fermi-level transmission and the Ambegaokar--Baratoff relation, we obtain a mean $E_J/h$ of $2.78$ GHz for the amorphous ensemble, with a standard deviation of $4.67$ GHz, compared with $0.73$ GHz for the crystalline reference; individual amorphous values span nearly two orders of magnitude. Scattering-state analysis shows that transport is quantum tunneling and that the variability originates from stoichiometric inhomogeneity of the amorphous oxide: Al-rich, low-barrier regions can connect into percolation-like tunneling pathways that strongly enhance the conductance. A realistic $200\times200$ nm$^2$ junction self-averages over more than $2\times10^4$ such microscopic regions. These results establish a quantitative atomistic route from oxide microstructure to the superconducting-circuit energy scale $E_J$.</summary>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-08T20:25:04Z</published>
+    <arxiv:comment>5 figures</arxiv:comment>
+    <arxiv:primary_category term="quant-ph"/>
+    <author>
+      <name>Wanting Zhang</name>
+    </author>
+    <author>
+      <name>Aldilene Saraiva-Souza</name>
+    </author>
+    <author>
+      <name>Félix Beaudoin</name>
+    </author>
+    <author>
+      <name>Xianghua Kong</name>
+    </author>
+    <author>
+      <name>Hong Guo</name>
+    </author>
+    <author>
+      <name>Yu Zhu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.08348v1</id>
+    <title>Instantaneous-Frame Theory of Strongly Driven Parametric Gates</title>
+    <updated>2026-09-08T07:18:34Z</updated>
+    <link href="https://arxiv.org/abs/2609.08348v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2609.08348v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Parametric two-qubit gates using tunable couplers are a promising approach to scalable superconducting quantum processors. However, conventional theories formulated in the idle eigenbasis break down in the large-amplitude regime required for fast gate operations. Here, we show that parametric gates are more naturally and accurately described as coherent rotations between instantaneous eigenstates rather than idle eigenstates. This approach may appear counterintuitive, since instantaneous eigenbases are usually associated with adiabatic dynamics. However, they also form a natural moving frame for driven dynamics, where the non-Abelian Berry connection governs transitions and provides a compact description of the exchange and effective $ZZ$ couplings. We show that this theory achieves quantitative agreement with exact numerical simulations across representative tunable-coupler architectures, including double-transmon, capacitively shunted double-transmon, and single-transmon couplers. The description remains accurate even in regimes where idle-frame descriptions fail, while substantially reducing the reliance on computationally demanding exact simulations. These results establish an instantaneous-frame theory of parametric gates beyond conventional idle-frame models and provide a new perspective on driven quantum dynamics.</summary>
+    <category term="quant-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cond-mat.supr-con" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="physics.app-ph" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-09-08T07:18:34Z</published>
+    <arxiv:primary_category term="quant-ph"/>
+    <author>
+      <name>Kentaro Kubo</name>
+    </author>
+    <author>
+      <name>Shinichi Inoue</name>
+    </author>
+    <author>
+      <name>Jushin Tei</name>
+    </author>
+    <author>
+      <name>Yinghao Ho</name>
+    </author>
+    <author>
+      <name>Yasunobu Nakamura</name>
+    </author>
+    <author>
+      <name>Hayato Goto</name>
+    </author>
+  </entry>
+</feed>
