@@ -10,7 +10,7 @@ Output: write `out/ranking.json` exactly in this shape:
 
 ```json
 { "run": "YYYY-MM-DD", "mode": "daily",
-  "items": [ { "id": "2609.01234", "section": "A", "score": 82,
+  "items": [ { "id": "2609.01234", "section": "A", "score": 82, "kind": "E",
                "why": "First g2 measurement of a shaped microwave photon from a fluxonium." } ] }
 ```
 
@@ -21,5 +21,6 @@ Rules:
    - Pool B papers stay in `B`. Move a paper across pools only if it clearly belongs elsewhere.
 3. `score` is an integer 0–100 against the section statement: ≥80 read today, 50–79 worth the title, <50 matched the query but not the interest. Use the whole range; a typical day has zero to three papers at 80 or above.
 4. `why` is at most 25 words, present tense, names the concrete result or claim, never restates the title. Write it for the reader, not for the authors.
-5. Judge from the abstract only. Do not fetch anything.
-6. Rank within a section by score; ties broken by your judgement of novelty.
+5. `kind` is `E` for experimental papers (measured data from a device), `T` for theory, proposals, numerics and reviews, `TE` when the paper reports both an experiment and substantial new theory or modelling of its own. Judge from the abstract.
+6. Judge from the abstract only. Do not fetch anything.
+7. Rank within a section by score; ties broken by your judgement of novelty.

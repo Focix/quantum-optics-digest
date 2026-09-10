@@ -8,6 +8,7 @@ from digest.models import Candidate
 
 DAILY_SECTIONS = {"A", "B", "computing"}
 WEEKLY_SECTIONS = {"weekly"}
+KINDS = {"T", "E", "TE"}  # theory, experiment, both
 
 
 def sections_for(mode: str) -> set[str]:
@@ -46,6 +47,11 @@ def validate_ranking(ranking: Any, candidates: list[Candidate], *, mode: str) ->
             errors.append(f"item {n}: score {score} not an integer 0-100")
         if not isinstance(item.get("why"), str) or not item["why"].strip():
             errors.append(f"item {n}: why is missing")
+        kind = item.get("kind")
+        if kind is None:
+            errors.append(f"item {n}: kind is missing")
+        elif kind not in KINDS:
+            errors.append(f"item {n}: kind {kind} not in {sorted(KINDS)}")
 
     missing = known - covered
     if missing:

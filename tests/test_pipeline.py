@@ -73,8 +73,8 @@ def test_fetch_daily_records_pool_failure_and_keeps_going(paths: Paths) -> None:
 def test_publish_writes_digest_promotes_seen_and_renders(paths: Paths) -> None:
     fetch_daily(load_config(paths), paths, fetch_xml=lambda url: FIXTURE, today=TODAY)
     ranking = {"run": "2026-09-10", "mode": "daily", "items": [
-        {"id": "2609.09426", "section": "computing", "score": 30, "why": "Computes E_J for amorphous barriers."},
-        {"id": "2609.08348", "section": "computing", "score": 35, "why": "Instantaneous-frame theory of parametric gates."},
+        {"id": "2609.09426", "section": "computing", "score": 30, "why": "Computes E_J for amorphous barriers.", "kind": "T"},
+        {"id": "2609.08348", "section": "computing", "score": 35, "why": "Instantaneous-frame theory of parametric gates.", "kind": "T"},
     ]}
     paths.ranking.write_text(json.dumps(ranking))
 
@@ -84,9 +84,9 @@ def test_publish_writes_digest_promotes_seen_and_renders(paths: Paths) -> None:
     assert digest["ranked"] is True
     assert (paths.digests / "2026-09-10.json").exists()
     assert set(json.loads(paths.seen.read_text())) == {"2609.08348", "2609.09426"}
-    index = (paths.docs / "index.html").read_text()
-    assert "Instantaneous-Frame Theory" in index
-    assert 'class="banner"' not in index
+    weekly = (paths.docs / "weekly.html").read_text()  # computing items feed the weekly pool
+    assert "Instantaneous-Frame Theory" in weekly
+    assert 'class="banner"' not in (paths.docs / "index.html").read_text()
 
 
 def test_publish_with_error_renders_banner_and_leaves_state_alone(paths: Paths) -> None:

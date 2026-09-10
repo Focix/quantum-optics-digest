@@ -59,7 +59,8 @@
    "url": null,
    "section": "A",
    "score": 84,
-   "why": "Runs Grover search inside a microwave cavity of 128+ photons, with a transmon sensor turning an unknown signal into the oracle."
+   "why": "Runs Grover search inside a microwave cavity of 128+ photons, with a transmon sensor turning an unknown signal into the oracle.",
+   "kind": "E"
   },
   {
    "id": "2609.04150",
@@ -89,7 +90,8 @@
    "url": null,
    "section": "B",
    "score": 75,
-   "why": "Converts few-photon optical pulses to phonons at 76 percent efficiency in a millikelvin optomechanical crystal, HBT confirms coherence."
+   "why": "Converts few-photon optical pulses to phonons at 76 percent efficiency in a millikelvin optomechanical crystal, HBT confirms coherence.",
+   "kind": "E"
   },
   {
    "id": "2609.09312",
@@ -113,7 +115,8 @@
    "url": null,
    "section": "A",
    "score": 72,
-   "why": "Shows non-Hermitian topological amplifiers produce exponentially growing correlations between modes while entanglement stays local."
+   "why": "Shows non-Hermitian topological amplifiers produce exponentially growing correlations between modes while entanglement stays local.",
+   "kind": "T"
   },
   {
    "id": "2609.03910",
@@ -151,7 +154,8 @@
    "url": null,
    "section": "B",
    "score": 70,
-   "why": "A single reflected photon projects a quantum-dot spin with 95 percent fidelity via spin-dependent Kerr rotation."
+   "why": "A single reflected photon projects a quantum-dot spin with 95 percent fidelity via spin-dependent Kerr rotation.",
+   "kind": "E"
   },
   {
    "id": "2609.06399",
@@ -184,7 +188,8 @@
    "url": null,
    "section": "B",
    "score": 68,
-   "why": "On-chip optomechanical memory stores telecom photons at 0.32 phonon occupancy with on-demand retrieval."
+   "why": "On-chip optomechanical memory stores telecom photons at 0.32 phonon occupancy with on-demand retrieval.",
+   "kind": "E"
   },
   {
    "id": "2609.08598",
@@ -214,7 +219,8 @@
    "url": null,
    "section": "A",
    "score": 62,
-   "why": "Computes how squeezed-microwave dispersive readout recovers Fisher information lost in qubit state assignment, 27 percent sensitivity gain."
+   "why": "Computes how squeezed-microwave dispersive readout recovers Fisher information lost in qubit state assignment, 27 percent sensitivity gain.",
+   "kind": "T"
   },
   {
    "id": "2609.08811",
@@ -245,7 +251,8 @@
    "url": null,
    "section": "B",
    "score": 58,
-   "why": "Rising and falling edge triggering on a series SNSPD assigns photon number 1 to 3 per event and shows jitter falls with n."
+   "why": "Rising and falling edge triggering on a series SNSPD assigns photon number 1 to 3 per event and shows jitter falls with n.",
+   "kind": "E"
   },
   {
    "id": "2609.08925",
@@ -274,7 +281,8 @@
    "url": null,
    "section": "computing",
    "score": 55,
-   "why": "Error-detected dynamic-circuit primitives, Bell pair across a 100-qubit chain with postselection instead of ancillas."
+   "why": "Error-detected dynamic-circuit primitives, Bell pair across a 100-qubit chain with postselection instead of ancillas.",
+   "kind": "TE"
   },
   {
    "id": "2609.06471",
@@ -303,7 +311,8 @@
    "url": null,
    "section": "B",
    "score": 55,
-   "why": "Mixes homodyne photocurrents from squeezed vacuum in a 32-channel RF network to certify two-mode entanglement electronically."
+   "why": "Mixes homodyne photocurrents from squeezed vacuum in a 32-channel RF network to certify two-mode entanglement electronically.",
+   "kind": "E"
   },
   {
    "id": "2609.05659",
@@ -330,7 +339,8 @@
    "url": null,
    "section": "A",
    "score": 55,
-   "why": "Tests whether dynamical-Casimir-induced synchronization of two qubits survives realistic cQED loss, dephasing dominates."
+   "why": "Tests whether dynamical-Casimir-induced synchronization of two qubits survives realistic cQED loss, dephasing dominates.",
+   "kind": "T"
   },
   {
    "id": "2609.05222",
@@ -364,7 +374,8 @@
    "url": null,
    "section": "computing",
    "score": 55,
-   "why": "Double-resonator coupler cancels residual ZZ outside the straddling regime and simulates a 20 ns CZ below 1e-5 infidelity."
+   "why": "Double-resonator coupler cancels residual ZZ outside the straddling regime and simulates a 20 ns CZ below 1e-5 infidelity.",
+   "kind": "T"
   },
   {
    "id": "2609.04704",
@@ -391,7 +402,8 @@
    "url": null,
    "section": "A",
    "score": 55,
-   "why": "Maps chaos and unbound-resonance thresholds for strongly driven Josephson circuits and confirms the flux-bias dependence in a SQUID."
+   "why": "Maps chaos and unbound-resonance thresholds for strongly driven Josephson circuits and confirms the flux-bias dependence in a SQUID.",
+   "kind": "TE"
   },
   {
    "id": "2609.07616",
@@ -417,7 +429,8 @@
    "url": null,
    "section": "B",
    "score": 55,
-   "why": "Diatomic emitter chain in vacuum hosts topological edge states alongside sub- and superradiant modes, with far-field signatures."
+   "why": "Diatomic emitter chain in vacuum hosts topological edge states alongside sub- and superradiant modes, with far-field signatures.",
+   "kind": "T"
   },
   {
    "id": "2609.08348",
@@ -450,7 +463,8 @@
    "url": null,
    "section": "computing",
    "score": 50,
-   "why": "Describes strongly driven parametric gates as rotations between instantaneous eigenstates, matching numerics where idle-frame theory fails."
+   "why": "Describes strongly driven parametric gates as rotations between instantaneous eigenstates, matching numerics where idle-frame theory fails.",
+   "kind": "T"
   },
   {
    "id": "2609.09227",
@@ -471,7 +485,8 @@
    "url": null,
    "section": "B",
    "score": 50,
-   "why": "Finite-energy GKP input beats squeezed vacuum in SU(2) and SU(1,1) interferometers at fixed envelope width."
+   "why": "Finite-energy GKP input beats squeezed vacuum in SU(2) and SU(1,1) interferometers at fixed envelope width.",
+   "kind": "T"
   },
   {
    "id": "2609.05634",
@@ -496,7 +511,8 @@
    "url": null,
    "section": "B",
    "score": 50,
-   "why": "Parametric acoustic modulation of a dressed quantum-dot spin gives 155 ps X gates with arbitrary rotation axes."
+   "why": "Parametric acoustic modulation of a dressed quantum-dot spin gives 155 ps X gates with arbitrary rotation axes.",
+   "kind": "T"
   },
   {
    "id": "2609.07076",
@@ -527,7 +543,8 @@
    "url": null,
    "section": "computing",
    "score": 48,
-   "why": "Single-tone drive on a transmon between two cavities engineers a code-agnostic CROT gate for bosonic codes."
+   "why": "Single-tone drive on a transmon between two cavities engineers a code-agnostic CROT gate for bosonic codes.",
+   "kind": "T"
   },
   {
    "id": "2609.05672",
@@ -554,7 +571,8 @@
    "url": null,
    "section": "A",
    "score": 45,
-   "why": "Kerr nonlinearity shifts the synchronization boundary of a squeezed van der Pol oscillator, decoupled from photon statistics."
+   "why": "Kerr nonlinearity shifts the synchronization boundary of a squeezed van der Pol oscillator, decoupled from photon statistics.",
+   "kind": "T"
   },
   {
    "id": "2609.03737",
@@ -582,7 +600,8 @@
    "url": null,
    "section": "computing",
    "score": 45,
-   "why": "Flux-modulated transmon lattices simulate Bose-Hubbard and anyon-Hubbard models with tunable density-dependent hopping."
+   "why": "Flux-modulated transmon lattices simulate Bose-Hubbard and anyon-Hubbard models with tunable density-dependent hopping.",
+   "kind": "T"
   },
   {
    "id": "2609.08455",
@@ -617,7 +636,8 @@
    "url": null,
    "section": "B",
    "score": 45,
-   "why": "Diffractive hybridization flattens photonic and phononic bands together in one moire optomechanical crystal."
+   "why": "Diffractive hybridization flattens photonic and phononic bands together in one moire optomechanical crystal.",
+   "kind": "TE"
   },
   {
    "id": "2609.05387",
@@ -653,7 +673,8 @@
    "url": null,
    "section": "B",
    "score": 45,
-   "why": "Deterministic single-photon source reaches 500 MHz in-fibre flux, measurable with a power meter."
+   "why": "Deterministic single-photon source reaches 500 MHz in-fibre flux, measurable with a power meter.",
+   "kind": "E"
   },
   {
    "id": "2609.04492",
@@ -683,7 +704,8 @@
    "url": null,
    "section": "A",
    "score": 42,
-   "why": "Optimizes a two-chain non-reciprocal optomechanical ladder to separate amplification from noise, mapped to cQED parameters."
+   "why": "Optimizes a two-chain non-reciprocal optomechanical ladder to separate amplification from noise, mapped to cQED parameters.",
+   "kind": "T"
   },
   {
    "id": "2609.04580",
@@ -708,7 +730,8 @@
    "url": null,
    "section": "A",
    "score": 40,
-   "why": "Argues a laboratory-frame residual detuning in the anti-Jaynes-Cummings model cannot be cancelled by Kerr for squeezed vacuum."
+   "why": "Argues a laboratory-frame residual detuning in the anti-Jaynes-Cummings model cannot be cancelled by Kerr for squeezed vacuum.",
+   "kind": "T"
   },
   {
    "id": "2609.10037",
@@ -731,7 +754,8 @@
    "url": null,
    "section": "B",
    "score": 40,
-   "why": "Certifies Gbit/s quantum randomness from quantum-dot spin noise without a microscopic model of the spins."
+   "why": "Certifies Gbit/s quantum randomness from quantum-dot spin noise without a microscopic model of the spins.",
+   "kind": "TE"
   },
   {
    "id": "2609.07892",
@@ -763,7 +787,8 @@
    "url": null,
    "section": "B",
    "score": 40,
-   "why": "Self-assembled perovskite quantum-dot clusters show emitter-number-dependent decay even far from the coherent regime."
+   "why": "Self-assembled perovskite quantum-dot clusters show emitter-number-dependent decay even far from the coherent regime.",
+   "kind": "E"
   },
   {
    "id": "2609.07338",
@@ -790,7 +815,8 @@
    "url": null,
    "section": "B",
    "score": 40,
-   "why": "Low-gain nonlinear interferometer keeps a phase-sensitivity advantage from entanglement, shifting the optimum to the dark fringe."
+   "why": "Low-gain nonlinear interferometer keeps a phase-sensitivity advantage from entanglement, shifting the optimum to the dark fringe.",
+   "kind": "TE"
   },
   {
    "id": "2609.07250",
@@ -817,7 +843,8 @@
    "url": null,
    "section": "computing",
    "score": 35,
-   "why": "Benchmarks cryogenic HEMT amplifiers by qubit readout fidelity versus power, fidelity drops above device-dependent power."
+   "why": "Benchmarks cryogenic HEMT amplifiers by qubit readout fidelity versus power, fidelity drops above device-dependent power.",
+   "kind": "E"
   },
   {
    "id": "2609.05838",
@@ -854,7 +881,8 @@
    "url": null,
    "section": "computing",
    "score": 35,
-   "why": "Variational Trotter compression on a 9-qubit processor extracts eigenenergies of H2 and Fermi-Hubbard to 2e-3."
+   "why": "Variational Trotter compression on a 9-qubit processor extracts eigenenergies of H2 and Fermi-Hubbard to 2e-3.",
+   "kind": "E"
   },
   {
    "id": "2609.03543",
@@ -885,7 +913,8 @@
    "url": null,
    "section": "A",
    "score": 35,
-   "why": "Proposes topologically protected long-distance energy transfer along a pulse-modulated superconducting qubit chain."
+   "why": "Proposes topologically protected long-distance energy transfer along a pulse-modulated superconducting qubit chain.",
+   "kind": "T"
   },
   {
    "id": "2609.08591",
@@ -915,7 +944,8 @@
    "url": null,
    "section": "B",
    "score": 35,
-   "why": "Characterizes multimode squeezing from single-pass OPAs versus local-oscillator spectral shape using Schmidt modes."
+   "why": "Characterizes multimode squeezing from single-pass OPAs versus local-oscillator spectral shape using Schmidt modes.",
+   "kind": "TE"
   },
   {
    "id": "2609.04171",
@@ -949,7 +979,8 @@
    "url": null,
    "section": "B",
    "score": 35,
-   "why": "Silicon nitride microring generates frequency-degenerate twin photons by inverse four-wave mixing, CAR 5.4."
+   "why": "Silicon nitride microring generates frequency-degenerate twin photons by inverse four-wave mixing, CAR 5.4.",
+   "kind": "E"
   },
   {
    "id": "2609.08908",
@@ -981,7 +1012,8 @@
    "url": null,
    "section": "computing",
    "score": 30,
-   "why": "Platform-aware compiler gives end-to-end resource estimates across hardware and error-correction models."
+   "why": "Platform-aware compiler gives end-to-end resource estimates across hardware and error-correction models.",
+   "kind": "T"
   },
   {
    "id": "2609.05226",
@@ -1007,7 +1039,8 @@
    "url": null,
    "section": "computing",
    "score": 30,
-   "why": "Simulates phonon barriers plus interleaved QEC tiling to suppress radiation-induced correlated errors."
+   "why": "Simulates phonon barriers plus interleaved QEC tiling to suppress radiation-induced correlated errors.",
+   "kind": "T"
   },
   {
    "id": "2609.03421",
@@ -1036,7 +1069,8 @@
    "url": null,
    "section": "A",
    "score": 30,
-   "why": "Extends covariant quantum Fisher information to non-Hermitian SSH lattices, skin effect gives 30x enhancement."
+   "why": "Extends covariant quantum Fisher information to non-Hermitian SSH lattices, skin effect gives 30x enhancement.",
+   "kind": "T"
   },
   {
    "id": "2609.07708",
@@ -1068,7 +1102,8 @@
    "url": null,
    "section": "B",
    "score": 30,
-   "why": "Integrated Brillouin laser drives Sr+ single- and two-qubit gates, Bell fidelity 92 percent."
+   "why": "Integrated Brillouin laser drives Sr+ single- and two-qubit gates, Bell fidelity 92 percent.",
+   "kind": "E"
   },
   {
    "id": "2609.04368",
@@ -1098,7 +1133,8 @@
    "url": null,
    "section": "B",
    "score": 30,
-   "why": "Analyses three-photon interference in a six-port interferometer built from two tritters with two phases."
+   "why": "Analyses three-photon interference in a six-port interferometer built from two tritters with two phases.",
+   "kind": "T"
   },
   {
    "id": "2609.09495",
@@ -1120,7 +1156,8 @@
    "url": null,
    "section": "computing",
    "score": 25,
-   "why": "Certifies bipartite entanglement of a QAOA layer on a five-qubit processor and tracks it against CZ pulse amplitude."
+   "why": "Certifies bipartite entanglement of a QAOA layer on a five-qubit processor and tracks it against CZ pulse amplitude.",
+   "kind": "E"
   },
   {
    "id": "2609.08727",
@@ -1147,7 +1184,8 @@
    "url": null,
    "section": "computing",
    "score": 25,
-   "why": "Deep Q-learning agent finds pulse sequences for ctrl-VQE ground-state preparation in simulation."
+   "why": "Deep Q-learning agent finds pulse sequences for ctrl-VQE ground-state preparation in simulation.",
+   "kind": "T"
   },
   {
    "id": "2609.07393",
@@ -1177,7 +1215,8 @@
    "url": null,
    "section": "B",
    "score": 25,
-   "why": "All-optical ringdown from a double-horned cavity lineshape measures mechanical Q without resolving the oscillation."
+   "why": "All-optical ringdown from a double-horned cavity lineshape measures mechanical Q without resolving the oscillation.",
+   "kind": "TE"
   },
   {
    "id": "2609.07317",
@@ -1215,7 +1254,8 @@
    "url": null,
    "section": "B",
    "score": 25,
-   "why": "Planar metal-semiconductor antennas keep quantum-dot linewidths while allowing electrical and strain tuning."
+   "why": "Planar metal-semiconductor antennas keep quantum-dot linewidths while allowing electrical and strain tuning.",
+   "kind": "E"
   },
   {
    "id": "2609.05402",
@@ -1243,7 +1283,8 @@
    "url": null,
    "section": "B",
    "score": 25,
-   "why": "Gaussian-state multiparameter estimation in a double-cavity optomechanical system with parametric gain and feedback."
+   "why": "Gaussian-state multiparameter estimation in a double-cavity optomechanical system with parametric gain and feedback.",
+   "kind": "T"
   },
   {
    "id": "2609.09426",
@@ -1269,7 +1310,8 @@
    "url": null,
    "section": "computing",
    "score": 20,
-   "why": "First-principles transport shows amorphous AlOx barriers scatter Josephson energy over two orders of magnitude."
+   "why": "First-principles transport shows amorphous AlOx barriers scatter Josephson energy over two orders of magnitude.",
+   "kind": "T"
   },
   {
    "id": "2609.09334",
@@ -1293,7 +1335,8 @@
    "url": null,
    "section": "computing",
    "score": 20,
-   "why": "Asks whether surface-code syndrome telemetry leaks the logical input, finds anisotropic leakage set by Z-distance."
+   "why": "Asks whether surface-code syndrome telemetry leaks the logical input, finds anisotropic leakage set by Z-distance.",
+   "kind": "TE"
   },
   {
    "id": "2609.09771",
@@ -1327,7 +1370,8 @@
    "url": null,
    "section": "B",
    "score": 20,
-   "why": "Overlapping hBN flakes raise quantum emitter density 15-fold without degrading optical quality."
+   "why": "Overlapping hBN flakes raise quantum emitter density 15-fold without degrading optical quality.",
+   "kind": "E"
   },
   {
    "id": "2609.04447",
@@ -1356,7 +1400,8 @@
    "url": null,
    "section": "B",
    "score": 20,
-   "why": "Three-user Sagnac twin-field QKD network over 127 km without active phase stabilization."
+   "why": "Three-user Sagnac twin-field QKD network over 127 km without active phase stabilization.",
+   "kind": "E"
   },
   {
    "id": "2609.09371",
@@ -1383,7 +1428,8 @@
    "url": null,
    "section": "computing",
    "score": 15,
-   "why": "Reviews materials and interface problems limiting coherence across superconducting, defect and photonic platforms."
+   "why": "Reviews materials and interface problems limiting coherence across superconducting, defect and photonic platforms.",
+   "kind": "T"
   },
   {
    "id": "2609.08569",
@@ -1412,7 +1458,8 @@
    "url": null,
    "section": "computing",
    "score": 15,
-   "why": "Fabricates Nb/Al-AlOx/Nb cross-type junctions with CMP planarisation for SQUIDs."
+   "why": "Fabricates Nb/Al-AlOx/Nb cross-type junctions with CMP planarisation for SQUIDs.",
+   "kind": "E"
   },
   {
    "id": "2609.05192",
@@ -1443,7 +1490,8 @@
    "url": null,
    "section": "computing",
    "score": 15,
-   "why": "Checks when two series Josephson junctions still act as one high-transparency element under ac drive."
+   "why": "Checks when two series Josephson junctions still act as one high-transparency element under ac drive.",
+   "kind": "T"
   },
   {
    "id": "2609.09097",
@@ -1469,7 +1517,8 @@
    "url": null,
    "section": "computing",
    "score": 10,
-   "why": "Junction-free superconducting diode in NbSe2 via magnetic proximity, used for an XNOR logic gate."
+   "why": "Junction-free superconducting diode in NbSe2 via magnetic proximity, used for an XNOR logic gate.",
+   "kind": "E"
   },
   {
    "id": "2609.08278",
@@ -1497,7 +1546,8 @@
    "url": null,
    "section": "computing",
    "score": 10,
-   "why": "Neel vector of a PT-symmetric antiferromagnet switches the Josephson diode effect on and off."
+   "why": "Neel vector of a PT-symmetric antiferromagnet switches the Josephson diode effect on and off.",
+   "kind": "T"
   },
   {
    "id": "2609.03650",
@@ -1537,7 +1587,8 @@
    "url": null,
    "section": "computing",
    "score": 10,
-   "why": "Measures low-frequency charge noise in bilayer graphene quantum dots, partly with resonator dispersive readout."
+   "why": "Measures low-frequency charge noise in bilayer graphene quantum dots, partly with resonator dispersive readout.",
+   "kind": "E"
   }
  ]
 }

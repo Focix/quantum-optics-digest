@@ -40,6 +40,7 @@ def build_digest(
         entry["section"] = r["section"] if r else c.pool
         entry["score"] = r["score"] if r else None
         entry["why"] = r["why"].strip() if r else None
+        entry["kind"] = r.get("kind") if r else None
         items.append(entry)
     # highest score first; unranked items keep the newest-first order they arrived in
     if ranked:

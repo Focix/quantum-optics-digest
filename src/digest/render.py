@@ -1,4 +1,4 @@
-"""Static site rendering: index page, archive pages and stylesheet."""
+"""Static site rendering: one page per section (A, B, weekly), archive pages, stylesheet."""
 
 from __future__ import annotations
 
@@ -8,19 +8,22 @@ from pathlib import Path
 from typing import Any
 
 SECTION_TITLES = {
-    "A": "A · Superconducting artificial atoms",
-    "B": "B · Quantum optics on other platforms",
+    "A": "Superconducting artificial atoms",
+    "B": "Quantum optics on other platforms",
+    "weekly": "Superconducting quantum computing, weekly",
     "computing": "Superconducting quantum computing (held for Saturday)",
-    "weekly": "This week in superconducting quantum computing",
 }
+PAGES = {"A": "index.html", "B": "b.html", "weekly": "weekly.html"}
+NAV_LABELS = {"A": "A · Superconducting atoms", "B": "B · Other platforms", "weekly": "Weekly · Computing"}
 SECTION_ORDER = ["A", "B", "weekly", "computing"]
+KIND_TITLES = {"T": "theory", "E": "experiment", "TE": "theory and experiment"}
 TOP_N = 10
 PREVIOUS_DAYS = 14
 SITE_TITLE = "Quantum Optics Digest"
 
 STYLE = """
-:root { --bg:#fbfaf7; --fg:#1d1d1b; --muted:#6b6b66; --line:#e2e0d9; --accent:#8a3b12; --hi:#fff4e5; --warn:#b3261e; --warnbg:#fde7e5; }
-@media (prefers-color-scheme: dark) { :root { --bg:#161614; --fg:#ebe8e0; --muted:#9c9a92; --line:#33322e; --accent:#f0a06a; --hi:#2a2118; --warn:#ff8a80; --warnbg:#3a1c1a; } }
+:root { --bg:#fbfaf7; --fg:#1d1d1b; --muted:#6b6b66; --line:#e2e0d9; --accent:#8a3b12; --hi:#fff4e5; --warn:#b3261e; --warnbg:#fde7e5; --t:#2b5f9e; --e:#2e7d4f; --te:#7a4b9d; }
+@media (prefers-color-scheme: dark) { :root { --bg:#161614; --fg:#ebe8e0; --muted:#9c9a92; --line:#33322e; --accent:#f0a06a; --hi:#2a2118; --warn:#ff8a80; --warnbg:#3a1c1a; --t:#7fb0e8; --e:#7fd0a0; --te:#c39ae6; } }
 html { color-scheme: light dark; }
 body { margin:0; padding:1.5rem 1rem 3rem; background:var(--bg); color:var(--fg); font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; }
 main { max-width:52rem; margin:0 auto; }
@@ -29,6 +32,10 @@ h1 a { color:inherit; text-decoration:none; }
 h2 { font-size:1.25rem; margin:2rem 0 .5rem; border-bottom:1px solid var(--line); padding-bottom:.25rem; }
 h3 { font-size:1.05rem; margin:1.25rem 0 .5rem; color:var(--accent); }
 .sub { color:var(--muted); margin:0; }
+nav { display:flex; flex-wrap:wrap; gap:.25rem 1rem; margin:1rem 0; padding:.5rem 0; border-bottom:1px solid var(--line); }
+nav a { color:var(--muted); text-decoration:none; font-weight:600; }
+nav a.current { color:var(--accent); border-bottom:2px solid var(--accent); }
+.legend { color:var(--muted); font-size:.85rem; margin:.25rem 0 0; }
 .banner { background:var(--warnbg); color:var(--warn); border:1px solid var(--warn); border-radius:6px; padding:.75rem 1rem; margin:1rem 0; }
 .banner code { white-space:pre-wrap; word-break:break-word; }
 ol.papers { list-style:none; padding:0; margin:0; }
@@ -41,6 +48,8 @@ ol.papers > li.read { background:var(--hi); margin:0 -.5rem; padding:.6rem .5rem
 .why { margin:.15rem 0 0; }
 .score { display:inline-block; min-width:2.2em; text-align:right; font-variant-numeric:tabular-nums; color:var(--muted); margin-right:.5rem; }
 li.read .score { color:var(--accent); font-weight:600; }
+.kind { display:inline-block; min-width:1.6em; text-align:center; font-size:.75rem; font-weight:700; line-height:1.4; border-radius:3px; padding:0 .3em; margin-right:.5rem; color:#fff; vertical-align:middle; }
+.kind-T { background:var(--t); } .kind-E { background:var(--e); } .kind-TE { background:var(--te); }
 details { margin:.5rem 0; }
 summary { cursor:pointer; color:var(--muted); }
 details.day { border-bottom:1px solid var(--line); padding:.4rem 0; }
@@ -66,10 +75,21 @@ def _url(item: dict[str, Any]) -> str:
     return str(url) if url else f"https://arxiv.org/abs/{item['id']}"
 
 
+def _kind(item: dict[str, Any]) -> str:
+    kind = item.get("kind")
+    if kind not in KIND_TITLES:
+        return ""
+    return f'<span class="kind kind-{kind}" title="{KIND_TITLES[kind]}">{kind}</span>'
+
+
+def _score(item: dict[str, Any]) -> str:
+    score = item.get("score")
+    return f'<span class="score">{score}</span>' if score is not None else ""
+
+
 def _paper_li(item: dict[str, Any]) -> str:
     score = item.get("score")
     cls = ' class="read"' if isinstance(score, int) and score >= 80 else ""
-    score_html = f'<span class="score">{score}</span>' if score is not None else ""
     meta = [_authors(item.get("authors", [])), item.get("submitted", "")]
     cite = item.get("cite") or {}
     if cite.get("citationCount"):
@@ -78,59 +98,59 @@ def _paper_li(item: dict[str, Any]) -> str:
         meta.append(cite["venue"])
     why = f'<p class="why">{_esc(item["why"])}</p>' if item.get("why") else ""
     return (
-        f"<li{cls}>{score_html}<span class=\"title\"><a href=\"{_esc(_url(item))}\">"
+        f"<li{cls}>{_score(item)}{_kind(item)}<span class=\"title\"><a href=\"{_esc(_url(item))}\">"
         f"{_esc(item['title'])}</a></span>"
         f"<div class=\"meta\">{_esc(' · '.join(m for m in meta if m))}</div>{why}</li>"
     )
 
 
 def _title_li(item: dict[str, Any]) -> str:
-    score = item.get("score")
-    score_html = f'<span class="score">{score}</span>' if score is not None else ""
-    return f"<li>{score_html}<a href=\"{_esc(_url(item))}\">{_esc(item['title'])}</a></li>"
+    return f"<li>{_score(item)}{_kind(item)}<a href=\"{_esc(_url(item))}\">{_esc(item['title'])}</a></li>"
 
 
-def _section(title: str, items: list[dict[str, Any]], *, top_n: int, collapsed: bool) -> str:
+def _titles_details(summary: str, items: list[dict[str, Any]]) -> str:
+    inner = "".join(_title_li(i) for i in items)
+    return f"<details><summary>{_esc(summary)}</summary><ul class=\"titles\">{inner}</ul></details>"
+
+
+def _papers(items: list[dict[str, Any]], *, top_n: int = TOP_N) -> str:
+    """Top-N with why-lines, the rest collapsed titles-only. Nothing dropped."""
     if not items:
-        return ""
+        return '<p class="meta">No new papers.</p>'
     top, rest = items[:top_n], items[top_n:]
-    parts = [f"<h3>{_esc(title)} <span class=\"meta\">({len(items)})</span></h3>"]
-    if collapsed:
-        parts.append(f"<details><summary>{len(items)} papers</summary><ul class=\"titles\">")
-        parts.extend(_title_li(i) for i in items)
-        parts.append("</ul></details>")
-        return "\n".join(parts)
-    parts.append('<ol class="papers">' + "".join(_paper_li(i) for i in top) + "</ol>")
+    out = '<ol class="papers">' + "".join(_paper_li(i) for i in top) + "</ol>"
     if rest:
-        parts.append(f"<details><summary>also matched ({len(rest)} more)</summary><ul class=\"titles\">")
-        parts.extend(_title_li(i) for i in rest)
-        parts.append("</ul></details>")
-    return "\n".join(parts)
+        out += _titles_details(f"also matched ({len(rest)} more)", rest)
+    return out
 
 
-def _group(digest: dict[str, Any]) -> dict[str, list[dict[str, Any]]]:
-    groups: dict[str, list[dict[str, Any]]] = {}
-    for item in digest.get("items", []):
-        groups.setdefault(item.get("section", "A"), []).append(item)
-    return groups
+def _items(digest: dict[str, Any], section: str) -> list[dict[str, Any]]:
+    return [i for i in digest.get("items", []) if i.get("section") == section]
 
 
-def render_digest_body(digest: dict[str, Any], *, top_n: int = TOP_N) -> str:
-    parts: list[str] = []
-    if not digest.get("ranked", True):
-        parts.append('<p class="meta">unranked: the model output was rejected, showing the raw candidate list.</p>')
-    groups = _group(digest)
-    if not groups:
+def _unranked_note(digest: dict[str, Any]) -> str:
+    if digest.get("ranked", True):
+        return ""
+    return '<p class="meta">unranked: the model output was rejected, showing the raw candidate list.</p>'
+
+
+def render_digest_body(digest: dict[str, Any]) -> str:
+    """All sections of one digest (archive pages)."""
+    parts = [_unranked_note(digest)]
+    present = {i.get("section", "A") for i in digest.get("items", [])}
+    if not present:
         parts.append('<p class="meta">No new papers.</p>')
-    for key in SECTION_ORDER + [k for k in groups if k not in SECTION_ORDER]:
-        if key in groups:
-            parts.append(_section(SECTION_TITLES.get(key, key), groups[key], top_n=top_n, collapsed=(key == "computing")))
-    return "\n".join(parts)
+    for key in SECTION_ORDER + sorted(present - set(SECTION_ORDER)):
+        if key not in present:
+            continue
+        items = _items(digest, key)
+        parts.append(f"<h3>{_esc(SECTION_TITLES.get(key, str(key)))} <span class=\"meta\">({len(items)})</span></h3>")
+        parts.append(_titles_details(f"{len(items)} papers", items) if key == "computing" else _papers(items))
+    return "\n".join(p for p in parts if p)
 
 
 def _pretty_date(iso: str) -> str:
-    d = date.fromisoformat(iso)
-    return d.strftime("%A %-d %B %Y")
+    return date.fromisoformat(iso).strftime("%A %-d %B %Y")
 
 
 def previous_working_day(today: date) -> date:
@@ -140,7 +160,7 @@ def previous_working_day(today: date) -> date:
     return d
 
 
-def _banner(latest_daily: dict[str, Any] | None, today: date, error: str | None, log_url: str | None = None) -> str:
+def _banner(latest_daily: dict[str, Any] | None, today: date, error: str | None, log_url: str | None) -> str:
     messages: list[str] = []
     if error:
         messages.append(error)
@@ -155,8 +175,22 @@ def _banner(latest_daily: dict[str, Any] | None, today: date, error: str | None,
     if not messages:
         return ""
     body = "<br>".join(f"<code>{_esc(m)}</code>" for m in messages)
-    link = f' <a href="{_esc(log_url)}">run log</a>' if log_url else ""
+    link = "" if not log_url else f' <a href="{_esc(log_url)}">run log</a>'
     return f'<div class="banner"><strong>Problem.</strong> {body}{link}</div>'
+
+
+def _header(current: str | None, *, root: str) -> str:
+    links = "".join(
+        f'<a href="{root}{PAGES[key]}"{" class=\"current\"" if key == current else ""}>{_esc(NAV_LABELS[key])}</a>'
+        for key in PAGES
+    )
+    return (
+        f"<h1><a href=\"{root or './'}\">{SITE_TITLE}</a></h1>"
+        '<p class="sub">New arXiv papers ranked each weekday morning against a written interest statement.</p>'
+        f"<nav>{links}</nav>"
+        '<p class="legend"><span class="kind kind-T">T</span>theory &nbsp; <span class="kind kind-E">E</span>experiment '
+        '&nbsp; <span class="kind kind-TE">TE</span>both &nbsp; score ≥80 highlighted</p>'
+    )
 
 
 def _page(title: str, body: str, *, css_href: str) -> str:
@@ -173,49 +207,71 @@ def _archive_name(digest: dict[str, Any]) -> str:
     return f"{digest['run']}{suffix}.html"
 
 
-def render_index(
-    digests: list[dict[str, Any]], *, today: date, error: str | None = None, log_url: str | None = None
-) -> str:
+def _archive_footer(digests: list[dict[str, Any]]) -> str:
+    links = "".join(
+        f"<li><a href=\"archive/{_archive_name(d)}\">{d['run']}{' (weekly)' if d['mode'] == 'weekly' else ''}</a></li>"
+        for d in digests
+    )
+    return f"<footer><h2>Archive</h2><ul>{links}</ul></footer>"
+
+
+def _day_details(d: dict[str, Any], items: list[dict[str, Any]]) -> str:
+    top = next((i["title"] for i in items if i.get("score") is not None), None)
+    hint = f" · {_esc(top)}" if top else ""
+    return (
+        f"<details class=\"day\"><summary>{_pretty_date(d['run'])} · {len(items)} papers{hint}</summary>"
+        f"{_unranked_note(d)}{_papers(items)}</details>"
+    )
+
+
+def _section_body(digests: list[dict[str, Any]], section: str) -> str:
     dailies = [d for d in digests if d["mode"] == "daily"]
-    weeklies = [d for d in digests if d["mode"] == "weekly"]
-    latest = dailies[0] if dailies else None
-    latest_weekly = weeklies[0] if weeklies else None
-
-    parts = [
-        f"<h1><a href=\"./\">{SITE_TITLE}</a></h1>",
-        '<p class="sub">New arXiv papers on superconducting artificial atoms and quantum optics, ranked each weekday morning.</p>',
-        _banner(latest, today, error, log_url),
-    ]
-    if latest:
-        parts.append(f"<h2>Today · {_pretty_date(latest['run'])}</h2>")
-        parts.append(render_digest_body(latest))
-    if latest_weekly and date.fromisoformat(latest_weekly["run"]) >= today - timedelta(days=7):
-        parts.append(f"<h2>This week · {_pretty_date(latest_weekly['run'])}</h2>")
-        parts.append(render_digest_body(latest_weekly))
-
+    parts = [f"<h2>{_esc(SECTION_TITLES[section])}</h2>"]
+    if dailies:
+        latest = dailies[0]
+        parts.append(f"<h3>Today · {_pretty_date(latest['run'])}</h3>")
+        parts.append(_unranked_note(latest) + _papers(_items(latest, section)))
     previous = dailies[1 : 1 + PREVIOUS_DAYS]
     if previous:
         parts.append("<h2>Previous days</h2>")
-        for d in previous:
-            n = len(d.get("items", []))
-            top = next((i["title"] for i in d.get("items", []) if i.get("score") is not None), None)
-            hint = f" · {_esc(top)}" if top else ""
-            parts.append(
-                f"<details class=\"day\"><summary>{_pretty_date(d['run'])} · {n} papers{hint}</summary>"
-                f"{render_digest_body(d)}</details>"
-            )
+        parts.extend(_day_details(d, _items(d, section)) for d in previous)
+    return "\n".join(parts)
 
-    parts.append("<footer><h2>Archive</h2><ul>")
-    for d in digests:
-        label = d["run"] + (" (weekly)" if d["mode"] == "weekly" else "")
-        parts.append(f"<li><a href=\"archive/{_archive_name(d)}\">{label}</a></li>")
-    parts.append("</ul></footer>")
-    return _page(SITE_TITLE, "\n".join(p for p in parts if p), css_href="style.css")
+
+def _weekly_body(digests: list[dict[str, Any]], today: date) -> str:
+    weeklies = [d for d in digests if d["mode"] == "weekly"]
+    dailies = [d for d in digests if d["mode"] == "daily"]
+    parts = [f"<h2>{_esc(SECTION_TITLES['weekly'])}</h2>"]
+    if weeklies:
+        latest = weeklies[0]
+        parts.append(f"<h3>Week ending {_pretty_date(latest['run'])}</h3>")
+        parts.append(_unranked_note(latest) + _papers(_items(latest, "weekly")))
+        since = date.fromisoformat(latest["run"])
+    else:
+        parts.append('<p class="meta">No weekly digest yet. The first one comes on Saturday.</p>')
+        since = today - timedelta(days=7)
+    pool = [i for d in dailies if date.fromisoformat(d["run"]) > since for i in _items(d, "computing")]
+    if pool:
+        parts.append(f"<h3>Pool for the next weekly digest <span class=\"meta\">({len(pool)})</span></h3>")
+        parts.append(_titles_details(f"{len(pool)} computing papers since {since.isoformat()}", pool))
+    if len(weeklies) > 1:
+        parts.append("<h2>Previous weeks</h2>")
+        parts.extend(_day_details(d, _items(d, "weekly")) for d in weeklies[1 : 1 + PREVIOUS_DAYS])
+    return "\n".join(parts)
+
+
+def render_page(
+    digests: list[dict[str, Any]], *, page: str, today: date, error: str | None = None, log_url: str | None = None
+) -> str:
+    dailies = [d for d in digests if d["mode"] == "daily"]
+    body = _weekly_body(digests, today) if page == "weekly" else _section_body(digests, page)
+    parts = [_header(page, root=""), _banner(dailies[0] if dailies else None, today, error, log_url), body, _archive_footer(digests)]
+    return _page(f"{SITE_TITLE} · {NAV_LABELS[page]}", "\n".join(p for p in parts if p), css_href="style.css")
 
 
 def render_archive(digest: dict[str, Any]) -> str:
-    label = f"{_pretty_date(digest['run'])}" + (" · weekly" if digest["mode"] == "weekly" else "")
-    body = f"<h1><a href=\"../\">{SITE_TITLE}</a></h1><h2>{label}</h2>" + render_digest_body(digest)
+    label = _pretty_date(digest["run"]) + (" · weekly" if digest["mode"] == "weekly" else "")
+    body = _header(None, root="../") + f"<h2>{label}</h2>" + render_digest_body(digest)
     return _page(f"{SITE_TITLE} · {digest['run']}", body, css_href="../style.css")
 
 
@@ -224,7 +280,8 @@ def render_site(
 ) -> None:
     (docs / "archive").mkdir(parents=True, exist_ok=True)
     (docs / "style.css").write_text(STYLE.strip() + "\n")
-    (docs / "index.html").write_text(render_index(digests, today=today, error=error, log_url=log_url))
     (docs / ".nojekyll").touch()
+    for page, filename in PAGES.items():
+        (docs / filename).write_text(render_page(digests, page=page, today=today, error=error, log_url=log_url))
     for d in digests:
         (docs / "archive" / _archive_name(d)).write_text(render_archive(d))

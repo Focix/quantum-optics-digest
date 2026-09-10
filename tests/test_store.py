@@ -12,8 +12,8 @@ def cand(id: str, pool: str = "A") -> Candidate:
 
 def test_build_digest_merges_ranking_and_orders_by_score() -> None:
     ranking = {"run": "2026-09-10", "mode": "daily", "items": [
-        {"id": "1", "section": "A", "score": 40, "why": "meh"},
-        {"id": "2", "section": "A", "score": 90, "why": "wow"},
+        {"id": "1", "section": "A", "score": 40, "why": "meh", "kind": "T"},
+        {"id": "2", "section": "A", "score": 90, "why": "wow", "kind": "E"},
     ]}
     digest = build_digest([cand("1"), cand("2")], ranking, status={"arxiv": "ok"}, run=date(2026, 9, 10), mode="daily")
 
@@ -22,6 +22,7 @@ def test_build_digest_merges_ranking_and_orders_by_score() -> None:
     assert digest["ranked"] is True
     assert [(i["id"], i["score"], i["why"]) for i in digest["items"]] == [("2", 90, "wow"), ("1", 40, "meh")]
     assert digest["items"][0]["section"] == "A"
+    assert [i["kind"] for i in digest["items"]] == ["E", "T"]
     assert digest["items"][0]["title"] == "T2"
     assert digest["status"] == {"arxiv": "ok"}
 
