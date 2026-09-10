@@ -2,4 +2,8 @@
 # "First Last" matches "F. Last" and "First Last"; a bare surname matches any first name.
 # Accents are ignored. Edit by hand; the routine never touches this file.
 authors = [
+  "Andreas Wallraff",
+  "Per Delsing",
+  "Oleg Astafiev",
+  "William Oliver",
 ]
