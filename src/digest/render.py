@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import html
+import json
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -78,10 +79,156 @@ ul.titles li { margin:.2rem 0; }
 .fb { margin-left:.5rem; white-space:nowrap; }
 .fb a { text-decoration:none; opacity:.55; filter:grayscale(1); }
 .fb a:hover { opacity:1; filter:none; }
+button.zot { display:none; margin-left:.5rem; font:inherit; font-size:.75rem; line-height:1.4; padding:0 .4em; border:1px solid var(--line); border-radius:3px; background:transparent; color:var(--muted); cursor:pointer; vertical-align:middle; }
+.zot-on button.zot { display:inline-block; }
+button.zot:hover { color:var(--accent); border-color:var(--accent); }
+button.zot.zot-done { color:var(--e); border-color:var(--e); cursor:default; }
+a.zot-setup { color:var(--muted); }
+dialog { background:var(--bg); color:var(--fg); border:1px solid var(--line); border-radius:8px; padding:1rem 1.25rem; max-width:26rem; width:calc(100% - 2rem); }
+dialog::backdrop { background:rgba(0,0,0,.4); }
+dialog h3 { margin:0 0 .5rem; }
+dialog label { display:block; margin:.6rem 0; font-size:.9rem; }
+dialog input { display:block; width:100%; box-sizing:border-box; margin-top:.2rem; padding:.35rem .5rem; font:inherit; color:inherit; background:transparent; border:1px solid var(--line); border-radius:4px; }
+dialog menu { display:flex; gap:.5rem; justify-content:flex-end; padding:0; margin:1rem 0 0; }
+dialog button { font:inherit; padding:.3rem .8rem; border:1px solid var(--line); border-radius:4px; background:transparent; color:inherit; cursor:pointer; }
+dialog button.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
 footer { margin-top:3rem; color:var(--muted); font-size:.9rem; }
 footer p a { color:inherit; }
 footer ul { columns:2; padding-left:1.25rem; }
 """
+
+ZOTERO_JS = r"""
+(() => {
+  const KEY = "qod.zotero", ADDED = "qod.zotero.added", API = "https://api.zotero.org";
+  const load = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch (e) { return d; } };
+  const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+  let cfg = load(KEY, null);
+  const added = new Set(load(ADDED, []));
+  const cache = {};
+  const root = document.body.dataset.root || "";
+  const dialog = document.getElementById("zot-dialog");
+  const form = dialog && dialog.querySelector("form");
+  const status = document.getElementById("zot-status");
+
+  const headers = (extra) => Object.assign({ "Zotero-API-Key": cfg.apiKey, "Zotero-API-Version": "3" }, extra || {});
+  async function api(path, opts) {
+    opts = opts || {};
+    const res = await fetch(API + "/users/" + cfg.userId + path, Object.assign({}, opts, { headers: headers(opts.headers) }));
+    if (!res.ok) throw new Error("Zotero " + res.status + ": " + (await res.text()).slice(0, 200));
+    return res;
+  }
+  async function post(path, body) {
+    const res = await api(path, { method: "POST", body: JSON.stringify(body),
+      headers: { "Content-Type": "application/json", "Zotero-Write-Token": Math.random().toString(36).slice(2) + Date.now().toString(36) } });
+    const r = await res.json();
+    if (Object.keys(r.failed || {}).length) throw new Error("Zotero rejected: " + JSON.stringify(r.failed).slice(0, 200));
+    return r.successful;
+  }
+
+  function refresh() {
+    document.body.classList.toggle("zot-on", !!cfg);
+    document.querySelectorAll("button.zot").forEach((b) => {
+      if (added.has(b.dataset.id)) { b.classList.add("zot-done"); b.textContent = "\u2713"; b.title = "in Zotero"; }
+    });
+  }
+
+  async function connect(userId, apiKey, name) {
+    cfg = { userId: userId.trim(), apiKey: apiKey.trim(), collectionName: (name || "to-read").trim() || "to-read" };
+    const res = await api("/collections?limit=100");
+    const found = (await res.json()).find((c) => c.data.name.toLowerCase() === cfg.collectionName.toLowerCase());
+    if (found) cfg.collectionKey = found.key;
+    else cfg.collectionKey = (await post("/collections", [{ name: cfg.collectionName, parentCollection: false }]))["0"].key;
+    save(KEY, cfg);
+  }
+
+  function creators(authors) {
+    return (authors || []).map((a) => {
+      const parts = a.trim().split(/\s+/);
+      if (parts.length < 2) return { creatorType: "author", name: a.trim() };
+      return { creatorType: "author", firstName: parts.slice(0, -1).join(" "), lastName: parts[parts.length - 1] };
+    });
+  }
+  function itemFor(rec) {
+    const arxiv = /^\d{4}\.\d{4,5}(v\d+)?$/.test(rec.id);
+    const url = rec.url || "https://arxiv.org/abs/" + rec.id;
+    const base = { title: rec.title, creators: creators(rec.authors), abstractNote: rec.abstract || "", date: rec.submitted || "",
+      url: url, accessDate: new Date().toISOString().slice(0, 10), collections: [cfg.collectionKey], tags: [{ tag: "digest" }] };
+    if (arxiv) Object.assign(base, { itemType: "preprint", repository: "arXiv", archiveID: "arXiv:" + rec.id,
+      DOI: "10.48550/arXiv." + rec.id, libraryCatalog: "arXiv.org", extra: "arXiv: " + rec.id + (rec.categories && rec.categories.length ? " [" + rec.categories[0] + "]" : "") });
+    else Object.assign(base, { itemType: "journalArticle", DOI: /doi\.org\//.test(url) ? url.split("doi.org/")[1] : "" });
+    return { item: base, pdf: arxiv ? "https://arxiv.org/pdf/" + rec.id : null };
+  }
+
+  async function record(btn) {
+    const src = root + "data/" + btn.dataset.src + ".json";
+    if (!cache[src]) cache[src] = fetch(src).then((r) => { if (!r.ok) throw new Error("no data file " + src); return r.json(); });
+    const rec = (await cache[src]).items[btn.dataset.id];
+    if (!rec) throw new Error("paper not in " + src);
+    return rec;
+  }
+
+  async function add(btn) {
+    btn.disabled = true; btn.textContent = "\u2026";
+    try {
+      const rec = await record(btn);
+      const q = await api("/items?limit=1&qmode=everything&q=" + encodeURIComponent(rec.id));
+      if (Number(q.headers.get("Total-Results") || "0") > 0) { btn.title = "already in your library"; }
+      else {
+        const { item, pdf } = itemFor(rec);
+        const key = (await post("/items", [item]))["0"].key;
+        const children = [];
+        if (pdf) children.push({ itemType: "attachment", linkMode: "linked_url", parentItem: key, title: "arXiv PDF", url: pdf, contentType: "application/pdf" });
+        if (rec.why) children.push({ itemType: "note", parentItem: key, note: "<p>" + rec.why + (rec.score != null ? " (digest score " + rec.score + ")" : "") + "</p>" });
+        if (children.length) await post("/items", children);
+        btn.title = "saved to " + cfg.collectionName;
+      }
+      added.add(rec.id); save(ADDED, Array.from(added));
+      btn.classList.add("zot-done"); btn.textContent = "\u2713";
+    } catch (e) {
+      btn.textContent = "!"; btn.title = String(e.message || e); btn.disabled = false;
+    }
+  }
+
+  document.addEventListener("click", (ev) => {
+    const btn = ev.target.closest("button.zot");
+    if (btn && cfg && !btn.classList.contains("zot-done")) { ev.preventDefault(); add(btn); }
+    const setup = ev.target.closest("a.zot-setup");
+    if (setup && dialog) {
+      ev.preventDefault();
+      if (cfg) { form.userId.value = cfg.userId; form.apiKey.value = cfg.apiKey; form.collection.value = cfg.collectionName; }
+      status.textContent = cfg ? "Connected. Collection: " + cfg.collectionName + "." : "";
+      dialog.showModal();
+    }
+  });
+  if (form) {
+    form.addEventListener("submit", async (ev) => {
+      const action = ev.submitter && ev.submitter.value;
+      if (action === "disconnect") { cfg = null; try { localStorage.removeItem(KEY); } catch (e) {} refresh(); return; }
+      if (action !== "save") return;
+      ev.preventDefault();
+      status.textContent = "Checking\u2026";
+      try { await connect(form.userId.value, form.apiKey.value, form.collection.value); refresh(); dialog.close(); }
+      catch (e) { cfg = load(KEY, null); status.textContent = String(e.message || e); }
+    });
+  }
+  refresh();
+})();
+"""
+
+ZOTERO_DIALOG = (
+    '<dialog id="zot-dialog"><form method="dialog">'
+    "<h3>Save to Zotero</h3>"
+    '<p class="meta">Stored only in this browser. Create a key at <a href="https://www.zotero.org/settings/keys/new">'
+    "zotero.org/settings/keys</a> with write access to your personal library; your user ID is shown on the keys page. "
+    "Papers go to the collection named below, created if missing.</p>"
+    '<label>User ID <input name="userId" required inputmode="numeric" autocomplete="off"></label>'
+    '<label>API key <input name="apiKey" required autocomplete="off"></label>'
+    '<label>Collection <input name="collection" value="to-read"></label>'
+    '<p id="zot-status" class="meta"></p>'
+    '<menu><button value="cancel">Cancel</button><button value="disconnect">Disconnect</button>'
+    '<button value="save" class="primary">Connect</button></menu>'
+    "</form></dialog>"
+)
 
 
 def _esc(text: str) -> str:
@@ -148,6 +295,28 @@ def _feedback(item: dict[str, Any], *, site: Site, run: str | None) -> str:
     )
 
 
+def _data_name(digest: dict[str, Any]) -> str:
+    """Stem of the per-digest JSON under docs/data/ that zotero.js reads."""
+    suffix = "" if digest["mode"] == "daily" else f"-{digest['mode']}"
+    return f"{digest['run']}{suffix}"
+
+
+def _zot(item: dict[str, Any], data: str | None) -> str:
+    src = item.get("_data") or data
+    if not src:
+        return ""
+    return f'<button type="button" class="zot" data-id="{_esc(item["id"])}" data-src="{_esc(str(src))}" title="Save to Zotero">+Z</button>'
+
+
+DATA_FIELDS = ("id", "title", "authors", "abstract", "categories", "submitted", "url", "section", "score", "why", "kind")
+
+
+def digest_data(digest: dict[str, Any]) -> dict[str, Any]:
+    """What the page needs to build a Zotero record for each paper, keyed by id."""
+    items = {i["id"]: {k: i.get(k) for k in DATA_FIELDS} for i in digest.get("items", [])}
+    return {"run": digest["run"], "mode": digest["mode"], "items": items}
+
+
 def _score(item: dict[str, Any]) -> str:
     score = item.get("score")
     return f'<span class="score">{score}</span>' if score is not None else ""
@@ -166,26 +335,28 @@ def _meta(item: dict[str, Any]) -> list[str]:
     return [m for m in meta if m]
 
 
-def _paper_li(item: dict[str, Any], *, site: Site, run: str | None) -> str:
+def _paper_li(item: dict[str, Any], *, site: Site, run: str | None, data: str | None = None) -> str:
     score = item.get("score")
     cls = ' class="read"' if isinstance(score, int) and score >= 80 else ""
     why = f'<p class="why">{_esc(item["why"])}</p>' if item.get("why") else ""
     return (
         f"<li{cls}>{_score(item)}{_kind(item)}{_watch(item)}<span class=\"title\"><a href=\"{_esc(_url(item))}\">"
         f"{_esc(item['title'])}</a></span>"
-        f"<div class=\"meta\">{_esc(' · '.join(_meta(item)))}{_feedback(item, site=site, run=run)}</div>{why}</li>"
+        f"<div class=\"meta\">{_esc(' · '.join(_meta(item)))}{_feedback(item, site=site, run=run)}{_zot(item, data)}</div>{why}</li>"
     )
 
 
-def _title_li(item: dict[str, Any], *, site: Site, run: str | None) -> str:
+def _title_li(item: dict[str, Any], *, site: Site, run: str | None, data: str | None = None) -> str:
     return (
         f"<li>{_score(item)}{_kind(item)}{_watch(item)}<a href=\"{_esc(_url(item))}\">{_esc(item['title'])}</a>"
-        f"{_feedback(item, site=site, run=run)}</li>"
+        f"{_feedback(item, site=site, run=run)}{_zot(item, data)}</li>"
     )
 
 
-def _titles_details(summary: str, items: list[dict[str, Any]], *, site: Site, run: str | None) -> str:
-    inner = "".join(_title_li(i, site=site, run=run) for i in items)
+def _titles_details(
+    summary: str, items: list[dict[str, Any]], *, site: Site, run: str | None, data: str | None = None
+) -> str:
+    inner = "".join(_title_li(i, site=site, run=run, data=data) for i in items)
     return f"<details><summary>{_esc(summary)}</summary><ul class=\"titles\">{inner}</ul></details>"
 
 
@@ -196,14 +367,16 @@ def split_top(items: list[dict[str, Any]], top_n: int = TOP_N) -> tuple[list[dic
     return top, rest
 
 
-def _papers(items: list[dict[str, Any]], *, site: Site, run: str | None, top_n: int = TOP_N) -> str:
+def _papers(
+    items: list[dict[str, Any]], *, site: Site, run: str | None, data: str | None = None, top_n: int = TOP_N
+) -> str:
     """Top-N (and watched) with why-lines, the rest collapsed titles-only. Nothing dropped."""
     if not items:
         return '<p class="meta">No new papers.</p>'
     top, rest = split_top(items, top_n)
-    out = '<ol class="papers">' + "".join(_paper_li(i, site=site, run=run) for i in top) + "</ol>"
+    out = '<ol class="papers">' + "".join(_paper_li(i, site=site, run=run, data=data) for i in top) + "</ol>"
     if rest:
-        out += _titles_details(f"also matched ({len(rest)} more)", rest, site=site, run=run)
+        out += _titles_details(f"also matched ({len(rest)} more)", rest, site=site, run=run, data=data)
     return out
 
 
@@ -220,6 +393,7 @@ def _unranked_note(digest: dict[str, Any]) -> str:
 def render_digest_body(digest: dict[str, Any], *, site: Site = Site()) -> str:
     """All sections of one digest (archive pages)."""
     run = str(digest.get("run") or "")
+    data = _data_name(digest)
     parts = [_unranked_note(digest)]
     present = {i.get("section", "A") for i in digest.get("items", [])}
     if not present:
@@ -230,9 +404,9 @@ def render_digest_body(digest: dict[str, Any], *, site: Site = Site()) -> str:
         items = _items(digest, key)
         parts.append(f"<h3>{_esc(SECTION_TITLES.get(key, str(key)))} <span class=\"meta\">({len(items)})</span></h3>")
         if key == "computing":
-            parts.append(_titles_details(f"{len(items)} papers", items, site=site, run=run))
+            parts.append(_titles_details(f"{len(items)} papers", items, site=site, run=run, data=data))
         else:
-            parts.append(_papers(items, site=site, run=run))
+            parts.append(_papers(items, site=site, run=run, data=data))
     return "\n".join(p for p in parts if p)
 
 
@@ -276,7 +450,8 @@ def _header(current: str | None, *, root: str) -> str:
         '<p class="sub">New arXiv papers ranked each weekday morning against a written interest statement.</p>'
         f"<nav>{links}</nav>"
         '<p class="legend"><span class="kind kind-T">T</span>theory &nbsp; <span class="kind kind-E">E</span>experiment '
-        '&nbsp; <span class="kind kind-TE">TE</span>both &nbsp; score ≥80 highlighted</p>'
+        '&nbsp; <span class="kind kind-TE">TE</span>both &nbsp; score ≥80 highlighted &nbsp; '
+        '<a href="#" class="zot-setup" title="Save papers to a Zotero collection from this page">Zotero…</a></p>'
     )
 
 
@@ -286,8 +461,8 @@ def _page(title: str, body: str, *, css_href: str, root: str) -> str:
         "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"
         f"<title>{_esc(title)}</title>\n<link rel=\"stylesheet\" href=\"{css_href}\">\n"
         f"<link rel=\"alternate\" type=\"application/atom+xml\" title=\"{_esc(SITE_TITLE)}\" href=\"{root}feed.xml\">\n"
-        "</head>\n<body>\n<main>\n"
-        f"{body}\n</main>\n</body>\n</html>\n"
+        f"</head>\n<body data-root=\"{root}\">\n<main>\n"
+        f"{body}\n</main>\n{ZOTERO_DIALOG}\n<script src=\"{root}zotero.js\" defer></script>\n</body>\n</html>\n"
     )
 
 
@@ -315,7 +490,7 @@ def _day_details(d: dict[str, Any], items: list[dict[str, Any]], *, site: Site) 
     hint = f" · {_esc(top)}" if top else ""
     return (
         f"<details class=\"day\"><summary>{_pretty_date(d['run'])} · {len(items)} papers{hint}</summary>"
-        f"{_unranked_note(d)}{_papers(items, site=site, run=d['run'])}</details>"
+        f"{_unranked_note(d)}{_papers(items, site=site, run=d['run'], data=_data_name(d))}</details>"
     )
 
 
@@ -325,7 +500,9 @@ def _section_body(digests: list[dict[str, Any]], section: str, *, site: Site) ->
     if dailies:
         latest = dailies[0]
         parts.append(f"<h3>Today · {_pretty_date(latest['run'])}</h3>")
-        parts.append(_unranked_note(latest) + _papers(_items(latest, section), site=site, run=latest["run"]))
+        parts.append(
+            _unranked_note(latest) + _papers(_items(latest, section), site=site, run=latest["run"], data=_data_name(latest))
+        )
     previous = dailies[1 : 1 + PREVIOUS_DAYS]
     if previous:
         parts.append("<h2>Previous days</h2>")
@@ -340,12 +517,19 @@ def _weekly_body(digests: list[dict[str, Any]], today: date, *, site: Site) -> s
     if weeklies:
         latest = weeklies[0]
         parts.append(f"<h3>Week ending {_pretty_date(latest['run'])}</h3>")
-        parts.append(_unranked_note(latest) + _papers(_items(latest, "weekly"), site=site, run=latest["run"]))
+        parts.append(
+            _unranked_note(latest) + _papers(_items(latest, "weekly"), site=site, run=latest["run"], data=_data_name(latest))
+        )
         since = date.fromisoformat(latest["run"])
     else:
         parts.append('<p class="meta">No weekly digest yet. The first one comes on Saturday.</p>')
         since = today - timedelta(days=7)
-    pool = [i for d in dailies if date.fromisoformat(d["run"]) > since for i in _items(d, "computing")]
+    pool = [
+        {**i, "_data": _data_name(d)}
+        for d in dailies
+        if date.fromisoformat(d["run"]) > since
+        for i in _items(d, "computing")
+    ]
     if pool:
         parts.append(f"<h3>Pool for the next weekly digest <span class=\"meta\">({len(pool)})</span></h3>")
         parts.append(_titles_details(f"{len(pool)} computing papers since {since.isoformat()}", pool, site=site, run=None))
@@ -445,7 +629,9 @@ def render_site(
     site: Site = Site(),
 ) -> None:
     (docs / "archive").mkdir(parents=True, exist_ok=True)
+    (docs / "data").mkdir(parents=True, exist_ok=True)
     (docs / "style.css").write_text(STYLE.strip() + "\n")
+    (docs / "zotero.js").write_text(ZOTERO_JS.strip() + "\n")
     (docs / ".nojekyll").touch()
     for page, filename in PAGES.items():
         (docs / filename).write_text(
@@ -454,3 +640,4 @@ def render_site(
     (docs / "feed.xml").write_text(render_feed(digests, site=site))
     for d in digests:
         (docs / "archive" / _archive_name(d)).write_text(render_archive(d, site=site))
+        (docs / "data" / f"{_data_name(d)}.json").write_text(json.dumps(digest_data(d), ensure_ascii=False))

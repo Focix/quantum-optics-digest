@@ -140,3 +140,27 @@ def test_feed_lists_scored_and_watched_papers(tmp_path: Path) -> None:
     assert 'href="../feed.xml"' in (docs / "archive" / "2026-09-10.html").read_text()
     import xml.etree.ElementTree as ET
     ET.fromstring((docs / "feed.xml").read_text())  # well-formed
+
+
+def test_zotero_button_data_files_and_script(tmp_path: Path) -> None:
+    items = [item("a1", "A", 90), item("c1", "computing", 30)]
+    digests = [digest("2026-09-14", items), digest("2026-09-12", [item("w1", "weekly", 85)], mode="weekly")]
+    html = render_page(digests, page="A", today=date(2026, 9, 14), site=SITE)
+    assert '<button type="button" class="zot" data-id="a1" data-src="2026-09-14"' in html
+    assert 'class="zot-setup"' in html and '<dialog id="zot-dialog">' in html
+    assert '<body data-root="">' in html and '<script src="zotero.js" defer>' in html
+    weekly = render_page(digests, page="weekly", today=date(2026, 9, 14), site=SITE)
+    assert 'data-id="w1" data-src="2026-09-12-weekly"' in weekly
+    assert 'data-id="c1" data-src="2026-09-14"' in weekly      # pool items point at their own day's file
+    assert "_data" not in weekly
+
+    docs = tmp_path / "docs"
+    render_site(digests, docs, today=date(2026, 9, 14), site=SITE)
+    assert (docs / "zotero.js").exists()
+    import json
+    data = json.loads((docs / "data" / "2026-09-14.json").read_text())
+    assert data["items"]["a1"]["abstract"] == "abs" and data["items"]["a1"]["authors"][0] == "A One"
+    assert set(data["items"]) == {"a1", "c1"}
+    assert (docs / "data" / "2026-09-12-weekly.json").exists()
+    archive = (docs / "archive" / "2026-09-14.html").read_text()
+    assert '<body data-root="../">' in archive and '<script src="../zotero.js" defer>' in archive

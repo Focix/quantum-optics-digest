@@ -16,7 +16,8 @@ interests/          one statement per section; the model ranks against these; wa
 prompts/            rank_daily.md, rank_weekly.md
 state/              seen.json (advanced only on a successful render), openalex_cache.json, feedback.json
 digests/            one JSON per run, the source of truth for the page
-docs/               generated static site (GitHub Pages root), Atom feed at docs/feed.xml
+docs/               generated static site (GitHub Pages root), Atom feed at docs/feed.xml,
+                    zotero.js + data/<run>.json for the in-page "save to Zotero" button
 ```
 
 ## Run locally
@@ -38,3 +39,4 @@ Citation counts and venues come from OpenAlex, which needs no API key (`[citatio
 - **Atom feed** at `/feed.xml`: one entry per digest run listing papers scored 50 or more (and watched ones) with their why-lines. Any reader or a Telegram RSS bot turns it into a notification.
 - **Watchlist**: add authors to `interests/watchlist.toml`. Their papers are tagged `watch:<name>` and always appear in the main list with a ★ and a why-line, whatever the score. The score itself is not affected.
 - **Feedback**: every paper has 👍 / 👎 links that open a prefilled GitHub issue (labels `feedback` + `up`/`down`). Each run starts with `uv run scripts/feedback.py`, which records open feedback issues in `state/feedback.json`, closes them, and the ranking prompt reads the last 50 as calibration examples.
+- **Save to Zotero**: click "Zotero…" in the page header once, enter your Zotero user ID and an API key with write access (zotero.org/settings/keys), and name a collection (default `to-read`, created if missing). The key is kept in that browser's localStorage only; nothing goes through the repo. Every paper then shows a `+Z` button that creates a preprint item (arXiv DOI, abstract, authors), a linked PDF attachment, and a note with the why-line, skipping papers already in your library.

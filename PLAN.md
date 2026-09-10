@@ -160,6 +160,6 @@ First run shows the whole 7-day window (long). Backfill in phase 1 marks older p
 - **Public reading list**; switch to private repo + rendered Markdown if uncomfortable.
 - **Query drift**; titles-only list exposes misses inside the pool. Revisit queries.toml quarterly.
 
-Done 2026-09-10 (v2 first round): Atom feed at `docs/feed.xml`; author watchlist in `interests/watchlist.toml` (tag `watch:<name>`, always shown with a why-line); 👍/👎 links per paper that open a prefilled GitHub issue, folded into `state/feedback.json` by `scripts/feedback.py` at the start of each run and read by the ranking prompts as calibration.
+Done 2026-09-10 (v2 first round): Atom feed at `docs/feed.xml`; author watchlist in `interests/watchlist.toml` (tag `watch:<name>`, always shown with a why-line); 👍/👎 links per paper that open a prefilled GitHub issue, folded into `state/feedback.json` by `scripts/feedback.py` at the start of each run and read by the ranking prompts as calibration. Save-to-Zotero button per paper: `docs/zotero.js` talks to the Zotero Web API (CORS-enabled) with a user ID and write key kept in the browser's localStorage; paper metadata comes from `docs/data/<run>.json` because arXiv's API has no CORS headers.
 
-Next candidates: "aged well" re-check of 30/90-day-old papers against OpenAlex; published-venue badge; weekly narrative paragraph; client-side search; Zotero/BibTeX export; Telegram push of the top three; quarterly query miss-audit.
+Next candidates: "aged well" re-check of 30/90-day-old papers against OpenAlex; published-venue badge; weekly narrative paragraph; client-side search; BibTeX export; Telegram push of the top three; quarterly query miss-audit.
