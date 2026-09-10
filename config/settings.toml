@@ -4,6 +4,11 @@ cap = 120                # max candidates handed to the model per run (newest ke
 seen_keep_days = 60      # prune state/seen.json entries older than this
 timezone = "Europe/Moscow"
 
+[site]
+# Used for the Atom feed and the per-paper feedback links (prefilled GitHub issues).
+url = "https://focix.github.io/quantum-optics-digest/"
+repo = "Focix/quantum-optics-digest"
+
 [arxiv]
 max_results = 200
 delay_seconds = 3        # pause between arXiv requests

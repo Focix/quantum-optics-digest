@@ -4,12 +4,13 @@ You are running inside a Claude Code cloud routine with this repository cloned. 
 
 ## Daily (weekdays 09:00 Moscow)
 
-1. Fetch candidates:
+1. Pull reader feedback, then fetch candidates:
    ```
+   uv run scripts/feedback.py
    uv run scripts/fetch.py --mode daily
    ```
-   It prints a status object. Exit code 1 means a partial failure that is already recorded in `out/status.json`; continue anyway if `out/candidates.json` exists. If the script crashed (no `out/candidates.json`), go to step 5.
-2. Read `prompts/rank_daily.md`, `interests/a_superconducting.md`, `interests/b_other_platforms.md`, and `out/candidates.json`. Rank the candidates per the prompt and write `out/ranking.json`. Use today's date in Moscow for `run`.
+   `feedback.py` folds 👍/👎 issues into `state/feedback.json` and closes them; it never fails the run (a warning means `gh` could not reach GitHub, continue). `fetch.py` prints a status object. Exit code 1 means a partial failure that is already recorded in `out/status.json`; continue anyway if `out/candidates.json` exists. If the script crashed (no `out/candidates.json`), go to step 5.
+2. Read `prompts/rank_daily.md`, `interests/a_superconducting.md`, `interests/b_other_platforms.md`, `state/feedback.json`, and `out/candidates.json`. Rank the candidates per the prompt and write `out/ranking.json`. Use today's date in Moscow for `run`.
 3. Render:
    ```
    uv run scripts/render.py --mode daily
@@ -29,10 +30,11 @@ You are running inside a Claude Code cloud routine with this repository cloned. 
 
 ## Weekly (Saturday 10:00 Moscow)
 
-Same as daily with `--mode weekly`, `prompts/rank_weekly.md`, `interests/weekly_computing.md`, and the commit message `Weekly computing digest <date>`. The weekly fetch reads the week's daily digests and does no arXiv call.
+Same as daily (including `scripts/feedback.py` first) with `--mode weekly`, `prompts/rank_weekly.md`, `interests/weekly_computing.md`, and the commit message `Weekly computing digest <date>`. The weekly fetch reads the week's daily digests and does no arXiv call.
 
 ## Notes
 
 - `out/` is scratch and is gitignored. `state/seen.json` is only advanced by a successful render, so a failed run repeats the same candidates next time.
-- Never edit `interests/`, `config/` or `prompts/` from a routine; the owner edits those by hand.
+- Never edit `interests/`, `config/` or `prompts/` from a routine; the owner edits those by hand. `interests/watchlist.toml` lists authors whose papers always get a why-line; `fetch.py` tags them `watch:<name>`.
+- `state/feedback.json` is written only by `scripts/feedback.py`; commit it with the rest of `state`.
 - Citation counts come from OpenAlex (no key). If `api.openalex.org` is unreachable the status shows `"citations": "error: ..."`, the digest still renders, and the banner explains.

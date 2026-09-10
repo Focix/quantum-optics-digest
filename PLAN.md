@@ -22,7 +22,7 @@ No MCP server is involved in the routine. The arxiv and Semantic Scholar MCP ser
 | Failure | Red banner on the page with the error text. No email. |
 | Schedule | Weekdays 09:00 Moscow = `0 6 * * 1-5` UTC. Saturday 10:00 Moscow = `0 7 * * 6` UTC. No DST in Moscow. |
 | Models | Sonnet 5 daily, Opus 5 weekly. |
-| Feedback | Read-only v1. Edit `interests/*.md` by hand. |
+| Feedback | 👍/👎 per paper → GitHub issue → `state/feedback.json` → ranking prompt. Statements in `interests/*.md` still edited by hand. |
 | Repo | `github.com/Focix/quantum-optics-digest`, clone at `~/Projects/quantum-optics-digest`. |
 
 ## Constraints found
@@ -160,4 +160,6 @@ First run shows the whole 7-day window (long). Backfill in phase 1 marks older p
 - **Public reading list**; switch to private repo + rendered Markdown if uncomfortable.
 - **Query drift**; titles-only list exposes misses inside the pool. Revisit queries.toml quarterly.
 
-v2 candidates: feedback buttons feeding the next ranking; author watchlist section; Zotero export via zotero MCP in a local session; Telegram/email push of the top three.
+Done 2026-09-10 (v2 first round): Atom feed at `docs/feed.xml`; author watchlist in `interests/watchlist.toml` (tag `watch:<name>`, always shown with a why-line); 👍/👎 links per paper that open a prefilled GitHub issue, folded into `state/feedback.json` by `scripts/feedback.py` at the start of each run and read by the ranking prompts as calibration.
+
+Next candidates: "aged well" re-check of 30/90-day-old papers against OpenAlex; published-venue badge; weekly narrative paragraph; client-side search; Zotero/BibTeX export; Telegram push of the top three; quarterly query miss-audit.

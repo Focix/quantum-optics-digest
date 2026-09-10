@@ -7,6 +7,7 @@ from dataclasses import dataclass, field
 from datetime import date, timedelta
 
 from digest.models import Candidate, Paper
+from digest.watch import watch_tags
 
 # Pools are processed in this order; a paper already placed stays in its first pool.
 POOL_ORDER = ["A", "B"]
@@ -28,12 +29,13 @@ class Selection:
     per_pool: dict[str, int] = field(default_factory=dict)
 
 
-def tags_for(pool: str, paper: Paper) -> list[str]:
+def tags_for(pool: str, paper: Paper, watchlist: list[str] | None = None) -> list[str]:
     tags: list[str] = []
     if pool == "A":
         tags.append("platform:sc")
         if _COMPUTING_RE.search(f"{paper.title} {paper.abstract}"):
             tags.append("computing")
+    tags.extend(watch_tags(paper.authors, watchlist or []))
     return tags
 
 
@@ -44,6 +46,7 @@ def select_candidates(
     today: date,
     window_days: int,
     cap: int,
+    watchlist: list[str] | None = None,
 ) -> Selection:
     cutoff = today - timedelta(days=window_days)
     result = Selection(candidates=[])
@@ -59,7 +62,7 @@ def select_candidates(
                 result.dropped_seen += 1
                 continue
             placed.add(paper.id)
-            result.candidates.append(Candidate.from_paper(paper, pool, tags_for(pool, paper)))
+            result.candidates.append(Candidate.from_paper(paper, pool, tags_for(pool, paper, watchlist)))
 
     if len(result.candidates) > cap:
         result.candidates.sort(key=lambda c: c.submitted, reverse=True)

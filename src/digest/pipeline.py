@@ -17,9 +17,10 @@ import httpx
 
 from digest.arxiv import build_query_url, parse_feed
 from digest.models import Candidate, Paper
-from digest.render import render_site
+from digest.render import Site, render_site
 from digest.openalex import OpenAlexClient
 from digest.select import mark_seen, select_candidates
+from digest.watch import load_watchlist, watch_tags
 from digest.store import add_error, build_digest, digest_path, load_digests, merge_digests, write_digest
 
 FetchXml = Callable[[str], str]
@@ -64,6 +65,14 @@ class Paths:
     @property
     def seen_next(self) -> Path:
         return self.out / "seen_next.json"
+
+    @property
+    def watchlist(self) -> Path:
+        return self.root / "interests" / "watchlist.toml"
+
+    @property
+    def feedback(self) -> Path:
+        return self.state / "feedback.json"
 
     @property
     def digests(self) -> Path:
@@ -167,12 +176,21 @@ def fetch_daily(config: dict[str, Any], paths: Paths, *, fetch_xml: FetchXml, to
             add_error(status, f"pool {name}: {exc}")
 
     seen: dict[str, str] = _read_json(paths.seen, {})
+    watchlist = load_watchlist(paths.watchlist)
     selection = select_candidates(
-        pools, seen=seen, today=today, window_days=int(run_cfg["window_days"]), cap=int(run_cfg["cap"])
+        pools,
+        seen=seen,
+        today=today,
+        window_days=int(run_cfg["window_days"]),
+        cap=int(run_cfg["cap"]),
+        watchlist=watchlist,
     )
     status["counts"] = {name: selection.per_pool.get(name, 0) for name in config["pools"]}
     status["dropped_seen"] = selection.dropped_seen
     status["dropped_old"] = selection.dropped_old
+    watched = sum(1 for c in selection.candidates if any(t.startswith("watch:") for t in c.tags))
+    if watchlist:
+        status["watched"] = watched
     if selection.overflow:  # noted, not an error: the page stays green
         status["overflow"] = f"{selection.overflow} oldest candidates dropped over the cap of {run_cfg['cap']}"
 
@@ -203,6 +221,7 @@ def fetch_weekly(config: dict[str, Any], paths: Paths, *, today: date) -> dict[s
                 c.pool = "weekly"
                 candidates.append(c)
 
+    watchlist = load_watchlist(paths.watchlist)
     client = _citation_client(config, paths)
     if client is not None and weekly.get("journal_search_query"):
         try:
@@ -220,7 +239,7 @@ def fetch_weekly(config: dict[str, Any], paths: Paths, *, today: date) -> dict[s
                         categories=[],
                         submitted=date.fromisoformat(record["publicationDate"]) if record["publicationDate"] else today,
                         pool="weekly",
-                        tags=["source:openalex"],
+                        tags=["source:openalex", *watch_tags(record["authors"], watchlist)],
                         cite=record["cite"],
                         url=record["url"],
                     )
@@ -241,8 +260,19 @@ def fetch_weekly(config: dict[str, Any], paths: Paths, *, today: date) -> dict[s
 # -- publish ---------------------------------------------------------------
 
 
+def site_from(config: dict[str, Any]) -> Site:
+    cfg = config.get("site", {})
+    return Site(url=cfg.get("url") or None, repo=cfg.get("repo") or None)
+
+
 def publish(
-    paths: Paths, *, mode: str, today: date, error: str | None = None, log_url: str | None = None
+    paths: Paths,
+    *,
+    mode: str,
+    today: date,
+    error: str | None = None,
+    log_url: str | None = None,
+    site: Site | None = None,
 ) -> dict[str, Any] | None:
     """Merge out/ into a digest file (unless the run failed), then regenerate docs/."""
     digest: dict[str, Any] | None = None
@@ -257,5 +287,7 @@ def publish(
         write_digest(paths.digests, digest)
         if mode == "daily" and paths.seen_next.exists():
             _write_json(paths.seen, _read_json(paths.seen_next, {}))
-    render_site(load_digests(paths.digests), paths.docs, today=today, error=error, log_url=log_url)
+    render_site(
+        load_digests(paths.digests), paths.docs, today=today, error=error, log_url=log_url, site=site or Site()
+    )
     return digest

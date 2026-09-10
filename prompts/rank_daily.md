@@ -5,6 +5,7 @@ You are ranking new arXiv papers for a physicist who works on superconducting ar
 Inputs:
 - `out/candidates.json`: the candidates. Each has `id`, `title`, `authors`, `abstract`, `categories`, `submitted`, `pool` (A or B), `tags`, and optional `cite` (OpenAlex citation count and venue).
 - `interests/a_superconducting.md`, `interests/b_other_platforms.md`: what each section is for.
+- `state/feedback.json` (may be empty): papers the reader marked 👍 (`up`, relevant, more like this) or 👎 (`down`, not relevant) with the `score` they had at the time. Read the last 50 entries. Use them as calibration: an `up` on a low score means that kind of paper is under-scored, a `down` on a high score means it is over-scored. Do not restate them; let them shift how you score similar papers today.
 
 Output: write `out/ranking.json` exactly in this shape:
 
@@ -24,3 +25,4 @@ Rules:
 5. `kind` is `E` for experimental papers (measured data from a device), `T` for theory, proposals, numerics and reviews, `TE` when the paper reports both an experiment and substantial new theory or modelling of its own. Judge from the abstract.
 6. Judge from the abstract only. Do not fetch anything.
 7. Rank within a section by score; ties broken by your judgement of novelty.
+8. A `watch:<name>` tag means an author is on the reader's watchlist. The page always shows such papers with your `why`, so write it with care, but score them honestly: the watchlist does not raise the score.

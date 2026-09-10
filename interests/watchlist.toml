@@ -1,0 +1,5 @@
+# Authors whose papers always appear in the main list with a why-line, whatever the score.
+# "First Last" matches "F. Last" and "First Last"; a bare surname matches any first name.
+# Accents are ignored. Edit by hand; the routine never touches this file.
+authors = [
+]

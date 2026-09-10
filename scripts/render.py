@@ -14,7 +14,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
-from digest.pipeline import Paths, load_config, publish, today_in  # noqa: E402
+from digest.pipeline import Paths, load_config, publish, site_from, today_in  # noqa: E402
 
 
 def main() -> int:
@@ -26,8 +26,9 @@ def main() -> int:
     args = parser.parse_args()
 
     paths = Paths(root=Path(__file__).resolve().parent.parent)
-    today = date.fromisoformat(args.today) if args.today else today_in(load_config(paths))
-    digest = publish(paths, mode=args.mode, today=today, error=args.error, log_url=args.log_url)
+    config = load_config(paths)
+    today = date.fromisoformat(args.today) if args.today else today_in(config)
+    digest = publish(paths, mode=args.mode, today=today, error=args.error, log_url=args.log_url, site=site_from(config))
     if digest is None:
         print(f"rendered error banner: {args.error}")
         return 0

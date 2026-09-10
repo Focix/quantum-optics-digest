@@ -32,5 +32,10 @@ details.day { border-bottom:1px solid var(--line); padding:.4rem 0; }
 details.day > summary { color:var(--fg); }
 ul.titles { padding-left:1.25rem; margin:.5rem 0; }
 ul.titles li { margin:.2rem 0; }
+.watch { color:var(--accent); margin-right:.35rem; font-size:.9em; }
+.fb { margin-left:.5rem; white-space:nowrap; }
+.fb a { text-decoration:none; opacity:.55; filter:grayscale(1); }
+.fb a:hover { opacity:1; filter:none; }
 footer { margin-top:3rem; color:var(--muted); font-size:.9rem; }
+footer p a { color:inherit; }
 footer ul { columns:2; padding-left:1.25rem; }

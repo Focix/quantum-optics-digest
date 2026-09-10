@@ -2,7 +2,7 @@ from datetime import date, timedelta
 from pathlib import Path
 from typing import Any
 
-from digest.render import render_archive, render_page, render_site
+from digest.render import Site, render_archive, render_feed, render_page, render_site
 
 
 def item(id: str, section: str, score: int | None, why: str | None = "does a thing", kind: str | None = "E") -> dict[str, Any]:
@@ -94,3 +94,49 @@ def test_previous_days_archive_and_site_files(tmp_path: Path) -> None:
     render_site(digests, docs, today=date(2026, 9, 12))
     for name in ("index.html", "b.html", "weekly.html", "style.css", "archive/2026-09-12-weekly.html", "archive/2026-08-24.html"):
         assert (docs / name).exists(), name
+
+
+SITE = Site(url="https://focix.github.io/quantum-optics-digest/", repo="Focix/quantum-optics-digest")
+
+
+def test_watched_paper_escapes_the_collapsed_list_and_gets_a_star() -> None:
+    items = [item(f"a{i}", "A", 95 - i) for i in range(12)]
+    items[11]["tags"] = ["platform:sc", "watch:A. Wallraff"]
+    html = render_page([digest("2026-09-10", items)], page="A", today=TODAY, site=SITE)
+    assert html.index("Title a11") < html.index("also matched") < html.index("Title a10")
+    assert 'class="watch" title="watchlist: A. Wallraff"' in html
+    assert "watchlist: A. Wallraff" in html
+    assert "also matched (1 more)" in html
+
+
+def test_feedback_links_present_only_with_repo() -> None:
+    d = [digest("2026-09-10", [item("a1", "A", 90), item("b1", "B", 10)])]
+    html = render_page(d, page="A", today=TODAY, site=SITE)
+    assert "issues/new?" in html and "labels=feedback%2Cup" in html and "labels=feedback%2Cdown" in html
+    assert "run%3A+2026-09-10" in html
+    assert 'href="feed.xml"' in html
+    plain = render_page(d, page="A", today=TODAY)
+    assert "issues/new?" not in plain
+
+
+def test_feed_lists_scored_and_watched_papers(tmp_path: Path) -> None:
+    items = [item("a1", "A", 90), item("a2", "A", 55), item("a3", "A", 20), item("b1", "B", 10, kind="T"), item("c1", "computing", 70)]
+    items[3]["tags"] = ["watch:Someone"]
+    digests = [digest("2026-09-10", items), digest("2026-09-12", [item("w1", "weekly", 85)], mode="weekly")]
+    feed = render_feed(digests, site=SITE)
+    assert feed.startswith('<?xml version="1.0"')
+    assert '<link rel="self" href="https://focix.github.io/quantum-optics-digest/feed.xml"/>' in feed
+    assert feed.count("<entry>") == 2
+    assert "1 to read, 1 worth the title" in feed
+    assert "Title a1" in feed and "Title a2" in feed and "Title b1" in feed
+    assert "Title a3" not in feed and "Title c1" not in feed
+    assert "archive/2026-09-10.html" in feed and "archive/2026-09-12-weekly.html" in feed
+    assert "does a thing" in feed
+
+    docs = tmp_path / "docs"
+    render_site(digests, docs, today=date(2026, 9, 12), site=SITE)
+    assert (docs / "feed.xml").exists()
+    assert 'type="application/atom+xml"' in (docs / "index.html").read_text()
+    assert 'href="../feed.xml"' in (docs / "archive" / "2026-09-10.html").read_text()
+    import xml.etree.ElementTree as ET
+    ET.fromstring((docs / "feed.xml").read_text())  # well-formed

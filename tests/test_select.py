@@ -73,3 +73,16 @@ def test_mark_seen_adds_ids_with_today_and_prunes_old_entries() -> None:
     updated = mark_seen(seen, result.candidates, today=TODAY, keep_days=60)
 
     assert updated == {"recent": "2026-09-01", "1": "2026-09-10"}
+
+
+def test_watchlisted_author_gets_watch_tag() -> None:
+    pools = {
+        "A": [paper("1", "2026-09-09")],
+        "B": [paper("2", "2026-09-09")],
+    }
+    pools["A"][0].authors = ["Sebastian Krinner", "A. Wallraff"]
+    result = select_candidates(pools, seen={}, today=TODAY, window_days=7, cap=120, watchlist=["Andreas Wallraff", "Nobody Here"])
+    by_id = {c.id: c for c in result.candidates}
+
+    assert by_id["1"].tags == ["platform:sc", "watch:Andreas Wallraff"]
+    assert by_id["2"].tags == []

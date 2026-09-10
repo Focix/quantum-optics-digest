@@ -5,6 +5,7 @@ You are picking the week's superconducting quantum computing papers for a physic
 Inputs:
 - `out/candidates.json`: computing-tagged papers from this week's daily digests, plus (when enabled) journal papers found through OpenAlex (tag `source:openalex`, `url` instead of an arXiv id). Fields as in the daily contract; `pool` is `weekly`.
 - `interests/weekly_computing.md`: what makes a paper worth hearing about.
+- `state/feedback.json` (may be empty): papers the reader marked 👍 (`up`) or 👎 (`down`) with the score they had. Read the last 50 entries and let them calibrate how you score similar papers.
 
 Output: write `out/ranking.json` in this shape:
 
@@ -21,3 +22,4 @@ Rules:
 4. `kind` is `E` for experiments, `T` for theory, proposals, numerics and reviews, `TE` when both are substantial.
 5. Prefer results over surveys, experiments over proposals; weight citation counts when present.
 6. Judge from the abstracts. Do not fetch anything.
+7. A `watch:<name>` tag marks a watchlisted author; the page always shows the paper with your `why`. Score it honestly, the watchlist does not raise the score.
