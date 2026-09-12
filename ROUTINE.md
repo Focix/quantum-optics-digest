@@ -2,7 +2,7 @@
 
 You are running inside a Claude Code cloud routine with this repository cloned. The message you received names a mode: `daily` or `weekly`. Follow the steps for that mode exactly. Use only Bash, Read, Write, Edit, Glob and Grep. Never fetch URLs yourself; the scripts do all network access.
 
-## Daily (weekdays 09:00 Moscow)
+## Daily (every day, 09:00 Moscow)
 
 1. Pull reader feedback, then fetch candidates:
    ```
