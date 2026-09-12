@@ -1,0 +1,23 @@
+{
+ "run": "2026-09-12",
+ "mode": "daily",
+ "generated": "2026-09-12T09:23:20+00:00",
+ "ranked": true,
+ "status": {
+  "run": "2026-09-12",
+  "mode": "daily",
+  "pools": {
+   "A": "ok",
+   "B": "ok"
+  },
+  "counts": {
+   "A": 0,
+   "B": 0
+  },
+  "dropped_seen": 41,
+  "dropped_old": 359,
+  "watched": 0,
+  "citations": "ok (0/0 found)"
+ },
+ "items": []
+}
