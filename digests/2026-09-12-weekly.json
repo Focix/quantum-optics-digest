@@ -1,0 +1,746 @@
+{
+ "run": "2026-09-12",
+ "mode": "weekly",
+ "generated": "2026-09-12T07:12:28+00:00",
+ "ranked": true,
+ "status": {
+  "run": "2026-09-12",
+  "mode": "weekly",
+  "counts": {
+   "weekly": 24
+  },
+  "journal_search": "error: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=title_and_abstract.search%3A%22superconducting+qubit%22+OR+transmon+OR+fluxonium%2Cfrom_publication_date%3A2026-08-29%2Cprimary_location.source.type%3Ajournal&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=100&sort=publication_date%3Adesc'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+  "error": "journal search failed: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=title_and_abstract.search%3A%22superconducting+qubit%22+OR+transmon+OR+fluxonium%2Cfrom_publication_date%3A2026-08-29%2Cprimary_location.source.type%3Ajournal&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=100&sort=publication_date%3Adesc'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429 | citation lookup failed: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.11508%7C10.48550%2FarXiv.2609.11034%7C10.48550%2FarXiv.2609.10146%7C10.48550%2FarXiv.2609.10834%7C10.48550%2FarXiv.2609.11633%7C10.48550%2FarXiv.2609.05226%7C10.48550%2FarXiv.2609.09495%7C10.48550%2FarXiv.2609.09426%7C10.48550%2FarXiv.2609.09334%7C10.48550%2FarXiv.2609.09371&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+  "citations": "error: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.11508%7C10.48550%2FarXiv.2609.11034%7C10.48550%2FarXiv.2609.10146%7C10.48550%2FarXiv.2609.10834%7C10.48550%2FarXiv.2609.11633%7C10.48550%2FarXiv.2609.05226%7C10.48550%2FarXiv.2609.09495%7C10.48550%2FarXiv.2609.09426%7C10.48550%2FarXiv.2609.09334%7C10.48550%2FarXiv.2609.09371&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429"
+ },
+ "items": [
+  {
+   "id": "2609.08925",
+   "title": "Resilience Beyond the Light Cone: Error-Detected Primitives for Practical Dynamic Circuits",
+   "authors": [
+    "Kevin C. Smith",
+    "Bibek Pokharel",
+    "Satvik Maurya",
+    "Maika Takita"
+   ],
+   "abstract": "Dynamic circuits, which augment unitary operations with mid-circuit measurements and classical feedforward, can generate long-range entanglement in constant depth, enabling low-depth primitives ranging from nontrivial state preparation to many-qubit entangling gates. Escaping the light-cone constraints of unitary circuits, however, comes at a cost: these primitives typically require a number of mid-circuit measurements that scales with system size and that, together with feedforward latency, can introduce errors that degrade the long-range entanglement they rely on. Here, we alleviate this tension by showing that many such primitives, when cast into a common framework, admit an error-detection scheme that trades infidelity for postselection overhead with no additional ancillas. Our framework thus unifies and upgrades a broad class of primitives including fan-out gates, multi-qubit Pauli rotations, the preparation of W and higher-weight Dicke states, and certain non-normal matrix product states. We also introduce a reduced-depth, error-detected implementation of the Hadamard test, extending the use cases of dynamic circuits to a key algorithmic primitive. Finally, we establish the practical utility of our scheme through experiments on a superconducting quantum processor. We demonstrate the error-detected preparation of a long-range entangled Bell pair spanning a 100-qubit chain with fidelity $F=0.59\\pm0.02$, surpassing the entanglement-certification threshold $F>0.5$ that the baseline dynamic-circuit implementation fails to reach ($0.39\\pm0.01$). Separately, we demonstrate constant-depth preparation of W states of up to 20 qubits by consuming GHZ states of up to 40 qubits, finding absolute fidelity improvements of $ΔF\\approx 0.2$ across the largest sizes studied. Altogether, these results bring low-depth dynamic-circuit primitives within practical reach on present-day hardware.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-08",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212050656"
+   },
+   "url": null,
+   "section": "weekly",
+   "score": 91,
+   "why": "Ancilla-free error detection lifts a 100-qubit dynamic-circuit Bell pair from 0.39 to 0.59 fidelity, past the entanglement-certification threshold.",
+   "kind": "TE"
+  },
+  {
+   "id": "2609.08348",
+   "title": "Instantaneous-Frame Theory of Strongly Driven Parametric Gates",
+   "authors": [
+    "Kentaro Kubo",
+    "Shinichi Inoue",
+    "Jushin Tei",
+    "Yinghao Ho",
+    "Yasunobu Nakamura",
+    "Hayato Goto"
+   ],
+   "abstract": "Parametric two-qubit gates using tunable couplers are a promising approach to scalable superconducting quantum processors. However, conventional theories formulated in the idle eigenbasis break down in the large-amplitude regime required for fast gate operations. Here, we show that parametric gates are more naturally and accurately described as coherent rotations between instantaneous eigenstates rather than idle eigenstates. This approach may appear counterintuitive, since instantaneous eigenbases are usually associated with adiabatic dynamics. However, they also form a natural moving frame for driven dynamics, where the non-Abelian Berry connection governs transitions and provides a compact description of the exchange and effective $ZZ$ couplings. We show that this theory achieves quantitative agreement with exact numerical simulations across representative tunable-coupler architectures, including double-transmon, capacitively shunted double-transmon, and single-transmon couplers. The description remains accurate even in regimes where idle-frame descriptions fail, while substantially reducing the reliance on computationally demanding exact simulations. These results establish an instantaneous-frame theory of parametric gates beyond conventional idle-frame models and provide a new perspective on driven quantum dynamics.",
+   "categories": [
+    "quant-ph",
+    "cond-mat.supr-con",
+    "physics.app-ph"
+   ],
+   "submitted": "2026-09-08",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7211992463"
+   },
+   "url": null,
+   "section": "weekly",
+   "score": 85,
+   "why": "Describing tunable-coupler gates in the instantaneous eigenbasis matches exact numerics where idle-frame models fail, cutting reliance on costly simulation for fast gates.",
+   "kind": "T"
+  },
+  {
+   "id": "2609.05222",
+   "title": "A double-resonator coupler for high-fidelity two-qubit gates between superconducting qubits",
+   "authors": [
+    "Seunghyeon Jin",
+    "Seungha Woo",
+    "Shinyoung Hwang",
+    "June-Young M. Lee",
+    "Jeongmin Shim",
+    "Sunje Kim",
+    "Dae Seok Han",
+    "Jaeho Shin",
+    "Eunjong Kim"
+   ],
+   "abstract": "Tunable couplers have enabled two-qubit gate fidelities in superconducting quantum processors to approach $99.9\\%$, yet simultaneously suppressing residual interactions and maintaining flexible qubit-frequency allocation remain central challenges for scaling. Here, we propose a double-resonator coupler (DRC) consisting of two resonators interconnected by a single Josephson junction and a capacitor. The hybridized resonator modes provide two mediated exchange paths whose interference controls the qubit-qubit interaction. The DRC enables complete cancellation of residual $ZZ$ interaction for qubit-qubit detunings well outside the straddling regime, even in the absence of direct qubit-qubit coupling, thereby relaxing constraints on frequency allocation and qubit placement. Away from the idle point, the same circuit provides a strong $ZZ$ interaction of approximately $70\\,\\mathrm{MHz}$, enabling a $20\\,\\mathrm{ns}$ controlled-Z gate with simulated coherent infidelity below $10^{-5}$. These results establish the DRC as a flexible single-junction coupler architecture for high-fidelity superconducting quantum processors.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-04",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7211899689"
+   },
+   "url": null,
+   "section": "weekly",
+   "score": 84,
+   "why": "Two resonators bridged by one junction cancel residual ZZ far outside the straddling regime and give a 20 ns CZ below 1e-5 coherent infidelity.",
+   "kind": "T"
+  },
+  {
+   "id": "2609.11508",
+   "title": "Joint Mitigation of Algorithmic and Physical Errors in Noisy Hamiltonian Simulation",
+   "authors": [
+    "Shuo Zhou",
+    "Xinzhao Wang",
+    "Ruiqi Zhang",
+    "Xiaoyang Wang",
+    "Yi-Cong Zheng",
+    "Tongang Li",
+    "Shengyu Zhang"
+   ],
+   "abstract": "Product-formula Hamiltonian simulation is naturally suited to near-term quantum processors, but its accuracy is set by two competing errors: finite-step Trotter bias and physical hardware noise. We introduce a joint extrapolation strategy that ties the tunable per-layer noise strength to the Trotter step size, $λ(s)=c(sT)^{p+1}$ for a $p$-th order product formula. Along this one-dimensional path, the leading physical-noise and Trotter corrections over the full evolution both enter at order $s^p$ and can be canceled by a single Richardson extrapolation. Building on a previously established finite-order Baker--Campbell--Hausdorff truncation bound, we derive a provably commutator-scaling resource guarantee for the joint extrapolation. For local Hamiltonians with local Lindbladian noise, the protocol mitigates physical noise together with Trotter error with only a constant asymptotic overhead relative to noiseless Trotter extrapolation, provided the required noise strengths lie above the intrinsic device-noise floor. We experimentally demonstrate the protocol for Ising dynamics on a superconducting quantum computer using learned noise amplification. Complementary 100-qubit Sparse Pauli Dynamics (SPD) simulations achieve comparable accuracy to two-dimensional Richardson extrapolation with fewer circuit settings.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-10",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "weekly",
+   "score": 82,
+   "why": "Tying noise amplification to the Trotter step lets one Richardson extrapolation cancel both errors at constant overhead, shown on hardware and 100-qubit simulations.",
+   "kind": "TE"
+  },
+  {
+   "id": "2609.09426",
+   "title": "Josephson energy of superconducting junctions: amorphous versus crystalline tunnel barriers",
+   "authors": [
+    "Wanting Zhang",
+    "Aldilene Saraiva-Souza",
+    "Félix Beaudoin",
+    "Xianghua Kong",
+    "Hong Guo",
+    "Yu Zhu"
+   ],
+   "abstract": "The Josephson energy $E_J$ is a key parameter governing the properties of transmon superconducting qubits. In Al/AlO$_x$/Al junctions, $E_J$ is set by electron tunneling through an ultrathin oxide barrier and therefore depends exponentially on the atomic structure of the barrier. We compute $E_J$ by first-principles device modeling based on the NEGF-DFT quantum-transport method, comparing a junction with a crystalline Al$_2$O$_3$ barrier against ten junctions with melt--quenched amorphous Al$_2$O$_3$ barriers of the same thickness. From the Fermi-level transmission and the Ambegaokar--Baratoff relation, we obtain a mean $E_J/h$ of $2.78$ GHz for the amorphous ensemble, with a standard deviation of $4.67$ GHz, compared with $0.73$ GHz for the crystalline reference; individual amorphous values span nearly two orders of magnitude. Scattering-state analysis shows that transport is quantum tunneling and that the variability originates from stoichiometric inhomogeneity of the amorphous oxide: Al-rich, low-barrier regions can connect into percolation-like tunneling pathways that strongly enhance the conductance. A realistic $200\\times200$ nm$^2$ junction self-averages over more than $2\\times10^4$ such microscopic regions. These results establish a quantitative atomistic route from oxide microstructure to the superconducting-circuit energy scale $E_J$.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-08",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "weekly",
+   "score": 80,
+   "why": "First-principles transport across ten amorphous barriers spreads Josephson energy over two orders of magnitude, tracing transmon scatter to Al-rich percolation paths.",
+   "kind": "T"
+  },
+  {
+   "id": "2609.05226",
+   "title": "TETRIS-Q: Tiling-based Effective Transient-fault Reduction on Interleaved Superconducting Qubits",
+   "authors": [
+    "Marzio Vallero",
+    "Gioele Casagranda",
+    "Flavio Vella",
+    "Paolo Rech"
+   ],
+   "abstract": "The struggle of the hour in quantum computing research is achieving effective suppression of the error mechanisms induced by the interaction of external radiation with superconducting quantum devices. Despite the rapid advancements in quantum error correction (QEC) of recent years, radiation-induced faults are yet to be fully addressed. These events are known to be the cause of simultaneous correlated defects in qubits that lie onto a single substrate, ultimately jeopardising QEC code effectiveness. In this paper, we propose to selectively combine substrate-level phonon barriers and QEC interleaving via a planar-mesh tiling algorithm, TETRIS-Q, reaching efficient and effective suppression of radiation events. Our cross-layer solution comes at no extra cost in terms of QEC code execution or decoding time. We model and simulate radiation-induced transient faults over a plethora of barrier and QEC interleaving configurations. Through more than 51 million quantum circuit simulations, we show peak logical error reductions of more than $99.8 \\%$, together with an $80\\%$ reduction of the observable transient duration with permeable barriers. We find that sparser tiling can reach comparable performance to single qubit tiling, prompting cost reductions of upwards of $87 \\%$ in barrier tracing. By leveraging independent QEC code interleaving, we measure up to one order of magnitude average logical error rate reductions without the use of permeable barriers, and up to three orders of magnitude with the joint usage of barriers.",
+   "categories": [
+    "quant-ph",
+    "cs.AR"
+   ],
+   "submitted": "2026-09-04",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "weekly",
+   "score": 79,
+   "why": "Phonon barriers plus interleaved code tiling cut radiation-induced logical errors by up to three orders of magnitude with no decoding-time penalty.",
+   "kind": "T"
+  },
+  {
+   "id": "2609.07250",
+   "title": "Qubit-Based Benchmarking of InP HEMT LNAs: Readout Fidelity Versus Power Consumption",
+   "authors": [
+    "Junjie Li"
+   ],
+   "abstract": "High-fidelity single-shot readout of superconducting qubits is essential for fault-tolerant quantum computation. Without a quantum-limited amplifier such as a Josephson parametric amplifier, the cryogenic high-electron-mobility-transistor (HEMT) low-noise amplifier (LNA) at the 4 K stage is the dominant noise source in the readout chain. HEMT LNAs are conventionally characterized by Y-factor measurements of the noise temperature $T_N$, independently of the quantum measurement they ultimately serve. Here we present a qubit-in-the-loop benchmarking method. The method uses the two-dimensional IQ histogram of single-shot readout as a direct figure of merit. We apply it to three state-of-the-art cryogenic InP HEMT LNAs with 53\\%, 60\\%, and 70\\% channel indium content, together with a commercial reference amplifier. The 60\\% and 70\\% devices have similar $T_N$ in Y-factor measurements, both lower than the 53\\% device. The 70\\% device has the highest gain, but qubit readout SNR and assignment fidelity $\\mathcal{F}_a$ instead peak at 60\\%. Using this method, we map $\\mathcal{F}_a$ against HEMT LNA dc power consumption for each device. $\\mathcal{F}_a$ does not simply saturate with increasing power. For several devices it declines above a device-dependent power well below typical operating points. For the 60\\% device, which has the highest overall $\\mathcal{F}_a$, about 1~mW is needed to maintain $\\mathcal{F}_a > 85\\%$. Across all four devices, $\\mathcal{F}_a > 80\\%$ is reached with as little as about 0.3~mW, roughly an order of magnitude below typical operating points. These results establish a qubit-referenced benchmarking methodology and provide practical guidance for amplifier selection and bias in power-constrained multi-qubit readout systems.",
+   "categories": [
+    "quant-ph",
+    "physics.app-ph"
+   ],
+   "submitted": "2026-09-07",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7211993695"
+   },
+   "url": null,
+   "section": "weekly",
+   "score": 78,
+   "why": "Judging cryogenic HEMT amplifiers by single-shot IQ histograms: 60% indium beats 70%, and 0.3 mW already reaches 80% assignment fidelity.",
+   "kind": "E"
+  },
+  {
+   "id": "2609.08908",
+   "title": "A Platform-aware Compilation Framework for Fault-tolerant Quantum Computation",
+   "authors": [
+    "Srushti Patil",
+    "Susan X. Chen",
+    "Andreas Juul Bay-Smidt",
+    "Stefan Alaric Schäffer",
+    "Peter Krogstrup",
+    "Stefano Paesani",
+    "Gemma C. Solomon"
+   ],
+   "abstract": "The compilation of an algorithm can vary significantly with the choice of physical hardware platform and error correction model. Yet, current compilation frameworks typically commit to a single architecture-hardware configuration, making it difficult to assess resource estimates across platforms. We present a platform-aware compilation framework that re-compiles a quantum circuit into a hardware-compatible instruction set as well as fault-tolerant operations and provides end-to-end resource estimates in terms of physical-qubit count, time-to-solution, and classical processing time. We benchmark the framework by obtaining end-to-end resource estimates for different compilers, each tailored to the functionalities of specific hardware modalities: connectivity, clock speed, and noise model. As part of this framework, we introduce a transversal active volume (t-AV) compilation architecture designed for the efficient execution of fault-tolerant operations in platforms supporting long-range logical connectivity. We benchmark the framework for Hamiltonian simulation of the 2D Fermi Hubbard model as well as for eigenenergy estimation of a small molecule (trimethylenemethane) as a candidate for early fault-tolerant demonstration of quantum chemistry. For the latter, we show that end-to-end quantum simulations can be achieved with $\\sim10^4$ physical qubits and runtimes ranging from $10^2$ ms (photonics, superconducting) to $10^5$ ms (neutral atoms).",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-08",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212000859"
+   },
+   "url": null,
+   "section": "weekly",
+   "score": 77,
+   "why": "Cross-platform compiler puts small-molecule eigenenergy estimation near 10^4 physical qubits, with runtimes from 100 ms on superconducting hardware to 10^5 ms on atoms.",
+   "kind": "T"
+  },
+  {
+   "id": "2609.07076",
+   "title": "Single-tone drive-enhanced CROT gate for bosonic quantum error correction",
+   "authors": [
+    "Shushen Qin",
+    "Long D. H. My",
+    "Adrian Copetudo",
+    "Amon M. Kasper",
+    "Yvonne Y. Gao",
+    "Hui Khoon Ng"
+   ],
+   "abstract": "Bosonic error correction provides a hardware-efficient route to protected qubits for accurate quantum information processing. A critical component for error correction of rotation-symmetric bosonic (RSB) codes, like the well-known cat codes, is the two-mode controlled-rotation (CROT) operation. The CROT gate is useful because of its code-agnostic generality and its error-propagation properties. While the CROT gate can in principle be composed from existing bosonic physical primitives, the desirable properties are typically lost when composed as a sequence of imperfect primitive operations. Past work has focused on direct implementations that rely on features of specific codes. Here, we present a direct route to CROT within the circuit-QED architecture that retains its code-agnostic and error-propagation characteristics. By driving a transmon simultaneously coupled to two microwave cavities, we controllably enhance the effective nonlinearities between the microwave cavities and thus engineer the necessary two-mode interaction underlying the CROT gate. Using only a single drive frequency, we can achieve an on-off ratio sufficient for gate implementation, while minimizing mode distortions. We provide simple analytical formulas that permit the identification of potential working regimes, further refined by exact numerics, and illustrate the efficacy of our CROT approach in an error-correction example involving different RSB codes within the same circuit. Our CROT gate adds to the arsenal of direct two-mode gates available for general bosonic information processing.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-07",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212051620"
+   },
+   "url": null,
+   "section": "weekly",
+   "score": 76,
+   "why": "A single drive tone on a transmon coupled to two cavities yields a code-agnostic controlled-rotation gate for rotation-symmetric bosonic codes.",
+   "kind": "T"
+  },
+  {
+   "id": "2609.10834",
+   "title": "Programmable CMOS DAC Operating in Cryogenic Environments for Controlling Superconducting Qubits",
+   "authors": [
+    "A. Pelteku",
+    "D. Reitz",
+    "M. Covington",
+    "A. Frederick",
+    "H. Adebayo",
+    "K. D. Hillaire",
+    "N. Mitran",
+    "Z. Steffen",
+    "R. Schwartz",
+    "Z. Stegen",
+    "J. X. Przybysz",
+    "J. Yager",
+    "C. Walter",
+    "T. Graves",
+    "D. Meyer",
+    "J. Clark",
+    "G. R. Boyd",
+    "A. Pesetski"
+   ],
+   "abstract": "This paper presents the design and test results of a CMOS current-based Digital to Analog Converter (DAC) that operates at cryogenic temperatures and that can be used to precisely control the amount of flux coupled to qubits or that can be used in the readout of superconducting circuits. The current pulse output can be controlled in terms of its amplitude, rise and fall slopes, via digital controls, and pulse width, via external triggers, while driving a superconducting circuit. The design has been implemented in a planar 90 nm CMOS process and test results closely match circuit predictions. The solution's wide degree of digital tunability affords potential application of the same device to many types of quantum circuits, beyond those discussed here. Due to the wide-ranging flexibility of digital CMOS control, we envision that this DAC design will enable the next generation of high-fidelity cryo-CMOS control architectures for superconducting qubits.",
+   "categories": [
+    "quant-ph",
+    "physics.app-ph"
+   ],
+   "submitted": "2026-09-09",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "weekly",
+   "score": 74,
+   "why": "A 90 nm CMOS current source shapes flux pulses with digitally tunable amplitude and edge slopes at cryogenic temperatures, matching circuit predictions.",
+   "kind": "E"
+  },
+  {
+   "id": "2609.05838",
+   "title": "High-Resolution Dynamical Eigenspectroscopy via Variational Trotter Compression on a Superconducting Qubit Processor",
+   "authors": [
+    "Liyang Sui",
+    "Xingrui Liu",
+    "Yufan Li",
+    "Sainan Huai",
+    "Zhiwen Zong",
+    "Kunliang Bu",
+    "Xiaopei Yang",
+    "Wenyan Jin",
+    "Bowen Chen",
+    "Xutao Zhang",
+    "Jianlan Wu",
+    "Shengyu Zhang",
+    "Yi Yin"
+   ],
+   "abstract": "The pursuit of high-resolution eigenspectroscopy on noisy intermediate-scale quantum devices is often hindered by the trade-off between circuit depth and coherence time. In this work, we introduce and experimentally demonstrate a dynamical eigenspectroscopy protocol that extracts fine-grained energy structures from time-dependent survival amplitudes. To overcome the finite coherence window of current superconducting processors, we employ Variational Trotter Compression (VTC) as a practical means to extend the duration of high-fidelity unitary evolution. Using a multi-connected 9-qubit superconducting processor, we reconstruct the time-domain autocorrelation signal via quantum state tomography for the H2 molecule at different bond lengths and for the Fermi-Hubbard model across different correlation regimes. Through multi-frequency fitting and Fourier analysis, the extracted eigenenergies agree with the exact-diagonalization values to within 2x10^-3, including the near-degenerate levels in the strongly interacting regime. Our results establish experimental dynamical spectroscopy as a robust and generalizable framework for simulating both quantum chemistry and strongly correlated lattice systems, bridging weak- and strong-coupling regimes on near-term quantum hardware.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-05",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212041307"
+   },
+   "url": null,
+   "section": "weekly",
+   "score": 73,
+   "why": "Variational Trotter compression stretches usable evolution on nine qubits, recovering H2 and Fermi-Hubbard eigenenergies to 2e-3 including near-degenerate levels.",
+   "kind": "E"
+  },
+  {
+   "id": "2609.11034",
+   "title": "Engineered two-photon dissipative confinement of a Kerr-cat qubit using SISIS quantum circuit refrigerator",
+   "authors": [
+    "Shumpei Masuda",
+    "Tsuyoshi Yamamoto",
+    "Shuji Nakamura",
+    "Daichi Sugiyama",
+    "Akiyoshi Tomonaga"
+   ],
+   "abstract": "Kerr-cat qubits realized in periodically driven superconducting nonlinear resonators are a promising platform for quantum information processing with biased noise. Pure dephasing in such systems induces leakage out of the qubit subspace, motivating the use of quantum circuit refrigeration (QCR) to remove excess excitations. While conventional superconductor--insulator--normal-metal--insulator--superconductor (SINIS)-based QCRs can suppress leakage via single-photon absorption, they also enhance QCR-induced phase-flip errors. Here we investigate a QCR based on a superconductor--insulator--superconductor--insulator--superconductor (SISIS) junction coupled to a Kerr parametric oscillator (KPO). We show that a SISIS-based QCR can operate in a regime where single-photon processes are suppressed while two-photon absorption dominates. As a result, the proposed SISIS-based QCR achieves strong suppression of dephasing-induced leakage while substantially reducing the increase in phase-flip errors associated with QCR operation. These results demonstrate that the proposed SISIS-based QCR provides an effective approach for mitigating leakage while limiting QCR-induced phase-flip errors in Kerr-cat qubits.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-10",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "weekly",
+   "score": 72,
+   "why": "Swapping the normal-metal island for a superconducting one makes circuit refrigeration absorb photon pairs, draining Kerr-cat leakage without the usual phase-flip penalty.",
+   "kind": "T"
+  },
+  {
+   "id": "2609.03737",
+   "title": "Analog quantum simulation of bosonic and anyonic models with flux-driven transmons",
+   "authors": [
+    "Isak Lyngfelt",
+    "Jorge Fernández-Pendás",
+    "Göran Johansson",
+    "Laura Garciá-Álvarez"
+   ],
+   "abstract": "When quantum particles interact, many-body phenomena that are hard to simulate classically emerge. Quantum analog simulation offers an alternative in which the target system's dynamics is directly realized in controllable quantum hardware. Here, we give a general protocol for simulating the Bose-Hubbard and anyon-Hubbard models using lattices of capacitively coupled flux-tunable transmons. By modulating the transmon frequencies in an alternating pattern, we resonantly drive multiple many-body transitions and can tune the on-site interaction and density-dependent hopping amplitudes for up to three bosons per site, with no additional restriction on the total particle number. By adding phases to the modulation, which renders the transition amplitudes complex-valued, we propose the first simulation protocol for the anyon-Hubbard model with transmons. Numerical simulations of the driven transmon arrays with experimentally realistic parameters reproduce the characteristic dynamics of the target models across a range of interaction strengths and statistical phases, including the interaction-dependent localization and the statistics-dependent asymmetry of the anyonic quantum walk.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-03",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7208716611"
+   },
+   "url": null,
+   "section": "weekly",
+   "score": 70,
+   "why": "Alternating flux modulation of coupled transmons tunes on-site interaction and density-dependent hopping, giving the first transmon protocol for anyon-Hubbard dynamics.",
+   "kind": "T"
+  },
+  {
+   "id": "2609.08569",
+   "title": "Fabrication And Characterization Of High-Quality Nb/Al-AlO$_x$/Nb Cross-Type Josephson Tunnel Junctions Utilising CMP-based Planarisation Techniques",
+   "authors": [
+    "Alexander Stoll",
+    "Andreas Reifenberger",
+    "Daniel Hengstler",
+    "Andreas Fleischmann",
+    "Christian Enss"
+   ],
+   "abstract": "Josephson tunnel junctions (JJs) are the fundamental building blocks of today's most advanced superconducting electronic components, such as qubits and superconducting quantum interference devices (SQUIDs). Given the ongoing demand for scalability of these devices on the wafer-scale, it is crucial to control the fabrication process as precisely as possible to ensure uniform quality and reproducibility. Today, window-type JJs are often used in the production of DC SQUIDs and while they are reliable and reproducible, they suffer from alignment inaccuracies caused by photolithography and unavoidable parasitic capacitances, thus limiting the energy sensitivity of DC SQUIDs. These problems can be circumvented by producing JJs with cross-type geometry, which allows for smaller junction areas and eliminates parasitic capacitances. Here we discuss the fabrication of Nb/Al-AlOx/Nb-based cross-type JJs, where the trilayer is embedded in sputter-deposited SiO$_2$ to allow for planarisation of the structures and to ensure the reliable insulation of the sidewalls of the bottom electrode. Instead of lift-off processes that require a lot of time and potentially leave unwanted wings along the edges of microstructures behind that might compromise subsequent layers, we use chemical-mechanical polishing (CMP) for the removal of excess SiO$_2$. This is not only much faster, but produces smooth and uniform surfaces, which in turn effectively improves the reliability of our JJ production process resulting in a high yield of over $90\\,\\%$ on wafer-scale. In addition, we discuss the influence of fabrication details on the quality and electrical properties of our JJs with different junction areas down to $1\\,\\mathrm{μm} \\times 1\\,\\mathrm{μm}$ distributed across the wafer and extract the junction specific quality parameters from their IV-characteristics and their Fraunhofer patterns.",
+   "categories": [
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-09-08",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7211992928"
+   },
+   "url": null,
+   "section": "weekly",
+   "score": 69,
+   "why": "Chemical-mechanical polishing replaces lift-off for Nb/Al-AlOx/Nb cross-type junctions, giving over 90% wafer-scale yield down to 1 micron squares.",
+   "kind": "E"
+  },
+  {
+   "id": "2609.09334",
+   "title": "Execution-transcript privacy for fault-tolerant surface-code memories",
+   "authors": [
+    "Jiachen Shen",
+    "Hui Zhong"
+   ],
+   "abstract": "A fault-tolerant quantum computer runs behind a telemetry stream logging syndromes, decoder actions, resets and timing separately from the answer. Can it reveal the logical input? For a distance-$d$ rotated surface-code memory on a fixed schedule of $T=Θ(d)$ rounds, under three stated hypotheses (sector-scalar honest backbone, transcript locality, Kotecky-Preiss smallness), the channel from logical qubit to transcript is $e^{-Θ(d)}$-close in diamond norm to one that ignores the input. A statement of this kind follows generically from correctability-privacy duality. Anisotropy does not. Each logical axis pays the distance of its own coset, so under amplitude damping the computational-basis label is governed by the code's $Z$-distance $d_Z\\ge d_{\\min}$ and not by the code distance. Two codes of quantum distance $1$ make the gap concrete. A phase-flip code's $X$-syndrome transcript is exactly input-independent under unobserved damping, while a repetition code leaks at first order. A matched converse identifies the records that do expose it, among them a lattice-surgery parity readout. On a 156-qubit superconducting processor our sufficient certificate misses by $21.5\\times$, so the theorem cannot be invoked there. Measured directly, a $d_Z=1$ memory's record identifies its input with total variation $\\ge 0.927$ under randomised, label-balanced acquisition. Holding the code fixed and varying the damping exposure reproduces the parameter-free law, with exponent $0.85\\pm0.03$ against a predicted $0.86$. Randomized encoding returns the statistic to the floor at no two-qubit-gate cost. Fault tolerance does not grant transcript privacy. It relocates it, and only to the logical state, not to the circuit's identity.",
+   "categories": [
+    "quant-ph",
+    "cs.CR"
+   ],
+   "submitted": "2026-09-08",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "weekly",
+   "score": 67,
+   "why": "Syndrome telemetry hides the logical state only to the Z-distance; a dZ=1 memory's record identifies its input with total variation 0.93.",
+   "kind": "TE"
+  },
+  {
+   "id": "2609.10146",
+   "title": "Post-fabrication trimming of a 1024-pixel, single-photon counting, Microwave Kinetic Inductance Detector array with a pixel pitch of 150 micron",
+   "authors": [
+    "Wilbert Ras-Vinke",
+    "Hessel Schulte",
+    "David J. Thoen",
+    "Kevin Kouwenhoven",
+    "Steven A. H. de Rooij",
+    "Tonny A. H. M. Coppens",
+    "Jochem J. A. Baselmans",
+    "Pieter J. de Visser"
+   ],
+   "abstract": "Microwave Kinetic Inductance Detectors are superconducting resonators capable of single-photon counting with energy resolving capability at visible and near-infrared wavelengths. Their zero read noise, extremely low dark counts, and compatibility with frequency-division multiplexing make them well suited for large imaging arrays. The detector yield of these arrays is often limited by the fabrication-induced frequency scatter leading to resonator collisions. We find that the tight packing of the pixels can add significant frequency scatter as well. We developed a post-fabrication correction method that is suitable for tightly packed arrays with a pixel pitch of $150\\ \\mathrm{μm}$. We demonstrate this method on a 1024-pixel array multiplexed on a single octave of readout bandwidth and show a reduction in frequency scatter from $1.1\\times 10^{-2}$ to $3.5\\times 10^{-4}$ and an increase in yield from $76\\%$ to $94\\%$.",
+   "categories": [
+    "physics.ins-det",
+    "astro-ph.IM",
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-09-09",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "weekly",
+   "score": 63,
+   "why": "Post-fabrication trimming cuts frequency scatter thirtyfold on a 1024-pixel kinetic-inductance array, lifting yield from 76% to 94% within one readout octave.",
+   "kind": "E"
+  },
+  {
+   "id": "2609.09371",
+   "title": "Materials for Quantum Information Science: Roles in the Quantum Evolution 2.0",
+   "authors": [
+    "Thang Pham",
+    "Vsevolod Ivanov",
+    "Dominic P. Goronzy",
+    "Abhiram Devata",
+    "Joshua Feldon",
+    "David Barton",
+    "You Zhou"
+   ],
+   "abstract": "Quantum information science is entering a second phase, the Quantum Evolution 2.0, in which the challenge has shifted from demonstrating coherent control of individual quantum states to building scalable multi-qubit processors and networks. This transition places materials science at the center of the field. Across superconducting circuits, quantum defects, quantum photonic devices, and emerging materials platforms, including two-dimensional materials and heterostructures, performance is now limited less by device design than by poorly controlled surfaces, buried interfaces, and defects whose atomic identities remain incompletely known. This review surveys the materials challenges of these quantum platforms together with the characterization methods needed to resolve them. For each platform we identify the dominant decoherence mechanisms, the current state of materials understanding, and the most pressing open materials problems. A cross-platform comparison then reveals a shared structure-coherence problem. The implicated material chemistry recurs across platforms, involving light elements in disordered or buried environments, yet no platform can quantitatively connect a specific atomic-scale structure to a measured change in coherence. We close by identifying three needs, mechanistic understanding of decoherence at the atomistic level, high-throughput proxy metrics predictive of device performance, and characterization tools built for quantum materials, whose resolution would advance coherence, scalability, and integration across all platforms.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-08",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "weekly",
+   "score": 60,
+   "why": "Review argues no platform yet links a specific atomic-scale structure to a measured coherence change, and names three characterization gaps to close.",
+   "kind": "T"
+  },
+  {
+   "id": "2609.09097",
+   "title": "Junction-free polarity-tunable superconducting diode effect enables XNOR logic operation",
+   "authors": [
+    "Alapan Bera",
+    "Soumik Mukhopadhyay"
+   ],
+   "abstract": "The realization of the superconducting diode effect (SDE), characterized by non-reciprocal supercurrent, is a major step towards dissipationless logic circuits. A polarity-tunable superconducting diode with high diode efficiency primarily consists of Josephson-junction architectures that couple two superconducting regions via a weak link. Realizing an SDE without a weak-link junction would reduce fabrication complexity, lower electrical noise, and minimize dependence on junction quality. Here, we report an all-vdW, highly efficient, junction-free SDE in NbSe2, enabled by proximity-induced symmetry breaking from a strong uniaxial ferromagnet Fe3GeTe2 (F3GT). Superconducting diode efficiency of up to 30% is achieved at a small magnetic field of 50 mT. A field-free diode rectification effect is realized with diode polarity that is tunable by the F3GT spin polarization. Furthermore, by employing the active-field dependence of the SDE, a two-input exclusive-NOR (XNOR) logic gate operation is demonstrated. The findings highlight the potential utilization of magnetic proximity effect towards realizing junction-free superconducting diodes for high-performance, energy-efficient logic circuits.",
+   "categories": [
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-09-08",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212058795"
+   },
+   "url": null,
+   "section": "weekly",
+   "score": 58,
+   "why": "Proximity to a ferromagnet gives junction-free NbSe2 30% diode efficiency at 50 mT, with switchable polarity driving a two-input XNOR gate.",
+   "kind": "E"
+  },
+  {
+   "id": "2609.03650",
+   "title": "Low-Frequency Charge Noise in Bilayer Graphene Quantum Dots",
+   "authors": [
+    "Jessica Richter",
+    "Max J. Ruckriegel",
+    "Jonas D. Gerber",
+    "Tijl Degroote",
+    "Christoph Adam",
+    "Markus Niese",
+    "Lara Ostertag",
+    "Clara Galante",
+    "Kenji Watanabe",
+    "Takashi Taniguchi",
+    "Petar Tomic",
+    "Artem O. Denisov",
+    "Hadrien Duprez",
+    "Klaus Ensslin",
+    "Thomas Ihn"
+   ],
+   "abstract": "Bilayer graphene (BLG) quantum dots (QDs) are a promising platform for semiconductor qubits. However, the low-frequency charge noise that may ultimately limit coherence has remained largely unexplored. Here, we systematically characterize charge noise in gate-defined BLG QDs using transport-based noise spectroscopy. We extract a median amplitude of $ S_μ^{1/2} (1~\\text{Hz}) = 1.16~μ\\text{eV}/\\sqrt{\\text{Hz}}$, placing BLG well within the range reported for established semiconductor quantum-dot platforms. Across variations in charge occupation, confinement, source-drain bias, and charge-sensor operating conditions, neither the noise amplitude nor the spectral dependence shows a reproducible trend in electrostatic tuning, indicating that we extracted the intrinsic semiconductor noise. Consistent noise levels are further observed in double QDs and confirmed using an independent superconducting resonator-based dispersive readout. Extending the study to BLG devices incorporating transition metal dichalcogenide layers reveals no measurable charge noise increase in weakly proximitized QDs. These results validate BLG as a viable platform for coherent quantum information processing.",
+   "categories": [
+    "cond-mat.mes-hall",
+    "quant-ph"
+   ],
+   "submitted": "2026-09-03",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7208748310"
+   },
+   "url": null,
+   "section": "weekly",
+   "score": 57,
+   "why": "Bilayer-graphene dots show 1.16 microeV per root-Hz charge noise at 1 Hz, matching established semiconductor platforms and insensitive to electrostatic tuning.",
+   "kind": "E"
+  },
+  {
+   "id": "2609.11633",
+   "title": "Phase-Controlled Majorana Zero Modes in Altermagnetic Topological-Insulator Josephson Junctions",
+   "authors": [
+    "Hao Dong",
+    "Xun-Jiang Luo",
+    "Xiao-Hong Pan",
+    "Xin Liu"
+   ],
+   "abstract": "We exploit facet-dependent Andreev phase shifts to control topological superconductivity with a phase bias in a three-dimensional altermagnetic topological-insulator Josephson junction. In the weak link between two conventional s-wave superconductors, the d-wave altermagnetic order produces facet-dependent momentum shifts of the surface Dirac cones. The resulting net momentum of the states involved in Andreev reflection generates additional propagation phases that differ between facets. Consequently, the facet-resolved Andreev spectra exhibit gap closings at distinct phase biases, giving rise to topological superconducting regimes that host Majorana zero modes(MZMs). We further show that tuning the phase bias controls the spatial localization of these modes. The associated topological superconducting transitions are only weakly affected by moderate variations in the chemical potential, obviating the need for fine-tuning to the Dirac point. Our results establish a platform for realizing and spatially controlling MZMs by tuning the superconducting phase bias in altermagnetic topological-insulator Josephson junctions.",
+   "categories": [
+    "cond-mat.mes-hall",
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-09-10",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "weekly",
+   "score": 55,
+   "why": "Facet-dependent Andreev phase shifts put Majorana modes under phase-bias control in an altermagnetic weak link, with no fine-tuning to the Dirac point.",
+   "kind": "T"
+  },
+  {
+   "id": "2609.09495",
+   "title": "Certifying bipartite entanglement on a superconducting processor from a corrected QAOA cost layer",
+   "authors": [
+    "Carlos-Miguel Lorenzo"
+   ],
+   "abstract": "The Quantum Approximate Optimisation Algorithm is the canonical near-term heuristic, yet on real superconducting hardware its behaviour is set by device physics, not by the algorithm. Hardware demonstrations rarely prove the intended coupling is realised, that genuine entanglement is prepared, or what controls it. We report a pre-registered single-device study on the nine-qubit superconducting processor Red at the Barcelona Supercomputing Center, using its five-qubit component. Across six calibrations we certify bipartite entanglement of a corrected QAOA cost layer on the good coupler at depth one by two-qubit tomographic negativity: 0.077, BCa 95% CI [0.065, 0.091], excluding zero every day, while the coupling-off twin stays separable and the degraded coupler equals zero. We then measure the device physics directly: in a pre-registered manipulation on a fixed Bell preparation (not the QAOA layer), reducing the CZ pulse amplitude causally reduces the certified negativity along a positive, well-fit slope (R^2 = 0.83-0.96), every rung-level interval excluding zero and surviving Holm and Benjamini-Hochberg correction. This is a local linearisation of a peaked response, not a global monotone law: the negativity peaks at conditional phase |zeta| = pi, which the nominal amplitude overshoots. The J=0 twin is a separate off-state control and the fringe visibility is constant, so the effect is coherent. The average gate fidelity is non-monotone in the drive and is reported only as a diagnostic. A per-circuit statevector guardrail excludes a diagonal compilation fault we disclose and repair. A randomized-measurement witness is consistent with entanglement but underpowered. The certificate collapses by depth three, and a pre-registered sixteen-instance depth-three ensemble shows no optimisation signal (one-sided Wilcoxon p = 0.15). We claim no advantage; the instances are classically trivial.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-08",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "weekly",
+   "score": 54,
+   "why": "Pre-registered five-qubit study certifies negativity 0.077 across six calibrations, but the certificate collapses by depth three with no optimisation signal.",
+   "kind": "E"
+  },
+  {
+   "id": "2609.05192",
+   "title": "Dynamical Reduction of Two Series Josephson Junctions to a Synthetic High-Transparency Josephson Element",
+   "authors": [
+    "Claudio Guarcello",
+    "Sergio Pagano",
+    "Carlo Barone",
+    "Alessandro Bruno",
+    "A. Mert Bozkurt",
+    "Giovanni Filatrella"
+   ],
+   "abstract": "Two conventional Josephson junctions connected in series can reproduce, in the static limit in which the currents through the capacitive and resistive channels are negligible, the current-phase relation of a single effective weak link with tunable transparency. Therefore, the two-junction series can be treated as a single synthetic high-transparency element. Here, we investigate to what extent this mapping remains valid under finite-frequency drive and retaining the junctions' resistive and capacitive terms. The full resistively and capacitively shunted junction equations are compared with an effective synthetic element with tunable transparency that retains the synthetic tunable-transparency current-phase relation together with effective capacitive and dissipative terms, thus reducing the two second order degree of freedom system to a single second order degree of freedom. The resulting single-element dynamics is compared with the complete two-junction system under ac excitation. The agreement is quantified through a normalized root-mean-square error between the full and effective voltage waveforms. A broad low-error region is found at low drive frequency, while pronounced deviations emerge as the drive frequency approaches the relevant plasma-frequency scale and at larger drive amplitudes. The results provide a quantitative dynamical criterion for using the reduced single-element description of a synthetic high-transparency Josephson element in superconducting circuits.",
+   "categories": [
+    "cond-mat.supr-con",
+    "cond-mat.mes-hall"
+   ],
+   "submitted": "2026-09-04",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7211918183"
+   },
+   "url": null,
+   "section": "weekly",
+   "score": 52,
+   "why": "Mapping two series junctions onto one high-transparency element holds at low drive frequency and breaks down near the plasma frequency and large amplitudes.",
+   "kind": "T"
+  },
+  {
+   "id": "2609.08278",
+   "title": "Néel-Vector Control of the Josephson Diode Effect in $\\mathcal{PT}$-symmetric Antiferromagnets",
+   "authors": [
+    "Xian-Tang Xu",
+    "Xun-Jiang Luo",
+    "Mingliang Tian",
+    "Ning Hao"
+   ],
+   "abstract": "The interplay of superconductivity and magnetism gives rise to rich phenomena in Josephson junctions. In this Letter, we study Josephson junctions formed by conventional $s$-wave superconductors and a $\\PT$-symmetric collinear antiferromagnet modeled on CuMnAs. Using microscopic modeling and symmetry analysis, we show that these junctions exhibit both the Josephson diode effect and $\\varphi_{0}$-junction states. Remarkably, both effects are controlled by the Néel vector: rotating it by $90^{\\circ}$ switches off both, while reversing it switches the diode polarity. To reveal the microscopic mechanism, we develop a channel-resolved scattering theory that accurately captures the anomalous phases and establishes the exact condition for the diode effect. The interplay of the channel current-phase relations yields a sizable diode efficiency, tunable by both the magnitude and direction of the exchange field. Furthermore, a Green-function reduction identifies a single renormalized $\\PT$-degenerate band as the transport carrier and precisely reproduces the full current amplitudes. Our work establishes $\\PT$-symmetric antiferromagnets as versatile platforms for field-free, highly tunable Josephson diodes and $\\varphi_{0}$ junctions.",
+   "categories": [
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-09-08",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212011696"
+   },
+   "url": null,
+   "section": "weekly",
+   "score": 50,
+   "why": "Rotating the Neel vector 90 degrees switches off both the diode effect and the phi-zero phase; reversing it flips the diode polarity.",
+   "kind": "T"
+  },
+  {
+   "id": "2609.08727",
+   "title": "Adaptive AI for Pulse-Level Quantum Control",
+   "authors": [
+    "Sanjeev Shapkota",
+    "Yayu Mo",
+    "Sanjaya Lohani"
+   ],
+   "abstract": "The Control Variational Quantum Eigensolver (ctrl-VQE) directly optimizes microwave pulses to enable faster and lower-error quantum-state preparation, but its continuous control landscape re- quires efficient search strategies. We demonstrate that a reinforcement-learning agent based on a deep Q learning network can autonomously discover high-performance pulse sequences using only system parameters and a reward function. The approach is fully general for superconducting qubit platforms, requires no ansatz, and operates at nanosecond resolution compatible with hardware con- straints. As a proof of concept, we apply the method to ground-state preparation of the Hydrogen molecule on a simulated superconducting device. The agent consistently identifies optimized control sequences that achieve high fidelity and outperform random-search baselines. These results highlight adaptive learning as a promising hardware-ready framework for pulse-level quantum control.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-08",
+   "pool": "weekly",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212017756"
+   },
+   "url": null,
+   "section": "weekly",
+   "score": 46,
+   "why": "Deep Q-learning finds ctrl-VQE pulses for H2 ground-state preparation in simulation, beating random search but never leaving the simulated device.",
+   "kind": "T"
+  }
+ ]
+}
