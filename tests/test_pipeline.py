@@ -153,7 +153,9 @@ def make_fetcher(responses: list[httpx.Response | Exception]) -> tuple[FetchXml,
         return item
 
     client = httpx.Client(transport=httpx.MockTransport(handler))
-    return make_arxiv_fetcher(RETRY_CONFIG, sleep=sleeps.append, client=client), sleeps
+    # jitter is identity here so the backoff schedule is exact; test_fetcher_jitters_the_backoff covers it
+    fetcher = make_arxiv_fetcher(RETRY_CONFIG, sleep=sleeps.append, client=client, jitter=lambda w: w)
+    return fetcher, sleeps
 
 
 def test_fetcher_retries_429_with_doubling_backoff() -> None:
@@ -218,3 +220,25 @@ def test_fetcher_paces_successive_calls() -> None:
     fetch("https://export.arxiv.org/api/query?q=1")
     fetch("https://export.arxiv.org/api/query?q=2")
     assert sleeps == [3]  # no pause before the first call, delay_seconds before the next
+
+
+def test_fetcher_jitters_the_backoff() -> None:
+    sleeps: list[float] = []
+    responses: list[httpx.Response] = [httpx.Response(429), httpx.Response(200, text="<feed/>")]
+    client = httpx.Client(transport=httpx.MockTransport(lambda request: responses.pop(0)))
+    fetch = make_arxiv_fetcher(
+        RETRY_CONFIG, sleep=sleeps.append, client=client, jitter=lambda wait: wait * 0.8
+    )
+
+    fetch("https://export.arxiv.org/api/query?q=1")
+    assert sleeps == [8]  # the 10s backoff passed through the jitter, not used raw
+
+
+def test_real_settings_pace_arxiv_conservatively() -> None:
+    """The shipped config must stay slow enough to ride out a throttle; see 2026-09-14."""
+    arxiv = load_config(Paths(root=ROOT))["arxiv"]
+
+    assert arxiv["delay_seconds"] >= 15
+    assert arxiv["retries"] >= 5
+    assert arxiv["retry_wait_seconds"] >= 30
+    assert arxiv["retry_max_wait_seconds"] >= 600

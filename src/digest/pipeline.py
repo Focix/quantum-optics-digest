@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import random
 import time
 import tomllib
 from collections.abc import Callable
@@ -24,6 +25,9 @@ from digest.watch import load_watchlist, watch_tags
 from digest.store import add_error, build_digest, digest_path, load_digests, merge_digests, write_digest
 
 FetchXml = Callable[[str], str]
+
+# arXiv asks callers to identify themselves; an anonymous UA is likelier to be throttled.
+USER_AGENT = "quantum-optics-digest/1.0 (+https://github.com/Focix/quantum-optics-digest)"
 
 
 @dataclass
@@ -109,13 +113,14 @@ def make_arxiv_fetcher(
     config: dict[str, Any],
     sleep: Callable[[float], None] = time.sleep,
     client: httpx.Client | None = None,
+    jitter: Callable[[float], float] = lambda wait: wait * random.uniform(0.75, 1.25),
 ) -> FetchXml:
     arxiv = config["arxiv"]
     if client is None:
-        client = httpx.Client(timeout=60, headers={"User-Agent": "quantum-optics-digest (github.com/Focix)"})
+        client = httpx.Client(timeout=60, headers={"User-Agent": USER_AGENT})
     attempts = 1 + int(arxiv["retries"])
     first_wait = float(arxiv["retry_wait_seconds"])
-    max_wait = float(arxiv.get("retry_max_wait_seconds", 120))
+    max_wait = float(arxiv.get("retry_max_wait_seconds", 600))
     calls = 0
 
     def retry_after(response: httpx.Response, fallback: float) -> float:
@@ -134,7 +139,8 @@ def make_arxiv_fetcher(
         wait = first_wait
         for attempt in range(attempts):
             if attempt:
-                sleep(wait)
+                # Jittered so repeated runs do not retry in lockstep against a busy arXiv.
+                sleep(jitter(wait))
                 wait = min(wait * 2, max_wait)
             try:
                 response = client.get(url)
