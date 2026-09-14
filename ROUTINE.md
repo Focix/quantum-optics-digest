@@ -9,7 +9,7 @@ You are running inside a Claude Code cloud routine with this repository cloned. 
    uv run scripts/feedback.py
    uv run scripts/fetch.py --mode daily
    ```
-   `feedback.py` folds 👍/👎 issues into `state/feedback.json` and closes them; it never fails the run (a warning means `gh` could not reach GitHub, continue). `fetch.py` prints a status object. Exit code 1 means a partial failure that is already recorded in `out/status.json`; continue anyway if `out/candidates.json` exists. If the script crashed (no `out/candidates.json`), go to step 5.
+   `feedback.py` folds 👍/👎 issues into `state/feedback.json` and closes them; it never fails the run (it prefers `gh` and falls back to the GitHub REST API when `gh` is missing, as it is in the cloud environment; without a `GH_TOKEN` it records the issues but leaves them open, which is harmless — continue past any warning). `fetch.py` prints a status object. Exit code 1 means a partial failure that is already recorded in `out/status.json`; continue anyway if `out/candidates.json` exists. If the script crashed (no `out/candidates.json`), go to step 5.
 2. Read `prompts/rank_daily.md`, `interests/a_superconducting.md`, `interests/b_other_platforms.md`, `state/feedback.json`, and `out/candidates.json`. Rank the candidates per the prompt and write `out/ranking.json`. Use today's date in Moscow for `run`.
 3. Render:
    ```
@@ -37,4 +37,5 @@ Same as daily (including `scripts/feedback.py` first) with `--mode weekly`, `pro
 - `out/` is scratch and is gitignored. `state/seen.json` is only advanced by a successful render, so a failed run repeats the same candidates next time.
 - Never edit `interests/`, `config/` or `prompts/` from a routine; the owner edits those by hand. `interests/watchlist.toml` lists authors whose papers always get a why-line; `fetch.py` tags them `watch:<name>`.
 - `state/feedback.json` is written only by `scripts/feedback.py`; commit it with the rest of `state`.
+- arXiv 429s are retried with a doubling backoff (`[arxiv] retries`, `retry_wait_seconds`, `retry_max_wait_seconds` in `config/settings.toml`), honouring `Retry-After`. If `fetch.py` still reports 429 for every pool, arXiv is throttling hard: do not re-run it by hand, go to step 5 and let tomorrow's run pick the candidates up (`state/seen.json` is not advanced).
 - Citation counts come from OpenAlex (no key). If `api.openalex.org` is unreachable the status shows `"citations": "error: ..."`, the digest still renders, and the banner explains.

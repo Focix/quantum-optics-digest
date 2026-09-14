@@ -11,9 +11,10 @@ repo = "Focix/quantum-optics-digest"
 
 [arxiv]
 max_results = 200
-delay_seconds = 3        # pause between arXiv requests
-retries = 3              # extra attempts on 503 / network errors
-retry_wait_seconds = 10
+delay_seconds = 3             # pause between arXiv requests
+retries = 3                   # extra attempts on 429 / 503 / network errors
+retry_wait_seconds = 10       # first backoff; doubles each attempt
+retry_max_wait_seconds = 120  # cap on the backoff, and on any Retry-After arXiv sends
 
 [citations]
 # Citation counts and venues from OpenAlex (api.openalex.org, no key). Add the host

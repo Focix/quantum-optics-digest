@@ -105,10 +105,25 @@ def _write_json(path: Path, data: Any) -> None:
 # -- arXiv transport -------------------------------------------------------
 
 
-def make_arxiv_fetcher(config: dict[str, Any], sleep: Callable[[float], None] = time.sleep) -> FetchXml:
+def make_arxiv_fetcher(
+    config: dict[str, Any],
+    sleep: Callable[[float], None] = time.sleep,
+    client: httpx.Client | None = None,
+) -> FetchXml:
     arxiv = config["arxiv"]
-    client = httpx.Client(timeout=60, headers={"User-Agent": "quantum-optics-digest (github.com/Focix)"})
+    if client is None:
+        client = httpx.Client(timeout=60, headers={"User-Agent": "quantum-optics-digest (github.com/Focix)"})
+    attempts = 1 + int(arxiv["retries"])
+    first_wait = float(arxiv["retry_wait_seconds"])
+    max_wait = float(arxiv.get("retry_max_wait_seconds", 120))
     calls = 0
+
+    def retry_after(response: httpx.Response, fallback: float) -> float:
+        """arXiv sometimes says how long to wait; a malformed value falls back to the backoff."""
+        try:
+            return min(max(float(response.headers.get("Retry-After", "")), 0.0), max_wait)
+        except ValueError:
+            return fallback
 
     def fetch(url: str) -> str:
         nonlocal calls
@@ -116,20 +131,27 @@ def make_arxiv_fetcher(config: dict[str, Any], sleep: Callable[[float], None] = 
             sleep(float(arxiv["delay_seconds"]))
         calls += 1
         last: Exception | None = None
-        for attempt in range(1 + int(arxiv["retries"])):
+        wait = first_wait
+        for attempt in range(attempts):
             if attempt:
-                sleep(float(arxiv["retry_wait_seconds"]))
+                sleep(wait)
+                wait = min(wait * 2, max_wait)
             try:
                 response = client.get(url)
             except (httpx.TransportError, OSError) as exc:  # timeouts, resets
                 last = exc
                 continue
+            # 429 is throttling, not a bad query: back off and try again.
+            if response.status_code == 429:
+                last = RuntimeError("HTTP 429 (rate limited)")
+                wait = retry_after(response, wait)
+                continue
             if response.status_code >= 500:  # arXiv's occasional 503
                 last = RuntimeError(f"HTTP {response.status_code}")
                 continue
-            response.raise_for_status()  # 4xx: a bad query, do not retry
+            response.raise_for_status()  # other 4xx: a bad query, do not retry
             return response.text
-        raise RuntimeError(f"arXiv request failed after {1 + int(arxiv['retries'])} attempts: {last}")
+        raise RuntimeError(f"arXiv request failed after {attempts} attempts: {last}")
 
     return fetch
 

@@ -2,9 +2,18 @@ import json
 from datetime import date
 from pathlib import Path
 
+import httpx
 import pytest
 
-from digest.pipeline import Paths, fetch_daily, fetch_weekly, load_config, publish
+from digest.pipeline import (
+    FetchXml,
+    Paths,
+    fetch_daily,
+    fetch_weekly,
+    load_config,
+    make_arxiv_fetcher,
+    publish,
+)
 
 FIXTURE = (Path(__file__).parent / "fixtures" / "arxiv_transmon.xml").read_text()
 ROOT = Path(__file__).parent.parent
@@ -117,3 +126,95 @@ def test_fetch_weekly_collects_computing_items_from_recent_digests(paths: Paths)
     assert [(c["id"], c["pool"]) for c in candidates] == [("new", "weekly")]
     assert status["counts"] == {"weekly": 1}
     assert status["citations"] == "disabled"
+
+
+# -- arXiv transport -------------------------------------------------------
+
+RETRY_CONFIG = {
+    "arxiv": {
+        "max_results": 200,
+        "delay_seconds": 3,
+        "retries": 3,
+        "retry_wait_seconds": 10,
+        "retry_max_wait_seconds": 120,
+    }
+}
+
+
+def make_fetcher(responses: list[httpx.Response | Exception]) -> tuple[FetchXml, list[float]]:
+    """A fetcher whose transport replays `responses`; returns it with the sleeps it recorded."""
+    remaining = list(responses)
+    sleeps: list[float] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        item = remaining.pop(0)
+        if isinstance(item, Exception):
+            raise item
+        return item
+
+    client = httpx.Client(transport=httpx.MockTransport(handler))
+    return make_arxiv_fetcher(RETRY_CONFIG, sleep=sleeps.append, client=client), sleeps
+
+
+def test_fetcher_retries_429_with_doubling_backoff() -> None:
+    fetch, sleeps = make_fetcher(
+        [httpx.Response(429), httpx.Response(429), httpx.Response(200, text="<feed/>")]
+    )
+
+    assert fetch("https://export.arxiv.org/api/query?q=1") == "<feed/>"
+    assert sleeps == [10, 20]  # 429 is throttling, not a bad query
+
+
+def test_fetcher_honours_retry_after_over_its_own_backoff() -> None:
+    fetch, sleeps = make_fetcher(
+        [httpx.Response(429, headers={"Retry-After": "45"}), httpx.Response(200, text="<feed/>")]
+    )
+
+    assert fetch("https://export.arxiv.org/api/query?q=1") == "<feed/>"
+    assert sleeps == [45]
+
+
+def test_fetcher_caps_retry_after_and_ignores_a_malformed_one() -> None:
+    capped, sleeps = make_fetcher(
+        [httpx.Response(429, headers={"Retry-After": "9999"}), httpx.Response(200, text="<feed/>")]
+    )
+    capped("https://export.arxiv.org/api/query?q=1")
+    assert sleeps == [120]
+
+    malformed, sleeps = make_fetcher(
+        [httpx.Response(429, headers={"Retry-After": "Wed, 21 Oct 2026 07:28:00 GMT"}), httpx.Response(200, text="<feed/>")]
+    )
+    malformed("https://export.arxiv.org/api/query?q=1")
+    assert sleeps == [10]  # falls back to the normal backoff
+
+
+def test_fetcher_gives_up_on_429_after_the_configured_attempts() -> None:
+    fetch, sleeps = make_fetcher([httpx.Response(429) for _ in range(4)])
+
+    with pytest.raises(RuntimeError, match="failed after 4 attempts: HTTP 429"):
+        fetch("https://export.arxiv.org/api/query?q=1")
+    assert sleeps == [10, 20, 40]
+
+
+def test_fetcher_still_retries_503_and_transport_errors() -> None:
+    fetch, _ = make_fetcher(
+        [httpx.Response(503), httpx.ConnectTimeout("timeout"), httpx.Response(200, text="<feed/>")]
+    )
+
+    assert fetch("https://export.arxiv.org/api/query?q=1") == "<feed/>"
+
+
+def test_fetcher_does_not_retry_other_4xx() -> None:
+    fetch, sleeps = make_fetcher([httpx.Response(400)])
+
+    with pytest.raises(httpx.HTTPStatusError):  # a bad query never becomes good
+        fetch("https://export.arxiv.org/api/query?q=1")
+    assert sleeps == []
+
+
+def test_fetcher_paces_successive_calls() -> None:
+    fetch, sleeps = make_fetcher([httpx.Response(200, text="<feed/>") for _ in range(2)])
+
+    fetch("https://export.arxiv.org/api/query?q=1")
+    fetch("https://export.arxiv.org/api/query?q=2")
+    assert sleeps == [3]  # no pause before the first call, delay_seconds before the next
