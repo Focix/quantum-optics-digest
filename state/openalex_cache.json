@@ -255,6 +255,14 @@
 },
 "fetched": "2026-09-10"
 },
+"2609.07739": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7212063788",
+"venue": ""
+},
+"fetched": "2026-09-14"
+},
 "2609.07892": {
 "data": {
 "citationCount": 0,
@@ -294,6 +302,14 @@
 "venue": ""
 },
 "fetched": "2026-09-10"
+},
+"2609.08352": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7212050347",
+"venue": ""
+},
+"fetched": "2026-09-14"
 },
 "2609.08455": {
 "data": {
@@ -383,9 +399,25 @@
 "data": null,
 "fetched": "2026-09-10"
 },
+"2609.09415": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7212148479",
+"venue": ""
+},
+"fetched": "2026-09-14"
+},
 "2609.09426": {
 "data": null,
 "fetched": "2026-09-10"
+},
+"2609.09487": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7212190361",
+"venue": ""
+},
+"fetched": "2026-09-14"
 },
 "2609.09495": {
 "data": null,
@@ -406,6 +438,22 @@
 "2609.10146": {
 "data": null,
 "fetched": "2026-09-11"
+},
+"2609.10655": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7212325779",
+"venue": ""
+},
+"fetched": "2026-09-14"
+},
+"2609.10741": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7212313237",
+"venue": ""
+},
+"fetched": "2026-09-14"
 },
 "2609.10834": {
 "data": null,
@@ -434,5 +482,13 @@
 "2609.11633": {
 "data": null,
 "fetched": "2026-09-11"
+},
+"2609.11666": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7212280966",
+"venue": ""
+},
+"fetched": "2026-09-14"
 }
 }

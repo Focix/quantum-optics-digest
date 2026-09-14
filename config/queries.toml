@@ -1,12 +1,18 @@
 # arXiv queries, one per pool. Categories are OR'ed and AND'ed with the query.
 # Broad on purpose: exclusion is the ranking model's job.
+#
+# backup_query is the same intent in OpenAlex's search syntax, used only when
+# export.arxiv.org is unreachable. OpenAlex has no category filter and indexes
+# preprints days late, so it is a reduced version of the pool, not a translation.
 
 [pools.A]
 label = "Superconducting artificial atoms (also the weekly computing pool)"
 categories = ["quant-ph", "cond-mat.mes-hall", "cond-mat.supr-con"]
 query = '''abs:"superconducting qubit" OR (abs:superconducting AND abs:qubit) OR abs:"superconducting circuit" OR abs:"superconducting resonator" OR abs:transmon OR abs:fluxonium OR abs:"circuit QED" OR abs:"circuit quantum electrodynamics" OR abs:"artificial atom" OR abs:"microwave photon" OR abs:"Josephson junction"'''
+backup_query = '''"superconducting qubit" OR "superconducting circuit" OR "superconducting resonator" OR transmon OR fluxonium OR "circuit QED" OR "circuit quantum electrodynamics" OR "artificial atom" OR "microwave photon" OR "Josephson junction"'''
 
 [pools.B]
 label = "Quantum optics on other platforms"
 categories = ["quant-ph", "physics.optics", "physics.atom-ph"]
 query = '''abs:"cavity QED" OR abs:"waveguide QED" OR abs:"single photon" OR abs:"single-photon" OR abs:"photon statistics" OR abs:"resonance fluorescence" OR abs:"squeezed light" OR abs:"quantum emitter" OR abs:"giant atom" OR abs:optomechanical OR (abs:Rydberg AND abs:photon) OR (abs:"trapped ion" AND abs:photon) OR (abs:"quantum dot" AND abs:photon)'''
+backup_query = '''"cavity QED" OR "waveguide QED" OR "single photon" OR "photon statistics" OR "resonance fluorescence" OR "squeezed light" OR "quantum emitter" OR "giant atom" OR optomechanical'''

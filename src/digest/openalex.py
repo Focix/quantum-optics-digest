@@ -16,6 +16,8 @@ from typing import Any
 
 import httpx
 
+from digest.models import Paper
+
 WORKS_URL = "https://api.openalex.org/works"
 FIELDS = "id,doi,title,cited_by_count,publication_date,primary_location,locations,authorships,abstract_inverted_index"
 BATCH_SIZE = 50  # OpenAlex caps OR'ed filter values at 50
@@ -25,6 +27,7 @@ MIN_INTERVAL = 1.0  # seconds between requests
 MISS_TTL_DAYS = 1
 HIT_TTL_DAYS = 7
 ARXIV_DOI_PREFIX = "10.48550/arxiv."
+ARXIV_SOURCE_ID = "S4306400194"  # "arXiv (Cornell University)" in OpenAlex
 
 
 def reconstruct_abstract(inverted: dict[str, list[int]] | None) -> str:
@@ -171,3 +174,36 @@ class OpenAlexClient:
                 }
             )
         return records
+
+    def search_preprints(self, query: str, *, from_date: str, limit: int = 200) -> list[Paper]:
+        """arXiv preprints matching the query, as a backup when export.arxiv.org is unreachable.
+
+        OpenAlex indexes preprints days after submission, so this returns a subset of what the
+        arXiv API would have — degraded coverage, not a replacement. Papers OpenAlex holds
+        without a resolvable arXiv id are skipped.
+        """
+        filters = [
+            f"title_and_abstract.search:{query}",
+            f"locations.source.id:{ARXIV_SOURCE_ID}",
+            f"from_publication_date:{from_date}",
+        ]
+        data = self._get(
+            {"filter": ",".join(filters), "select": FIELDS, "per-page": limit, "sort": "publication_date:desc"}
+        )
+        papers: list[Paper] = []
+        for work in data.get("results", []):
+            arxiv_id = _arxiv_id_from_doi(work.get("doi") or "")
+            published = work.get("publication_date") or ""
+            if not arxiv_id or not published:
+                continue
+            papers.append(
+                Paper(
+                    id=arxiv_id,
+                    title=work.get("title") or "",
+                    authors=[a.get("author", {}).get("display_name", "") for a in work.get("authorships") or []],
+                    abstract=reconstruct_abstract(work.get("abstract_inverted_index")),
+                    categories=[],  # OpenAlex does not carry arXiv categories
+                    submitted=date.fromisoformat(published),
+                )
+            )
+        return papers

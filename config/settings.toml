@@ -11,12 +11,19 @@ repo = "Focix/quantum-optics-digest"
 
 [arxiv]
 max_results = 200
-delay_seconds = 15            # pause between arXiv requests (a daily run makes only 2)
-# A daily run has no deadline, so it waits arXiv's throttling out rather than giving up:
-# 5 retries doubling from 30s, jittered, is a worst case of ~15 min per pool.
-retries = 5                   # extra attempts on 429 / 503 / network errors
-retry_wait_seconds = 30       # first backoff; doubles each attempt, +/-25% jitter
-retry_max_wait_seconds = 600  # cap on the backoff, and on any Retry-After arXiv sends
+delay_seconds = 5             # pause between arXiv requests (a daily run makes only 2)
+# Short on purpose: a throttled pool falls back to OpenAlex (see [backup]) rather than
+# waiting arXiv out. A throttled arXiv answers slowly, so the timeout matters more than
+# the backoff does; together these bound a fully-throttled run at roughly two minutes.
+timeout_seconds = 20          # a throttled arXiv can sit on a 429 for 15s+
+retries = 2                   # extra attempts on 429 / 503 / network errors
+retry_wait_seconds = 5        # first backoff; doubles each attempt, +/-25% jitter
+retry_max_wait_seconds = 30   # cap on the backoff, and on any Retry-After arXiv sends
+
+[backup]
+# When a pool's arXiv fetch fails, refill it from OpenAlex using the pool's backup_query.
+# OpenAlex indexes preprints days late, so the digest is thinner and the page says so.
+enabled = true
 
 [citations]
 # Citation counts and venues from OpenAlex (api.openalex.org, no key). Add the host

@@ -120,3 +120,28 @@ def test_search_journal_returns_normalised_records(tmp_path: Path) -> None:
 def test_reconstruct_abstract_orders_words_by_position() -> None:
     assert reconstruct_abstract({"b": [1], "a": [0, 2]}) == "a b a"
     assert reconstruct_abstract(None) == ""
+
+
+def test_search_preprints_returns_arxiv_papers_and_skips_unresolvable_ones(tmp_path: Path) -> None:
+    requests: list[httpx.Request] = []
+    no_arxiv_doi = {**work("2609.00002"), "doi": "https://doi.org/10.1103/PhysRevLett.1.1"}
+    no_date = {**work("2609.00003"), "publication_date": None}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        requests.append(request)
+        return httpx.Response(200, json={"results": [work("2609.00001"), no_arxiv_doi, no_date]})
+
+    client, _ = make_client(handler, tmp_path)
+    papers = client.search_preprints("transmon OR fluxonium", from_date="2026-09-03")
+
+    assert [p.id for p in papers] == ["2609.00001"]  # the other two cannot be mapped to arXiv
+    assert papers[0].title == "Title 2609.00001"
+    assert papers[0].authors == ["A One", "B Two"]
+    assert papers[0].abstract == "Quantum optics wins"
+    assert papers[0].categories == []
+    assert papers[0].submitted == date(2026, 9, 7)
+
+    filters = dict(requests[0].url.params)["filter"]
+    assert "title_and_abstract.search:transmon OR fluxonium" in filters
+    assert "locations.source.id:S4306400194" in filters
+    assert "from_publication_date:2026-09-03" in filters

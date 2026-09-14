@@ -5,6 +5,7 @@ from pathlib import Path
 import httpx
 import pytest
 
+from digest.models import Paper
 from digest.pipeline import (
     FetchXml,
     Paths,
@@ -26,10 +27,9 @@ def paths(tmp_path: Path) -> Paths:
     (tmp_path / "config").mkdir()
     for name in ("queries.toml", "settings.toml"):
         (tmp_path / "config" / name).write_text((ROOT / "config" / name).read_text())
-    # tests never touch the network
-    (tmp_path / "config" / "settings.toml").write_text(
-        (tmp_path / "config" / "settings.toml").read_text().replace("enabled = true", "enabled = false")
-    )
+    # tests never touch the network: this disables both [citations] and [backup]
+    settings = tmp_path / "config" / "settings.toml"
+    settings.write_text(settings.read_text().replace("enabled = true", "enabled = false"))
     return p
 
 
@@ -234,11 +234,84 @@ def test_fetcher_jitters_the_backoff() -> None:
     assert sleeps == [8]  # the 10s backoff passed through the jitter, not used raw
 
 
-def test_real_settings_pace_arxiv_conservatively() -> None:
-    """The shipped config must stay slow enough to ride out a throttle; see 2026-09-14."""
-    arxiv = load_config(Paths(root=ROOT))["arxiv"]
+def test_real_settings_keep_a_run_short_and_backed_up() -> None:
+    """A throttled pool must fail fast and have somewhere to fall back to; see 2026-09-14."""
+    paths = Paths(root=ROOT)
+    config = load_config(paths)
+    arxiv = config["arxiv"]
 
-    assert arxiv["delay_seconds"] >= 15
-    assert arxiv["retries"] >= 5
-    assert arxiv["retry_wait_seconds"] >= 30
-    assert arxiv["retry_max_wait_seconds"] >= 600
+    # Worst case per pool, ignoring jitter: the sum of the doubling backoffs.
+    worst_case = sum(min(arxiv["retry_wait_seconds"] * 2**i, arxiv["retry_max_wait_seconds"])
+                     for i in range(arxiv["retries"]))
+    # Latency dominates when arXiv is throttling, so bound the requests too, not just the waits.
+    attempts = 1 + arxiv["retries"]
+    assert worst_case + attempts * arxiv["timeout_seconds"] <= 90, (
+        "a throttled pool should give up in about a minute and fall back, not wait arXiv out"
+    )
+
+    assert config["backup"]["enabled"]
+    for name, pool in config["pools"].items():
+        assert pool.get("backup_query"), f"pool {name} has no OpenAlex backup query"
+
+
+# -- OpenAlex backup -------------------------------------------------------
+
+
+def boom(url: str) -> str:
+    raise RuntimeError("arXiv request failed after 4 attempts: HTTP 429 (rate limited)")
+
+
+def backup_paper(arxiv_id: str) -> Paper:
+    return Paper(
+        id=arxiv_id,
+        title=f"Backup {arxiv_id}",
+        authors=["A One"],
+        abstract="a superconducting qubit abstract",
+        categories=[],  # OpenAlex carries no arXiv categories
+        submitted=TODAY,
+    )
+
+
+def test_pool_falls_back_to_openalex_when_arxiv_fails(paths: Paths) -> None:
+    asked: list[str] = []
+
+    def backup(pool: dict[str, object]) -> list[Paper]:
+        asked.append(str(pool["backup_query"]))
+        return [backup_paper("2609.09426")]
+
+    status = fetch_daily(load_config(paths), paths, fetch_xml=boom, today=TODAY, backup=backup)
+
+    assert len(asked) == 2  # both pools fell back
+    assert status["pools"]["A"].startswith("backup: 1 from OpenAlex after arXiv failed")
+    assert status["counts"]["A"] == 1
+    # the reader is told the digest is thin, not just that something broke
+    assert "indexes preprints a few days late" in status["error"]
+    assert [c["id"] for c in json.loads(paths.candidates.read_text())] == ["2609.09426"]
+
+
+def test_backup_is_not_used_when_arxiv_works(paths: Paths) -> None:
+    def backup(pool: dict[str, object]) -> list[Paper]:
+        raise AssertionError("backup must not run when arXiv answers")
+
+    status = fetch_daily(load_config(paths), paths, fetch_xml=lambda url: FIXTURE, today=TODAY, backup=backup)
+
+    assert status["pools"] == {"A": "ok", "B": "ok"}
+    assert "error" not in status
+
+
+def test_backup_failure_reports_both_errors(paths: Paths) -> None:
+    def backup(pool: dict[str, object]) -> list[Paper]:
+        raise RuntimeError("OpenAlex 500")
+
+    status = fetch_daily(load_config(paths), paths, fetch_xml=boom, today=TODAY, backup=backup)
+
+    assert "backup failed: OpenAlex 500" in status["pools"]["A"]
+    assert "429" in status["error"] and "OpenAlex backup also failed" in status["error"]
+
+
+def test_pool_without_a_backup_query_just_reports_the_arxiv_error(paths: Paths) -> None:
+    status = fetch_daily(load_config(paths), paths, fetch_xml=boom, today=TODAY, backup=lambda pool: None)
+
+    assert status["pools"]["A"].startswith("error: arXiv request failed")
+    assert "OpenAlex" not in status["error"]
+    assert status["counts"] == {"A": 0, "B": 0}

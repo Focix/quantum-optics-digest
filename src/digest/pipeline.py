@@ -25,6 +25,8 @@ from digest.watch import load_watchlist, watch_tags
 from digest.store import add_error, build_digest, digest_path, load_digests, merge_digests, write_digest
 
 FetchXml = Callable[[str], str]
+# A pool's fallback source: returns its papers, or None when no backup applies.
+Backup = Callable[[dict[str, Any]], "list[Paper] | None"]
 
 # arXiv asks callers to identify themselves; an anonymous UA is likelier to be throttled.
 USER_AGENT = "quantum-optics-digest/1.0 (+https://github.com/Focix/quantum-optics-digest)"
@@ -117,7 +119,9 @@ def make_arxiv_fetcher(
 ) -> FetchXml:
     arxiv = config["arxiv"]
     if client is None:
-        client = httpx.Client(timeout=60, headers={"User-Agent": USER_AGENT})
+        client = httpx.Client(
+            timeout=float(arxiv.get("timeout_seconds", 20)), headers={"User-Agent": USER_AGENT}
+        )
     attempts = 1 + int(arxiv["retries"])
     first_wait = float(arxiv["retry_wait_seconds"])
     max_wait = float(arxiv.get("retry_max_wait_seconds", 600))
@@ -187,21 +191,72 @@ def _enrich(candidates: list[Candidate], client: OpenAlexClient | None, status: 
         add_error(status, f"citation lookup failed: {exc}")
 
 
+
+def _make_backup(config: dict[str, Any], paths: Paths, *, today: date) -> Backup:
+    """A per-pool OpenAlex fallback; returns None when the pool or the config has none."""
+    if not config.get("backup", {}).get("enabled"):
+        return lambda pool: None
+
+    def backup(pool: dict[str, Any]) -> list[Paper] | None:
+        query = pool.get("backup_query")
+        if not query:
+            return None
+        # Built here rather than reusing the citation client: the backup must work even
+        # when [citations] is disabled.
+        client = OpenAlexClient(
+            cache_path=paths.cite_cache, mailto=config.get("citations", {}).get("mailto") or None
+        )
+        window = int(config["run"]["window_days"])
+        return client.search_preprints(
+            query,
+            from_date=(today - timedelta(days=window)).isoformat(),
+            limit=int(config["arxiv"]["max_results"]),
+        )
+
+    return backup
+
+
 # -- daily -----------------------------------------------------------------
 
 
-def fetch_daily(config: dict[str, Any], paths: Paths, *, fetch_xml: FetchXml, today: date) -> dict[str, Any]:
+def fetch_daily(
+    config: dict[str, Any],
+    paths: Paths,
+    *,
+    fetch_xml: FetchXml,
+    today: date,
+    backup: Backup | None = None,
+) -> dict[str, Any]:
     run_cfg = config["run"]
     status: dict[str, Any] = {"run": today.isoformat(), "mode": "daily", "pools": {}, "counts": {}}
     pools: dict[str, list[Paper]] = {}
+    refill = backup or _make_backup(config, paths, today=today)
     for name, pool in config["pools"].items():
         url = build_query_url(pool["categories"], pool["query"], int(config["arxiv"]["max_results"]))
         try:
             pools[name] = parse_feed(fetch_xml(url))
             status["pools"][name] = "ok"
+            continue
         except Exception as exc:
-            status["pools"][name] = f"error: {exc}"
-            add_error(status, f"pool {name}: {exc}")
+            arxiv_error = exc
+        # arXiv is unreachable for this pool: refill it from OpenAlex if we can.
+        try:
+            papers = refill(pool)
+        except Exception as backup_exc:
+            status["pools"][name] = f"error: {arxiv_error} (backup failed: {backup_exc})"
+            add_error(status, f"pool {name}: {arxiv_error}; OpenAlex backup also failed: {backup_exc}")
+            continue
+        if papers is None:
+            status["pools"][name] = f"error: {arxiv_error}"
+            add_error(status, f"pool {name}: {arxiv_error}")
+            continue
+        pools[name] = papers
+        status["pools"][name] = f"backup: {len(papers)} from OpenAlex after arXiv failed ({arxiv_error})"
+        add_error(
+            status,
+            f"pool {name}: arXiv unreachable ({arxiv_error}), so these papers come from OpenAlex, "
+            "which indexes preprints a few days late — expect the newest papers to be missing",
+        )
 
     seen: dict[str, str] = _read_json(paths.seen, {})
     watchlist = load_watchlist(paths.watchlist)

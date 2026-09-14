@@ -10,6 +10,11 @@ Design: [PLAN.md](PLAN.md). Routine steps: [ROUTINE.md](ROUTINE.md).
 scripts/fetch.py    arXiv → out/candidates.json, out/status.json, out/seen_next.json
 scripts/render.py   out/ + out/ranking.json → digests/YYYY-MM-DD.json, docs/ (pages + feed.xml)
 scripts/feedback.py 👍/👎 GitHub issues → state/feedback.json (read by the ranking prompt)
+
+If export.arxiv.org is unreachable, each pool falls back to OpenAlex using its `backup_query`
+(`config/queries.toml`). OpenAlex indexes preprints several days late and carries no arXiv
+categories, so a backup run is much thinner than usual and the page banner says so. It exists to
+keep the digest publishing through an arXiv outage, not to match it.
 src/digest/         arxiv.py select.py openalex.py ranking.py store.py render.py pipeline.py
 config/             queries.toml (arXiv queries per pool), settings.toml
 interests/          one statement per section; the model ranks against these; watchlist.toml (authors)
