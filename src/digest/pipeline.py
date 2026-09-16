@@ -186,6 +186,9 @@ def _enrich(candidates: list[Candidate], client: OpenAlexClient | None, status: 
         for c in arxiv_papers:
             c.cite = found.get(c.id)
         status["citations"] = f"ok ({len(found)}/{len(arxiv_papers)} found)"
+        if client.last_error:  # some batches 429'd; the rest of the counts still went out
+            status["citations"] += f"; partial ({client.last_error})"
+            add_error(status, f"citation lookup partly failed: {client.last_error}")
     except Exception as exc:  # OpenAlex down: digest still goes out, banner explains
         status["citations"] = f"error: {exc}"
         add_error(status, f"citation lookup failed: {exc}")

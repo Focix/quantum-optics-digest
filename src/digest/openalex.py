@@ -8,6 +8,7 @@ refresh after a week.
 from __future__ import annotations
 
 import json
+import random
 import time
 from collections.abc import Callable
 from datetime import date, timedelta
@@ -21,8 +22,9 @@ from digest.models import Paper
 WORKS_URL = "https://api.openalex.org/works"
 FIELDS = "id,doi,title,cited_by_count,publication_date,primary_location,locations,authorships,abstract_inverted_index"
 BATCH_SIZE = 50  # OpenAlex caps OR'ed filter values at 50
-MAX_ATTEMPTS = 5
-FIRST_BACKOFF = 2.0
+MAX_ATTEMPTS = 6
+FIRST_BACKOFF = 5.0
+MAX_BACKOFF = 60.0  # also caps any Retry-After OpenAlex sends
 MIN_INTERVAL = 1.0  # seconds between requests
 MISS_TTL_DAYS = 1
 HIT_TTL_DAYS = 7
@@ -76,6 +78,7 @@ class OpenAlexClient:
         sleep: Callable[[float], None] = time.sleep,
         clock: Callable[[], float] = time.monotonic,
         today: Callable[[], date] = date.today,
+        jitter: Callable[[float], float] = lambda wait: wait * random.uniform(0.75, 1.25),
     ) -> None:
         self.cache_path = cache_path
         self.mailto = mailto or None
@@ -83,6 +86,8 @@ class OpenAlexClient:
         self.sleep = sleep
         self.clock = clock
         self.today = today
+        self.jitter = jitter
+        self.last_error: str | None = None
         self._last_request = float("-inf")
         self.cache: dict[str, dict[str, Any]] = (
             json.loads(cache_path.read_text()) if cache_path.exists() else {}
@@ -103,6 +108,13 @@ class OpenAlexClient:
 
     # -- transport ---------------------------------------------------------
 
+    def _retry_after(self, response: httpx.Response, fallback: float) -> float:
+        """OpenAlex sometimes says how long to wait; a malformed value falls back to the backoff."""
+        try:
+            return min(max(float(response.headers.get("Retry-After", "")), 0.0), MAX_BACKOFF)
+        except ValueError:
+            return fallback
+
     def _get(self, params: dict[str, Any]) -> dict[str, Any]:
         if self.mailto:
             params = {**params, "mailto": self.mailto}
@@ -116,8 +128,11 @@ class OpenAlexClient:
             if response.status_code == 429 or response.status_code >= 500:
                 if attempt == MAX_ATTEMPTS:
                     response.raise_for_status()
-                self.sleep(backoff)
-                backoff *= 2
+                if response.status_code == 429:
+                    backoff = self._retry_after(response, backoff)
+                # Jittered so repeated runs do not retry in lockstep against a busy OpenAlex.
+                self.sleep(self.jitter(backoff))
+                backoff = min(backoff * 2, MAX_BACKOFF)
                 continue
             response.raise_for_status()
             data: dict[str, Any] = response.json()
@@ -127,13 +142,29 @@ class OpenAlexClient:
     # -- public API --------------------------------------------------------
 
     def enrich(self, arxiv_ids: list[str]) -> dict[str, dict[str, Any]]:
-        """Return {arxiv_id: {citationCount, venue, openalex}} for the papers OpenAlex knows."""
+        """Return {arxiv_id: {citationCount, venue, openalex}} for the papers OpenAlex knows.
+
+        A batch that keeps failing is skipped rather than fatal: those ids stay uncached
+        (so tomorrow retries them) and `last_error` records why. Only an all-batches-failed
+        run raises, because then there is nothing to report.
+        """
+        self.last_error = None
         missing = [i for i in arxiv_ids if not self._fresh(i)]
         fetched = self.today().isoformat()
+        failed = 0
+        batches = 0
         for start in range(0, len(missing), BATCH_SIZE):
             chunk = missing[start : start + BATCH_SIZE]
+            batches += 1
             dois = "|".join(f"10.48550/arXiv.{i}" for i in chunk)
-            data = self._get({"filter": f"doi:{dois}", "select": FIELDS, "per-page": BATCH_SIZE})
+            try:
+                data = self._get({"filter": f"doi:{dois}", "select": FIELDS, "per-page": BATCH_SIZE})
+            except (httpx.HTTPError, OSError) as exc:
+                failed += 1
+                self.last_error = f"{failed}/{batches} batches failed, most recently: {exc}"
+                if failed == batches:  # nothing has succeeded yet, and the next batch will not either
+                    raise
+                continue
             found: dict[str, dict[str, Any]] = {}
             for work in data.get("results", []):
                 arxiv_id = _arxiv_id_from_doi(work.get("doi") or "")

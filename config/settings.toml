@@ -27,10 +27,11 @@ enabled = true
 
 [citations]
 # Citation counts and venues from OpenAlex (api.openalex.org, no key). Add the host
-# to the cloud environment's allowed domains. An email in `mailto` puts requests
-# in OpenAlex's polite pool; leave empty to use the common pool.
+# to the cloud environment's allowed domains. The `mailto` puts requests in OpenAlex's
+# polite pool, which is throttled far less than the common pool an empty value uses
+# (an empty one 429'd the whole lookup on 2026-09-16).
 enabled = true
-mailto = ""
+mailto = "fdmiester@gmail.com"
 
 [weekly]
 lookback_days = 7        # daily digests to pull computing-tagged papers from

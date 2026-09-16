@@ -36,6 +36,7 @@ def make_client(handler, tmp_path: Path, today: date = date(2026, 9, 10)) -> tup
         sleep=sleeps.append,
         clock=itertools.count(0, 10).__next__,  # far apart: no rate-limit sleeps
         today=lambda: today,
+        jitter=lambda wait: wait,  # deterministic backoffs in tests
     )
     return client, sleeps
 
@@ -86,7 +87,35 @@ def test_429_is_retried_with_backoff_then_raises(tmp_path: Path) -> None:
     client, sleeps = make_client(lambda request: httpx.Response(429), tmp_path)
     with pytest.raises(httpx.HTTPStatusError):
         client.enrich(["2609.00001"])
-    assert sleeps == [2.0, 4.0, 8.0, 16.0]
+    assert sleeps == [5.0, 10.0, 20.0, 40.0, 60.0]
+
+
+def test_429_backoff_honours_retry_after(tmp_path: Path) -> None:
+    client, sleeps = make_client(
+        lambda request: httpx.Response(429, headers={"Retry-After": "12"}), tmp_path
+    )
+    with pytest.raises(httpx.HTTPStatusError):
+        client.enrich(["2609.00001"])
+    assert sleeps == [12.0, 12.0, 12.0, 12.0, 12.0]
+
+
+def test_a_failing_batch_keeps_the_batches_that_worked(tmp_path: Path) -> None:
+    calls = itertools.count()
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        # first batch answers, every later request is throttled
+        if next(calls) == 0:
+            return httpx.Response(200, json={"results": [work("2609.00000", 4)]})
+        return httpx.Response(429)
+
+    client, _ = make_client(handler, tmp_path)
+    result = client.enrich([f"2609.{i:05d}" for i in range(60)])
+
+    assert list(result) == ["2609.00000"]
+    assert client.last_error is not None and "1/2 batches failed" in client.last_error
+    # the throttled ids were not cached, so the next run retries them
+    cached = json.loads((tmp_path / "cache.json").read_text())
+    assert "2609.00055" not in cached
 
 
 def test_search_journal_returns_normalised_records(tmp_path: Path) -> None:
