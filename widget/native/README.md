@@ -4,7 +4,7 @@ A real macOS widget: right-click the desktop → Edit Widgets → **Quantum Opti
 medium and large. It sits in the desktop widget layer like Calendar or Weather — it slides aside
 for windows, follows the system theme, and dims when you focus an app.
 
-Like the Übersicht one it reads the published `data/latest.json`, so it needs no checkout at
+It reads the published `data/latest.json`, so it needs no checkout at
 runtime, and it keeps the last successful response so an offline Mac still shows yesterday's papers
 (marked orange) instead of an empty card.
 
@@ -17,8 +17,12 @@ open "/Applications/Quantum Optics Digest.app"   # once, so the widget reaches t
 ```
 
 No Xcode needed — WidgetKit and SwiftUI both ship in the Command Line Tools SDK, and an ad-hoc
-signature (`codesign -s -`) is enough for a widget you run yourself. Two consequences of having no
-signing identity: the widget cannot use an App Group (hence the fetch-and-cache in each process
+signature (`codesign -s -`) is enough for a widget you run yourself. The one non-obvious part is
+the link step: a widget extension's entry point must be `_NSExtensionMain` (`-Xlinker -e`), as
+Xcode links them, because that handshake tells ExtensionFoundation which extension point the
+process serves. Entering Swift's `@main` instead aborts at launch with "Unrecognized extension
+type"; chronod then logs "Connection to extension process was invalidated", its descriptor query
+fails, and the widget silently never appears in the gallery. Two consequences of having no signing identity: the widget cannot use an App Group (hence the fetch-and-cache in each process
 rather than a shared container), and `@State` is unavailable because its macro plugin lives inside
 Xcode — `DigestModel` is an `ObservableObject` for that reason alone.
 

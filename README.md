@@ -24,7 +24,7 @@ digests/            one JSON per run, the source of truth for the page
 docs/               generated static site (GitHub Pages root), Atom feed at docs/feed.xml,
                     zotero.js + data/<run>.json for the in-page "save to Zotero" button;
                     data/latest.json always points at the newest daily run
-widget/             desktop widgets: native WidgetKit and Übersicht (widget/README.md)
+widget/             native WidgetKit desktop widget (widget/README.md)
 ```
 
 ## Run locally
@@ -46,5 +46,5 @@ Citation counts and venues come from OpenAlex, which needs no API key (`[citatio
 - **Atom feed** at `/feed.xml`: one entry per digest run listing papers scored 50 or more (and watched ones) with their why-lines. Any reader or a Telegram RSS bot turns it into a notification.
 - **Watchlist**: add authors to `interests/watchlist.toml`. Their papers are tagged `watch:<name>` and always appear in the main list with a ★ and a why-line, whatever the score. The score itself is not affected.
 - **Feedback**: every paper has 👍 / 👎 links that open a prefilled GitHub issue (labels `feedback` + `up`/`down`). Each run starts with `uv run scripts/feedback.py`, which records open feedback issues in `state/feedback.json`, closes them, and the ranking prompt reads the last 50 as calibration examples. It uses `gh` when available and the GitHub REST API otherwise; reading a public repo's issues needs no token, closing them needs `GH_TOKEN`/`GITHUB_TOKEN`. Records are merged by issue number, so an issue left open is re-read harmlessly.
-- **Desktop widget**: [`widget/`](widget/README.md) keeps today's top papers on the desktop — a native WidgetKit widget for the macOS widget gallery, or an Übersicht widget drawn on the wallpaper. Both fetch the published `data/latest.json`, so they need nothing from this checkout at runtime.
+- **Desktop widget**: [`widget/`](widget/README.md) is a native macOS widget showing today's top papers, in the desktop widget gallery. It fetches the published `data/latest.json`, so it needs nothing from this checkout at runtime.
 - **Save to Zotero**: click "Zotero…" in the page header once, enter your Zotero user ID and an API key with write access (zotero.org/settings/keys), and name a collection (default `to-read`, created if missing). The key is kept in that browser's localStorage only; nothing goes through the repo. On every page load the script (`src/digest/zotero.js`, copied to `docs/`) reads the collection and ticks the papers already in it. `+Z` creates a preprint item (arXiv DOI, abstract, authors) with a linked PDF and a why-note, or files an existing library item into the collection. Clicking a tick removes the paper from the collection; if the page created it and it is in no other collection, the item is deleted outright. Both ask for confirmation.

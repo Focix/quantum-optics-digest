@@ -20,9 +20,14 @@ xcrun swiftc -target "$TARGET" -sdk "$SDK" -O \
   -o "$APP/Contents/MacOS/QuantumOpticsDigest" \
   Sources/Shared/*.swift Sources/App/*.swift
 
-# The widget extension: shared sources + the WidgetBundle. -parse-as-library keeps @main
-# on the WidgetBundle rather than looking for top-level code.
-xcrun swiftc -target "$TARGET" -sdk "$SDK" -O -parse-as-library \
+# The widget extension: shared sources + the WidgetBundle. -parse-as-library keeps @main on
+# the WidgetBundle rather than looking for top-level code, and the entry point must be
+# _NSExtensionMain, as Xcode links widget extensions: it performs the NSExtension host
+# handshake that tells ExtensionFoundation which extension point this process is serving.
+# Entering Swift's generated main instead crashes at launch with "Unrecognized extension type",
+# which chronod sees as the process dying, so the widget never reaches the gallery.
+xcrun swiftc -target "$TARGET" -sdk "$SDK" -O -parse-as-library -application-extension \
+  -Xlinker -e -Xlinker _NSExtensionMain \
   -o "$EXT/Contents/MacOS/DigestWidget" \
   Sources/Shared/*.swift Sources/Widget/*.swift
 
