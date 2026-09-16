@@ -17,8 +17,7 @@
   "dropped_seen": 11,
   "dropped_old": 352,
   "watched": 1,
-  "citations": "error: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.17165%7C10.48550%2FarXiv.2609.16692%7C10.48550%2FarXiv.2609.16630%7C10.48550%2FarXiv.2609.16628%7C10.48550%2FarXiv.2609.16488%7C10.48550%2FarXiv.2609.16133%7C10.48550%2FarXiv.2609.16108%7C10.48550%2FarXiv.2609.15604%7C10.48550%2FarXiv.2609.15272%7C10.48550%2FarXiv.2609.14563%7C10.48550%2FarXiv.2609.14478%7C10.48550%2FarXiv.2609.14230%7C10.48550%2FarXiv.2609.14197%7C10.48550%2FarXiv.2609.13399%7C10.48550%2FarXiv.2609.13108%7C10.48550%2FarXiv.2609.13055%7C10.48550%2FarXiv.2609.13022%7C10.48550%2FarXiv.2609.12596%7C10.48550%2FarXiv.2609.12592%7C10.48550%2FarXiv.2609.12565%7C10.48550%2FarXiv.2609.12066%7C10.48550%2FarXiv.2609.17009%7C10.48550%2FarXiv.2609.16121%7C10.48550%2FarXiv.2609.15935%7C10.48550%2FarXiv.2609.15843%7C10.48550%2FarXiv.2609.15689%7C10.48550%2FarXiv.2609.14577%7C10.48550%2FarXiv.2609.14454%7C10.48550%2FarXiv.2609.14428%7C10.48550%2FarXiv.2609.14153%7C10.48550%2FarXiv.2609.13988%7C10.48550%2FarXiv.2609.13510%7C10.48550%2FarXiv.2609.13143%7C10.48550%2FarXiv.2609.13065%7C10.48550%2FarXiv.2609.12772%7C10.48550%2FarXiv.2609.11994&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
-  "error": "citation lookup failed: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.17165%7C10.48550%2FarXiv.2609.16692%7C10.48550%2FarXiv.2609.16630%7C10.48550%2FarXiv.2609.16628%7C10.48550%2FarXiv.2609.16488%7C10.48550%2FarXiv.2609.16133%7C10.48550%2FarXiv.2609.16108%7C10.48550%2FarXiv.2609.15604%7C10.48550%2FarXiv.2609.15272%7C10.48550%2FarXiv.2609.14563%7C10.48550%2FarXiv.2609.14478%7C10.48550%2FarXiv.2609.14230%7C10.48550%2FarXiv.2609.14197%7C10.48550%2FarXiv.2609.13399%7C10.48550%2FarXiv.2609.13108%7C10.48550%2FarXiv.2609.13055%7C10.48550%2FarXiv.2609.13022%7C10.48550%2FarXiv.2609.12596%7C10.48550%2FarXiv.2609.12592%7C10.48550%2FarXiv.2609.12565%7C10.48550%2FarXiv.2609.12066%7C10.48550%2FarXiv.2609.17009%7C10.48550%2FarXiv.2609.16121%7C10.48550%2FarXiv.2609.15935%7C10.48550%2FarXiv.2609.15843%7C10.48550%2FarXiv.2609.15689%7C10.48550%2FarXiv.2609.14577%7C10.48550%2FarXiv.2609.14454%7C10.48550%2FarXiv.2609.14428%7C10.48550%2FarXiv.2609.14153%7C10.48550%2FarXiv.2609.13988%7C10.48550%2FarXiv.2609.13510%7C10.48550%2FarXiv.2609.13143%7C10.48550%2FarXiv.2609.13065%7C10.48550%2FarXiv.2609.12772%7C10.48550%2FarXiv.2609.11994&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+  "citations": "ok (11/36 found, retried 2026-09-16)",
   "merged": "0 item(s) kept from an earlier run today"
  },
  "items": [
@@ -133,7 +132,11 @@
    "submitted": "2026-09-11",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212573384"
+   },
    "url": null,
    "section": "B",
    "score": 75,
@@ -159,7 +162,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212535700"
+   },
    "url": null,
    "section": "A",
    "score": 65,
@@ -398,7 +405,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212889684"
+   },
    "url": null,
    "section": "computing",
    "score": 55,
@@ -471,7 +482,11 @@
    "submitted": "2026-09-11",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212916758"
+   },
    "url": null,
    "section": "B",
    "score": 55,
@@ -544,7 +559,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212521242"
+   },
    "url": null,
    "section": "computing",
    "score": 45,
@@ -712,7 +731,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212659363"
+   },
    "url": null,
    "section": "computing",
    "score": 35,
@@ -757,7 +780,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212588007"
+   },
    "url": null,
    "section": "computing",
    "score": 32,
@@ -809,7 +836,11 @@
    "submitted": "2026-09-11",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7213087890"
+   },
    "url": null,
    "section": "B",
    "score": 30,
@@ -865,7 +896,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212582324"
+   },
    "url": null,
    "section": "computing",
    "score": 28,
@@ -982,7 +1017,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212556904"
+   },
    "url": null,
    "section": "computing",
    "score": 20,
@@ -1009,7 +1048,11 @@
    "submitted": "2026-09-09",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212731211"
+   },
    "url": null,
    "section": "B",
    "score": 15,
