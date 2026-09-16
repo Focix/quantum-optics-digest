@@ -195,7 +195,7 @@ def _zot(item: dict[str, Any], data: str | None) -> str:
     return f'<button type="button" class="zot" data-id="{_esc(item["id"])}" data-src="{_esc(str(src))}" title="Save to Zotero">+Z</button>'
 
 
-DATA_FIELDS = ("id", "title", "authors", "abstract", "categories", "submitted", "url", "section", "score", "why", "kind")
+DATA_FIELDS = ("id", "title", "authors", "abstract", "categories", "submitted", "url", "section", "score", "why", "kind", "tags")
 
 
 def digest_data(digest: dict[str, Any]) -> dict[str, Any]:
@@ -528,3 +528,8 @@ def render_site(
     for d in digests:
         (docs / "archive" / _archive_name(d)).write_text(render_archive(d, site=site))
         (docs / "data" / f"{_data_name(d)}.json").write_text(json.dumps(digest_data(d), ensure_ascii=False))
+    # Stable URL for clients that cannot guess the newest run date (the desktop widget;
+    # a weekend or a failed run leaves today's file missing).
+    latest = next((d for d in digests if d["mode"] == "daily"), None)
+    if latest is not None:
+        (docs / "data" / "latest.json").write_text(json.dumps(digest_data(latest), ensure_ascii=False))

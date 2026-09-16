@@ -164,3 +164,23 @@ def test_zotero_button_data_files_and_script(tmp_path: Path) -> None:
     assert (docs / "data" / "2026-09-12-weekly.json").exists()
     archive = (docs / "archive" / "2026-09-14.html").read_text()
     assert '<body data-root="../">' in archive and '<script src="../zotero.js" defer>' in archive
+
+
+def test_latest_json_is_the_newest_daily(tmp_path: Path) -> None:
+    digests = [
+        digest("2026-09-12", [item("w1", "weekly", 85)], mode="weekly"),
+        digest("2026-09-11", [item("a1", "A", 90)]),
+        digest("2026-09-10", [item("a0", "A", 70)]),
+    ]
+    docs = tmp_path / "docs"
+    render_site(digests, docs, today=date(2026, 9, 12), site=SITE)
+    import json
+    latest = json.loads((docs / "data" / "latest.json").read_text())
+    assert latest["run"] == "2026-09-11" and latest["mode"] == "daily"
+    assert set(latest["items"]) == {"a1"}
+
+
+def test_latest_json_absent_without_a_daily(tmp_path: Path) -> None:
+    docs = tmp_path / "docs"
+    render_site([digest("2026-09-12", [item("w1", "weekly", 85)], mode="weekly")], docs, today=date(2026, 9, 12), site=SITE)
+    assert not (docs / "data" / "latest.json").exists()
