@@ -1,6 +1,6 @@
 // Übersicht widget: today's digest on the desktop.
 // Reads the published latest.json, so it needs no checkout and no local run.
-// Install: see widget/README.md.
+// Install: see widget/ubersicht.md.
 import { run } from "uebersicht";
 
 const SITE = "https://focix.github.io/quantum-optics-digest/";
