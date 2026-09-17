@@ -1,0 +1,279 @@
+{
+ "run": "2026-09-17",
+ "mode": "daily",
+ "generated": "2026-09-17T06:12:03+00:00",
+ "ranked": true,
+ "status": {
+  "run": "2026-09-17",
+  "mode": "daily",
+  "pools": {
+   "A": "ok",
+   "B": "ok"
+  },
+  "counts": {
+   "A": 2,
+   "B": 8
+  },
+  "dropped_seen": 43,
+  "dropped_old": 347,
+  "watched": 0,
+  "citations": "error: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.18081%7C10.48550%2FarXiv.2609.17870%7C10.48550%2FarXiv.2609.18907%7C10.48550%2FarXiv.2609.18800%7C10.48550%2FarXiv.2609.18671%7C10.48550%2FarXiv.2609.18547%7C10.48550%2FarXiv.2609.18530%7C10.48550%2FarXiv.2609.17900%7C10.48550%2FarXiv.2609.17787%7C10.48550%2FarXiv.2609.17694&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+  "error": "citation lookup failed: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.18081%7C10.48550%2FarXiv.2609.17870%7C10.48550%2FarXiv.2609.18907%7C10.48550%2FarXiv.2609.18800%7C10.48550%2FarXiv.2609.18671%7C10.48550%2FarXiv.2609.18547%7C10.48550%2FarXiv.2609.18530%7C10.48550%2FarXiv.2609.17900%7C10.48550%2FarXiv.2609.17787%7C10.48550%2FarXiv.2609.17694&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429"
+ },
+ "items": [
+  {
+   "id": "2609.18530",
+   "title": "Programmable Hong--Ou--Mandel interference in a giant-atom beam splitter",
+   "authors": [
+    "Ruolin Chai",
+    "Lei Du",
+    "Guoqing Cai",
+    "Alejandro Vivas-Viaña",
+    "Anton Frisk Kockum",
+    "Yong Li"
+   ],
+   "abstract": "The Hong--Ou--Mandel (HOM) effect is a hallmark of two-photon quantum interference, in which two indistinguishable photons impinging on a balanced beam splitter bunch into the same output port. Here, we show that a giant atom (GA), coupled to two waveguides through two coupling points each, can function as a programmable HOM interferometer, enabling continuous control over single-photon beam splitting and two-photon interference. This programmability arises from coupling-phase differences in the GA, which tune its self-interference and directionality, and thereby its scattering response. To characterize the two-photon interference, we analyze the scattering of two Gaussian single-photon wave packets injected through different waveguides and evaluate the bunching and antibunching (coincidence) probabilities of the resulting four output ports. At the operating point where the GA acts as an effective 50:50 beam splitter for single photons, we observe a pronounced HOM dip as the relative input delay between the two wave packets is varied. Away from this point, adjusting the coupling phases continuously tunes the two-photon output statistics between bunching into the same output port and antibunching across distinct output ports. In addition, we explore an application to quantum parameter estimation, showing that small deviations of coupling phases can be estimated from the two-photon output statistics, with the achievable sensitivity quantified by the classical Fisher information associated with a binary coincidence measurement. Our giant-atom beam splitter thus provides a programmable platform for two-photon interference in waveguide quantum electrodynamics, with potential applications in quantum information processing, quantum communication, and quantum sensing.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-16",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 81,
+   "why": "Shows a two-waveguide giant atom acts as a tunable HOM beamsplitter, with coupling-phase shifts steering bunching to antibunching for sensing.",
+   "kind": "T"
+  },
+  {
+   "id": "2609.18800",
+   "title": "Cavity-induced intertwining of density and pairing order in a degenerate Fermi gas",
+   "authors": [
+    "Sankalp Sharma",
+    "Farokh Mivehvar",
+    "Helmut Ritsch",
+    "Tomasz Wasak"
+   ],
+   "abstract": "Recent quantum gas cavity-QED experiments demonstrated simultaneous coupling of photons to single atom transitions as well as correlated pairs of ultracold fermions trapped inside optical cavities. This enables simultaneous control over density ordering and pairing. Using extensive numerical simulations, we show that in a transversely driven, two-component degenerate Fermi gas, the interplay of cavity-induced and bare atom--atom interactions controls not only the power threshold for self-organization, but also the type of spatial ordering in the $\\mathbb Z_2$-symmetry-broken superradiant state. In the repulsive interaction regime, unpaired or weakly paired fermions first self-organize through a charge-density-wave instability, and finite-momentum pairing only occurs at much stronger pump strengths. In contrast, an attractive superfluid undergoes a joint density--pairing instability, directly entering into intertwined phase with charge-density-wave and pair-density-wave orders. At strong pumping the photon-enhanced pair interaction generates localized density and pairing order even when the bare contact interaction is repulsive. In this cavity-dominated regime strong spatial localization suppresses the long range superfluid coherence. Our results identify the role of cavity-induced atomic interactions in supporting intertwined fermionic orders and pave the way for exploring exotic states with multiple orders in highly controlled hybrid light-matter systems.",
+   "categories": [
+    "cond-mat.quant-gas",
+    "physics.atom-ph",
+    "quant-ph"
+   ],
+   "submitted": "2026-09-16",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 75,
+   "why": "Finds cavity-induced pairing coexists with density order in a driven Fermi gas, entering an intertwined charge- and pair-density-wave phase.",
+   "kind": "T"
+  },
+  {
+   "id": "2609.18547",
+   "title": "Giant-atom-mediated photon blockade",
+   "authors": [
+    "C. Cui",
+    "W. Y. Hu",
+    "Y. Q. Ji",
+    "H. T. Cui",
+    "Yan-Hui Zhou",
+    "H. Z. Shen"
+   ],
+   "abstract": "Photon blockade is a phenomenon where the presence of system nonlinearity causes the output to consist of single photons, which has been extensively studied in point atom systems, but it is barely explored in giant atom ones. In this paper, we propose giant atom-mediated photon blockade scheme based on two cavities and three cavities systems with driving field applied to the first cavity. We show that simultaneous unconventional photon blockades (UPBs) can not occur in the point atom system (the atom coupling only to the leftmost cavity) due to there always existing a cavity to have a single path. In contrast, the spatially extended nature of giant atom enables coupling to multiple cavities and allows for the introduction of a phase and coupling strength. Consequently, simultaneous UPBs in multiple cavities can be obtained due to the multipath destructive interference. Moreover, by manipulating the detuning, we observe simultaneous conventional photon blockades (CPBs) in multiple cavities. Finally, we study simultaneous two-photon blockades (2PBs) in point atom multiple cavities system.",
+   "categories": [
+    "quant-ph",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-16",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 74,
+   "why": "Predicts a giant atom coupled to multiple cavities yields simultaneous unconventional photon blockade via multipath interference, impossible for point atoms.",
+   "kind": "T"
+  },
+  {
+   "id": "2609.17787",
+   "title": "Superconducting levitation and control of a high-reflectivity micromirror",
+   "authors": [
+    "Philipp Koller",
+    "Jannek J. Hansen",
+    "David Walcher",
+    "Tomáš Plichta",
+    "Rémi Claessen",
+    "Martin Žemlička",
+    "Philip Schmidt",
+    "Rhys G. Povey",
+    "Stefan Minniberger",
+    "Stefan Putz",
+    "Markus Aspelmeyer",
+    "Michael Trupke"
+   ],
+   "abstract": "We introduce a method to suspend an optical micromirror, with a total mass of \\SI{30}{\\micro\\gram}, using superconducting magnetic levitation. The micromirror is formed on a silicon membrane, coated with a high-reflectivity dielectric stack and attached to superconducting microspheres. The object is stably levitated inside a magnetic quadrupole field at cryogenic temperatures. Magnetic feedback on the transverse motion is used to stabilize the position of the levitator within the trapping field, allowing to measure the axial displacement of the levitator using optical interferometry. The system reaches a sensitivity of order \\SI{100}{\\pico\\metre/\\sqrt{\\hertz}} near the axial trap frequency of \\SI{167}{Hz}. This approach enables free-standing mirrors with minimal dissipation and tunable oscillation frequencies, offering a platform for precision sensing and quantum cavity optomechanics in the microgram regime.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-15",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 70,
+   "why": "Demonstrates a 30 microgram mirror stably levitated by superconducting magnetic trapping, reaching 100 pm/sqrt(Hz) displacement sensitivity for cavity optomechanics.",
+   "kind": "E"
+  },
+  {
+   "id": "2609.18081",
+   "title": "Remote Adiabatic Controlled-Z Gate between Distant Superconducting Qubits",
+   "authors": [
+    "Si-Yu Xu",
+    "Yi-Rong Jin",
+    "Wen-Gang Zhang",
+    "Hai-Feng Yu"
+   ],
+   "abstract": "Direct entangling gates between spatially separated qubits are a key capability for modular quantum computing. They enable nonlocal quantum circuits to be executed across different processor modules, thereby alleviating single-chip scaling constraints and expanding the effective connectivity of the system. Here, we propose and numerically investigate a remote adiabatic controlled-Z gate between two frequency-tunable superconducting qubits connected by a multi-mode coaxial cable. The cable-mediated interaction enables the gate to be implemented without additional tunable couplers, preserving a simple circuit architecture. For a 30-cm cable, simulations incorporating ten standing-wave modes yield an optimized gate infidelity of $4.71\\times10^{-7}$ with a duration of 376.7 ns in the absence of decoherence. The gate maintains high fidelity under qubit-frequency fluctuations and millimeter-scale cable-length variations. Calculations for 50- and 100-cm cable situations demonstrate its potential for even larger cryogenic systems. These results provide a promising approach to extending high-fidelity quantum operations beyond individual chips and toward scalable, interconnected superconducting quantum processors.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-16",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 58,
+   "why": "Proposes a cable-mediated remote CZ gate between chips, reaching 4.7e-7 infidelity in simulation without added couplers.",
+   "kind": "T"
+  },
+  {
+   "id": "2609.17900",
+   "title": "A semiconductor photon-pair source based on a polariton cascade",
+   "authors": [
+    "Karol Kawa"
+   ],
+   "abstract": "We present a theoretical study of a semiconductor photon-pair source based on a radiative cascade enabled by a permanent exciton dipole. The source consists of a GaAs quantum dot placed between a metal nanoparticle and a mirror. The dot exciton and the localized electromagnetic mode mix to form upper and lower polaritons. Without a permanent dipole, a symmetry separating states with even and odd excitation numbers forbids photon emission between the polaritons. Separation of the mean electron and hole positions gives the exciton a permanent dipole and breaks this symmetry. The upper polariton can then emit an idler photon as it decays to the lower polariton. The lower polariton can emit a signal photon as the system returns to its ground state. Using an effective model, we calculate the probability that a prepared upper polariton emits both photons through the metal antenna. We also analyse fluctuations in the emitted photon counts and correlations between the two emission channels. The calculation establishes an operating principle for assumed emitter properties and optical loss rates. Whether the device can be built and its photon correlations measured remains open.",
+   "categories": [
+    "cond-mat.mes-hall",
+    "physics.optics",
+    "quant-ph"
+   ],
+   "submitted": "2026-09-15",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 55,
+   "why": "Proposes a quantum-dot polariton cascade where a permanent exciton dipole breaks symmetry, enabling correlated photon-pair emission from polariton decay.",
+   "kind": "T"
+  },
+  {
+   "id": "2609.18671",
+   "title": "Theory-agnostic nonclassicality certification in an integrated photonic circuit",
+   "authors": [
+    "Vinicius P. Rossi",
+    "Emanuele Polino",
+    "Beatrice Polacchi",
+    "Valeria Cimini",
+    "David Schmid",
+    "John H. Selby",
+    "Giacomo Corrielli",
+    "Andrea Crespi",
+    "Roberto Osellame",
+    "Fabio Sciarrino",
+    "Ana Belén Sainz"
+   ],
+   "abstract": "Certifying nonclassicality without assuming any particular underlying physical theory constitutes both a foundational challenge and a requirement for device-independent protocols. Realizing such theory-independent certification in scalable architectures is essential for connecting fundamental tests with emerging quantum technologies. Integrated photonic circuits are a leading platform for scalable quantum information processing, motivating the development of rigorous methods to certify the nonclassical resources underpinning quantum advantage. In this paper, we report a theory-independent certification of generalized contextuality on a three-mode integrated photonic circuit. Our approach combines theory-agnostic tomography with simplex-embeddability certification---a framework that requires no assumptions about the underlying physical theory---and applies it to experimental data from a three-mode photonic circuit seeded by single photons. An independently constructed quantum model of the experiment provides a consistency check on the observed nonclassicality, without entering the certification as a theoretical assumption. The method rules out simplex-embeddability for our experimental data, providing robust, theory-independent evidence that our photonic circuit exhibits nonclassicality.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-16",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 48,
+   "why": "Certifies contextuality on a three-mode photonic chip without assuming quantum theory, ruling out simplex-embeddable models from tomographic data.",
+   "kind": "TE"
+  },
+  {
+   "id": "2609.17870",
+   "title": "Quantifying and Bounding Spatiotemporal Correlations in Quantum Noise",
+   "authors": [
+    "Guilherme Zambon",
+    "Diogo O. Soares-Pinto"
+   ],
+   "abstract": "Spatial and temporal correlations in quantum noise challenge the local Markovian models commonly used in quantum information processing. We develop a unified operational framework for quantifying temporal, spatial, and total spatiotemporal correlations in general quantum processes. Using process tensors, we define these quantities through optimal distinguishability from Markovian, spatially local, and fully uncorrelated processes. Optimization over admissible probing combs ensures monotonicity under every superprocess that preserves the corresponding free set, while Choi-state functionals and restricted probes provide accessible lower bounds. We establish hierarchy and interpolation relations among the correlation measures and derive dimension-dependent upper bounds on temporal correlations transmitted by quantum memories, with tighter bounds for classical memory, together with universal ceilings imposed by the system dimension. These bounds turn certified lower estimates into witnesses of minimum memory dimension, nonclassicality under a memory-dimension constraint, and inconsistencies in the assumed process model. We illustrate the results with effective superconducting-qubit models featuring \\(ZZ\\) and \\(XY\\) interactions, exhibiting saturation of classical-memory, quantum-memory, and system-dimension ceilings. These results pave the way toward practical approaches to characterizing and addressing spatiotemporally correlated errors in quantum devices.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-15",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 42,
+   "why": "Bounds spatiotemporal noise correlations via process tensors, turning distinguishability estimates into certified witnesses of memory dimension in qubit models.",
+   "kind": "T"
+  },
+  {
+   "id": "2609.18907",
+   "title": "Logarithmic-depth quantum simulation of boson sampling",
+   "authors": [
+    "Changhun Oh"
+   ],
+   "abstract": "We show that boson sampling with an arbitrary $m$-mode interferometer and $n\\le m$ single-photon inputs can be simulated to inverse-polynomial total-variation error by a logarithmic-depth qubit circuit with polynomially many qubits. The circuit uses Clifford+$T$ gates, arbitrary qubit connectivity, and a single final measurement, and its family is logspace uniform. The key idea is to enlarge the optical system, decompose the resulting transformation into six quadratic shears, and distribute each mode over many submodes. This redistribution permits a fixed local occupation cutoff, after which local basis changes and parallel phase gates give the qubit circuit. Consequently, our result places boson sampling within shallow quantum computation.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-16",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 33,
+   "why": "Shows boson sampling with any interferometer simulates in log-depth qubit circuits, placing it inside shallow quantum computation.",
+   "kind": "T"
+  },
+  {
+   "id": "2609.17694",
+   "title": "Efficiency-Resolved Recovery Dynamics of an Free-Running InGaAs/InP Single Photon Avalanche Detector Operated in Gated Mode",
+   "authors": [
+    "Bruno Santos Souza",
+    "Vitor Tavares",
+    "Filippo Ghiglieno",
+    "Celso Jorge Villas-Boas",
+    "Paulo Henrique Dias Ferreira"
+   ],
+   "abstract": "Detection efficiency in gated-mode single-photon avalanche detectors recovers gradually after each gate edge, limiting attainable count rates, yet quantitative recovery models exist only for free-running operation. We extract the gated recovery time constant of a free-running InGaAs/InP detector at 1550 nm by sweeping the gate frequency from 100 kHz to 1 MHz and globally fitting count rates across four dead times, requiring neither a pulsed laser nor a time-to-digital converter. The recovery time decreases linearly with detection efficiency, from 301 to 161 ns between 10 % and 25 %, at 9.3 ns per percentage point. We further resolve a periodic count-rate modulation consistent with bias-dependent capacitive gate feedthrough.",
+   "categories": [
+    "quant-ph",
+    "physics.app-ph",
+    "physics.ins-det"
+   ],
+   "submitted": "2026-09-15",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 32,
+   "why": "Extracts gated SPAD recovery time from count-rate fits across gate frequencies, finding it scales linearly with detection efficiency.",
+   "kind": "E"
+  }
+ ]
+}
