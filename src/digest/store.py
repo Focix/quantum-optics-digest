@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from digest.models import Candidate
-from digest.ranking import validate_ranking
+from digest.ranking import clean_eli5, validate_ranking
 
 
 def add_error(status: dict[str, Any], message: str) -> None:
@@ -41,6 +41,7 @@ def build_digest(
         entry["score"] = r["score"] if r else None
         entry["why"] = r["why"].strip() if r else None
         entry["kind"] = r.get("kind") if r else None
+        entry["eli5"] = clean_eli5(r.get("eli5")) if r else None
         items.append(entry)
     # highest score first; unranked items keep the newest-first order they arrived in
     if ranked:

@@ -13,7 +13,8 @@ def cand(id: str, pool: str = "A") -> Candidate:
 def test_build_digest_merges_ranking_and_orders_by_score() -> None:
     ranking = {"run": "2026-09-10", "mode": "daily", "items": [
         {"id": "1", "section": "A", "score": 40, "why": "meh", "kind": "T"},
-        {"id": "2", "section": "A", "score": 90, "why": "wow", "kind": "E"},
+        {"id": "2", "section": "A", "score": 90, "why": "wow", "kind": "E",
+         "eli5": {"plain": "p", "how": "h", "matters": "m", "caveat": "c"}},
     ]}
     digest = build_digest([cand("1"), cand("2")], ranking, status={"arxiv": "ok"}, run=date(2026, 9, 10), mode="daily")
 
@@ -25,6 +26,9 @@ def test_build_digest_merges_ranking_and_orders_by_score() -> None:
     assert [i["kind"] for i in digest["items"]] == ["E", "T"]
     assert digest["items"][0]["title"] == "T2"
     assert digest["status"] == {"arxiv": "ok"}
+    # the explanation rides along with the item; a paper without one carries eli5: None
+    assert digest["items"][0]["eli5"] == {"plain": "p", "how": "h", "matters": "m", "caveat": "c"}
+    assert digest["items"][1]["eli5"] is None
 
 
 def test_invalid_ranking_falls_back_to_unranked_with_error() -> None:

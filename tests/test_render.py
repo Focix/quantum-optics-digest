@@ -5,12 +5,19 @@ from typing import Any
 from digest.render import Site, render_archive, render_feed, render_page, render_site
 
 
-def item(id: str, section: str, score: int | None, why: str | None = "does a thing", kind: str | None = "E") -> dict[str, Any]:
+def item(
+    id: str,
+    section: str,
+    score: int | None,
+    why: str | None = "does a thing",
+    kind: str | None = "E",
+    eli5: dict[str, str] | None = None,
+) -> dict[str, Any]:
     return {
         "id": id, "title": f"Title {id}", "authors": ["A One", "B Two", "C Three", "D Four"],
         "abstract": "abs", "categories": ["quant-ph"], "submitted": "2026-09-09", "pool": section,
         "tags": [], "cite": {"citationCount": 2, "venue": "PRL"} if id == "a1" else None,
-        "section": section, "score": score, "why": why, "kind": kind,
+        "section": section, "score": score, "why": why, "kind": kind, "eli5": eli5,
     }
 
 
@@ -231,3 +238,23 @@ def test_banner_trims_a_long_error_but_keeps_the_gist() -> None:
 
     assert "citation lookup failed: 429 Too Many Requests" in html
     assert long_url not in html and "…" in html
+
+
+ELI5 = {"plain": "They cooled it down", "how": "With a fridge", "matters": "Colder is quieter", "caveat": "One device only"}
+
+
+def test_explain_panel_appears_only_for_papers_that_have_one() -> None:
+    digests = [digest("2026-09-10", [item("a1", "A", 90, eli5=ELI5), item("a2", "A", 70)])]
+
+    page = render_page(digests, page="A", today=TODAY)
+    assert page.count('<details class="explain"><summary>Explain</summary>') == 1
+    assert "They cooled it down" in page
+    assert "Be skeptical of" in page
+    assert "One device only" in page
+
+
+def test_explain_text_is_escaped() -> None:
+    nasty = {**ELI5, "plain": '<script>alert("x")</script>'}
+    page = render_page([digest("2026-09-10", [item("a1", "A", 90, eli5=nasty)])], page="A", today=TODAY)
+    assert "<script>alert" not in page
+    assert "&lt;script&gt;" in page

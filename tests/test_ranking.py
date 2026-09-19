@@ -1,7 +1,7 @@
 from datetime import date
 
 from digest.models import Candidate
-from digest.ranking import validate_ranking
+from digest.ranking import clean_eli5, validate_ranking
 
 
 def cand(id: str, pool: str = "A") -> Candidate:
@@ -53,3 +53,20 @@ def test_weekly_mode_requires_weekly_section_and_mode() -> None:
 def test_non_dict_or_missing_items_is_one_error() -> None:
     assert validate_ranking([], CANDIDATES, mode="daily") == ["ranking is not an object"]
     assert validate_ranking({"run": "x"}, CANDIDATES, mode="daily") == ["ranking has no items list"]
+
+
+def test_clean_eli5_keeps_a_complete_explanation_and_drops_a_partial_one() -> None:
+    full = {"plain": " p ", "how": "h", "matters": "m", "caveat": "c"}
+    assert clean_eli5(full) == {"plain": "p", "how": "h", "matters": "m", "caveat": "c"}
+    assert clean_eli5({**full, "caveat": "  "}) is None
+    assert clean_eli5({"plain": "p"}) is None
+    assert clean_eli5("just a string") is None
+    assert clean_eli5(None) is None
+
+
+def test_a_broken_eli5_does_not_invalidate_the_ranking() -> None:
+    ranking = {"run": "2026-09-10", "mode": "daily", "items": [
+        {"id": "1", "section": "A", "score": 82, "why": "x", "kind": "E", "eli5": {"plain": "p"}},
+        {"id": "2", "section": "B", "score": 40, "why": "y", "kind": "T"},
+    ]}
+    assert validate_ranking(ranking, CANDIDATES, mode="daily") == []

@@ -67,6 +67,15 @@ ol.papers > li.read { background:var(--hi); margin:0 -.5rem; padding:.6rem .5rem
 .title a:hover { text-decoration:underline; }
 .meta { color:var(--muted); font-size:.9rem; }
 .why { margin:.15rem 0 0; }
+details.explain { margin:.3rem 0 0; }
+details.explain > summary { display:inline-block; list-style:none; font-size:.75rem; line-height:1.4; padding:0 .4em; border:1px solid var(--line); border-radius:3px; color:var(--muted); cursor:pointer; }
+details.explain > summary::-webkit-details-marker { display:none; }
+details.explain > summary:hover { color:var(--accent); border-color:var(--accent); }
+details.explain[open] > summary { color:var(--accent); border-color:var(--accent); }
+details.explain dl { margin:.4rem 0 .2rem; padding-left:.75rem; border-left:2px solid var(--line); font-size:.95rem; }
+details.explain dt { color:var(--muted); font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; margin-top:.4rem; }
+details.explain dt:first-child { margin-top:0; }
+details.explain dd { margin:.1rem 0 0; }
 .score { display:inline-block; min-width:2.2em; text-align:right; font-variant-numeric:tabular-nums; color:var(--muted); margin-right:.5rem; }
 li.read .score { color:var(--accent); font-weight:600; }
 .kind { display:inline-block; min-width:1.6em; text-align:center; font-size:.75rem; font-weight:700; line-height:1.4; border-radius:3px; padding:0 .3em; margin-right:.5rem; color:#fff; vertical-align:middle; }
@@ -197,7 +206,7 @@ def _zot(item: dict[str, Any], data: str | None) -> str:
     return f'<button type="button" class="zot" data-id="{_esc(item["id"])}" data-src="{_esc(str(src))}" title="Save to Zotero">+Z</button>'
 
 
-DATA_FIELDS = ("id", "title", "authors", "abstract", "categories", "submitted", "url", "section", "score", "why", "kind", "tags")
+DATA_FIELDS = ("id", "title", "authors", "abstract", "categories", "submitted", "url", "section", "score", "why", "kind", "eli5", "tags")
 
 
 def digest_data(digest: dict[str, Any]) -> dict[str, Any]:
@@ -224,6 +233,19 @@ def _meta(item: dict[str, Any]) -> list[str]:
     return [m for m in meta if m]
 
 
+ELI5_LABELS = (("plain", "In plain words"), ("how", "How it works"), ("matters", "Why it matters"), ("caveat", "Be skeptical of"))
+
+
+def _eli5(item: dict[str, Any]) -> str:
+    """The Explain button: a <details> so it works with no JavaScript."""
+    eli5 = item.get("eli5") or {}
+    rows = [(label, eli5[key]) for key, label in ELI5_LABELS if eli5.get(key)]
+    if not rows:
+        return ""
+    body = "".join(f"<dt>{_esc(label)}</dt><dd>{_esc(text)}</dd>" for label, text in rows)
+    return f'<details class="explain"><summary>Explain</summary><dl>{body}</dl></details>'
+
+
 def _paper_li(item: dict[str, Any], *, site: Site, run: str | None, data: str | None = None) -> str:
     score = item.get("score")
     cls = ' class="read"' if isinstance(score, int) and score >= 80 else ""
@@ -231,7 +253,8 @@ def _paper_li(item: dict[str, Any], *, site: Site, run: str | None, data: str | 
     return (
         f"<li{cls}>{_score(item)}{_kind(item)}{_watch(item)}<span class=\"title\"><a href=\"{_esc(_url(item))}\">"
         f"{_esc(item['title'])}</a></span>"
-        f"<div class=\"meta\">{_esc(' · '.join(_meta(item)))}{_feedback(item, site=site, run=run)}{_zot(item, data)}</div>{why}</li>"
+        f"<div class=\"meta\">{_esc(' · '.join(_meta(item)))}{_feedback(item, site=site, run=run)}{_zot(item, data)}</div>"
+        f"{why}{_eli5(item)}</li>"
     )
 
 

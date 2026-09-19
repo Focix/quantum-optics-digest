@@ -12,7 +12,11 @@ Output: write `out/ranking.json` exactly in this shape:
 ```json
 { "run": "YYYY-MM-DD", "mode": "daily",
   "items": [ { "id": "2609.01234", "section": "A", "score": 82, "kind": "E",
-               "why": "First g2 measurement of a shaped microwave photon from a fluxonium." } ] }
+               "why": "First g2 measurement of a shaped microwave photon from a fluxonium.",
+               "eli5": { "plain": "They made a single microwave photon with a chosen pulse shape and proved it really was one photon.",
+                         "how": "A fluxonium qubit emits into a shaped drive, and two detectors count coincidences; a dip at zero delay means the photons arrive one at a time.",
+                         "matters": "Shaped single photons are what you hand to a remote node, so this is a piece of a microwave quantum network.",
+                         "caveat": "The dip is measured on a small sample at one shaping setting; the photon rate and loss budget are not yet network-grade." } } ] }
 ```
 
 Rules:
@@ -23,6 +27,7 @@ Rules:
 3. `score` is an integer 0–100 against the section statement: ≥80 read today, 50–79 worth the title, <50 matched the query but not the interest. Use the whole range; a typical day has zero to three papers at 80 or above.
 4. `why` is at most 25 words, present tense, names the concrete result or claim, never restates the title. Write it for the reader, not for the authors.
 5. `kind` is `E` for experimental papers (measured data from a device), `T` for theory, proposals, numerics and reviews, `TE` when the paper reports both an experiment and substantial new theory or modelling of its own. Judge from the abstract.
-6. Judge from the abstract only. Do not fetch anything.
-7. Rank within a section by score; ties broken by your judgement of novelty.
-8. A `watch:<name>` tag means an author is on the reader's watchlist. The page always shows such papers with your `why`, so write it with care, but score them honestly: the watchlist does not raise the score.
+6. `eli5` is a plain-English explanation of the paper for a physicist outside this sub-field, in four fields, each one or two sentences: `plain` (what they did, no jargon), `how` (the mechanism or method), `matters` (why it matters to someone working on superconducting circuits and microwave quantum optics), `caveat` (the honest limitation, not a disclaimer). Write it for the ten highest-scoring papers of each section plus every `watch:` paper — those are the ones the page shows in full — and omit the field entirely on the rest. Never restate the title, and never just re-word `why`: `why` is the one-line reason to read it, `eli5` is the explanation. Define or drop jargon; one good analogy beats three weak ones; keep what the paper shows separate from what it speculates.
+7. Judge from the abstract only. Do not fetch anything.
+8. Rank within a section by score; ties broken by your judgement of novelty.
+9. A `watch:<name>` tag means an author is on the reader's watchlist. The page always shows such papers with your `why`, so write it with care, but score them honestly: the watchlist does not raise the score.

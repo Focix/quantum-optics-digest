@@ -12,7 +12,11 @@ Output: write `out/ranking.json` in this shape:
 ```json
 { "run": "YYYY-MM-DD", "mode": "weekly",
   "items": [ { "id": "2609.01234", "section": "weekly", "score": 91, "kind": "E",
-               "why": "Logical qubit below threshold with a distance-7 surface code on 101 qubits." } ] }
+               "why": "Logical qubit below threshold with a distance-7 surface code on 101 qubits.",
+               "eli5": { "plain": "A bigger code made the encoded qubit live longer than any single physical one, which is the point everyone has been waiting for.",
+                         "how": "101 qubits run a distance-7 surface code; repeated stabiliser rounds are decoded in real time and the logical error per round is compared across code sizes.",
+                         "matters": "Below threshold means adding qubits now buys fidelity, so the scaling argument behind the whole platform finally has data.",
+                         "caveat": "One device, one decoder, and the logical lifetime is still short in absolute terms." } } ] }
 ```
 
 Rules:
@@ -20,6 +24,7 @@ Rules:
 2. `score` 0–100. The top ten should be the ten a colleague would mention at Monday coffee. Give at most ten papers a score of 80 or more.
 3. `why` at most 25 words, present tense, concrete result, never the title again.
 4. `kind` is `E` for experiments, `T` for theory, proposals, numerics and reviews, `TE` when both are substantial.
-5. Prefer results over surveys, experiments over proposals; weight citation counts when present.
-6. Judge from the abstracts. Do not fetch anything.
-7. A `watch:<name>` tag marks a watchlisted author; the page always shows the paper with your `why`. Score it honestly, the watchlist does not raise the score.
+5. `eli5` is a plain-English explanation for a physicist outside computing, in four fields, each one or two sentences: `plain` (what they did, no jargon), `how` (the mechanism or method), `matters` (why it matters to someone working on superconducting circuits), `caveat` (the honest limitation). Write it for the ten highest-scoring papers and every `watch:` paper — those are the ones the page shows in full — and omit the field entirely on the rest. Never restate the title and never re-word `why`.
+6. Prefer results over surveys, experiments over proposals; weight citation counts when present.
+7. Judge from the abstracts. Do not fetch anything.
+8. A `watch:<name>` tag marks a watchlisted author; the page always shows the paper with your `why`. Score it honestly, the watchlist does not raise the score.

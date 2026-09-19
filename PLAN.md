@@ -100,13 +100,15 @@ The A pool is split by the model: optics → A, computing → tagged and held fo
 // out/ranking.json (routine model)
 { "run": "2026-09-14", "mode": "daily",
   "items": [{ "id": "2609.01234", "section": "A", "score": 82, "kind": "E",
-              "why": "First g2 measurement of a shaped microwave photon from a fluxonium." }] }
+              "why": "First g2 measurement of a shaped microwave photon from a fluxonium.",
+              "eli5": { "plain": "...", "how": "...", "matters": "...", "caveat": "..." } }] }
 ```
 
 - `score` 0–100 against the section statement. ≥80 read today; 50–79 worth the title; <50 matched the query, not the interest.
 - `section` ∈ {A, B, computing}. `computing` items are held for Saturday.
 - `why` ≤ 25 words, present tense, names the concrete result, never restates the title.
 - `kind` ∈ {T, E, TE}: theory, experiment, or both; shown as a badge on every paper.
+- `eli5` is the plain-English explanation behind the page's Explain button: four fields (`plain`, `how`, `matters`, `caveat`), written only for the papers shown in full. Optional at every level — a missing or half-written one is dropped, never an error, so it cannot cost a run its scores. House style in `.claude/skills/eli5/SKILL.md`.
 - Cap 120 candidates per run (newest kept, overflow noted in status). ~60 abstracts ≈ 15k input tokens.
 - Render: top 10 per section with why-line; the rest titles-only. Nothing dropped.
 
@@ -114,7 +116,7 @@ The A pool is split by the model: optics → A, computing → tagged and held fo
 
 Static, Moscow dates, no JS required (details/summary for collapsed lists). Three pages with a shared nav: `index.html` for section A, `b.html` for section B, `weekly.html` for the Saturday digest plus the computing pool collected since the last one.
 - **Banner** only when status has an error or the newest digest is >1 working day old; carries the failing step, error text, and a link to the run log.
-- **Today**: sections A and B — title → abstract page, first three authors, date, why-line, OpenAlex citation count and venue when present; collapsed "also matched" list per section.
+- **Today**: sections A and B — title → abstract page, first three authors, date, why-line, an Explain button opening the plain-English `eli5` panel, OpenAlex citation count and venue when present; collapsed "also matched" list per section.
 - **This week** (Saturdays): the weekly ten with citation counts.
 - **Previous days**: last 14, collapsed, with counts.
 - **Archive** links at the foot.

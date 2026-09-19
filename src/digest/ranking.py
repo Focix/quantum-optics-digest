@@ -9,10 +9,26 @@ from digest.models import Candidate
 DAILY_SECTIONS = {"A", "B", "computing"}
 WEEKLY_SECTIONS = {"weekly"}
 KINDS = {"T", "E", "TE"}  # theory, experiment, both
+ELI5_FIELDS = ("plain", "how", "matters", "caveat")  # the Explain panel, see prompts/rank_daily.md
 
 
 def sections_for(mode: str) -> set[str]:
     return WEEKLY_SECTIONS if mode == "weekly" else DAILY_SECTIONS
+
+
+def clean_eli5(value: Any) -> dict[str, str] | None:
+    """The four-field explanation, or None when it is absent or malformed.
+
+    Never an error: the prompt asks for one on every paper the page shows in full, but a
+    missing or half-written explanation must not invalidate the ranking and cost the run its
+    scores. The page simply shows no Explain button for that paper.
+    """
+    if not isinstance(value, dict):
+        return None
+    fields = {f: value.get(f) for f in ELI5_FIELDS}
+    if any(not isinstance(v, str) or not v.strip() for v in fields.values()):
+        return None
+    return {f: str(v).strip() for f, v in fields.items()}
 
 
 def validate_ranking(ranking: Any, candidates: list[Candidate], *, mode: str) -> list[str]:
