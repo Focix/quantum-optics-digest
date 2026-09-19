@@ -62,7 +62,13 @@
    "section": "weekly",
    "score": 90,
    "why": "NbSe2-hBN-NbSe2 merged-element transmon reaches 55 us T1 and 21 us echo, matching Al-AlOx coherence in a far smaller footprint.",
-   "kind": "E"
+   "kind": "E",
+   "eli5": {
+    "plain": "A transmon built entirely out of stacked atomically thin crystals held its quantum state about as long as the usual aluminium one.",
+    "how": "A thin hBN flake sitting between two NbSe2 flakes is both the Josephson junction and the shunt capacitor, so the whole qubit is one small stack rather than a large aluminium pad; coherence is read out with ordinary circuit-QED pulses.",
+    "matters": "The same coherence in a much smaller footprint means far less stray capacitance to everything nearby, which is what limits how densely circuit elements can be packed.",
+    "caveat": "Ramsey time is only 1.9 us because the device is unusually charge-noise sensitive, and these are a few hand-stacked devices, not a fabrication process."
+   }
   },
   {
    "id": "2609.16108",
@@ -95,7 +101,13 @@
    "section": "weekly",
    "score": 88,
    "why": "Lindblad dynamics of 50-site chains on 100 active ibm_kingston qubits at 1700-gate depth maps the dissipative phase diagram from 117 hardware points.",
-   "kind": "E"
+   "kind": "E",
+   "eli5": {
+    "plain": "A 100-qubit processor was used to compute the steady states an open spin chain settles into, and produced the phase diagram that competing classical methods had been disagreeing about.",
+    "how": "Chains of up to 50 sites evolve under Lindblad dynamics, with the environment faked by ancilla qubits and resets (Stinespring dilation), at up to 1700 entangling gates deep; structure factors at 117 parameter points map out the phases.",
+    "matters": "The dissipation is self-correcting, so hardware noise enters only as a weak extra bath rather than wrecking the run: engineered-dissipation problems are a far friendlier target for today's chips than unitary dynamics at this depth.",
+    "caveat": "Correctness rests on that self-correction argument and on agreement between methods, not on an independent check at 50 sites; the claim to have settled the phase diagram is the authors'."
+   }
   },
   {
    "id": "2609.13108",
@@ -125,7 +137,13 @@
    "section": "weekly",
    "score": 87,
    "why": "Pairing error detection with first-order PEC on ibm_aachen cuts sampling overhead 63x over six Trotter steps, using 22 data and 27 check qubits.",
-   "kind": "TE"
+   "kind": "TE",
+   "eli5": {
+    "plain": "They combined discarding runs that trip an error flag with a scheme that cancels the errors the flags miss, and got the same answer from 63 times fewer shots.",
+    "how": "A spacetime noise model builds the leftover post-selected noise from the physical noise plus the measured syndromes, to first order; the post-selected maps are kept unnormalised so they can be cancelled linearly, and normalised only after averaging.",
+    "matters": "Sampling cost is what makes probabilistic error cancellation unusable at depth, so a large cut in it extends what a noisy processor can answer in the years before error correction.",
+    "caveat": "22 data and 27 check qubits over six Trotter steps of an Ising model; the overhead saving is inferred from the model, and the first-order treatment need not survive higher error rates."
+   }
   },
   {
    "id": "2609.19321",
@@ -177,7 +195,13 @@
    "section": "weekly",
    "score": 85,
    "why": "Graphene or hBN encapsulation grows air-stable inch-scale monolayer NbSe2 at 0.7 nH per square kinetic inductance, patterned into circuits without oxidation.",
-   "kind": "E"
+   "kind": "E",
+   "eli5": {
+    "plain": "They grew inch-scale sheets of a one-atom-thick superconductor underneath a protective lid, so the film survives air and can be patterned into circuits on an ordinary bench.",
+    "how": "Graphene or hBN is laid on the substrate first and acts as both template and cover: NbSe2 grows epitaxially underneath it. The films keep a 1 K transition and are wired up with oxidation-free transfer and superconducting edge contacts.",
+    "matters": "0.7 nH per square of kinetic inductance in a material you can handle in air is a practical route to compact high-inductance elements, the sort of thing junction arrays are used for today.",
+    "caveat": "A 1 K transition temperature is low for a circuit element, and the paper shows films and test structures rather than a working qubit."
+   }
   },
   {
    "id": "2609.15604",
@@ -229,7 +253,13 @@
    "section": "weekly",
    "score": 84,
    "why": "Consecutive Landau-Zener transitions drive a two-qubit gate tunable across hundreds of MHz, demonstrated on both flux-qubit chiplets and monolithic transmons.",
-   "kind": "TE"
+   "kind": "TE",
+   "eli5": {
+    "plain": "A two-qubit gate driven by sweeping the qubits through an avoided crossing twice, so that the interference between the two passes does the entangling.",
+    "how": "Consecutive Landau-Zener transitions replace the usual resonant or dispersive drive, which lets the control frequency be tuned continuously over hundreds of MHz; shown both on coupled flux-qubit chiplets and on monolithic transmons.",
+    "matters": "The gate runs at the full coupling strength rather than a dispersive fraction of it, and a freely chosen drive frequency lets control pulses be multiplexed, which is exactly what wiring chiplets together needs.",
+    "caveat": "Two platforms, but the abstract reports tunability and speed rather than gate fidelity; this is a mechanism demonstration, not yet a high-fidelity gate."
+   }
   },
   {
    "id": "2609.19308",
@@ -264,7 +294,13 @@
    "section": "weekly",
    "score": 82,
    "why": "Reverse annealing across 4,500 qubits runs reservoir computing that forecasts chaotic time series, the largest quantum machine-learning experiment so far.",
-   "kind": "E"
+   "kind": "E",
+   "eli5": {
+    "plain": "A 4,500-qubit annealer was used, untrained, as the dynamical system inside a machine-learning model that forecasts chaotic time series.",
+    "how": "Reverse annealing lets the machine's own many-body dynamics scramble the input, and only a linear readout is fitted afterwards, so there is no expensive training loop over quantum parameters.",
+    "matters": "It is the largest quantum machine-learning experiment run so far, and nothing quantum is trained, which is a completely different scaling story from variational circuits.",
+    "caveat": "Standard memory benchmarks and chaotic forecasting with no classical baseline quoted; 'largest' counts qubits, and says nothing about advantage over a cheap classical reservoir."
+   }
   },
   {
    "id": "2609.13055",
@@ -298,7 +334,13 @@
    "section": "weekly",
    "score": 81,
    "why": "Fourteen transmons fix the maximum sub-resonant drive amplitude as one function of frequency-to-anharmonicity ratio, bounding achievable parametric coupler rates.",
-   "kind": "TE"
+   "kind": "TE",
+   "eli5": {
+    "plain": "Fourteen transmons pin down how hard you can drive one before the spectrum starts mixing the states you care about with the ones you do not.",
+    "how": "The critical drive amplitude, measured across a wide spread of anharmonicities, collapses onto a single function of the ratio of qubit frequency to anharmonicity, and matches Floquet branch analysis and semiclassical simulation.",
+    "matters": "It turns 'drive as hard as you dare' into a number you can design against, and directly bounds the interaction rate a parametrically driven transmon coupler can deliver.",
+    "caveat": "Sub-resonant drives on one device family; the relation is an empirical collapse backed by simulation, not a derived hard limit."
+   }
   },
   {
    "id": "2609.20766",
@@ -327,7 +369,13 @@
    "section": "weekly",
    "score": 80,
    "why": "A Magnus-derived pulse shape needs only one baseband flux channel, cutting coupler-ramp leakage in a fast iSWAP by three orders of magnitude.",
-   "kind": "T"
+   "kind": "T",
+   "eli5": {
+    "plain": "A pulse-shape correction in the spirit of DRAG, but for hardware that has only one real control line, which nearly eliminates the leakage caused by ramping a tunable coupler.",
+    "how": "The correction is derived analytically from a Magnus expansion rather than needing a second, quadrature channel to break time-reversal symmetry; it is tested in simulation on a baseband flux-pulsed iSWAP between transmons.",
+    "matters": "Baseband flux control has exactly one channel, which was thought to rule out DRAG-like tricks, so this lets couplers be ramped faster without paying for it in leakage.",
+    "caveat": "Simulation only, at realistic but chosen device parameters; no hardware demonstration, and real flux lines add distortion the model does not carry."
+   }
   },
   {
    "id": "2609.12596",
@@ -367,7 +415,13 @@
    "section": "weekly",
    "score": 76,
    "why": "A 300 mm cryogenic wafer prober reads sub-700 mK electron temperatures across a full 150 mm wafer, opening high-throughput screening.",
-   "kind": "E"
+   "kind": "E",
+   "eli5": {
+    "plain": "Chip temperature was measured at points across an entire wafer inside a cryogenic prober, instead of dicing the wafer and cooling a few chips at a time.",
+    "how": "Normal-metal Coulomb blockade thermometers read temperature from first principles with no calibration; a 300 mm cryogenic prober reads them below 700 mK across a full 150 mm wafer.",
+    "matters": "Cooldown turnaround, not measurement, is the real bottleneck in circuit development, so wafer-level screening below 1 K would let a bad process run be rejected without spending days in a dilution fridge.",
+    "caveat": "700 mK is two orders of magnitude above where qubits actually operate, so this screens fabrication quality, never coherence."
+   }
   },
   {
    "id": "2609.20775",
@@ -407,7 +461,13 @@
    "section": "weekly",
    "score": 72,
    "why": "Germanium flopping-mode hole spin qubit hits 99.76 percent single-qubit fidelity at 5 mT using only -52 dBm of drive power.",
-   "kind": "E"
+   "kind": "E",
+   "eli5": {
+    "plain": "A single hole spin spread across two quantum dots in germanium was driven electrically at very low power and with high single-qubit fidelity.",
+    "how": "Delocalising the spin over a double dot gives it both first-order protection from charge noise and a large electric dipole, so electric-dipole spin resonance works at 5 mT with -52 dBm reaching the device, some 25 dB below the usual figure.",
+    "matters": "Not a superconducting circuit, but the same fridge and the same wiring budget: drive power is what heats the mixing chamber, and a spin-photon interface would share your microwave hardware.",
+    "caveat": "Single-qubit operations only, T2* is 1.4 us, and the low-power result depends on sitting at a particular magnetic-field sweet spot."
+   }
   },
   {
    "id": "2609.16488",
@@ -439,7 +499,8 @@
    "section": "weekly",
    "score": 72,
    "why": "Fixed-point FIR/IIR cascade on QubiC corrects flux-line distortion at a 500 MHz fabric clock for 88 DSP slices and 162 ns latency.",
-   "kind": "TE"
+   "kind": "TE",
+   "eli5": null
   },
   {
    "id": "2609.18081",
@@ -469,7 +530,8 @@
    "section": "weekly",
    "score": 70,
    "why": "A ten-mode coaxial cable mediates an adiabatic CZ between chips, simulated at 4.7e-7 infidelity in 377 ns with no extra coupler.",
-   "kind": "T"
+   "kind": "T",
+   "eli5": null
   },
   {
    "id": "2609.16628",
@@ -499,7 +561,8 @@
    "section": "weekly",
    "score": 68,
    "why": "One Rabi-driven qubit coupled to two cavity modes programs a massive 2D Dirac Hamiltonian, showing rotational Zitterbewegung tracking effective mass.",
-   "kind": "E"
+   "kind": "E",
+   "eli5": null
   },
   {
    "id": "2609.14197",
@@ -528,7 +591,8 @@
    "section": "weekly",
    "score": 66,
    "why": "Modulating coupler flux alone gives a 25 ns microwave-free CZ between fluxonium and transmon, near 99.9 percent once decoherence is included.",
-   "kind": "T"
+   "kind": "T",
+   "eli5": null
   },
   {
    "id": "2609.15272",
@@ -558,7 +622,8 @@
    "section": "weekly",
    "score": 64,
    "why": "Enforcing Ehrenfest equations on selected observables cuts the measurement cost of variational real-time evolution, benchmarked on 24 IQM Emerald qubits.",
-   "kind": "TE"
+   "kind": "TE",
+   "eli5": null
   },
   {
    "id": "2609.16630",
@@ -587,7 +652,8 @@
    "section": "weekly",
    "score": 63,
    "why": "First entangling-gate proposal for capacitively coupled soft 0-pi qubits reaches about 99.9 percent in 160 ns via a non-computational transition.",
-   "kind": "T"
+   "kind": "T",
+   "eli5": null
   },
   {
    "id": "2609.12592",
@@ -616,7 +682,8 @@
    "section": "weekly",
    "score": 60,
    "why": "Spectroscopy of a driven two-level Hamiltonian picks out factor pairs of six-digit integers using neither entanglement nor any two-qubit gate.",
-   "kind": "E"
+   "kind": "E",
+   "eli5": null
   },
   {
    "id": "2609.17870",
@@ -643,7 +710,8 @@
    "section": "weekly",
    "score": 58,
    "why": "Process-tensor measures separate temporal, spatial and total noise correlations, turning measured lower bounds into witnesses of minimum memory dimension.",
-   "kind": "T"
+   "kind": "T",
+   "eli5": null
   },
   {
    "id": "2609.16133",
@@ -672,7 +740,8 @@
    "section": "weekly",
    "score": 55,
    "why": "Conditional transmon spectrum compiles repetition-code recovery into an open-loop cycle, slowing logical coherence decay with no syndrome measurement at all.",
-   "kind": "T"
+   "kind": "T",
+   "eli5": null
   },
   {
    "id": "2609.13022",
@@ -708,7 +777,8 @@
    "section": "weekly",
    "score": 50,
    "why": "Three nuclear spin qubits in diamond run Grover at room temperature, with 99.98 percent gate fidelity and 77 percent single-target success.",
-   "kind": "E"
+   "kind": "E",
+   "eli5": null
   },
   {
    "id": "2609.14478",
@@ -743,7 +813,8 @@
    "section": "weekly",
    "score": 48,
    "why": "Open-source full-stack neutral-atom simulator exposes patch rotation as a bottleneck; the co-optimised architecture gains 2.27x on fault-tolerant workloads.",
-   "kind": "T"
+   "kind": "T",
+   "eli5": null
   },
   {
    "id": "2609.12565",
@@ -771,7 +842,8 @@
    "section": "weekly",
    "score": 45,
    "why": "Measurement crosstalk on VTT hardware classifies a neighbour's readout at 76 percent, below the 96 percent previously reported on IBM machines.",
-   "kind": "E"
+   "kind": "E",
+   "eli5": null
   },
   {
    "id": "2609.19260",
@@ -800,7 +872,8 @@
    "section": "weekly",
    "score": 36,
    "why": "Classical-field simulations find hysteresis and retrapping in an atomic Josephson junction, following the Stewart-McCumber scaling of underdamped superconducting junctions.",
-   "kind": "T"
+   "kind": "T",
+   "eli5": null
   },
   {
    "id": "2609.13399",
@@ -828,7 +901,8 @@
    "section": "weekly",
    "score": 33,
    "why": "Higher-order gradient terms in a ferromagnetic weak link produce a Josephson diode effect beyond the weak-exchange-field regime.",
-   "kind": "T"
+   "kind": "T",
+   "eli5": null
   }
  ]
 }
