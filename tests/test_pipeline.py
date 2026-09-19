@@ -315,3 +315,168 @@ def test_pool_without_a_backup_query_just_reports_the_arxiv_error(paths: Paths) 
     assert status["pools"]["A"].startswith("error: arXiv request failed")
     assert "OpenAlex" not in status["error"]
     assert status["counts"] == {"A": 0, "B": 0}
+
+
+# -- citation backfill -----------------------------------------------------
+
+
+class FakeOpenAlex:
+    """Stands in for OpenAlexClient: answers for the ids it knows, records what it was asked."""
+
+    def __init__(self, found: dict[str, dict[str, object]] | None = None, raises: Exception | None = None) -> None:
+        self.found = found or {}
+        self.raises = raises
+        self.last_error: str | None = None
+        self.asked: list[list[str]] = []
+
+    def enrich(self, ids: list[str]) -> dict[str, dict[str, object]]:
+        self.asked.append(list(ids))
+        if self.raises:
+            raise self.raises
+        return {i: self.found[i] for i in ids if i in self.found}
+
+
+def write_test_digest(paths: Paths, run: str, items: list[dict[str, object]], mode: str = "daily") -> Path:
+    from digest.store import write_digest
+
+    digest = {"run": run, "mode": mode, "generated": "x", "ranked": True, "status": {}, "items": items}
+    return write_digest(paths.digests, digest)
+
+
+def cited(id: str, cite: dict[str, object] | None = None, url: str | None = None) -> dict[str, object]:
+    return {
+        "id": id, "title": f"Title {id}", "authors": ["A One"], "abstract": "abs", "categories": ["quant-ph"],
+        "submitted": "2026-09-09", "pool": "A", "tags": [], "cite": cite, "url": url,
+        "section": "A", "score": 90, "why": "w", "kind": "E",
+    }
+
+
+def use_fake_openalex(monkeypatch: pytest.MonkeyPatch, client: FakeOpenAlex) -> FakeOpenAlex:
+    import digest.pipeline as pipeline
+
+    monkeypatch.setattr(pipeline, "_citation_client", lambda config, paths: client)
+    return client
+
+
+def test_backfill_fills_counts_the_first_run_missed(paths: Paths, monkeypatch: pytest.MonkeyPatch) -> None:
+    from digest.pipeline import backfill_citations
+
+    write_test_digest(paths, "2026-09-08", [cited("a1"), cited("a2", {"citationCount": 5, "venue": "PRL"})])
+    write_test_digest(paths, "2026-09-09", [cited("a3"), cited("W99", url="https://doi.org/10.1/x")])
+    client = use_fake_openalex(monkeypatch, FakeOpenAlex({"a1": {"citationCount": 2, "venue": "PRX"}}))
+
+    note = backfill_citations(paths, load_config(paths), today=TODAY)
+
+    # only arXiv items with no count are looked up: a2 has one, W99 is a journal record
+    assert client.asked == [["a1", "a2", "a3"]]  # known papers are re-asked, journal records are not
+    assert note == "ok (checked 3 papers, updated 1 item(s) in 1 digest(s))"
+    first = json.loads((paths.digests / "2026-09-08.json").read_text())
+    assert first["items"][0]["cite"] == {"citationCount": 2, "venue": "PRX"}
+    assert first["items"][1]["cite"] == {"citationCount": 5, "venue": "PRL"}  # untouched
+    # a3 stayed unknown, so its digest was not rewritten; tomorrow asks again
+    assert json.loads((paths.digests / "2026-09-09.json").read_text())["items"][0]["cite"] is None
+
+
+def test_backfill_ignores_digests_outside_the_window(paths: Paths, monkeypatch: pytest.MonkeyPatch) -> None:
+    from digest.pipeline import backfill_citations
+
+    write_test_digest(paths, "2026-07-01", [cited("old")])
+    write_test_digest(paths, "2026-09-09", [cited("a3")])
+    client = use_fake_openalex(monkeypatch, FakeOpenAlex())
+
+    backfill_citations(paths, load_config(paths), today=TODAY)
+
+    assert client.asked == [["a3"]]
+
+
+def test_backfill_survives_a_throttled_lookup(paths: Paths, monkeypatch: pytest.MonkeyPatch) -> None:
+    from digest.pipeline import backfill_citations
+
+    write_test_digest(paths, "2026-09-09", [cited("a3")])
+    use_fake_openalex(monkeypatch, FakeOpenAlex(raises=httpx.HTTPError("429 Too Many Requests")))
+
+    note = backfill_citations(paths, load_config(paths), today=TODAY)
+
+    assert note.startswith("error: ") and "429" in note
+    assert json.loads((paths.digests / "2026-09-09.json").read_text())["items"][0]["cite"] is None
+
+
+def test_backfill_reports_no_change_when_every_count_is_current(paths: Paths, monkeypatch: pytest.MonkeyPatch) -> None:
+    from digest.pipeline import backfill_citations
+
+    write_test_digest(paths, "2026-09-09", [cited("a2", {"citationCount": 5, "venue": "PRL"})])
+    client = use_fake_openalex(monkeypatch, FakeOpenAlex())
+
+    assert backfill_citations(paths, load_config(paths), today=TODAY) == "ok (checked 1 papers, updated 0 item(s) in 0 digest(s))"
+    assert client.asked == [["a2"]]
+
+
+def test_backfill_is_disabled_without_a_client(paths: Paths) -> None:
+    from digest.pipeline import backfill_citations
+
+    write_test_digest(paths, "2026-09-09", [cited("a3")])
+
+    assert backfill_citations(paths, load_config(paths), today=TODAY) == "disabled"
+
+
+def test_publish_backfills_this_runs_own_items_and_records_the_note(
+    paths: Paths, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    paths.out.mkdir(parents=True, exist_ok=True)
+    paths.candidates.write_text(json.dumps([{
+        "id": "a1", "title": "T", "authors": ["A One"], "abstract": "abs", "categories": ["quant-ph"],
+        "submitted": "2026-09-09", "pool": "A", "tags": [], "cite": None, "url": None,
+    }]))
+    paths.ranking.write_text(json.dumps({"run": TODAY.isoformat(), "mode": "daily", "items": [
+        {"id": "a1", "section": "A", "score": 90, "why": "w", "kind": "E"}
+    ]}))
+    paths.status.write_text(json.dumps({"run": TODAY.isoformat(), "mode": "daily"}))
+    use_fake_openalex(monkeypatch, FakeOpenAlex({"a1": {"citationCount": 7, "venue": "Nature"}}))
+
+    digest = publish(paths, mode="daily", today=TODAY, config=load_config(paths))
+
+    assert digest is not None
+    assert digest["status"]["backfill"] == "ok (checked 1 papers, updated 1 item(s) in 1 digest(s))"
+    assert digest["items"][0]["cite"] == {"citationCount": 7, "venue": "Nature"}
+    on_disk = json.loads((paths.digests / "2026-09-10.json").read_text())
+    assert on_disk["items"][0]["cite"] == {"citationCount": 7, "venue": "Nature"}
+    assert "7 citations" in (paths.docs / "index.html").read_text()
+
+
+def test_publish_without_config_does_not_backfill(paths: Paths, monkeypatch: pytest.MonkeyPatch) -> None:
+    paths.out.mkdir(parents=True, exist_ok=True)
+    paths.candidates.write_text("[]")
+    paths.status.write_text(json.dumps({"run": TODAY.isoformat(), "mode": "daily"}))
+    client = use_fake_openalex(monkeypatch, FakeOpenAlex())
+
+    digest = publish(paths, mode="daily", today=TODAY)
+
+    assert digest is not None and "backfill" not in digest["status"]
+    assert client.asked == []
+
+
+def test_backfill_counts_papers_and_items_separately(paths: Paths, monkeypatch: pytest.MonkeyPatch) -> None:
+    """One paper can sit in a daily and in the weekly; counting items as papers over-reported."""
+    from digest.pipeline import backfill_citations
+
+    write_test_digest(paths, "2026-09-09", [cited("a1")])
+    write_test_digest(paths, "2026-09-09", [cited("a1")], mode="weekly")
+    use_fake_openalex(monkeypatch, FakeOpenAlex({"a1": {"citationCount": 4, "venue": "PRA"}}))
+
+    note = backfill_citations(paths, load_config(paths), today=TODAY)
+
+    assert note == "ok (checked 1 papers, updated 2 item(s) in 2 digest(s))"
+
+
+def test_backfill_updates_a_count_that_has_since_grown(paths: Paths, monkeypatch: pytest.MonkeyPatch) -> None:
+    """A preprint picks up citations and a journal venue weeks after the digest went out."""
+    from digest.pipeline import backfill_citations
+
+    write_test_digest(paths, "2026-09-09", [cited("a1", {"citationCount": 0, "venue": ""})])
+    fresh = {"citationCount": 3, "venue": "PRX Quantum"}
+    use_fake_openalex(monkeypatch, FakeOpenAlex({"a1": fresh}))
+
+    note = backfill_citations(paths, load_config(paths), today=TODAY)
+
+    assert note == "ok (checked 1 papers, updated 1 item(s) in 1 digest(s))"
+    assert json.loads((paths.digests / "2026-09-09.json").read_text())["items"][0]["cite"] == fresh

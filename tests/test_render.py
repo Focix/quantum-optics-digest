@@ -44,9 +44,9 @@ def test_section_page_shows_only_its_section_with_top_ten_and_collapsed_rest() -
     assert 'class="kind kind-T"' in b_page
 
 
-def test_banner_on_every_page_for_error_and_stale() -> None:
+def test_daily_pages_banner_the_newest_daily_error_and_staleness() -> None:
     err = [digest("2026-09-10", [], status={"error": "arXiv 503 on pool A"})]
-    for page in ("A", "B", "weekly"):
+    for page in ("A", "B"):
         html = render_page(err, page=page, today=TODAY)
         assert 'class="banner"' in html and "arXiv 503 on pool A" in html
 
@@ -56,6 +56,43 @@ def test_banner_on_every_page_for_error_and_stale() -> None:
     assert 'class="banner"' not in friday_ok
     explicit = render_page([digest("2026-09-10", [])], page="A", today=TODAY, error="fetch.py exited 1", log_url="https://x/log")
     assert "fetch.py exited 1" in explicit and 'href="https://x/log"' in explicit
+
+
+def test_weekly_page_banners_the_weekly_run_not_the_daily() -> None:
+    digests = [
+        digest("2026-09-19", [], mode="weekly", status={"error": "citation lookup failed: 429"}),
+        digest("2026-09-18", [], status={"error": "arXiv 503 on pool A"}),
+    ]
+    saturday = date(2026, 9, 19)
+
+    weekly = render_page(digests, page="weekly", today=saturday)
+    assert "citation lookup failed: 429" in weekly
+    assert "arXiv 503 on pool A" not in weekly  # the daily's trouble belongs on the daily pages
+
+    daily = render_page(digests, page="A", today=saturday)
+    assert "arXiv 503 on pool A" in daily and "citation lookup failed: 429" not in daily
+
+
+def test_weekly_staleness_allows_the_week_between_saturdays() -> None:
+    weekly = [digest("2026-09-19", [], mode="weekly"), digest("2026-09-25", [])]
+    # Every weekday after the Saturday run, and the next Saturday before it runs.
+    for today in (date(2026, 9, 22), date(2026, 9, 25), date(2026, 9, 26)):
+        assert 'class="banner"' not in render_page(weekly, page="weekly", today=today)
+    # A Saturday that never ran is called out once the next week starts.
+    assert "stale" in render_page(weekly, page="weekly", today=date(2026, 9, 28))
+
+
+def test_weekly_page_without_a_weekly_explains_itself_in_the_body_only() -> None:
+    html = render_page([digest("2026-09-10", [])], page="weekly", today=TODAY)
+    assert "No weekly digest yet" in html
+    assert 'class="banner"' not in html  # no "No digest has been generated yet" on top of it
+
+
+def test_archive_page_carries_its_own_runs_failure() -> None:
+    d = digest("2026-09-19", [item("a1", "weekly", 90)], mode="weekly", status={"error": "journal search failed: 429"})
+    html = render_archive(d)
+    assert 'class="banner"' in html and "journal search failed: 429" in html
+    assert 'class="banner"' not in render_archive(digest("2026-09-18", [item("a1", "A", 90)]))
 
 
 def test_unranked_digest_lists_candidates_without_scores() -> None:
@@ -184,3 +221,13 @@ def test_latest_json_absent_without_a_daily(tmp_path: Path) -> None:
     docs = tmp_path / "docs"
     render_site([digest("2026-09-12", [item("w1", "weekly", 85)], mode="weekly")], docs, today=date(2026, 9, 12), site=SITE)
     assert not (docs / "data" / "latest.json").exists()
+
+
+def test_banner_trims_a_long_error_but_keeps_the_gist() -> None:
+    long_url = "https://api.openalex.org/works?filter=doi:" + "%7C".join(f"10.48550/arXiv.2609.{i:05}" for i in range(40))
+    d = [digest("2026-09-10", [], status={"error": f"citation lookup failed: 429 Too Many Requests for url '{long_url}'"})]
+
+    html = render_page(d, page="A", today=TODAY)
+
+    assert "citation lookup failed: 429 Too Many Requests" in html
+    assert long_url not in html and "…" in html

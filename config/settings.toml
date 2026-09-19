@@ -32,6 +32,10 @@ enabled = true
 # (an empty one 429'd the whole lookup on 2026-09-16).
 enabled = true
 mailto = "fdmiester@gmail.com"
+# Each render retries the counts earlier runs missed, over digests this many days back.
+# Papers go uncounted when OpenAlex throttles a run or has not indexed the preprint yet;
+# both clear up within days, and nothing else ever revisits a published digest.
+backfill_days = 30
 
 [weekly]
 lookback_days = 7        # daily digests to pull computing-tagged papers from

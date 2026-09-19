@@ -195,6 +195,51 @@ def _enrich(candidates: list[Candidate], client: OpenAlexClient | None, status: 
 
 
 
+def backfill_citations(paths: Paths, config: dict[str, Any], *, today: date) -> str:
+    """Refresh the citation counts of recent digests, rewriting the ones that changed.
+
+    Counts go missing two ways: OpenAlex throttled the run (2026-09-17, 2026-09-19), or the
+    paper was too new to be indexed (0/11 on 2026-09-18). Both heal within days, but a
+    published digest was never revisited, so the gap was permanent. Known papers are re-asked
+    too, because a preprint picks up citations and a journal venue weeks after it appears.
+
+    Cheap to repeat: the client answers from its cache, so only entries past their TTL cost a
+    request (a day for papers OpenAlex did not know, a week for the rest).
+    """
+    client = _citation_client(config, paths)
+    if client is None:
+        return "disabled"
+    days = int(config.get("citations", {}).get("backfill_days", 30))
+    cutoff = today - timedelta(days=days)
+    digests = [d for d in load_digests(paths.digests) if date.fromisoformat(d["run"]) >= cutoff]
+    # Journal-search items carry their counts already and have no arXiv id to look up.
+    wanted = sorted({i["id"] for d in digests for i in d["items"] if not i.get("url")})
+    if not wanted:
+        return "ok (nothing to check)"
+    try:
+        found = client.enrich(wanted)
+    except Exception as exc:  # a throttled backfill must never hold up the digest
+        return f"error: {exc}"
+    updated = 0
+    rewritten = 0
+    for digest in digests:
+        changed = False
+        for item in digest["items"]:
+            data = found.get(item["id"])
+            if data is not None and not item.get("url") and data != item.get("cite"):
+                item["cite"] = data
+                changed = True
+                updated += 1
+        if changed:
+            write_digest(paths.digests, digest)
+            rewritten += 1
+    # Papers and items are different totals: one paper can sit in a daily and in the weekly.
+    note = f"ok (checked {len(wanted)} papers, updated {updated} item(s) in {rewritten} digest(s))"
+    if client.last_error:
+        note += f"; partial ({client.last_error})"
+    return note
+
+
 def _make_backup(config: dict[str, Any], paths: Paths, *, today: date) -> Backup:
     """A per-pool OpenAlex fallback; returns None when the pool or the config has none."""
     if not config.get("backup", {}).get("enabled"):
@@ -351,6 +396,17 @@ def site_from(config: dict[str, Any]) -> Site:
     return Site(url=cfg.get("url") or None, repo=cfg.get("repo") or None)
 
 
+def refresh(paths: Paths, config: dict[str, Any], *, today: date, site: Site | None = None) -> str:
+    """Retry the citation counts past runs missed and regenerate docs/, nothing else.
+
+    The tail of publish() on its own, for repairing a throttled run before the next one is
+    due. Touches neither out/ nor state/seen.json, so it is safe to run at any time.
+    """
+    note = backfill_citations(paths, config, today=today)
+    render_site(load_digests(paths.digests), paths.docs, today=today, site=site or Site())
+    return note
+
+
 def publish(
     paths: Paths,
     *,
@@ -359,8 +415,13 @@ def publish(
     error: str | None = None,
     log_url: str | None = None,
     site: Site | None = None,
+    config: dict[str, Any] | None = None,
 ) -> dict[str, Any] | None:
-    """Merge out/ into a digest file (unless the run failed), then regenerate docs/."""
+    """Merge out/ into a digest file (unless the run failed), then regenerate docs/.
+
+    With a `config` the run also backfills citation counts earlier runs missed; without one
+    it only publishes.
+    """
     digest: dict[str, Any] | None = None
     if error is None:
         candidates = [Candidate.from_json(c) for c in _read_json(paths.candidates, [])]
@@ -373,6 +434,12 @@ def publish(
         write_digest(paths.digests, digest)
         if mode == "daily" and paths.seen_next.exists():
             _write_json(paths.seen, _read_json(paths.seen_next, {}))
+        if config is not None:
+            note = backfill_citations(paths, config, today=today)
+            # Re-read: the backfill rewrites digest files, this run's included.
+            digest = json.loads(digest_path(paths.digests, today, mode).read_text())
+            digest["status"]["backfill"] = note
+            write_digest(paths.digests, digest)
     render_site(
         load_digests(paths.digests), paths.docs, today=today, error=error, log_url=log_url, site=site or Site()
     )

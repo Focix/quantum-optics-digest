@@ -39,7 +39,7 @@ open docs/index.html
 
 Tests and typecheck: `uv run pytest` and `uv run mypy`.
 
-Citation counts and venues come from OpenAlex, which needs no API key (`[citations]` in `config/settings.toml`). Answers are cached in `state/openalex_cache.json`; unknown papers are retried after a day, counts refresh after a week.
+Citation counts and venues come from OpenAlex, which needs no API key (`[citations]` in `config/settings.toml`). Answers are cached in `state/openalex_cache.json`; unknown papers are retried after a day, counts refresh after a week. Every render then replays that cache over the digests of the last `backfill_days`, so a throttled run repairs itself and a preprint that later gains citations or a journal venue picks them up. To retry without a full run: `uv run scripts/render.py --backfill-only`.
 
 ## Feed, watchlist, feedback
 

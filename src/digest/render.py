@@ -25,6 +25,8 @@ KIND_TITLES = {"T": "theory", "E": "experiment", "TE": "theory and experiment"}
 TOP_N = 10
 PREVIOUS_DAYS = 14
 FEED_MIN_SCORE = 50  # feed entries list papers at or above this score, plus watched ones
+WEEKLY_STALE_DAYS = 8  # a Saturday weekly is only overdue once the next week has started
+BANNER_CHARS = 240  # per message; the full text stays in the digest JSON
 FEED_ENTRIES = 30
 SITE_TITLE = "Quantum Optics Digest"
 
@@ -277,6 +279,14 @@ def _unranked_note(digest: dict[str, Any]) -> str:
     return '<p class="meta">unranked: the model output was rejected, showing the raw candidate list.</p>'
 
 
+def _status_note(digest: dict[str, Any]) -> str:
+    """An archived run carries its own failure; the front-page banner only covers the newest."""
+    status_error = (digest.get("status") or {}).get("error")
+    if not status_error:
+        return ""
+    return f'<div class="banner"><strong>Problem.</strong> <code>{_esc(_trim(str(status_error)))}</code></div>'
+
+
 def render_digest_body(digest: dict[str, Any], *, site: Site = Site()) -> str:
     """All sections of one digest (archive pages)."""
     run = str(digest.get("run") or "")
@@ -308,21 +318,42 @@ def previous_working_day(today: date) -> date:
     return d
 
 
-def _banner(latest_daily: dict[str, Any] | None, today: date, error: str | None, log_url: str | None) -> str:
+def _trim(message: str, limit: int = BANNER_CHARS) -> str:
+    """Keep a banner readable: httpx puts the whole failing URL in its message."""
+    message = " ".join(message.split())
+    return message if len(message) <= limit else message[: limit - 1].rstrip() + "\u2026"
+
+
+def _banner(
+    latest: dict[str, Any] | None,
+    today: date,
+    error: str | None,
+    log_url: str | None,
+    *,
+    stale_before: date,
+    missing: str | None,
+) -> str:
+    """The warning strip for one page, about the newest digest *that page shows*.
+
+    Each page reports its own mode: a weekly failure has to reach the weekly page, which it
+    could not when every page read the newest daily (a throttled weekly on 2026-09-19 left
+    no trace on the site). `missing` is None where the body already explains an absent digest.
+    """
     messages: list[str] = []
     if error:
         messages.append(error)
-    if latest_daily is None:
-        messages.append("No digest has been generated yet.")
+    if latest is None:
+        if missing:
+            messages.append(missing)
     else:
-        status_error = (latest_daily.get("status") or {}).get("error")
+        status_error = (latest.get("status") or {}).get("error")
         if status_error:
-            messages.append(f"Run {latest_daily['run']}: {status_error}")
-        if date.fromisoformat(latest_daily["run"]) < previous_working_day(today):
-            messages.append(f"Digest is stale: newest run is {latest_daily['run']}, today is {today.isoformat()}.")
+            messages.append(f"Run {latest['run']}: {status_error}")
+        if date.fromisoformat(latest["run"]) < stale_before:
+            messages.append(f"Digest is stale: newest run is {latest['run']}, today is {today.isoformat()}.")
     if not messages:
         return ""
-    body = "<br>".join(f"<code>{_esc(m)}</code>" for m in messages)
+    body = "<br>".join(f"<code>{_esc(_trim(m))}</code>" for m in messages)
     link = "" if not log_url else f' <a href="{_esc(log_url)}">run log</a>'
     return f'<div class="banner"><strong>Problem.</strong> {body}{link}</div>'
 
@@ -435,11 +466,18 @@ def render_page(
     log_url: str | None = None,
     site: Site = Site(),
 ) -> str:
-    dailies = [d for d in digests if d["mode"] == "daily"]
     body = _weekly_body(digests, today, site=site) if page == "weekly" else _section_body(digests, page, site=site)
+    mode = "weekly" if page == "weekly" else "daily"
+    newest = next((d for d in digests if d["mode"] == mode), None)
+    if mode == "weekly":
+        # The weekly runs on Saturday, so "older than a weekday" would cry stale all week.
+        # A missed Saturday is only called out once the next weekday comes around.
+        stale_before, missing = today - timedelta(days=WEEKLY_STALE_DAYS), None
+    else:
+        stale_before, missing = previous_working_day(today), "No digest has been generated yet."
     parts = [
         _header(page, root=""),
-        _banner(dailies[0] if dailies else None, today, error, log_url),
+        _banner(newest, today, error, log_url, stale_before=stale_before, missing=missing),
         body,
         _archive_footer(digests, site=site),
     ]
@@ -448,7 +486,7 @@ def render_page(
 
 def render_archive(digest: dict[str, Any], *, site: Site = Site()) -> str:
     label = _pretty_date(digest["run"]) + (" · weekly" if digest["mode"] == "weekly" else "")
-    body = _header(None, root="../") + f"<h2>{label}</h2>" + render_digest_body(digest, site=site)
+    body = _header(None, root="../") + f"<h2>{label}</h2>" + _status_note(digest) + render_digest_body(digest, site=site)
     return _page(f"{SITE_TITLE} · {digest['run']}", body, css_href="../style.css", root="../")
 
 
