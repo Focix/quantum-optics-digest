@@ -258,3 +258,11 @@ def test_explain_text_is_escaped() -> None:
     page = render_page([digest("2026-09-10", [item("a1", "A", 90, eli5=nasty)])], page="A", today=TODAY)
     assert "<script>alert" not in page
     assert "&lt;script&gt;" in page
+
+
+def test_computing_papers_never_get_an_explain_panel() -> None:
+    """They are titles-only until the weekly re-ranks them, so prompts must not ask for one."""
+    d = digest("2026-09-10", [item("c1", "computing", 90, eli5=ELI5)])
+
+    assert 'class="explain"' not in render_archive(d)
+    assert 'class="explain"' not in render_page([d], page="weekly", today=TODAY)

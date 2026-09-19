@@ -246,7 +246,13 @@
    "section": "B",
    "score": 85,
    "why": "LIGO engineers quantum correlations between imprecision and back-action, evading back-action to cut a 40-kg mirror's motion near resonance by 47%.",
-   "kind": "E"
+   "kind": "E",
+   "eli5": {
+    "plain": "LIGO's 40-kilogram mirrors were made to move noticeably less than the act of measuring them should force them to.",
+    "how": "The differential motion of the mirrors is trapped into a sub-hertz optomechanical resonance where radiation pressure dominates; shaping the quantum state entering the dark port correlates readout noise with the back-action kick so the two partly cancel, cutting observed motion near resonance by about 47 percent.",
+    "matters": "The same trick your field runs on a nanogram drum, now at 40 kg: back-action evasion and reservoir engineering do not care about the platform, and the framework separating imprecision, back-action and correlation carries straight over to microwave optomechanics.",
+    "caveat": "The suppression is narrowband, sitting on one engineered resonance, and is not a broadband sensitivity improvement."
+   }
   },
   {
    "id": "2609.19808",
@@ -281,7 +287,13 @@
    "section": "B",
    "score": 82,
    "why": "A single atom's third- and fourth-order resonance-fluorescence photons show genuine energy-time entanglement, violating Svetlichny's inequality, enabling demonstrated quantum secret sharing.",
-   "kind": "E"
+   "kind": "E",
+   "eli5": {
+    "plain": "When a single atom scatters laser light, the three- and four-photon parts of what comes out turn out to be genuinely entangled, not merely correlated.",
+    "how": "High-order field fluctuations from a cavity-QED system isolate three- and four-photon scattering events; the three-photon component violates Svetlichny's inequality, which no explanation built only from two-photon entanglement can reproduce. They then run a quantum secret sharing protocol on the source.",
+    "matters": "Resonance fluorescence is the textbook light-matter problem, and it has been told as a one- and two-photon story; if the higher orders carry real multipartite entanglement, the same should hold for a driven qubit emitting into a transmission line.",
+    "caveat": "The entanglement is inferred from an inequality violation on post-selected high-order correlations, where count rates are low and background subtraction does a lot of work."
+   }
   },
   {
    "id": "2609.20559",
@@ -310,7 +322,13 @@
    "section": "B",
    "score": 77,
    "why": "Squeezed-vacuum-driven high-harmonic generation produces distinct photon correlations and attosecond-scale Wigner-function negativities absent under coherent driving, a fully quantized calculation.",
-   "kind": "T"
+   "kind": "T",
+   "eli5": {
+    "plain": "A calculation of what high-harmonic generation does when the driving light is squeezed vacuum instead of a laser: the harmonics come out with correlations no classical drive can produce.",
+    "how": "Drive and emitted harmonics are both quantised and the coupling is treated nonperturbatively in a converged multimode space, so the full multimode state is available rather than a semiclassical average over sampled classical fields.",
+    "matters": "It is the strong-field version of a question asked about driven nonlinear circuits: what does a nonclassical drive imprint on the output, and here the emitter's back-action reshaping the drive is the more interesting half.",
+    "caveat": "Theory, on a two-level emitter; the attosecond Wigner negativities are a prediction with no experiment close to testing them."
+   }
   },
   {
    "id": "2609.19784",
@@ -339,7 +357,13 @@
    "section": "A",
    "score": 68,
    "why": "A transduction-based hybrid repeater eliminates probabilistic Bell measurements, boosting simulated entanglement-distribution rate up to 159% over photonic-only schemes.",
-   "kind": "T"
+   "kind": "T",
+   "eli5": {
+    "plain": "A design for a quantum repeater in which superconducting circuits do the processing and optical fibre only carries the light, so the link stops failing half the time.",
+    "how": "Microwave-to-optical transduction at each node lets a superconducting processor perform the entanglement swap with gates, instead of a photonic Bell measurement that aborts whenever a photon is lost; rates and fidelities are simulated in QuTiP with noise models and a purification round.",
+    "matters": "This is the argument for why anyone wants transduction at all: a deterministic swap turns the repeater rate from a product of success probabilities into something set by gate fidelity, which is familiar ground.",
+    "caveat": "Simulation throughout, and the 63 percent average gain assumes a transducer better than anything yet built; end-to-end fidelity stays above 0.8 only out to 20 km."
+   }
   },
   {
    "id": "2609.20766",
@@ -368,7 +392,8 @@
    "section": "computing",
    "score": 58,
    "why": "Single baseband control pulse-shaping suppresses iSWAP leakage from a tunable coupler by three orders of magnitude in simulation.",
-   "kind": "T"
+   "kind": "T",
+   "eli5": null
   },
   {
    "id": "2609.19806",
@@ -396,7 +421,13 @@
    "section": "B",
    "score": 58,
    "why": "SPAD-array photon antibunching from ordinary fluorophores maps microscope point-spread-function aberrations directly, without guide stars, in under a second.",
-   "kind": "E"
+   "kind": "E",
+   "eli5": {
+    "plain": "An ordinary fluorescence microscope measures its own blur by exploiting the fact that a single dye molecule never emits two photons at once.",
+    "how": "A single-photon avalanche diode array records coincidences across the whole field of view; the pairs missing because of antibunching give the local autocorrelation of the point spread function directly, with no guide star and no iterative phase retrieval, in a second or less.",
+    "matters": "A good reminder that photon antibunching is a measurement tool and not only a signature of quantumness: the same logic, that missing coincidences carry the instrument response, applies to any antibunched source including a microwave one.",
+    "caveat": "An autocorrelation of the point spread function is not the function itself, and a second of acquisition on brightly labelled samples is a long way from deep tissue."
+   }
   },
   {
    "id": "2609.19308",
@@ -431,7 +462,8 @@
    "section": "computing",
    "score": 48,
    "why": "A 4,500-qubit annealer's native many-body dynamics forecasts chaotic time series via untrained quantum reservoir computing, the largest such demonstration.",
-   "kind": "E"
+   "kind": "E",
+   "eli5": null
   },
   {
    "id": "2609.19321",
@@ -483,7 +515,8 @@
    "section": "computing",
    "score": 38,
    "why": "Graphene-encapsulated monolayer NbSe2 stays air-stable and yields wafer-scale films with 0.7 nH/square kinetic inductance for qubit circuits.",
-   "kind": "E"
+   "kind": "E",
+   "eli5": null
   },
   {
    "id": "2609.19534",
@@ -510,7 +543,13 @@
    "section": "B",
    "score": 38,
    "why": "Normalizing-flow Bayesian inference extracts correlated noise parameters from optical cat-state data, linking Wigner negativity to photon-addition and pump-power fractions.",
-   "kind": "T"
+   "kind": "T",
+   "eli5": {
+    "plain": "A machine-learning fit that returns not just the noise parameters behind a measured quantum state, but how those parameters trade off against each other.",
+    "how": "A physically meaningful parameter vector is built into the state ansatz and a normalizing flow learns the full posterior over it from the data, so correlations between parameters fall out of the fit rather than being assumed away.",
+    "matters": "Tomography hands you a state; this hands you which knob is responsible, which is the actual question when a Wigner negativity comes out lower than it should.",
+    "caveat": "Shown on optical cat-state data with two chosen ansatzes; the answer is only as good as the ansatz, and a flow can be confidently wrong away from the data it saw."
+   }
   },
   {
    "id": "2609.20775",
@@ -550,7 +589,8 @@
    "section": "computing",
    "score": 30,
    "why": "A germanium flopping-mode spin qubit reaches 99.76% gate fidelity using just -52 dBm drive power at 5 mT field.",
-   "kind": "E"
+   "kind": "E",
+   "eli5": null
   },
   {
    "id": "2609.19260",
@@ -579,7 +619,8 @@
    "section": "computing",
    "score": 22,
    "why": "Simulated two-dimensional atomic Josephson junctions show underdamped hysteresis and Stewart-McCumber retrapping scaling, mirroring superconducting Josephson junction dynamics.",
-   "kind": "T"
+   "kind": "T",
+   "eli5": null
   }
  ]
 }
