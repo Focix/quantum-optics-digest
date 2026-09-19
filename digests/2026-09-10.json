@@ -111,7 +111,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212114485"
+   },
    "url": null,
    "section": "A",
    "score": 72,
@@ -481,7 +485,11 @@
    "submitted": "2026-09-07",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212142540"
+   },
    "url": null,
    "section": "B",
    "score": 50,
@@ -750,7 +758,11 @@
    "submitted": "2026-09-09",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212121607"
+   },
    "url": null,
    "section": "B",
    "score": 40,
@@ -1152,7 +1164,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212152613"
+   },
    "url": null,
    "section": "computing",
    "score": 25,
@@ -1306,7 +1322,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212162171"
+   },
    "url": null,
    "section": "computing",
    "score": 20,
@@ -1331,7 +1351,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212141151"
+   },
    "url": null,
    "section": "computing",
    "score": 20,
@@ -1366,7 +1390,11 @@
    "submitted": "2026-09-09",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212108460"
+   },
    "url": null,
    "section": "B",
    "score": 20,
@@ -1424,7 +1452,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212168220"
+   },
    "url": null,
    "section": "computing",
    "score": 15,

@@ -53,7 +53,11 @@
     "platform:sc",
     "watch:William Oliver"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7213261016"
+   },
    "url": null,
    "section": "weekly",
    "score": 90,
@@ -82,7 +86,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7213434259"
+   },
    "url": null,
    "section": "weekly",
    "score": 88,
@@ -160,7 +168,11 @@
     "platform:sc",
     "watch:William Oliver"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7213610873"
+   },
    "url": null,
    "section": "weekly",
    "score": 85,
@@ -208,7 +220,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7213236710"
+   },
    "url": null,
    "section": "weekly",
    "score": 84,
@@ -239,7 +255,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7213597055"
+   },
    "url": null,
    "section": "weekly",
    "score": 82,
@@ -298,7 +318,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7213580593"
+   },
    "url": null,
    "section": "weekly",
    "score": 80,
@@ -374,7 +398,11 @@
    "submitted": "2026-09-17",
    "pool": "weekly",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7213590102"
+   },
    "url": null,
    "section": "weekly",
    "score": 72,
@@ -402,7 +430,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7213422683"
+   },
    "url": null,
    "section": "weekly",
    "score": 72,
@@ -428,7 +460,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7213528096"
+   },
    "url": null,
    "section": "weekly",
    "score": 70,
@@ -454,7 +490,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7213415991"
+   },
    "url": null,
    "section": "weekly",
    "score": 68,
@@ -509,7 +549,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7213329531"
+   },
    "url": null,
    "section": "weekly",
    "score": 64,
@@ -534,7 +578,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7213396912"
+   },
    "url": null,
    "section": "weekly",
    "score": 63,
@@ -586,7 +634,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7213526282"
+   },
    "url": null,
    "section": "weekly",
    "score": 58,
@@ -611,7 +663,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7213398442"
+   },
    "url": null,
    "section": "weekly",
    "score": 55,
@@ -678,7 +734,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7213362166"
+   },
    "url": null,
    "section": "weekly",
    "score": 48,
@@ -731,7 +791,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7213577585"
+   },
    "url": null,
    "section": "weekly",
    "score": 36,
@@ -755,7 +819,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7213292993"
+   },
    "url": null,
    "section": "weekly",
    "score": 33,

@@ -69,7 +69,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212325801"
+   },
    "url": null,
    "section": "A",
    "score": 58,
@@ -90,7 +94,11 @@
    "submitted": "2026-09-10",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212236143"
+   },
    "url": null,
    "section": "B",
    "score": 34,
@@ -119,7 +127,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212221849"
+   },
    "url": null,
    "section": "computing",
    "score": 25,
@@ -145,7 +157,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212220174"
+   },
    "url": null,
    "section": "computing",
    "score": 22,
@@ -176,7 +192,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212187402"
+   },
    "url": null,
    "section": "computing",
    "score": 18,
@@ -216,7 +236,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212251840"
+   },
    "url": null,
    "section": "computing",
    "score": 12,
@@ -242,7 +266,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212312775"
+   },
    "url": null,
    "section": "computing",
    "score": 8,

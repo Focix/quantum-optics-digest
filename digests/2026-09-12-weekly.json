@@ -135,7 +135,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212221849"
+   },
    "url": null,
    "section": "weekly",
    "score": 82,
@@ -162,7 +166,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212162171"
+   },
    "url": null,
    "section": "weekly",
    "score": 80,
@@ -322,7 +330,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212251840"
+   },
    "url": null,
    "section": "weekly",
    "score": 74,
@@ -386,7 +398,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212220174"
+   },
    "url": null,
    "section": "weekly",
    "score": 72,
@@ -470,7 +486,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212141151"
+   },
    "url": null,
    "section": "weekly",
    "score": 67,
@@ -501,7 +521,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212187402"
+   },
    "url": null,
    "section": "weekly",
    "score": 63,
@@ -529,7 +553,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212168220"
+   },
    "url": null,
    "section": "weekly",
    "score": 60,
@@ -623,7 +651,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212312775"
+   },
    "url": null,
    "section": "weekly",
    "score": 55,
@@ -646,7 +678,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7212152613"
+   },
    "url": null,
    "section": "weekly",
    "score": 54,
