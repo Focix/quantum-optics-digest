@@ -1,0 +1,227 @@
+{
+ "run": "2026-09-21",
+ "mode": "daily",
+ "generated": "2026-09-21T06:13:47+00:00",
+ "ranked": true,
+ "status": {
+  "run": "2026-09-21",
+  "mode": "daily",
+  "pools": {
+   "A": "ok",
+   "B": "ok"
+  },
+  "counts": {
+   "A": 3,
+   "B": 4
+  },
+  "dropped_seen": 36,
+  "dropped_old": 357,
+  "watched": 0,
+  "citations": "error: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.21725%7C10.48550%2FarXiv.2609.21376%7C10.48550%2FarXiv.2609.21249%7C10.48550%2FarXiv.2609.22025%7C10.48550%2FarXiv.2609.22002%7C10.48550%2FarXiv.2609.21574%7C10.48550%2FarXiv.2609.21560&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+  "error": "citation lookup failed: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.21725%7C10.48550%2FarXiv.2609.21376%7C10.48550%2FarXiv.2609.21249%7C10.48550%2FarXiv.2609.22025%7C10.48550%2FarXiv.2609.22002%7C10.48550%2FarXiv.2609.21574%7C10.48550%2FarXiv.2609.21560&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+  "backfill": "error: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.05226%7C10.48550%2FarXiv.2609.06399%7C10.48550%2FarXiv.2609.11004%7C10.48550%2FarXiv.2609.14197%7C10.48550%2FarXiv.2609.18907%7C10.48550%2FarXiv.2609.19317%7C10.48550%2FarXiv.2609.19534%7C10.48550%2FarXiv.2609.19784%7C10.48550%2FarXiv.2609.21249%7C10.48550%2FarXiv.2609.21376%7C10.48550%2FarXiv.2609.21560%7C10.48550%2FarXiv.2609.21574%7C10.48550%2FarXiv.2609.21725%7C10.48550%2FarXiv.2609.22002%7C10.48550%2FarXiv.2609.22025&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429"
+ },
+ "items": [
+  {
+   "id": "2609.21560",
+   "title": "Giant-Atom-Induced High-Order Output Zeros in a Coupled-Cavity Array",
+   "authors": [
+    "Mengxue Li",
+    "Bo Liu",
+    "H. Z. Shen",
+    "H. D. Liu",
+    "Gangcheng Wang"
+   ],
+   "abstract": "Coherent perfect absorption, zero transmission and zero reflection are several scattering phenomena governed by interference engineering in Hermitian and non-Hermitian systems. Higher-order coherent perfect absorption can significantly broaden the absorption bandwidth, while existing implementations rely on scattering zero degeneracy induced by exceptional points or additional momentum-dependent phase delays introduced in incident waves. We propose a scheme where a giant atom couples to a one-dimensional coupled-cavity array at two spatially separated sites. The spatially separated coupling configuration of the giant atom generates tunable nonlocal interference phases that dominate the scattering interference process. We further investigate the zero-reflection and zero-transmission behaviors under single-sided incidence. Remarkably, we find that for certain parameter choices, zero transmission can persist over the entire propagating band, rather than being restricted to a single momentum. Our results reveal that the giant-atom interference mechanism enables bandwidth-enhanced coherent perfect absorption and bandwidth-enhanced zero transmission in the absence of exceptional points and incident momentum-dependent phase delays. Our work provides a physical route for coherent wave manipulation in coupled-cavity quantum networks.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-18",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 72,
+   "why": "A giant atom coupled to a cavity array at two points creates nonlocal interference that sustains zero transmission across the entire band.",
+   "kind": "T",
+   "eli5": {
+    "plain": "A theory paper shows that an artificial atom touching a chain of cavities at two separated spots can act like a perfect one-sided mirror across the whole band of frequencies, not just at one special frequency.",
+    "how": "Coupling the giant atom at two separated sites creates a tunable interference between the two coupling points; tuning that interference lets the reflection-canceling zero persist across the whole propagating band, without the exceptional-point tricks earlier schemes needed.",
+    "matters": "Giant atoms are naturally built from superconducting qubits coupled to a meandering resonator or cavity chain, so this gives a concrete route to broadband perfect absorption or one-way channels in microwave circuits.",
+    "caveat": "It is a theoretical proposal in an idealized coupled-cavity model; there is no superconducting-circuit design and no account of loss or disorder."
+   }
+  },
+  {
+   "id": "2609.21574",
+   "title": "Frequency-swept Brillouin spectroscopy",
+   "authors": [
+    "Lin Kang",
+    "Shahrin Jahan Jaima",
+    "Jitao Zhang"
+   ],
+   "abstract": "Spontaneous Brillouin microscopy provides non-contact access to the viscoelastic properties of materials. Standard measurements typically utilize a single-wavelength continuous-wave laser to illuminate a specimen and excites a spontaneous Brillouin scattering signal, which is then recorded by a spectrometer. Existing Brillouin spectrometers are mostly built around either a scanning Fabry-Pérot etalon or a virtually imaged phased array (VIPA) etalon. While performing well, these setups are bulky and demand significant optical expertise to construct and maintain. Here, we propose a new approach to conducting Brillouin spectroscopy. In this approach, a frequency-swept laser excites a series of Brillouin spectra with incrementally shifted central frequencies, while a frequency picker, consisting of a narrow bandpass filter and a highly sensitive single-photon detector, sequentially records each spectral component to reconstruct the full spectrum. We demonstrate that the frequency-swept Brillouin spectroscopy can run under shot-noise limited condition using standard samples. Compared with conventional spectrometers, our system features a much more compact design for portable applications and holds potential for rapid mechanical imaging through multiplexing.",
+   "categories": [
+    "physics.optics"
+   ],
+   "submitted": "2026-09-18",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 38,
+   "why": "A frequency-swept laser plus a single-photon-counting filter reconstructs Brillouin spectra at the shot-noise limit without a bulky Fabry-Perot or VIPA etalon.",
+   "kind": "E",
+   "eli5": {
+    "plain": "They built a compact way to measure how stiff and lossy a material is, by scanning a laser's color and picking out the faint scattered light with a single-photon detector instead of a bulky spectrometer.",
+    "how": "A frequency-swept laser drives the material through a series of Brillouin-scattering resonances one at a time, and a narrow filter plus a sensitive photon counter records each one to rebuild the full spectrum, reaching the shot-noise limit.",
+    "matters": "It shows a single-photon detector can stand in for a full optical spectrometer when reading out weak scattered light, the same trick used to read out faint itinerant microwave photons in a superconducting setup.",
+    "caveat": "Demonstrated only on standard test samples in a bench setup aimed at portability, not yet on the delicate or biological samples the method is meant for."
+   }
+  },
+  {
+   "id": "2609.22025",
+   "title": "Cavity-QED analysis of InAs quantum-dot single photon production",
+   "authors": [
+    "W. W. Chow",
+    "S. Peana",
+    "D. I. Herman",
+    "K. Y. Lee",
+    "A. Cejan",
+    "C. Shang",
+    "G. Moody",
+    "J. E. Bowers",
+    "F. Jahnke"
+   ],
+   "abstract": "Cavity quantum electrodynamics is used to study the extent cavity enhancement affects single photon performance of an InAs quantum dot, in terms of emission rate, purity and indistinguishability at different temperatures. Parametric studies show a tradeoff between single photon production rate and purity, as well as between indistinguishability and purity. The results indicate the importance of quantum carrier-photon correlations that yield substantial corrections to mean-field treatments, especially at high light-matter coupling strength, where cavity enhancement is most effective.",
+   "categories": [
+    "quant-ph",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-18",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 34,
+   "why": "Numerical modeling shows quantum carrier-photon correlations substantially correct mean-field estimates of an InAs dot's photon rate, purity and indistinguishability trade-offs.",
+   "kind": "T",
+   "eli5": {
+    "plain": "The team modeled a lab-made single-photon light bulb, a quantum dot inside a mirrored cavity, to see how well it can produce one photon at a time on demand.",
+    "how": "They combine a detailed cavity quantum electrodynamics model with dot-photon correlation effects that simple averaged theories miss, then vary temperature and coupling strength to trade off brightness, photon purity and how identical the photons are.",
+    "matters": "The same rate/purity/indistinguishability trade-offs, and the need for correlation-aware modeling at strong coupling, apply directly to microwave single-photon sources built from superconducting qubits.",
+    "caveat": "It is a numerical study of one specific dot-cavity system, not a measurement, so the predicted trade-offs still need experimental confirmation."
+   }
+  },
+  {
+   "id": "2609.21376",
+   "title": "Denser Planar Color Codes",
+   "authors": [
+    "Noah Shutty"
+   ],
+   "abstract": "We consider the 4.8.8 color code in a brickwork layout on the square lattice with nearest-neighbor gates. We identify periodic superdense circuits with twelve CNOT layers that appear to preserve the full distance of these codes. Including ancillas, the family uses $q=(2d^2+5d-5)/2$ physical qubits for distance $d$: asymptotically $2/3$ as many as the triangular 6.6.6 color code and $1/2$ as many as the rotated surface code at the same code distance. Circuit-level simulations targeting superconducting architectures demonstrate favorable scaling of 4.8.8 color codes at plausible physical noise rates, including both for planar codes and their toroidal cousins under periodic boundary conditions.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-18",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 32,
+   "why": "A twelve-layer superdense circuit realizes 4.8.8 color codes using up to half the physical qubits of a rotated surface code at equal distance.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.21249",
+   "title": "The Pinnacle Architecture with fixed connectivity of degree eight",
+   "authors": [
+    "Paul Webster",
+    "Tom Peham",
+    "Lawrence Z. Cohen"
+   ],
+   "abstract": "We show how the Pinnacle architecture can be adapted to be compatible with superconducting qubits, where the connectivity between qubits must be fixed at fabrication. Specifically, we present a modified instantiation of the architecture that has fixed connectivity degree of eight. With this instantiation, we show that a 2048-bit RSA integer can be factored in one month with approximately 120 000 physical qubits, given a physical error rate of $10^{-3}$, code cycle time of 1 microsecond and reaction time of 10 microseconds.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-18",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 28,
+   "why": "A fixed-degree-eight Pinnacle layout for superconducting qubits factors a 2048-bit RSA integer in one month using about 120,000 physical qubits.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.22002",
+   "title": "Microwave dielectric properties of LiNbO$_{\\mathbf{3}}$ and AlN at millikelvin temperatures and single-photon power",
+   "authors": [
+    "Alessandro Reineri",
+    "Francesco Crisa",
+    "Akshay Murthy",
+    "Maithlee Shinde",
+    "Daniel Bafia",
+    "Changqing Wang",
+    "Tanay Roy",
+    "Alexander Romanenko",
+    "John Zasadzinski",
+    "Anna Grassellino",
+    "Silvia Zorzetti"
+   ],
+   "abstract": "Efficient bidirectional microwave optical photon conversion is a key capability for scaling superconducting quantum processors into distributed networks. However, achieving the necessary conversion efficiency requires filling a critical knowledge gap in understanding the loss mechanisms of electro optic materials. Here, we characterize the microwave properties of single crystal bulk LiNbO3 and AlN over a broad range of powers, down to single photon levels, and spanning from millikelvin temperatures to above 1K. We demonstrate that both materials exhibit two level systems (TLS) behavior, while piezoelectric related losses are excluded. We show that TLS induced dissipation is predominantly localized on the surface rather than being an intrinsic bulk property, a result further corroborated by room temperature 3D XPS and time of flight SIMS analyses. These findings provide useful insights to engineer hybrid architectures that integrate bulk electro optic crystals within superconducting cavities, proving that microwave quality factors compatible with high efficiency microwave optical transduction are within reach.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-18",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 25,
+   "why": "Millikelvin dielectric measurements find TLS loss in LiNbO3 and AlN is a surface effect, not bulk, aiding microwave-optical transduction hardware.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.21725",
+   "title": "Collective excitation-mediated transport in nanoscale Josephson junctions that exhibit quantum confinement",
+   "authors": [
+    "Zhengyuan Liu",
+    "Sebastian Scherb",
+    "Werner M. J. van Weerdenburg",
+    "Daniel Wegner",
+    "Nadine Hauptmann",
+    "Alexander A. Khajetoorians"
+   ],
+   "abstract": "Quantum confinement can strongly modify transport through Josephson junctions. Here, we study local tunneling transport through nanoscale Josephson junction stacks in the Coulomb blockade regime, where the metallic layers exhibit strong vertical quantum confinement. We find that quasiparticle transport is strongly enhanced by a collective excitation mode intrinsic to the junction and localized in the isolated metallic overlayer. We quantify both the collective-mode energy and the Coulomb gap and show that both exhibit strong layer-dependent modulation, consistent with the modulation of the underlying quantum well states. We further investigate how the collective excitation responds to various perturbations, including mechanical motion and an applied magnetic field. Our results suggest that this collective mode is sensitive to quasiparticles near the Fermi level and may therefore provide an indirect probe of the superconducting state.",
+   "categories": [
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-09-18",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 20,
+   "why": "Local tunneling spectroscopy on nanoscale Josephson junction stacks finds a collective excitation mode that senses quasiparticles near the Fermi level.",
+   "kind": "E",
+   "eli5": null
+  }
+ ]
+}
