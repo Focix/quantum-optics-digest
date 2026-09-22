@@ -1,0 +1,559 @@
+{
+ "run": "2026-09-22",
+ "mode": "daily",
+ "generated": "2026-09-22T06:11:19+00:00",
+ "ranked": true,
+ "status": {
+  "run": "2026-09-22",
+  "mode": "daily",
+  "pools": {
+   "A": "ok",
+   "B": "ok"
+  },
+  "counts": {
+   "A": 8,
+   "B": 10
+  },
+  "dropped_seen": 35,
+  "dropped_old": 347,
+  "watched": 0,
+  "citations": "error: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.24827%7C10.48550%2FarXiv.2609.24759%7C10.48550%2FarXiv.2609.24572%7C10.48550%2FarXiv.2609.24533%7C10.48550%2FarXiv.2609.24502%7C10.48550%2FarXiv.2609.24461%7C10.48550%2FarXiv.2609.23050%7C10.48550%2FarXiv.2609.22442%7C10.48550%2FarXiv.2609.24933%7C10.48550%2FarXiv.2609.24900%7C10.48550%2FarXiv.2609.24858%7C10.48550%2FarXiv.2609.24800%7C10.48550%2FarXiv.2609.24381%7C10.48550%2FarXiv.2609.23651%7C10.48550%2FarXiv.2609.23382%7C10.48550%2FarXiv.2609.23328%7C10.48550%2FarXiv.2609.22946%7C10.48550%2FarXiv.2609.22841&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+  "error": "citation lookup failed: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.24827%7C10.48550%2FarXiv.2609.24759%7C10.48550%2FarXiv.2609.24572%7C10.48550%2FarXiv.2609.24533%7C10.48550%2FarXiv.2609.24502%7C10.48550%2FarXiv.2609.24461%7C10.48550%2FarXiv.2609.23050%7C10.48550%2FarXiv.2609.22442%7C10.48550%2FarXiv.2609.24933%7C10.48550%2FarXiv.2609.24900%7C10.48550%2FarXiv.2609.24858%7C10.48550%2FarXiv.2609.24800%7C10.48550%2FarXiv.2609.24381%7C10.48550%2FarXiv.2609.23651%7C10.48550%2FarXiv.2609.23382%7C10.48550%2FarXiv.2609.23328%7C10.48550%2FarXiv.2609.22946%7C10.48550%2FarXiv.2609.22841&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+  "backfill": "error: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.05226%7C10.48550%2FarXiv.2609.06399%7C10.48550%2FarXiv.2609.11004%7C10.48550%2FarXiv.2609.14197%7C10.48550%2FarXiv.2609.18907%7C10.48550%2FarXiv.2609.19317%7C10.48550%2FarXiv.2609.19534%7C10.48550%2FarXiv.2609.19784%7C10.48550%2FarXiv.2609.21249%7C10.48550%2FarXiv.2609.21376%7C10.48550%2FarXiv.2609.21560%7C10.48550%2FarXiv.2609.21574%7C10.48550%2FarXiv.2609.21725%7C10.48550%2FarXiv.2609.22002%7C10.48550%2FarXiv.2609.22025%7C10.48550%2FarXiv.2609.22442%7C10.48550%2FarXiv.2609.22841%7C10.48550%2FarXiv.2609.22946%7C10.48550%2FarXiv.2609.23050%7C10.48550%2FarXiv.2609.23328%7C10.48550%2FarXiv.2609.23382%7C10.48550%2FarXiv.2609.23651%7C10.48550%2FarXiv.2609.24381%7C10.48550%2FarXiv.2609.24461%7C10.48550%2FarXiv.2609.24502%7C10.48550%2FarXiv.2609.24533%7C10.48550%2FarXiv.2609.24572%7C10.48550%2FarXiv.2609.24759%7C10.48550%2FarXiv.2609.24800%7C10.48550%2FarXiv.2609.24827%7C10.48550%2FarXiv.2609.24858%7C10.48550%2FarXiv.2609.24900%7C10.48550%2FarXiv.2609.24933&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429"
+ },
+ "items": [
+  {
+   "id": "2609.24933",
+   "title": "A thermal microwave bus for neutral atom quantum computing",
+   "authors": [
+    "Matthew J. H. Kendall",
+    "Christopher J. Watson",
+    "Michael Ben Shem",
+    "Jonathan D. Breeze"
+   ],
+   "abstract": "High-fidelity two-qubit gates in neutral-atom arrays rely on the Rydberg blockade, which is intrinsically short ranged and requires long range connectivity to be achieved through atom shuttling. We propose a four level architecture, where the typical ground state qubit can be leveraged for its long lifetime and the Rydberg states couple to a microwave cavity, allowing for long range cavity mediated gates. We first find the thermal dependence of two established protocols, the dispersive iSWAP native to the Tavis-Cummings model and the Controlled phase gate generated from driving the cavity. We simulate them under the presence of Rydberg decay, thermal photons, finite cavity linewidth and find fidelities which accompany closed form bounds. We then introduce the bichromatic Raman gate, which only virtually populates the Rydberg states and cancels dispersive shifts to mitigate both atomic and cavity decay, achieving a fidelity of $F = 0.997$. Finally, we consider a full optical tweezer array in a microwave cavity, and show that using a cavity mediated gate to close the periodic boundaries of the toric code shortens an error correction round by a factor of 2.3 for realistic array sizes. This was then applied to the wider family of Bivariate bicycle codes, and we find that it shortens a round of the gross code by a factor of 4.8.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 74,
+   "why": "Proposes a bichromatic Raman gate using a shared microwave cavity to link Rydberg neutral atoms, reaching F=0.997 and speeding surface-code rounds.",
+   "kind": "T",
+   "eli5": {
+    "plain": "They design a way to connect atoms sitting far apart in an atom array using a microwave cavity as a relay, instead of physically moving them.",
+    "how": "Ground-state atoms are briefly promoted to Rydberg states that couple to a shared microwave cavity mode; a carefully chosen two-color drive performs the gate while only virtually visiting the lossy Rydberg state.",
+    "matters": "The same cavity-mediated gate trick and its noise analysis (thermal photons, cavity linewidth) map directly onto the microwave cavities and dispersive gates superconducting circuit QED already uses.",
+    "caveat": "Everything here is simulation against a model; no atoms or cavity have actually performed this gate yet."
+   }
+  },
+  {
+   "id": "2609.24858",
+   "title": "Overcoming the Hong-Ou-Mandel interference limitation for the second photon from a two-photon cascade",
+   "authors": [
+    "Raphael Joos",
+    "Michal Vyvlecka",
+    "Tim Strobel",
+    "Benjamin Breiholz",
+    "Furkan Aglarci",
+    "Ponraj Vijayan",
+    "Hans-Georg Babin",
+    "Arne Ludwig",
+    "Michael Jetter",
+    "Simone L. Portalupi",
+    "Peter Michler"
+   ],
+   "abstract": "Quantum emitters such as semiconductor quantum dots can provide entangled photon pairs emitting from a system of cascaded states. However, the resulting temporal correlation between the two photons from the three-level ladder system has been shown to set a limit on the achievable two-photon interference. In this work, we show that such limitation, for photons emitted by the second transition, is only due to reduced temporal overlap at the interference beam splitter. We investigate this theoretically and experimentally by determining time-resolved four-photon coincidences between two successively emitted photon pairs. Post-emission synchronization shows the recovery of maximum interference visibility; in prospective quantum networks this could be achieved via deterministic quantum memories.",
+   "categories": [
+    "quant-ph",
+    "cond-mat.mes-hall",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 68,
+   "why": "Traces the reduced two-photon interference from a quantum-dot cascade's second photon to timing jitter, and restores visibility by post-emission synchronization.",
+   "kind": "TE",
+   "eli5": {
+    "plain": "Two photons emitted one after another from a quantum dot don't interfere as well as expected; the team shows this is just because their arrival times are correlated, not because the photons differ.",
+    "how": "They measure four-photon coincidences between two successive photon pairs, then digitally resynchronize the second photons after the fact to strip out the timing correlation.",
+    "matters": "Cascade and heralded photon sources are a template for microwave photon generation schemes, and the same 'sync out the timing jitter' fix would apply to time-correlated microwave photon pairs from artificial atoms.",
+    "caveat": "The fix is applied in post-processing on recorded data, not a real-time gate, so it doesn't yet help a live quantum network link."
+   }
+  },
+  {
+   "id": "2609.23651",
+   "title": "Nonequilibrium energy transport and fluctuations in two-photon-driven nonlinear quantum optical systems",
+   "authors": [
+    "Y. T. Chen",
+    "Y. W. Lu",
+    "J. C. Lu",
+    "C. Wang"
+   ],
+   "abstract": "Understanding nonequilibrium transport and fluctuations driven by nonclassical light in nonlinear quantum optical systems is challenging. Here, we formulate a driven quantum master equation in the rotating frame combined with full counting statistics, retaining the drive-induced frequency shifts in the system-reservoir interactions and providing a unified description of drive-assisted incoherent transitions based on the rotated system dressed-basis. Applied to a Kerr resonator and a nonlinear Jaynes-Cummings model, the approach reveals pronounced multiphoton-resonant enhancement of the drive input energy current, with significant high peaks under two-photon driving compared to the single-photon case. The two-photon resonance relations are analytically obtained. Resonance structure in the nonlinear Jaynes-Cummings model nonlinearly relies on qubit-photon couplings, with additional dressed-state branches. A low-energy-state approximation attributes the resonant current enhancement to dressed-state hybridization and efficient activation of incoherent energy exchange processes. Beyond the average current, two-photon-driving induced energy exchange picture near resonance also substantially modifies the second-order current fluctuation and higher-order current cumulant, while increasing the time-normalized signal-to-noise ratio. Adding two-photon loss introduces extra incoherent photon-pair exchange pathways and further reshapes the current and its fluctuations. We hope these results may deepen interpretation of photon driving and quantum dissipation cooperatively governing nonequilibrium energy transport and fluctuations.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-20",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 60,
+   "why": "Finds multiphoton-resonant current and fluctuation enhancements when a Kerr resonator or Jaynes-Cummings system is driven two-photon rather than single-photon.",
+   "kind": "T",
+   "eli5": {
+    "plain": "They work out how energy flows through and fluctuates in driven nonlinear cavities when the drive adds photons two at a time instead of one at a time.",
+    "how": "A master equation combined with full counting statistics tracks the energy current and its fluctuations through a Kerr resonator and a qubit-cavity (Jaynes-Cummings) system under two-photon driving, including two-photon loss.",
+    "matters": "Kerr resonators and Jaynes-Cummings physics are exactly what superconducting qubit-cavity circuits realize, so these current and noise predictions are directly testable in an existing circuit QED lab.",
+    "caveat": "It's a purely theoretical master-equation treatment; no experiment yet exercises the multiphoton resonances it predicts."
+   }
+  },
+  {
+   "id": "2609.23382",
+   "title": "Unified Spectral, Dynamical, and Correlation Signatures of an Exceptional Point in Cavity Optomechanics",
+   "authors": [
+    "Khazali Fahmi",
+    "Ahmad R. T. Nugraha",
+    "Ferry A. A. Nugraha",
+    "Adam B. Cahaya"
+   ],
+   "abstract": "We investigate how the exceptional-point structure of a dissipative cavity optomechanical system is inherited by experimentally accessible dynamical, spectral, and quantum-statistical observables. At optical-mechanical resonance, the effective non-Hermitian first-moment dynamics exhibits a second-order exceptional point, where two eigenvalues and their eigenvectors coalesce and the eigenvalue splitting follows the characteristic square-root dependence on perturbations. We show that the same square-root feature also governs transient photon and phonon populations, first-order coherence, spectral poles, and second-order intensity correlations. Below the exceptional point, the dynamics is non-oscillatory, whereas above it damped oscillations emerge together with frequency splitting of the spectral poles. At the exceptional point, the Jordan-block structure produces polynomial-exponential relaxation and a second-order spectral pole. Using the quantum regression theorem and Gaussian moment factorization, we further show that the stationary fluctuations satisfy the Siegert relation linking first- and second-order correlations. Although the zero-delay autocorrelations retain their thermal value, the finite-delay intensity correlations exhibit clear exceptional point signatures. This finding connects non-Hermitian mode coalescence with measurable dynamical and correlation observables in cavity optomechanics.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-20",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 57,
+   "why": "Shows the square-root eigenvalue splitting at a cavity-optomechanics exceptional point also governs photon correlations and spectral poles, not just eigenmodes.",
+   "kind": "T",
+   "eli5": {
+    "plain": "At a special 'exceptional point' where two vibration modes of a mirror-cavity system merge, the same telltale square-root behavior shows up in several different measurements, not just the usual one.",
+    "how": "Using the quantum regression theorem, they connect the non-Hermitian eigenvalue structure to transient photon/phonon numbers, first-order coherence, and the shape of the intensity-correlation function at and around the exceptional point.",
+    "matters": "Exceptional points are also studied in superconducting circuit systems, and this shows correlation measurements like g2 as an additional, more accessible way to detect one instead of needing a full spectral fit.",
+    "caveat": "It's a theoretical, single-model analysis of one linear optomechanical system, not a proposal tested against real device imperfections."
+   }
+  },
+  {
+   "id": "2609.24900",
+   "title": "Explanation of the Observed Energy Exchange through the vacuum in Optomechanics",
+   "authors": [
+    "Vincenzo Macrì",
+    "Franco Nori",
+    "Alessandro Ferreri"
+   ],
+   "abstract": "In cavity optomechanics, the standard large-detuning regime is commonly described by retaining only the radiation-pressure interaction, while higher-order mirror--field interactions are assumed to be negligible. This approximation, however, fails to provide a microscopic explanation for the vacuum-mediated heat transfer observed between the mechanical membranes in the experiment of Fong, et.al.,[Nature \\textbf{576}, 243 (2019)], whose physical origin has remained under active debate. Here, using a fully quantum model, we show that the neglected higher-order optomechanical interactions naturally generate phonon-phonon coupling and quantitatively account for the observed energy exchange within the standard optomechanical framework. Building on this microscopic description, we further propose a protocol in which phonon-phonon interaction drives a cyclic process enabling net work extraction. Our results establish the fundamental role of higher-order optomechanical interactions and provide a microscopic framework for describing next-generation optomechanical experiments beyond the linear approximation.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 55,
+   "why": "Explains a 2019 Nature measurement of vacuum-mediated heat transfer between membranes via previously neglected higher-order optomechanical coupling terms.",
+   "kind": "T",
+   "eli5": {
+    "plain": "A 2019 experiment saw heat flow between two drum-like membranes with nothing but vacuum between them, and nobody had a full explanation; this paper supplies one.",
+    "how": "Going beyond the usual radiation-pressure-only approximation, they keep higher-order terms in the light-mirror interaction, which generate an effective phonon-phonon coupling that quantitatively reproduces the observed heat flow.",
+    "matters": "It's a reminder that the standard 'radiation pressure only' cavity optomechanics toolbox, also used to model superconducting circuit optomechanical and parametric systems, can miss real effects at higher order.",
+    "caveat": "The model is fit to one specific published dataset; it isn't yet tested against a new, independent experiment."
+   }
+  },
+  {
+   "id": "2609.24800",
+   "title": "Collective cavity quantum electrodynamics in solid-state optical clocks",
+   "authors": [
+    "Karen Mamian",
+    "Georgy A. Kazakov",
+    "Thorsten Schumm",
+    "Charles Roques-Carmes"
+   ],
+   "abstract": "Solid-state frequency standards are generally limited by strong decoherence, rendering conventional interrogation schemes inefficient. The $^{229}$Th nuclear clock provides a unique and timely platform for solid-state optical metrology and nuclear cavity quantum electrodynamics (QED), featuring a coherence time many orders of magnitude shorter than the radiative lifetime in current experiments. Here, we propose and analyze three cavity QED-enhanced clock interrogation schemes that turn this timescale mismatch into an advantage, leveraging collective coupling of thorium nuclei to nanophotonic modes to enable fast interrogation and detection despite the long population lifetime. We reveal the central role of collective cooperativity in determining the clock frequency instability, and derive the optimal conditions (power, working-point detuning, thorium density) for clock operation.",
+   "categories": [
+    "physics.optics",
+    "nucl-th",
+    "quant-ph"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 45,
+   "why": "Proposes exploiting collective cooperativity in nanophotonic cavities to speed up interrogation of the ultra-narrow 229-thorium nuclear clock transition.",
+   "kind": "T",
+   "eli5": {
+    "plain": "A nuclear clock based on thorium-229 ticks incredibly precisely but is hard to read out quickly; this paper proposes using a cavity shared by many thorium nuclei to speed that up.",
+    "how": "They analyze three cavity-QED interrogation schemes where many nuclei couple collectively to a nanophotonic cavity mode, deriving how the collective cooperativity sets the clock's frequency stability and the optimal power and detuning.",
+    "matters": "It's a case study in collective cavity QED with emitters whose natural linewidth is absurdly narrow, a regime and cooperativity analysis that echoes how superconducting qubit ensembles couple collectively to microwave cavities.",
+    "caveat": "The whole analysis is a theoretical proposal and optimization, with no thorium-cavity interrogation experiment yet built."
+   }
+  },
+  {
+   "id": "2609.22841",
+   "title": "High-Q Magneto-Optical Microdisk Resonators Based on Monocrystalline Bismuth-substituted Yttrium Iron Garnets",
+   "authors": [
+    "Takeru Yambe",
+    "Kota Taniguchi",
+    "Tatsuya Kitai",
+    "Daisuke Sato",
+    "Syuan Gao",
+    "Hajime Kumazaki",
+    "Shun Fujii",
+    "Takasumi Tanabe",
+    "Satoshi Iwamoto",
+    "Yasutomo Ota"
+   ],
+   "abstract": "Microresonators based on diverse material platforms have driven the progress of integrated photonics by enhancing light-matter interactions in compact volumes. Extending this strategy to magneto-optical (MO) media is highly attractive for nonreciprocal photonics, magnonics, and quantum transduction, yet compact high-Q resonators based on single-crystalline yttrium iron garnet (YIG) have remained elusive because of the difficulty of its nanofabrication. Here we demonstrate high-Q, small-mode-volume MO microdisk resonators based on monocrystalline Bi-substituted YIG (Bi:YIG). Low-loss Bi:YIG thin films prepared by bonding and thinning, combined with optimized Ar-plasma etching, enable submicron-thick, air-suspended microdisks that support telecom-band whispering-gallery modes with $Q = 1.52\\times 10^5$, a mode volume $V \\approx 200$ cubic wavelengths, and $Q/V \\approx 760$, representing an orders-of-magnitude improvement for integrated high-Q YIG MO cavities. The device exhibits clear magnetic-field-dependent spectral responses, including reciprocal resonance shifts and nonreciprocal frequency splitting of counter-propagating modes. A perturbative analytical model quantitatively reproduces these responses and indicates an effective MO coefficient about twice the bulk value, suggesting a possible miniaturization-induced enhancement. These results establish monocrystalline YIG microdisks as a compact high-Q MO platform for integrated isolators, optomechanics, microcombs, and photon-magnon quantum interfaces.",
+   "categories": [
+    "physics.optics"
+   ],
+   "submitted": "2026-09-19",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 38,
+   "why": "Demonstrates air-suspended monocrystalline YIG microdisks with Q=1.5x10^5, showing nonreciprocal mode splitting for future magneto-optical and magnon-photon devices.",
+   "kind": "E",
+   "eli5": {
+    "plain": "They made a tiny, extremely smooth ring-shaped resonator out of a single-crystal magnetic material and showed light circulating one way behaves differently from light circulating the other way once magnetized.",
+    "how": "Bonding and thinning single-crystal bismuth-doped yttrium iron garnet, then careful plasma etching, makes a submicron, air-suspended microdisk that supports high-Q optical whispering-gallery modes with a strong, quantifiable magneto-optical response.",
+    "matters": "YIG's magnon modes are already used to couple superconducting qubits to microwave magnons; a compact high-Q optical-frequency YIG device is a step toward wiring that magnon physics into an optical link too.",
+    "caveat": "This is a classical, high-power characterization of the cavity itself; no photon-magnon quantum interface or single-quantum coupling is demonstrated."
+   }
+  },
+  {
+   "id": "2609.24381",
+   "title": "Versatile Quantum Machine Learning with an Ultra-low Power Photonic Quantum Reservoir Computer",
+   "authors": [
+    "Wei Wang",
+    "Zan Tang",
+    "Menglong Fang",
+    "Daiqin Su",
+    "Mile Gu",
+    "Jayne Thompson",
+    "Lip Ket Chin",
+    "Hong Cai",
+    "Leong-Chuan Kwek",
+    "Ai-Qun Liu"
+   ],
+   "abstract": "Integrated photonic microprocessors provide high-bandwidth, massively parallel linear computation, but realizing nonlinear feature maps and temporal memory remain key challenges for machine learning. Conventional approaches rely on active tuning and additional nonlinear elements, increasing architectural complexity and power overhead. Here we demonstrate an integrated photonic quantum reservoir computer that achieves nonlinear mapping, fading memory, and task versatility without active tuning of the reservoir core. The same chip supports accurate static classification, dynamic prediction, and stable autonomous forecasting, establishing broad utility across both classification and temporal inference tasks. Competitive performance is retained in the zero-bias state, where all on-chip phase shifters are unpowered, eliminating active control and reducing computational power consumption to zero. This passive operation highlights a scalable route to multifunctional machine-learning hardware, where large-scale photonic quantum processors can be repurposed as reservoirs without reconfiguring their internal optical networks. By combining quantum-state encoding, multimode interferometric mixing, and photon-statistical readout, this architecture provides a physically grounded paradigm for low-power, large-scale quantum reservoir computing.",
+   "categories": [
+    "quant-ph",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 32,
+   "why": "Runs a passive, zero-bias photonic reservoir computer that performs classification and forecasting without tuning any on-chip phase shifter.",
+   "kind": "E",
+   "eli5": {
+    "plain": "A photonic chip does useful machine-learning tasks, like classifying data and predicting time series, while every tunable element on it is switched off and drawing no power.",
+    "how": "Multimode interference among quantum states of light plus photon-counting statistics gives the nonlinearity and memory a reservoir computer needs, so the fixed, unpowered optical network still acts as a rich computational substrate.",
+    "matters": "It's a demonstration that photon-statistics readout, the same kind of measurement microwave quantum optics experiments rely on, can do useful information processing without active control, a low-overhead building block worth knowing about.",
+    "caveat": "The tasks demonstrated are modest benchmark-scale classification and forecasting problems, not a head-to-head comparison against classical reservoir computers of similar size."
+   }
+  },
+  {
+   "id": "2609.24759",
+   "title": "Superconducting qubit based on altermagnets",
+   "authors": [
+    "Xue-Feng Pan",
+    "Xin-Lei Hei",
+    "Franco Nori",
+    "Peng-Bo Li"
+   ],
+   "abstract": "Altermagnets, characterized by vanishing net magnetization and momentum-dependent spin splitting, provide a promising platform for next-generation Josephson devices. Here, we exploit the Josephson effect in superconductor-altermagnet-superconductor junctions and show how to engineer prescribed current-phase relations by device design. Based on these programmable Josephson potentials utilizing altermagnetism, we propose a new class of transmon-like superconducting qubits that combine large anharmonicity with enhanced robustness against decoherence via coherent two-Cooper-pair tunneling. We show that in the $2φ$-junction regime, this kind of qubit provides intrinsic protection against charge noise due to parity protection. Magnetic flux can be used to precisely control the qubit and, under appropriate bias, this architecture further suppresses charge and flux noise. Our results establish altermagnets as a versatile platform for Josephson-potential engineering and open a new route toward high-performance superconducting qubits combining high coherence, large anharmonicity, and broad tunability.",
+   "categories": [
+    "quant-ph",
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 30,
+   "why": "Proposes a transmon-like qubit from altermagnet Josephson junctions, using 2-phi-junction physics for intrinsic charge-noise protection and higher anharmonicity.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.22442",
+   "title": "Extracting Electromagnetic Bare Mode Couplings in Large Superconducting Quantum Processors",
+   "authors": [
+    "Reza Molavi",
+    "Ebrahim Forati",
+    "Yaxing Zhang",
+    "Andrey R. Klots",
+    "Juan Atalaya",
+    "Brandon W. Langley",
+    "Dogan A. Timucin",
+    "Moein Nazari",
+    "Ghazi Khan",
+    "Zlatko K. Minev",
+    "Alexander N. Korotkov",
+    "Michel H. Devoret"
+   ],
+   "abstract": "High-fidelity control of superconducting quantum processors requires accurate characterization of electromagnetic coupling strengths among the device's constituent elements. Accurately extracting these couplings across large-scale architectures, presently featuring hundreds of qubits, poses a challenging multi-scale modeling problem. This requires resolving scales from the nanometer-scale geometry of Josephson junctions and their leads to the centimeter-scale size of the enclosing metallic packages. We present four numerical coupling extraction methods based on the avoided level crossing, the energy participation ratio, the induced electromotive force, and the impedance matrix. These methods are tailored to work with commercially available 3D electromagnetic solvers. We benchmark these techniques on a $10\\times10$ array of transmon qubits, extracting their couplings to standing package modes. Our results show that these methods yield consistent coupling strengths with a maximum relative difference of less than 5%.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-18",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 30,
+   "why": "Benchmarks four numerical methods for extracting electromagnetic mode couplings in a 10x10 transmon array, agreeing to within 5%.",
+   "kind": "TE",
+   "eli5": null
+  },
+  {
+   "id": "2609.22946",
+   "title": "Secure Quantum Metasurfaces for Direct Quantum Key Distribution Measurements",
+   "authors": [
+    "Yan He",
+    "Adetunmise C. Dada"
+   ],
+   "abstract": "Quantum key distribution (QKD) can deliver information-theoretic security, but its receivers are still typically assembled from cascaded bulk optics. Metasurfaces offer a radical reduction in this complexity. Here, we make the metasurface function as the QKD measurement device itself. We design wavelength-specific dielectric apertures at 780, 1550, 2000, and 10 600 nm that interweave the linear H/V and circular R/L phase libraries at a 0.44--0.49λ cell pitch, i.e., below half the operating wavelength, and map the complete passive-BB84 measurement directly onto four detector channels. This subwavelength basis co-location prevents an ordinary propagating-wave aperture mask from isolating one basis without simultaneously attenuating or perturbing the other. Simulated full-wave focal-plane intensities are converted directly into conditional Born probabilities using fitted, calibration-fixed detector regions. The selected designs achieve probability fidelities of 97.96--99.08%, four-port collected efficiencies of 17.43--40.94%, and mean intrinsic quantum bit error rates of 1.42--3.96%. At 1550 nm, the selected design gives an asymptotic device-level yield of 0.151 secret bits per incident photon under an ideal single-photon model. Six-state detector tomography gives positive both-basis security bounds for all six reconstructed receiver models, including their polarization-dependent loss, basis imbalance and crosstalk. These results establish protocol-matched meta-optics as a route to compact, passive QKD receivers.",
+   "categories": [
+    "quant-ph",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-19",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 27,
+   "why": "Designs metasurfaces that directly perform passive BB84 measurement, reaching simulated fidelities near 98% and secret-bit yields of 0.15 per photon.",
+   "kind": "T",
+   "eli5": {
+    "plain": "Instead of building a QKD receiver from a pile of separate lenses, beamsplitters and waveplates, they design a single flat metasurface chip that does the whole BB84 measurement by itself.",
+    "how": "Subwavelength dielectric nanostructures are patterned so that light of a given polarization or handedness lands on one of four detector regions, and full-wave simulations plus detector tomography confirm the measurement is faithful to BB84 and secure.",
+    "matters": "It's a compact-optics engineering result rather than new quantum-optics physics, but it's a template for shrinking receiver hardware in any future hybrid optical-microwave quantum network node.",
+    "caveat": "Everything reported is simulation and design, not a fabricated and tested device."
+   }
+  },
+  {
+   "id": "2609.23050",
+   "title": "A Coherent Memory Register for Sequential Quantum Generative Modeling, with Application to Calorimeter Showers",
+   "authors": [
+    "Jamal Slim. Saverio Monaco",
+    "Ran Xue",
+    "Dirk Kruecker",
+    "Kerstin Borras"
+   ],
+   "abstract": "Simulating the showers that particles deposit in a calorimeter, the detector that records their energy across many cells, is one of the largest computing costs in high-energy physics, and fast generative surrogates are needed. Quantum circuits have been proposed as such surrogates, but demonstrations on calorimeter data have either required a register that grows with the image, roughly one qubit per cell, or have passed the information between parts of the image through a classical channel. We remove both constraints for this problem, using a construction drawn from the sequential-generation and hidden-quantum-Markov-model literature. A shower image is generated block by block on a fixed register of six qubits. Three of them, the memory, are never measured. They hold what the circuit knows about the blocks already generated as a quantum state, so the correlations between distant parts of the image cross each block boundary as unmeasured amplitudes. The other three are measured and reset once per block, and each outcome selects the energy pattern of one block. The register size is set by the block, so adding cells to the image adds steps to the sequence, not qubits. We call the model a coherent-memory Born machine (CoMB), a Born machine being a circuit whose measurement statistics are the generated distribution. Its training loss grows only linearly with the number of blocks and never requires enumerating the image distribution, and a depth-two instance runs on an IBM superconducting processor. On a twelve-cell benchmark the model reproduces the energy distribution of every cell, the correlation matrix between cells, and the total-energy spectrum. Removing the three memory qubits, with everything else unchanged, produces independent blocks. Every correlation between blocks is carried by the unmeasured qubits and by nothing else.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-19",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 25,
+   "why": "Runs a six-qubit coherent-memory Born machine on an IBM processor, generating correlated calorimeter showers block-by-block without a per-cell qubit register.",
+   "kind": "TE",
+   "eli5": null
+  },
+  {
+   "id": "2609.24572",
+   "title": "The Superconducting Talbot Effect in Phased-Array Josephson Junctions",
+   "authors": [
+    "Hechen Ren",
+    "Ziying Li"
+   ],
+   "abstract": "We introduce the superconducting Talbot effect---a macroscopic quantum self-imaging phenomenon occurring when proximitized Cooper pairs propagate through a ballistic two-dimensional electron gas. By configuring periodic superconducting leads into a phased-array Josephson junction with programmable phase differences, we demonstrate active steering of the resulting superconducting Talbot carpet. To overcome transport resolution limits, we design a Vernier-scale collector array that performs sub-wavelength sampling of the fractional Talbot pattern. This approach maps real-space quantum interference with high robustness to disorder, enabling direct extraction of Fermi wavelengths across helical, spin-degenerate, and spin-orbit-split Fermi surfaces. Tight-binding numerical calculations on a square lattice validate the real-space interference patterns. Our results establish a versatile framework for coherent wavefront engineering and quantum materials diagnostics in superconducting optics.",
+   "categories": [
+    "cond-mat.mes-hall",
+    "cond-mat.supr-con",
+    "quant-ph"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 20,
+   "why": "Demonstrates a real-space 'Talbot carpet' of Cooper-pair interference in a phased-array Josephson junction, extracting Fermi wavelengths via sub-wavelength sampling.",
+   "kind": "TE",
+   "eli5": null
+  },
+  {
+   "id": "2609.24827",
+   "title": "Generalized conditions for odd-frequency pairing in superconducting systems",
+   "authors": [
+    "Florian Kayatz",
+    "Annica M. Black-Schaffer",
+    "Jorge Cayao"
+   ],
+   "abstract": "Odd-frequency superconducting pairing has been predicted to arise in many systems and is known to lead to phenomena such as paramagnetic Meissner response and long-range superconducting proximity effect. Here, we provide generalized necessary and sufficient conditions for odd-frequency pairing appearing in any superconducting system, from bulk superconductors to superconducting hybrid structures. This generalizes an earlier first-order expression in multiband bulk superconductors to all superconducting systems and to all orders, in both order parameter and frequency. We then apply the derived conditions to several systems, including superconducting-ferromagnet and superconducting Josephson junctions, as well as a transition metal dichalcogenide monolayer proximitized by a conventional superconductor, where the generalized conditions are used to understand the properties of the superconducting state.",
+   "categories": [
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 15,
+   "why": "Derives fully general necessary-and-sufficient conditions for odd-frequency pairing, extending prior first-order results to all superconducting systems and orders.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.23328",
+   "title": "$f$-2$f$ self-referencing for silicon nitride photonics via a heterogeneously integrated lithium niobate layer",
+   "authors": [
+    "Weichen Fan",
+    "Bastian Ruhnke",
+    "Camiel Op de Beeck",
+    "Giulio Tavani",
+    "Anton Vasiliev",
+    "Franz Kärtner",
+    "Tobias Herr"
+   ],
+   "abstract": "Heterogeneous integration combines complementary material properties in a single photonic platform. Here, we demonstrate on-chip $f$-2$f$ self-referencing in a heterogeneously integrated Si$_3$N$_4$/LiNbO$_3$ platform, in which supercontinuum generation in a Si$_3$N$_4$ waveguide and second-harmonic generation in a LiNbO$_3$ layer are spatially separated and linked by adiabatic escalator couplers. Pumped by a 1560 nm mode-locked laser with 75 pJ on-chip pulse energy, we detect the carrier-envelope offset frequency with 30 dB signal-to-noise ratio in 300 kHz resolution bandwidth. A comparative measurement confirms that the second harmonic originates in the LiNbO$_3$ layer and indicates opportunity for further improvements through periodic poling. These results establish heterogeneous Si$_3$N$_4$/LiNbO$_3$ integration as a viable building block for self-referenced ultrafast pulse sources in low-loss Si$_3$N$_4$ photonics.",
+   "categories": [
+    "physics.optics"
+   ],
+   "submitted": "2026-09-20",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 15,
+   "why": "Demonstrates on-chip carrier-envelope-offset detection at 30 dB SNR using a hybrid silicon-nitride/lithium-niobate f-2f self-referencing platform.",
+   "kind": "E",
+   "eli5": {
+    "plain": "They build a photonic chip that measures a tricky frequency-comb parameter, called the carrier-envelope offset, by combining two different materials on one chip.",
+    "how": "A silicon-nitride waveguide broadens a laser pulse into a supercontinuum, which is then frequency-doubled in a separate lithium-niobate layer bonded onto the same chip; comparing the two colors gives the offset frequency.",
+    "matters": "It's a photonics integration result, useful for making self-referenced frequency combs smaller and lower power, but it doesn't touch single-photon or few-photon quantum optics directly.",
+    "caveat": "This is a classical, bright-light nonlinear-optics measurement; no quantum states of light are involved."
+   }
+  },
+  {
+   "id": "2609.24533",
+   "title": "Detection of signals in presence of noise through Josephson junction switching currents",
+   "authors": [
+    "O. V. Pountougnigni",
+    "R. Yamapi",
+    "C. Tchawoua",
+    "V. Pierro",
+    "G. Filatrella"
+   ],
+   "abstract": "Josephson junctions can be employed to reveal a sinusoidal signal in presence of Gaussian noise. To mimic realistic setups, the detection is performed linearly ramping the bias current until a switch to the finite voltage occurs; the analysis of the resulting switching currents can be exploited to decide about the presence of the harmonic drive. The signal is applied in two conditions: with an unknown initial phase (incoherent strategy) and with a known initial phase (coherent strategy). In both conditions, the analysis of the efficiency of the detection, performed through the signal-to-noise ratio, as estimated by the Kumar-Carrol index, shows that the dependence upon the Josephson junction ramp rate is beneficial, especially for relatively fast speed. One can conclude that the collection of the switching currents is a robust technique, and thus it is possible to exploit the advantages of a predetermined finite time to collect the data.",
+   "categories": [
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 10,
+   "why": "Shows Josephson-junction switching-current statistics under ramped bias can detect a weak sinusoidal signal buried in Gaussian noise, coherently or not.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.24502",
+   "title": "Carrier-mediated spin helices in low-dimensional systems: Josephson-interference features and correlation renormalization",
+   "authors": [
+    "Yung-Yeh Chang",
+    "Chen-Hsuan Hsu"
+   ],
+   "abstract": "Carrier-induced helical magnetism can arise in interacting one-dimensional systems coupled to localized moments. Here, we investigate the coupled-wire sliding-Luttinger-liquid counterparts with and without valley degrees of freedom, using isolated Tomonaga-Luttinger liquids as reference limits. The carrier spin susceptibility mediates a Ruderman-Kittel-Kasuya-Yosida interaction that selects the helical ordering wave vector, while interchannel correlations lock the relative helix phases and stabilize a collective quasi-two-dimensional texture. Using a variational treatment, we estimate the helix-induced partial gap and analyze the reconstruction of the remaining gapless carrier modes. To probe the spatial texture through transport, we incorporate the helix into an anisotropic superconductor-normal-metal-superconductor Josephson junction motivated by the coupled-channel structure of twisted bilayer WTe$_2$. We exploit flux focusing near the junction interfaces to make an applied in-plane field a controlled probe of the spin helix. Relative to junctions without the helix, the helical exchange field modifies the central-lobe width and relative lobe weights. In the transverse-channel geometry, it also produces field-dependent side-lobe asymmetry and central-peak displacement, which remain negligible in the matched references for the parameters considered. The reconstructed carrier sector also exhibits modified local-density-of-states exponents, spin-relaxation behavior, and competing correlations, with distinct signatures in isolated and coupled-wire systems. Our results connect collective helical order in coupled-wire systems to carrier-sector reconstruction and identify field-tunable Josephson interferometry as a complementary transport probe of the spatial spin texture.",
+   "categories": [
+    "cond-mat.str-el",
+    "cond-mat.mes-hall"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 8,
+   "why": "Predicts helical spin order in coupled Luttinger liquids leaves field-dependent lobe-asymmetry signatures in an anisotropic Josephson junction's interference pattern.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.24461",
+   "title": "Parallel Simulation of Josephson Junctions With Multiplicative Noise",
+   "authors": [
+    "Vincenzo Pierro",
+    "Luigi Troiano",
+    "Elena Mejuto Villa",
+    "Sergio Pagano",
+    "Giovanni Filatrella"
+   ],
+   "abstract": "Parallel graphic processing units have been employed for fast simulations of the switching dynam- ics of Josephson junctions subject to critical current fluctuations. Such a system is modeled by a nonequilibrium washboard model with multiplicative noise, for which analytical results are lacking. The proposed approach allows us to execute extensive numerical simulation in short time and with relatively inexpensive resources. This allows us to fully characterize the effect of the noise on the junction switching current distributions at realistic bias current sweeprates.",
+   "categories": [
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 8,
+   "why": "Reports a GPU-parallelized solver for Josephson-junction switching dynamics under multiplicative critical-current noise, enabling fast, realistic sweep-rate simulations.",
+   "kind": "T",
+   "eli5": null
+  }
+ ]
+}
