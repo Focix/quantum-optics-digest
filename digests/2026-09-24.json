@@ -1,0 +1,874 @@
+{
+ "run": "2026-09-24",
+ "mode": "daily",
+ "generated": "2026-09-24T06:24:20+00:00",
+ "ranked": true,
+ "status": {
+  "run": "2026-09-24",
+  "mode": "daily",
+  "pools": {
+   "A": "ok",
+   "B": "ok"
+  },
+  "counts": {
+   "A": 11,
+   "B": 16
+  },
+  "dropped_seen": 32,
+  "dropped_old": 341,
+  "watched": 1,
+  "citations": "error: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.27456%7C10.48550%2FarXiv.2609.27239%7C10.48550%2FarXiv.2609.26958%7C10.48550%2FarXiv.2609.26880%7C10.48550%2FarXiv.2609.26341%7C10.48550%2FarXiv.2609.26005%7C10.48550%2FarXiv.2609.25751%7C10.48550%2FarXiv.2609.25336%7C10.48550%2FarXiv.2609.25296%7C10.48550%2FarXiv.2609.25223%7C10.48550%2FarXiv.2609.25208%7C10.48550%2FarXiv.2609.28271%7C10.48550%2FarXiv.2609.28139%7C10.48550%2FarXiv.2609.27983%7C10.48550%2FarXiv.2609.27601%7C10.48550%2FarXiv.2609.27072%7C10.48550%2FarXiv.2609.26949%7C10.48550%2FarXiv.2609.26889%7C10.48550%2FarXiv.2609.26674%7C10.48550%2FarXiv.2609.26573%7C10.48550%2FarXiv.2609.26429%7C10.48550%2FarXiv.2609.25753%7C10.48550%2FarXiv.2609.25673%7C10.48550%2FarXiv.2609.25598%7C10.48550%2FarXiv.2609.25593%7C10.48550%2FarXiv.2609.25248%7C10.48550%2FarXiv.2609.25232&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+  "error": "citation lookup failed: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.27456%7C10.48550%2FarXiv.2609.27239%7C10.48550%2FarXiv.2609.26958%7C10.48550%2FarXiv.2609.26880%7C10.48550%2FarXiv.2609.26341%7C10.48550%2FarXiv.2609.26005%7C10.48550%2FarXiv.2609.25751%7C10.48550%2FarXiv.2609.25336%7C10.48550%2FarXiv.2609.25296%7C10.48550%2FarXiv.2609.25223%7C10.48550%2FarXiv.2609.25208%7C10.48550%2FarXiv.2609.28271%7C10.48550%2FarXiv.2609.28139%7C10.48550%2FarXiv.2609.27983%7C10.48550%2FarXiv.2609.27601%7C10.48550%2FarXiv.2609.27072%7C10.48550%2FarXiv.2609.26949%7C10.48550%2FarXiv.2609.26889%7C10.48550%2FarXiv.2609.26674%7C10.48550%2FarXiv.2609.26573%7C10.48550%2FarXiv.2609.26429%7C10.48550%2FarXiv.2609.25753%7C10.48550%2FarXiv.2609.25673%7C10.48550%2FarXiv.2609.25598%7C10.48550%2FarXiv.2609.25593%7C10.48550%2FarXiv.2609.25248%7C10.48550%2FarXiv.2609.25232&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+  "backfill": "error: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.05226%7C10.48550%2FarXiv.2609.06399%7C10.48550%2FarXiv.2609.11004%7C10.48550%2FarXiv.2609.11994%7C10.48550%2FarXiv.2609.12066%7C10.48550%2FarXiv.2609.12565%7C10.48550%2FarXiv.2609.12592%7C10.48550%2FarXiv.2609.12596%7C10.48550%2FarXiv.2609.12772%7C10.48550%2FarXiv.2609.13022%7C10.48550%2FarXiv.2609.13055%7C10.48550%2FarXiv.2609.13065%7C10.48550%2FarXiv.2609.13108%7C10.48550%2FarXiv.2609.13143%7C10.48550%2FarXiv.2609.14197%7C10.48550%2FarXiv.2609.18907%7C10.48550%2FarXiv.2609.19317%7C10.48550%2FarXiv.2609.19534%7C10.48550%2FarXiv.2609.19784%7C10.48550%2FarXiv.2609.21249%7C10.48550%2FarXiv.2609.21376%7C10.48550%2FarXiv.2609.21560%7C10.48550%2FarXiv.2609.21574%7C10.48550%2FarXiv.2609.21725%7C10.48550%2FarXiv.2609.22002%7C10.48550%2FarXiv.2609.22025%7C10.48550%2FarXiv.2609.22442%7C10.48550%2FarXiv.2609.22841%7C10.48550%2FarXiv.2609.22946%7C10.48550%2FarXiv.2609.23050%7C10.48550%2FarXiv.2609.23328%7C10.48550%2FarXiv.2609.23382%7C10.48550%2FarXiv.2609.23651%7C10.48550%2FarXiv.2609.24381%7C10.48550%2FarXiv.2609.24461%7C10.48550%2FarXiv.2609.24502%7C10.48550%2FarXiv.2609.24533%7C10.48550%2FarXiv.2609.24572%7C10.48550%2FarXiv.2609.24759%7C10.48550%2FarXiv.2609.24800%7C10.48550%2FarXiv.2609.24827%7C10.48550%2FarXiv.2609.24858%7C10.48550%2FarXiv.2609.24900%7C10.48550%2FarXiv.2609.24933%7C10.48550%2FarXiv.2609.25208%7C10.48550%2FarXiv.2609.25223%7C10.48550%2FarXiv.2609.25232%7C10.48550%2FarXiv.2609.25248%7C10.48550%2FarXiv.2609.25296%7C10.48550%2FarXiv.2609.25336&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429"
+ },
+ "items": [
+  {
+   "id": "2609.26889",
+   "title": "Deterministic photon waveform adaptation for quantum connectivity",
+   "authors": [
+    "Jeffrey Mohan",
+    "Jérémy Berroir",
+    "Filippo Borselli",
+    "David Libault",
+    "Ferhat Loubar",
+    "Kilian Müller",
+    "Jed Rowland",
+    "Félix Hoffet",
+    "Eleni Diamanti",
+    "Tom Darras",
+    "Tommaso Mazzoni",
+    "Julien Laurat"
+   ],
+   "abstract": "The scalability of quantum technologies will depend on the ability to interconnect independent quantum systems through photonic channels. However, heterogeneous quantum platforms emit and absorb photons with widely differing properties, severely limiting inter-node interference and modular connectivity. Here we demonstrate a cold-atom optical quantum memory that simultaneously achieves near-unity storage-and-retrieval efficiency and deterministic temporal adaptation of single photons between arbitrary and programmable input and output pulse waveforms. Operating at high optical depth and within a fully integrated architecture, the system can store photons with durations spanning over three orders of magnitude and reshape them arbitrarily without compromising efficiency, achieving compatibility with many current platforms. By augmenting the role of a quantum memory from a passive storage element to an active programmable photonic interface, our results establish a key building block for scalable entanglement-based quantum networks and modular quantum computing architectures.",
+   "categories": [
+    "quant-ph",
+    "physics.atom-ph"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 88,
+   "why": "A cold-atom memory stores and reshapes single photons across three orders of magnitude in duration with near-unity efficiency between arbitrary waveforms.",
+   "kind": "E",
+   "eli5": {
+    "plain": "A cloud of cold atoms catches a single photon, holds it, and later releases it reshaped into essentially any pulse shape you want.",
+    "how": "The photon is absorbed into a collective atomic excitation at high optical depth, then a controlled retrieval-field sequence releases it, letting the output pulse shape be programmed independently of the input.",
+    "matters": "Linking different quantum nodes, microwave ones included, needs photons whose shapes match; a memory that reshapes photons without loss is exactly the adapter a mixed quantum network needs.",
+    "caveat": "Demonstrated at optical wavelengths in cold atoms, so porting the trick to microwave photons and superconducting circuits is a further, nontrivial step."
+   }
+  },
+  {
+   "id": "2609.25232",
+   "title": "Strong coupling of a reconfigurable ${}^{171}$Yb atom array to a tunable telecom-band nanofiber cavity",
+   "authors": [
+    "Hideki Ozawa",
+    "Neville Chen",
+    "Yusuke Hisai",
+    "Shunichiro Hashimoto",
+    "Kenichi N. Komagata",
+    "Remi T. Oddon",
+    "Shanjou Yang",
+    "Seitaro Horikawa",
+    "Seigo Kikura",
+    "Shigehito Miki",
+    "Takao Aoki",
+    "Tadayuki Yoshitake",
+    "Hideki Konishi",
+    "Shinichi Sunami",
+    "Akihisa Goban",
+    "Ryotaro Inoue"
+   ],
+   "abstract": "Nanophotonic cavities provide strong atom-photon coupling in a compact, directly fiber-coupled geometry, while a reconfigurable array of $^{171}$Yb atoms combines high-fidelity gates with a metastable qubit state coupled directly to a telecom-band transition, making the two a natural interface between neutral-atom quantum processors and telecom quantum networks. Here, we realize strong atom-cavity coupling on the ${}^{3}\\mathrm{P}_0 \\leftrightarrow {}^{3}\\mathrm{D}_1$ transition of ${}^{171}\\mathrm{Yb}$, establishing, to our knowledge, the first neutral-atom cavity-QED system to reach the single-atom strong-coupling regime on a telecom-band atomic transition. Reflection spectroscopy of a single-sided cavity yields a single-atom internal cooperativity of $C_{\\mathrm{in}}=5.6(1.0)$ and collective coupling following $\\sqrt{N}$ scaling up to $N=5$ atoms, with homogeneous coupling at antinodes over $\\sim$200 $\\mathrmμ$m along the nanofiber. Thermal tuning of a fiber Bragg grating provides in situ control of the cavity outcoupling rate over two orders of magnitude from the undercoupled to the overcoupled regime, relevant for various atom-cavity protocols. We confirm compatibility with reconfigurable atom arrays by demonstrating 99.95(6)\\% imaging fidelity and trap lifetimes comparable to free-space array, at 1 $\\mathrmμ$m from the nanofiber axis. Moreover, the diameter-engineered antireflection design of the nanofiber enables tweezer-based atom transport across the nanofiber with no measurable loss or heating at 4.5 $\\mathrmμ$m above the nanofiber, supporting a two-layer architecture for the nanofiber-integrated atom array. From the demonstrated atom-cavity coupling, atom capacity, and cavity mode profile, we project time-multiplexed remote atom-atom entanglement generation at 40 kHz, with prospects for further scaling through technical enhancements and channel multiplexing.",
+   "categories": [
+    "quant-ph",
+    "cond-mat.quant-gas",
+    "physics.atom-ph",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 82,
+   "why": "A reconfigurable ytterbium atom array reaches single-atom strong coupling on a telecom transition in a tunable nanofiber cavity, projecting 40 kHz entanglement-generation rates.",
+   "kind": "E",
+   "eli5": {
+    "plain": "Individual ytterbium atoms held in optical tweezers are coupled so strongly to a fiber-integrated cavity, on a wavelength that travels well through telecom fiber, that a single atom visibly changes the light reflected from the cavity.",
+    "how": "A nanofiber Bragg cavity is tuned in situ and atoms are positioned at its antinodes; reflection spectroscopy measures the single- and multi-atom coupling strength, and tweezers move atoms past the fiber without disturbing them.",
+    "matters": "It is a compact, fiber-ready atom-photon interface on a telecom line, the same kind of building block, strong coupling, tunable coupling rate, remote entanglement, that circuit-QED nodes need for networking.",
+    "caveat": "The 40 kHz entanglement-generation rate is a projection from the measured coupling, not yet a demonstrated entangled pair between two nodes."
+   }
+  },
+  {
+   "id": "2609.27983",
+   "title": "Optical Schrödinger cat states generated using cavity Rydberg quantum photonics",
+   "authors": [
+    "Hendrik Hegels",
+    "Mae Eichenberger",
+    "Gerhard Rempe",
+    "Stephan Dürr"
+   ],
+   "abstract": "We introduce cavity Rydberg quantum photonics as a novel platform for generating hybrid entangled states of optical photons. The system achieves world-record sizes of these states and has the potential to produce yet larger states in the future. In the hybrid entangled state produced here, a superposition of two coherent states is entangled with a polarization qubit carried by a photon in another beam path. We perform quantum state tomography of this hybrid entangled state and evaluate various key properties. By optimizing the decoherence we increase the size compared to previous hybrid entangled states, reaching a size of $α^2= 2.4$. Besides the fundamental interest in Schrödinger cat states, this work is interesting because of potential applications in the field of quantum information processing.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-23",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 80,
+   "why": "Cavity Rydberg photonics generates a record-size hybrid entangled optical Schrodinger-cat state, reaching alpha-squared = 2.4 entangled with a polarization qubit.",
+   "kind": "E",
+   "eli5": {
+    "plain": "A new experimental platform makes the biggest \"cat state\" of light yet built this way: a superposition of two distinct light waves entangled with a single photon's polarization.",
+    "how": "Rydberg atoms inside an optical cavity generate the hybrid state, and the researchers verify it with full quantum-state tomography rather than inferring it indirectly.",
+    "matters": "Cat states of a cavity mode are exactly the resource used in bosonic error-correction codes on superconducting circuits, so a new way to make bigger, cleaner cats is directly relevant.",
+    "caveat": "This is a single hybrid state on a brand-new platform; scaling to larger cats or chaining several together is not yet shown."
+   }
+  },
+  {
+   "id": "2609.27072",
+   "title": "Programmable Coherent Memory Kernels for Quantum Reservoir Computing in Waveguide QED",
+   "authors": [
+    "Hong Jiang",
+    "Yu Wu",
+    "Yue Ban",
+    "Xi Chen",
+    "Juan José García-Ripoll"
+   ],
+   "abstract": "Reservoir computing requires not only long memory, but also memory distributed over the timescales relevant to a given task. In most quantum reservoir computing architectures, however, the memory profile emerges from intrinsic dynamics and cannot be directly engineered. Here we introduce a waveguide-QED quantum reservoir in which coherent memory return is controlled by the coupling geometry. The reservoir consists of a driven Kerr-nonlinear resonator coupled to a one-dimensional waveguide at spatially separated points. An unmeasured propagating field carries information about past inputs and coherently returns it to the resonator after a finite propagation time, forming a non-Markovian feedback channel without intermediate measurement or classical reinjection. Delay-resolved memory benchmarks reveal two complementary functions: waveguide propagation determines when past information returns, whereas Kerr dynamics convert the returned field into nonlinear temporal features accessible through a linear readout. NARMA-$n$ prediction shows that the optimal feedback delay shifts systematically with task order and approximately tracks the explicit input-product lag. These results establish coherent delayed feedback as a mechanism for engineering task-relevant memory in quantum reservoir computing.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 80,
+   "why": "A waveguide-coupled Kerr resonator with engineered feedback delay lets quantum reservoir-computing memory be tuned to a task's timescale instead of fixed intrinsic dynamics.",
+   "kind": "T",
+   "eli5": {
+    "plain": "A \"quantum reservoir computer\" (a physical system used to process time-series data) usually remembers the past in a way you can't adjust; here the memory's timing is dialed in by how far apart the coupling points sit on a waveguide.",
+    "how": "A driven nonlinear (Kerr) resonator is coupled to a waveguide at two points; a light pulse leaves, travels down the waveguide, and returns after a chosen delay, feeding information back without ever being measured.",
+    "matters": "This is a giant-atom-style, non-Markovian feedback trick built entirely from waveguide-QED components that map directly onto superconducting circuit hardware, and it could give circuit-QED reservoirs task-tunable memory.",
+    "caveat": "The results are simulations of an idealized model; no chip has built or tested this feedback scheme yet."
+   }
+  },
+  {
+   "id": "2609.26949",
+   "title": "Measurement-based feedback as a flexible tool to control non-Poissonian photon statistics",
+   "authors": [
+    "Ming Li",
+    "JunYan Luo",
+    "Georg Engelhardt"
+   ],
+   "abstract": "Non-Poissonian photon statistics are usually traced to nonlinear interactions, nonclassical states, or engineered reservoirs. Here we show that measurement-based feedback can be alternatively deployed to control the Poissonian character of the measurement statistics in an externally-driven linear cavity. Each photon detection triggers a weak displacement operation whose phase determines how the feedback interferes with the coherent cavity field, resulting in a significant cavity response. Full counting statistics and two-time photon correlations show that the feedback phase controls the sign and strength of the induced correlations, continuously tuning the emission statistics between super- and sub-Poissonian regimes. At generic phases, the Mandel parameter responds linearly to the feedback amplitude, whereas at specific phases, the leading response becomes quadratic. The same phase dependence is also found in higher-order cumulants of the emission statistics. These results establish measurement-based feedback as a route to controlling photon statistics in otherwise linear driven-dissipative systems.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 79,
+   "why": "Measurement-triggered weak displacements, not nonlinear media, continuously tune a driven linear cavity's photon statistics between super- and sub-Poissonian.",
+   "kind": "T",
+   "eli5": {
+    "plain": "Normally you need a nonlinear material to make light's photon-counting statistics bunch up or spread out; here, watching the light and nudging the cavity after every detected photon does the same job in an otherwise linear system.",
+    "how": "Each photon detection triggers a small displacement of the cavity field whose phase sets whether the feedback reinforces or cancels the coherent field, and that phase continuously tunes the emission statistics and higher-order correlations.",
+    "matters": "It shows that measurement and feedback, already routine in superconducting-circuit dispersive readout, can substitute for a nonlinear device to sculpt photon statistics, a control knob native to circuit QED.",
+    "caveat": "The analysis is theoretical, for an idealized linear cavity with instantaneous feedback; real detector efficiency and feedback latency are not modeled."
+   }
+  },
+  {
+   "id": "2609.26674",
+   "title": "Fluctuation-Driven Nonlinear Amplification of Quantum Statistics",
+   "authors": [
+    "Yuewei Song",
+    "Zhenghe Zhou",
+    "Shuai Wan",
+    "Hecheng Wang",
+    "Jinpeng Li",
+    "Bowen Liu",
+    "Yinhai Li",
+    "Chunhua Dong",
+    "Guangcan Guo",
+    "Chong Wang",
+    "Zhiyuan Zhou",
+    "Baosen Shi"
+   ],
+   "abstract": "Photon statistics have moved to the forefront of modern optics, as intensity fluctuations and correlations shape multiphoton interactions and reveal information beyond mean-intensity measurements. Developing high-quality photon sources with pronounced correlations is a fundamental necessity in these fields. Here we demonstrate fluctuation-driven nonlinear statistical amplification of quantum light in spontaneous four-wave mixing using filtered amplified spontaneous emission (ASE). Extending the coherent-pump framework to fluctuating fields, we show how nonlinear weighting of pump intensity combines with bosonic bunching to amplify quantum statistics and reshape temporal correlations. In a SiN microring, ASE pumping increases the zero-delay unconditional second-order correlation from 2.01 to 7.58 and extends the Hanbury Brown--Twiss correlation time by a factor of approximately 2.4. The super-bunched quantum source nevertheless retains heralded single-photon behaviour with $g_H^{(2)}(0)\\simeq0.04$, while the same ASE pump supports time--energy entanglement in a silicon waveguide with a raw Franson visibility of 89.84\\%. These results establish driving-field statistics as a design dimension for quantum light, broadening the horizons for research into higher-order correlations and nonlinear physics.",
+   "categories": [
+    "quant-ph",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 75,
+   "why": "Pumping a silicon-nitride microring with noisy amplified spontaneous emission instead of a laser boosts photon bunching (g2 2.01 to 7.58), keeping heralded single photons.",
+   "kind": "E",
+   "eli5": {
+    "plain": "Using a noisy, fluctuating pump laser instead of a clean, steady one to drive a nonlinear photon-pair source makes the output photons bunch together far more strongly than usual.",
+    "how": "In spontaneous four-wave mixing, the pump's own intensity fluctuations combine nonlinearly with the process's natural photon bunching, amplifying correlations; the effect is shown in an integrated silicon-nitride microring and a silicon waveguide.",
+    "matters": "It adds \"pump statistics\" as a new, cheap design knob for shaping quantum light on a chip-scale platform, a lever that could plausibly be borrowed to engineer correlations in microwave parametric sources too.",
+    "caveat": "The demonstration is on integrated optical-photonic hardware; whether the same fluctuation-driven amplification helps or hurts microwave parametric amplifiers is untested."
+   }
+  },
+  {
+   "id": "2609.25751",
+   "title": "Analysis of Josephson junctions switching time distributions for the detection of single microwave photons",
+   "authors": [
+    "A. S. Piedjou Komnang",
+    "C. Guarcello",
+    "C. Barone",
+    "C. Gatti",
+    "S. Pagano",
+    "Vincenzo Pierro",
+    "A. Rettaroli",
+    "G. Filatrella"
+   ],
+   "abstract": "We investigate an optimal scheme for the detection of single microwave photons by a Josephson junction through the analysis of its switching times distribution. The proposed analysis is of support for the decision about the existence of the photon field, which is important in the case of rare events. We assume that the cavity and the transmission line are ideal (each photon absorbed to the cavity gives a current pulse as the output of the transmission line) and the photon source is periodic. The employed methodology consists in comparing the switching probabilities of a Josephson junction exposed to a train of current pulses, simulating a weak photon field, with that of the same device in absence of pulses. In both cases, thermal noise can induce thermal activated switchings. The investigation of the unbalance in the number of switching events in the two cases, gives an estimate of the efficiency of the detection. Furthermore, in the assumption of escapes described by Kramers model, it is possible to provide a relationship between the properties of the photons field, the quantum efficiency of the detection process, and the Josephson junctions switching features at finite temperatures.",
+   "categories": [
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "A",
+   "score": 68,
+   "why": "Comparing Josephson-junction switching-time statistics with and without a weak photon stream yields an efficiency estimate for single microwave-photon detection.",
+   "kind": "T",
+   "eli5": {
+    "plain": "They work out, on paper, how to tell whether a faint stream of microwave photons is hitting a Josephson junction, just by watching when the junction randomly flips.",
+    "how": "A junction driven near its switching threshold flips either from thermal noise alone or a bit sooner if a photon-triggered current pulse arrives; comparing the flip-timing statistics with and without the photon stream reveals the photons.",
+    "matters": "It is a theoretical blueprint for a single microwave-photon counter built from an ordinary Josephson junction, the same building block used throughout superconducting quantum optics.",
+    "caveat": "The analysis assumes an ideal lossless cavity, transmission line and periodic source, so a real device's efficiency and dark-count rate are not yet established."
+   }
+  },
+  {
+   "id": "2609.28271",
+   "title": "Broadband Quantum Optical Storage with Chemically Engineered Molecular Eu$^\\text{3+}$ Complex",
+   "authors": [
+    "Yisheng Lei",
+    "Senthil Kumar Kuppusamy",
+    "Idris Tlemsani",
+    "Suma Al-Hunaishi",
+    "Pengrui Jiao",
+    "Olaf Fuhr",
+    "Mario Ruben",
+    "Philippe Goldner",
+    "Diana Serrano"
+   ],
+   "abstract": "Broadband quantum memory devices are essential elements for future quantum networks. Here we propose a broadband quantum memory scheme called Hole Anti-hole Grating Echo Memory (HAGEM) for rare-earth ions in solids. We provide a Eu$^\\text{3+}$ molecular complex with special hyperfine level structures of which the hyperfine level separations are in a specific mathematical correlation that can be obtained by harnessing chemical engineering. Using the memory protocol and material, we experimentally demonstrate a quantum optical storage efficiency of 14.9% and a memory bandwidth of 200MHz, which can easily be extended to a few GHz. With this demonstration, we show the first quantum application enabled by molecular engineering which cannot be achieved by any other existing Eu$^\\text{3+}$ solid-state materials. In addition, we provide a framework for the chemical engineering of solid-state materials with rare-earth ions for quantum applications consisting of material design, synthesis & characterization techniques, and analytical methods for the quantum properties of rare-earth (RE) ions in solids. This work establishes a new direction in which molecular rare-earth ions can be used for a wide range of quantum applications, which cannot be realized by existing solid-state materials. This will greatly facilitate the development of molecular quantum emitter systems for real world applications.",
+   "categories": [
+    "quant-ph",
+    "physics.chem-ph"
+   ],
+   "submitted": "2026-09-23",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 60,
+   "why": "A chemically engineered europium molecular complex gives broadband (200 MHz, extendable to GHz) quantum optical storage at 14.9% efficiency, a molecular-memory first.",
+   "kind": "E",
+   "eli5": {
+    "plain": "Chemists designed a new europium-containing molecule with just the right internal energy-level spacing, then used it to build a rare-earth quantum memory that stores a much wider range of photon frequencies than usual.",
+    "how": "The molecule's hyperfine levels are engineered into a specific mathematical spacing that supports a broadband echo-memory protocol (hole/anti-hole grating echo memory), which stores and later re-emits photons.",
+    "matters": "Rare-earth memories are a leading itinerant-photon storage technology; showing that chemistry, not just crystal choice, can set the memory bandwidth is a new design axis for anyone building photon buffers for a quantum network.",
+    "caveat": "The 14.9% storage efficiency and the demonstrated bandwidth are still well below what a useful quantum-repeater node needs, and the test is at the ensemble level, not single photons."
+   }
+  },
+  {
+   "id": "2609.25248",
+   "title": "In-orbit operation of a programmable quantum photonic processor",
+   "authors": [
+    "Simon Steiner",
+    "Peter Schiansky",
+    "Antonius Scherer",
+    "Riccardo Albiero",
+    "Mathias Dragosits",
+    "Zhenghao Yin",
+    "Martin Mauser",
+    "Patrik Zahálka",
+    "Raphael Pimenta",
+    "Cristóbal Melo",
+    "Cédric Léonard",
+    "Abhiram Rajan",
+    "Niki Di Giano",
+    "Antonino Caime",
+    "Roberto Osellame",
+    "Francesco Ceccarelli",
+    "Daniel Martínez",
+    "Tobias Guggemos",
+    "Iris Agresti",
+    "Philip Walther"
+   ],
+   "abstract": "Quantum technologies promise computational capabilities beyond the reach of classical systems. A forward-looking application lies in satellite missions, which increasingly depend on onboard computing under stringent constraints on size, weight and power. Quantum photonics is particularly attractive here: photon interference can enhance the machine-learning models needed to process large onboard data volumes, at fixed hardware resources. However, harnessing this interference requires more than generating single photons, as they must remain mutually indistinguishable: a fragile condition that is hard to maintain within the technically demanding framework of a space mission, which includes a rocket launch, strong thermal drifts, and radiation. This is why quantum states of light, though already generated and transmitted in orbit for secure communication and fundamental tests, have never been used as a computational resource. Here, we report a programmable quantum photonic platform operating on a nanosatellite, processing two photons in a six-mode universal integrated circuit. By programming distinct unitaries and tuning the photons into indistinguishability, we observe two-photon interference, establishing the on-board generation, manipulation and detection of non-classical light. This extends space-based technologies towards in-orbit quantum-assisted computing, for instance local encoding of Earth-observation data, or nodes in a distributed quantum network.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 60,
+   "why": "A programmable quantum photonic processor operated on a nanosatellite performs two-photon interference in orbit, the first computational use of quantum light in space.",
+   "kind": "E",
+   "eli5": {
+    "plain": "A satellite-mounted chip generated two individual photons, made them interfere with each other, and did so while actually orbiting Earth, not just in a lab.",
+    "how": "A six-mode programmable integrated photonic circuit on the nanosatellite is tuned to make the two photons indistinguishable, and the resulting two-photon interference is measured on-board after surviving launch and orbital conditions.",
+    "matters": "It shows genuinely quantum, interference-based photonic hardware can survive and operate in space, a prerequisite for any future satellite link between quantum nodes, microwave-based ground stations included.",
+    "caveat": "Only a two-photon, six-mode demonstration; useful quantum-enhanced computation or networking in orbit would need many more photons and modes than shown here."
+   }
+  },
+  {
+   "id": "2609.26429",
+   "title": "Photonic CZ gates based on few-photon scattering from emitter-cavity systems",
+   "authors": [
+    "Mateusz Duda",
+    "Pieter Kok"
+   ],
+   "abstract": "In this paper we analyze the performance of photonic CZ gates based on N waveguide-coupled cavities containing two-level emitters. We derive single- and two-photon scattering matrices for one cavity using the input-output formalism of quantum optics and for N>1 cavities using the SLH formalism, allowing us to compute the CZ gate fidelity. We consider two input Gaussian wave packets that are centered on a two-photon transition of the emitter-cavity system, and find a trade-off between optimizing the single-photon and two-photon wave packet shape. While the single-photon wave packet is preserved for large emitter-cavity coupling rates, where there is little overlap with the single-photon transitions, the two-photon wave packet acquires the necessary $π$ phase shift for smaller coupling rates, comparable to the cavity decay rate multiplied by the number of cavities. We find that this trade-off limits the CZ gate fidelity to approximately 60% when averaging over all input states.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 55,
+   "why": "Input-output and SLH scattering calculations cap photonic CZ-gate fidelity at about 60% from a trade-off between single- and two-photon wave-packet shaping.",
+   "kind": "T",
+   "eli5": {
+    "plain": "A proposed way to build a two-photon logic gate, by bouncing photon pulses off atoms sitting in cavities along a waveguide, runs into a hard trade-off that caps how well the gate can work.",
+    "how": "The gate needs the single-photon pulse shape preserved and the two-photon pulse to pick up a specific phase shift, but the coupling strength that is best for one hurts the other; the authors compute the resulting fidelity ceiling with exact scattering-matrix methods.",
+    "matters": "Photonic CZ gates are a core primitive for waveguide-QED quantum computing, and knowing this scheme's fidelity ceiling tells circuit-QED researchers building similar giant-atom or waveguide gates what physics to work around.",
+    "caveat": "The roughly 60% ceiling is for this specific scattering scheme; the paper does not show whether other pulse shapes or architectures avoid the trade-off."
+   }
+  },
+  {
+   "id": "2609.25753",
+   "title": "Photon-Statistics Control of Strong-Field Rydberg-State Excitation",
+   "authors": [
+    "Tao Jiang",
+    "Jinlei Liu",
+    "Haopu Dou",
+    "Lingyi Zhao",
+    "Peng Xiang",
+    "Liangjun Peng",
+    "Renyu Wang",
+    "Jing Zhao",
+    "Xiaowei Wang",
+    "Yue Lang",
+    "Zengxiu Zhao"
+   ],
+   "abstract": "Photon statistics provides a new control dimension for strong-field bound-state formation. Using a quantum-optical phase-space formulation coupled to time-dependent Schrödinger-equation calculations, we show that field fluctuations enhance multiphoton Rydberg excitation by broadening AC-Stark-shifted resonances, but suppress tunneling-mediated recapture even as ionization increases. A quantum-statistical recapture model attributes the latter to ensemble-induced dispersion of relative path phases. Photon statistics also reshapes Rydberg-manifold parity, linking field statistics to recapture coherence and final-state symmetry.",
+   "categories": [
+    "quant-ph",
+    "physics.atom-ph"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 48,
+   "why": "Phase-space plus time-dependent Schrodinger simulations show photon-number fluctuations enhance multiphoton Rydberg excitation but suppress tunneling-mediated recapture.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.26958",
+   "title": "Soft decoding for quantum LDPC codes with experimental validation",
+   "authors": [
+    "Arda Aydin",
+    "Edwin Tham",
+    "Nicolas Delfosse",
+    "Min Ye"
+   ],
+   "abstract": "The decoder is a critical component of a fault-tolerant quantum computer, computing corrections based on parity-check measurements performed throughout the computation. A soft decoder supplements its output with a confidence score which, when used alongside post-selection, can substantially improve logical performance. We introduce a soft beam search decoder for quantum low-density parity-check codes that uses internal decoder data as a confidence metric, removing the need for extra computation. We perform circuit-level simulations of five quantum LDPC codes relevant for superconducting and trapped ion architectures equipped with our global soft decoder and we obtain up to $580\\times$ logical-error suppression at a physical error rate of $10^{-3}$ while rejecting only $0.1\\%$ of shots. Then, we simulate an error detected measurement, which is a core logical operation of the walking cat architecture, using a streaming version of soft beam decoder and we achieve up to $210\\times$ error suppression while increasing the rejection probability by only $0.5$ percentage points. Finally, we revisit recent quantum LDPC code memory experiments on trapped ions, demonstrating that our soft decoder doubles the logical qubit lifetimes at the price of a mean rejection rate of $2.6\\%$--$5.6\\%$ per syndrome round, bringing all five codes into the beyond-breakeven regime.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 45,
+   "why": "A soft beam-search decoder using internal confidence scores doubles logical qubit lifetime in real trapped-ion LDPC memory experiments.",
+   "kind": "TE",
+   "eli5": null
+  },
+  {
+   "id": "2609.25673",
+   "title": "Post-selected enhancement of phase sensitivity in a two-path interferometer",
+   "authors": [
+    "Ryuya Fukuda",
+    "Katsuki Tanaka",
+    "Masataka Iinuma",
+    "Holger F. Hofmann"
+   ],
+   "abstract": "Post-selected metrology can exceed the standard quantum limit of single photon interference by concentrating all of the available Fisher information in a subset of post-selected outcomes. Here we apply this principle to a standard two-path interferometer, activating the Fisher information concentrated in the low probability output port by transferring the phase sensitivity to the circular polarizations of the photon. We obtain a phase gradient of the post-selected interference fringe that corresponds to that of a four-photon NOON state, providing a direct comparison of the performance of multi-photon interference with single-photon post-selection.",
+   "categories": [
+    "quant-ph",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 45,
+   "why": "Post-selecting a two-path interferometer's low-probability output transfers phase sensitivity to circular polarization, matching a four-photon NOON-state fringe gradient with single photons.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.26880",
+   "title": "Bosonic Error Correction with Fluxonium",
+   "authors": [
+    "Shantanu R. Jha",
+    "Shoumik D. Chowdhury",
+    "Gabriele Rolleri",
+    "Anaida Ali",
+    "Lev-Arcady Sellem",
+    "Réouven Assouly",
+    "David Pahl",
+    "Lukas Pahl",
+    "Junyoung An",
+    "Farid Hassani",
+    "Hung-Yu Tsao",
+    "Chia-Chin Tsai",
+    "Aranya Goswami",
+    "Jeremie Boudreault",
+    "Jeffrey M. Gertler",
+    "Michael A. Gingras",
+    "Bethany M. Niedzielski",
+    "Jeffrey M. Knecht",
+    "Mollie E. Schwartz",
+    "Kyle Serniak",
+    "Jeffrey A. Grover",
+    "Baptiste Royer",
+    "Max Hays",
+    "William D. Oliver"
+   ],
+   "abstract": "Bosonic quantum error correction (QEC) offers a hardware-efficient route to fault-tolerant quantum computing. To date, however, superconducting circuit implementations of bosonic codes have utilized centimeter-scale 3D microwave cavities controlled by fixed-frequency transmon qubits, with logical lifetimes limited by transmon bit-flip errors. Here, we realize bosonic QEC in a fully planar architecture by pairing a heavy fluxonium, whose $451 \\pm 70~μ\\mathrm{s}$ bit-flip lifetime exceeds that of any control qubit in previous demonstrations, with an on-chip Archimedean spiral resonator several orders of magnitude smaller in mode volume than prior 3D cavities. We prepare finite-energy Gottesman-Kitaev-Preskill (GKP) states and stabilize them using measurement-free error correction with rapid fluxonium reset, extending the logical lifetime by a factor of $1.59 \\pm 0.05$. These results provide the first demonstration of resonator control using a weakly coupled fluxonium and, with it, the first realization of standalone bosonic QEC in a fully planar superconducting circuit architecture.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing",
+    "watch:William Oliver"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 42,
+   "why": "A heavy fluxonium's 451-microsecond bit-flip lifetime stabilises planar GKP bosonic-code states via measurement-free reset, extending logical lifetime 1.59x.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.27239",
+   "title": "Optimising Cryogenic Wiring for Microwave-frequency Millikelvin Quantum Processors",
+   "authors": [
+    "Adrien Di Lonardo",
+    "Giorge Gemisis",
+    "Juan Pablo Dehollain",
+    "Nathan K. Langford"
+   ],
+   "abstract": "Cryogenic capacity is a key bottleneck in the scaling of superconducting quantum processors, critically impacted by control wiring. Currently, wiring architectures are often designed following a small set of \"best-practice\" heuristics, little changed since they emerged for early, small-scale systems, and not rigorously evaluated for wider contexts. Here, we adopt a whole-system numerical modelling approach and present a systematic optimisation for the coaxial wiring design of a superconducting quantum processor. We identify optimised configurations that substantively outperform conventional designs in device temperature, noise burden, qubit capacity and other practical metrics. Importantly, our analysis delivers varied outcomes for different system contexts and operating regimes, illustrating the benefits of a systematic approach when there is no universal solution. Our results evaluate and sometimes challenge conventional wisdom in relation to design factors such as the utility of 0dB attenuators. We also use a wide exploration of cable configurations---directly enabled by our holistic and flexible numerical modelling approach---to develop more rigorously supported general principles for future cryogenic system design, based on a new conceptual framework to describe attenuator cascades that draws on analogies to low-noise amplifier chains. Our approach, design outcomes, and generalised analyses should also be readily applicable to other cryogenic quantum computing platforms. Finally, we support ready adoption of this approach through a web-based graphical tool which streamlines the analysis of the proposed framework under different contexts. Our results illustrate how our approach can help maximise the available computational resources of quantum processors at all system scales.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-23",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 40,
+   "why": "Whole-system numerical modelling optimises cryostat coaxial wiring, beating conventional heuristics on device temperature, noise and qubit capacity.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.25208",
+   "title": "Adaptive thresholding for scalable measurement-based qubit reset",
+   "authors": [
+    "Qian Cao",
+    "Unnati Akhouri",
+    "Samuel Vizvary",
+    "Nissim Ofek",
+    "Wei Dai",
+    "Kater W. Murch"
+   ],
+   "abstract": "Fast, high-fidelity qubit initialization is a key primitive for scalable quantum information processing, but conventional reset protocols either require long relaxation times or discard information contained in continuous measurement records. We demonstrate an adaptive measurement-based reset protocol for superconducting qubits that uses Bayesian inference to update the qubit-state estimate after each readout and dynamically adjust the feedback threshold. Unlike fixed-threshold or repeat-until-success (RUS) protocols, the method utilizes the full analog measurement history, enabling the reset decision to become progressively more conservative as confidence in ground-state preparation increases. Implemented with real-time FPGA-based feedback on a dispersively readout transmon qubit, the protocol achieves a ground-state initialization fidelity of $99.44\\pm0.04\\%$ after a small number of reset rounds. We further compare adaptive reset with RUS strategies in multi-qubit experiments and show that adaptive thresholding provides deterministic reset duration while maintaining a five-qubit simultaneous-reset fidelity of $98.78 \\pm 0.19\\%$. These results establish Bayesian adaptive thresholding as a practical and scalable route to fast qubit reset in superconducting quantum processors.",
+   "categories": [
+    "quant-ph",
+    "cond-mat.stat-mech"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 40,
+   "why": "Bayesian adaptive-threshold FPGA feedback resets a transmon to 99.44% ground-state fidelity while keeping multi-qubit reset duration deterministic.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.28139",
+   "title": "Beyond Antibunching: Photon Correlation Analysis Reveals Blinking Origin",
+   "authors": [
+    "Patricia Kallert",
+    "Santiago Bermúdez-Feijóo",
+    "Giorgio De Pascalis",
+    "Nicolas Claro-Rodriguez",
+    "Ioannis Caltzidis",
+    "Normen Auler",
+    "Eva Berger",
+    "Rebecca Aschwanden",
+    "Tobias Krieger",
+    "Saimon. F. Covre da Silva",
+    "Sandra Stroj",
+    "Quirin Buchinger",
+    "Michele B. Rota",
+    "Thomas Hummel",
+    "Sven Höfling",
+    "Armando Rastelli",
+    "Rinaldo Trotta",
+    "Dirk Reuter",
+    "Sonja Barkhofen",
+    "Klaus D. Jöns",
+    "Tobias Huber-Loyola"
+   ],
+   "abstract": "A variety of quantum emitters compete in the quest for the best single-photon source for photonic quantum technologies. Consequently, only a consistent approach to analyze the second-order auto correlation function allows comparison of the multi-photon contribution ($g^{(2)}(0)$) of different sources. However, the community employs different and inconsistent methods for blinking sources, leading to incomparable benchmarks of source quality. Here, we use the emission of an inherently non-blinking quantum dot (QD) and apply artificial blinking through two different mechanisms: masking the recorded raw data in post-processing and emulation of a blinking system by gating the laser excitation pulses. We then compare the $g^{(2)}(0)$ values with the non-blinking result. For the analysis, we investigate five estimators of $g^{(2)}(0)$ actively used in the literature. While fitting the envelope of the correlations on long-time scales with the correct blinking model is the best choice, normalizing to the Poisson level gives by far the worst proximity. Furthermore, we test our predictive model to identify the underlying blinking mechanism of a QD in a circular Bragg grating cavity.",
+   "categories": [
+    "quant-ph",
+    "cond-mat.mes-hall"
+   ],
+   "submitted": "2026-09-23",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 40,
+   "why": "Comparing five g2(0) estimators on an artificially blinked non-blinking quantum dot finds long-timescale envelope fitting most accurate, Poisson-level normalization worst.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.27456",
+   "title": "Precision and resource scaling of real-time flux distortion compensation for superconducting quantum control",
+   "authors": [
+    "Qi Zhou",
+    "Zi-Hao Mei",
+    "Peng Duan",
+    "Peng Wang",
+    "Liang-Liang Guo",
+    "Hao-Ran Tao",
+    "Wei-Cheng Kong",
+    "Hui Yang",
+    "Guo-Ping Guo",
+    "Zhao-Yun Chen"
+   ],
+   "abstract": "Real-time waveform generation supports dynamic quantum circuits without pre-storing complete waveforms for every execution path. However, long-lived distortions in flux-control lines degrade gate fidelity, requiring compensation to account for the actual pulse history. A frequency-domain inversion and time-domain fitting method is proposed for resource-efficient real-time flux distortion compensation. The method fits the reconstructed compensation impulse response with a compact hybrid infinite impulse response (IIR) and finite impulse response (FIR) filter. Look-ahead parallelization enables this filter to process synthesized waveforms at 1.2GSa/s on a field-programmable gate array (FPGA). Two-qubit cross-entropy benchmarking shows that real-time IIR filtering achieves a median controlled-Z Pauli fidelity close to the software-reference value of 99.57%. Numerical analysis and FPGA synthesis indicate approximately logarithmic growth in hardware resource use with compensation timescale. Extending compensation from microsecond to hundred-microsecond timescales increases look-up table (LUT) and digital signal processing (DSP) resource use by only about 14% and 4%, respectively, while maintaining a relative arithmetic error below $10^{-4}$. This work provides a scalable hardware foundation for high-fidelity flux control in dynamic superconducting quantum circuits.",
+   "categories": [
+    "quant-ph",
+    "cs.AR"
+   ],
+   "submitted": "2026-09-23",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 38,
+   "why": "Real-time FPGA filtering compensates flux-line distortions, holding two-qubit CZ fidelity near 99.57% from microsecond to 100-microsecond timescales.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.25598",
+   "title": "Efficient Ion-Photon Quantum Interface with Long-Working-Distance Exceeding 26 mm",
+   "authors": [
+    "Jungwoo Choi",
+    "Inhyuk Oh",
+    "Chanyang Im",
+    "Gibeom Son",
+    "Junki Kim"
+   ],
+   "abstract": "Trapped-ion quantum networks rely on efficient ion-photon interfaces, while objective-based free-space collection systems must balance high photon collection with sufficient working distance for practical integration with ion-trap hardware. Here, we design and characterize an ion-photon interface with a long working distance of 26.15 mm and a high numerical aperture of 0.5. The core of the interface is a photon-collection objective consisting of six commercial spherical lenses with optimized spacing. The interface achieved an overall fiber-coupled photon-detection efficiency of (1.29$\\pm$0.09)% from the ion to the detector and maintains fiber coupling over several hours without active realignment, supporting stable operation of the ion-to-fiber interface. Photon-correlation measurements show clear antibunching in the fiber-coupled fluorescence, confirming the preservation of non-classical photon statistics. These results demonstrate a practical implementation of a long-working-distance photon collection interface for trapped-ion quantum network experiments.",
+   "categories": [
+    "quant-ph",
+    "physics.atom-ph",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 35,
+   "why": "A six-lens objective gives a trapped-ion photon interface a 26 mm working distance and 0.5 NA, sustaining 1.29% fiber-coupled detection efficiency for hours unaligned.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.26341",
+   "title": "Non-Markovian Charging of a Micromaser Quantum Battery",
+   "authors": [
+    "N. Massa",
+    "D. Ferraro",
+    "F. Cavaliere",
+    "G. Benenti",
+    "M. Sassetti"
+   ],
+   "abstract": "We theoretically investigate the role played by non-Markovianity in the charging of a quantum battery. We focus on the case of a Micromaser, where the energy is stored in a resonant cavity mode and memory effects are introduced and controlled by coupling this mode to a memory ancilla, described as a two-level system, that in turn sequentially interacts with a stream of two-level chargers through pairwise exchange interactions leading to a partial swap. Through numerical analysis, we show that non-Markovian memory effects act as a resource that enhances both the charging capacity and the stability of this device with respect to the Markovian counterpart. We conclude our study showing that the proposed scheme can be implemented in state-of-the-art solid-state platforms for circuit quantum electrodynamics.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 33,
+   "why": "Coupling a micromaser cavity to a memory ancilla shows non-Markovian effects raise a quantum battery's charging capacity and stability.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.25593",
+   "title": "Resonant multi-harmonic acousto-optics for programmable frequency control of visible light in a CMOS platform",
+   "authors": [
+    "Jacob M. Freedman",
+    "Matthew J. Storey",
+    "Daniel Dominguez",
+    "Andrew Leenheer",
+    "Nils T. Otterstrom",
+    "Matt Eichenfield"
+   ],
+   "abstract": "Scaling quantum control for atoms, ions, and solid-state emitters requires gigahertz-frequency spectral control of high-power visible light in a volume-manufacturable platform. Silicon nitride photonics provides high power handling and CMOS-foundry compatibility but has no intrinsic mechanism for high-speed modulation. Integration with piezoelectric materials enables acousto-optic phase modulation, and mechanical resonant enhancement has made it efficient at gigahertz frequencies. However, a single resonance restricts the modulation waveform to a single tone, imposing Bessel-function sideband amplitudes and limiting frequency-shifting efficiency to 33.9%. Here we engineer a silicon nitride acousto-optic microstructure to support harmonically spaced resonances at 1.14 GHz and 2.28 GHz, each strongly optomechanically coupled to a 730 nm guided optical mode, so that tailored non-sinusoidal modulation waveforms can be resonantly synthesized. By piezoelectrically controlling the two mechanical amplitudes and their relative phase, we demonstrate 50% conversion to one sideband (1.5x the single-tone theoretical maximum), a flat seven-line comb, and a frequency shift with 60 dB carrier and 53 dB image suppression - to our knowledge the highest reported for an integrated modulator. The devices are fabricated in a 200 mm CMOS foundry, and we measure 91.7% yield without post-fabrication tuning across 36 devices from three wafers. We also show how the technique can be straightforwardly scaled to three or more harmonics. This result overcomes the trade-off between resonant enhancement and spectral programmability, with important consequences including improved single-qubit gate efficiency for hyperfine qubits.",
+   "categories": [
+    "physics.optics",
+    "quant-ph"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 33,
+   "why": "Two harmonically spaced piezo-driven resonances on a CMOS silicon-nitride chip synthesize non-sinusoidal drive waveforms, hitting 50% single-sideband conversion and 91.7% fabrication yield.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.25336",
+   "title": "Thermalization and dephasing in an isolated system of coupled qubits",
+   "authors": [
+    "Jukka P. Pekola",
+    "Bayan Karimi"
+   ],
+   "abstract": "A system evolving unitarily does not dephase or thermalize by definition. Yet, if one considers a part of a unitary system, situation is different. Here we analyze an isolated set of coupled qubits taking one qubit at a time as a subsystem, and writing self-consistently a weak-coupling master equation for it. Weakly anharmonic oscillators and ideal qubits (two-level systems) demonstrate dephasing, i.e. the diagonal elements of the density matrix reach a steady-state in the long-time limit, and the off-diagonal elements of ideal qubits decay exponentially. For the linear coupling between the qubits, only the degenerate ones interact, and the system does not reach thermal distribution. However, non-linearity, in our analysis in form of three-wave mixing, ensures a thermal distribution in the long time limit, where the temperature is determined uniquely by the energy in the initial non-thermal state. Finally, we present a potential experimental scheme based on a superconducting quantum circuit.",
+   "categories": [
+    "quant-ph",
+    "cond-mat.mes-hall"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 30,
+   "why": "A self-consistent weak-coupling master equation shows nonlinear three-wave mixing, not linear coupling alone, drives isolated coupled qubits to thermalize.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.27601",
+   "title": "Scalable integration of silicon carbide color centers into nanophotonic structures",
+   "authors": [
+    "Raphael Wörnle",
+    "Jonas Schmid",
+    "Dennis Grüner",
+    "Jonah Heiler",
+    "Flavie Davidson-Marquis",
+    "Georgy V. Astakhov",
+    "Vadim Vorobyov",
+    "Florian Kaiser",
+    "Jonathan Körber",
+    "Jörg Wrachtrup"
+   ],
+   "abstract": "Color centers in silicon carbide are a promising platform for quantum technologies, offering long-coherence electron and nuclear spins for storing and manipulating quantum information, as well as single-photon emission for quantum communication. Low photon collection efficiency is commonly addressed by integrating color centers into nanophotonic devices. Here, we report a scalable method for the deterministic integration of color centers into silicon carbide nanopillars, using the same nanoscale mask for both implantation of oxygen-related color centers (PL5, PL6) and subsequent nanopillar fabrication via dry etching. This approach solves the issue of low color center creation yield in nanostructures, with figures of merit comparable to bulk samples. We demonstrate count rate enhancements of up to one order of magnitude for PL5 and four times for PL6, while preserving spin coherence times. Our method is directly applicable to other solid-state platforms, offering a scalable route to efficiently integrate color centers into nanostructures.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-23",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 30,
+   "why": "A shared implantation-and-etch mask deterministically integrates SiC oxygen-related color centers into nanopillars, boosting photon collection up to 10x without hurting spin coherence.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.25223",
+   "title": "Scaling of qubit coherence in quantum dot based Majorana chains: Rabi and Ramsey oscillations of Majorana qubits formed by four and six quantum dots",
+   "authors": [
+    "Haining Pan",
+    "Sankar Das Sarma"
+   ],
+   "abstract": "We present a theoretical study of the Rabi and Ramsey coherence time of Majorana-based qubits formed by double $N$-site quantum-dot artificial Kitaev chains, following the recent experimental realization arXiv:2607.09511. We generalize the qubit to two chains of arbitrary length and compare the Rabi and Ramsey oscillations of the four-dot and six-dot qubits, simulated with realistic disorder for three sets of parameters: small and large superconducting gaps, and the experimental parameters. We find that, in the pristine limit, the Rabi oscillation is independent of the chain length, whereas the Ramsey oscillation of the six-dot qubit suffers from larger leakage, because the third site suppresses the unwanted energy splitting away from the sweet spot but at the same time makes the deliberate splitting difficult to achieve, which requires a larger detuning that could excite the bulk. In reality with disorder, neither coherence time improves universally with the chain length. The Rabi coherence is set by the competition of three dephasing channels, and the additional dots pay off only if the fluctuation of the interchain tunneling is suppressed; the Ramsey coherence is set by the fluctuation of the energy splitting during the $σ_z$ rotation, which for the four-dot qubit is fixed by the sweet-spot disorder alone and does not depend on the mean splitting, whereas for the six-dot qubit the detuning that generates the splitting adds a fluctuation growing with the splitting itself, so the additional dots pay off only for small splittings. This implies that a longer chain is thus a better quantum memory but not necessarily a better qubit under manipulation. Although topological protection is expected in a longer Kitaev chain qubit, observing it in the current Rabi and Ramsey measurement protocols remains an experimental challenge.",
+   "categories": [
+    "cond-mat.mes-hall"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 28,
+   "why": "Simulations with realistic disorder show longer quantum-dot Kitaev chains don't universally improve Majorana-qubit Rabi/Ramsey coherence times.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.26573",
+   "title": "Power-resolved ergotropy and correlation redistribution in a bosonic quantum battery driven by a coherent-state superposition",
+   "authors": [
+    "João P. d'El-Rey",
+    "Tailan S. Sarubi",
+    "Ana C. S. Costa",
+    "José G. G. de Oliveira"
+   ],
+   "abstract": "Ergotropic-gap relations provide thermodynamic witnesses of quantum correlations, but a direct dynamical connection between extractable work and entanglement remains largely unexplored in multipartite non-Gaussian bosonic systems. Here, we establish such a connection for a bosonic quantum battery driven by a coherent-state superposition. Despite the infinite-dimensional Hilbert space, the dynamics retains a simple structure that allows the relevant work and correlation measures to be obtained exactly. We show that the loss of extractable work associated with the passive part of the battery energy is directly determined by charger-battery entanglement. This relation also separates the charging power into contributions from energy transfer and from changes in the battery spectrum. At the same time, multipartite correlations are progressively redistributed from charger-involving correlations to correlations internal to the battery. For a symmetric resonant protocol, complete energy transfer coincides with charger-battery disentanglement and fully extractable stored energy, while multipartite correlations within the battery are maximal. Individual cells, however, remain mixed, revealing a distinction between global and local work extraction. We further show that, in the regime considered, locally extractable work is entirely supported by energetic coherence. Under single-photon loss, the analytical structure survives, but environmental correlations separate charger disentanglement from maximal work extraction.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 28,
+   "why": "An exactly solvable bosonic quantum-battery model shows extractable work loss tracks charger-battery entanglement, with full energy transfer coinciding with disentanglement.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.25296",
+   "title": "Effective Study of Superconducting Quantum Circuits",
+   "authors": [
+    "Carlos Raul Javier Valdez",
+    "Hector Hugo Hernandez Hernandez",
+    "Guillermo Chacon-Acosta"
+   ],
+   "abstract": "We apply the momentous quantum mechanics formalism to the non-perturbative study of superconducting circuits in the transmon regime, deriving effective equations of motion for the bare Josephson junction (JJ), the cavity--JJ system, and a dissipative resonator. A Gaussian closure on the hierarchy of quantum moments resums the full cosine nonlinearity into the closed-form effective Hamiltonian $\\tfrac{1}{2}[V(φ+φ_s)+V(φ-φ_s)]$, which is non-perturbative and preserves the periodicity and boundedness of the Josephson potential at all phase amplitudes; the standard Kerr (Duffing) approximation is recovered as a special case. We derive the quantum-dressed frequency $ω_{\\rm eff}=Ω_p\\sqrt{\\cos(φ_{\\rm zpf}/φ_0)}$, and benchmark the effective dynamics against exact Mathieu-function diagonalization, with the quantum width $G^{2,0}(t)$ providing the most sensitive diagnostic of the closure's validity and marks the boundary of the Gaussian approximation more sharply than $\\langle\\hatφ\\rangle(t)$ does. We compare the Caldirola--Kanai, Bateman, and Lindblad descriptions: the Bateman dynamics, quantized with a switched symplectic structure, preserves the Heisenberg bound, admits exact closed-form moment solutions, and reproduces the Lindblad benchmark for weak damping, i.e., within the analytic error bound $(λ/ω_1)^2\\,φ_{\\rm zpf}^2$.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 25,
+   "why": "A Gaussian-moment closure resums the full Josephson cosine nonlinearity into a closed-form effective Hamiltonian, benchmarked against exact Mathieu diagonalization.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.26005",
+   "title": "Electromagnetic Proximity Effects and Spontaneous Currents in Clean Superconducting Heterostructures",
+   "authors": [
+    "Jian-Lin Li",
+    "Chien-Te Wu",
+    "Klaus Halterman"
+   ],
+   "abstract": "When ferromagnets are brought into contact with a superconductor, superconducting proximity effects give rise to a variety of interesting phenomena, including oscillatory singlet Cooper-pair amplitudes and long-ranged odd-frequency triplet correlations induced by the exchange interactions in the ferromagnets. From an electrodynamic perspective, however, it is equally important to understand when and how spontaneous currents can emerge. To investigate the interplay between electromagnetic and conventional superconducting proximity effects, we study clean ferromagnet/ferromagnet/superconductor spin-valve heterostructures in which the relative angle between the two ferromagnetic layers can be tuned. Our approach is based on a self-consistent numerical solution of the coupled Bogoliubov-de Gennes and Maxwell equations, providing a microscopic description capable of resolving physics on atomic length scales. Several notable features emerge. In both the weak- and strong-exchange-field regimes, the central ferromagnetic layer plays a dominant role in generating sizable spontaneous currents when its exchange-field strength is varied. We further find that the resulting electromagnetic response extends across the entire superconducting layer, in sharp contrast to the short-ranged inverse proximity effect. In noncollinear configurations, the electromagnetic proximity effect also reconfigures the local magnetic-field orientation and reduces the angular mismatch between the fields in the two ferromagnetic layers. The long-ranged odd-frequency triplet amplitudes are consequently modified by the orbital response, which alters the underlying quasiparticle states by changing their momentum-space structure. Finally, our framework can be naturally generalized to other superconducting spintronic systems, possibly including Josephson junctions and altermagnet/superconductor heterostructures.",
+   "categories": [
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 20,
+   "why": "Self-consistent Bogoliubov-de Gennes/Maxwell simulations show noncollinear ferromagnet/superconductor spin valves generate spontaneous currents that reorient local magnetic fields.",
+   "kind": "T",
+   "eli5": null
+  }
+ ]
+}
