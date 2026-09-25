@@ -121,7 +121,7 @@
 },
 "2609.05226": {
 "data": null,
-"fetched": "2026-09-19"
+"fetched": "2026-09-25"
 },
 "2609.05387": {
 "data": {
@@ -173,7 +173,7 @@
 },
 "2609.06399": {
 "data": null,
-"fetched": "2026-09-19"
+"fetched": "2026-09-25"
 },
 "2609.06423": {
 "data": {
@@ -501,7 +501,7 @@
 },
 "2609.11004": {
 "data": null,
-"fetched": "2026-09-19"
+"fetched": "2026-09-25"
 },
 "2609.11021": {
 "data": {
@@ -557,7 +557,7 @@
 "openalex": "https://openalex.org/W7212731211",
 "venue": ""
 },
-"fetched": "2026-09-16"
+"fetched": "2026-09-25"
 },
 "2609.12066": {
 "data": {
@@ -565,7 +565,7 @@
 "openalex": "https://openalex.org/W7212535700",
 "venue": ""
 },
-"fetched": "2026-09-16"
+"fetched": "2026-09-25"
 },
 "2609.12565": {
 "data": {
@@ -573,7 +573,7 @@
 "openalex": "https://openalex.org/W7212588007",
 "venue": ""
 },
-"fetched": "2026-09-16"
+"fetched": "2026-09-25"
 },
 "2609.12592": {
 "data": {
@@ -581,7 +581,7 @@
 "openalex": "https://openalex.org/W7212521242",
 "venue": ""
 },
-"fetched": "2026-09-16"
+"fetched": "2026-09-25"
 },
 "2609.12596": {
 "data": {
@@ -589,7 +589,7 @@
 "openalex": "https://openalex.org/W7212556904",
 "venue": ""
 },
-"fetched": "2026-09-16"
+"fetched": "2026-09-25"
 },
 "2609.12772": {
 "data": {
@@ -597,7 +597,7 @@
 "openalex": "https://openalex.org/W7213087890",
 "venue": ""
 },
-"fetched": "2026-09-16"
+"fetched": "2026-09-25"
 },
 "2609.13022": {
 "data": {
@@ -605,7 +605,7 @@
 "openalex": "https://openalex.org/W7212582324",
 "venue": ""
 },
-"fetched": "2026-09-16"
+"fetched": "2026-09-25"
 },
 "2609.13055": {
 "data": {
@@ -613,7 +613,7 @@
 "openalex": "https://openalex.org/W7212659363",
 "venue": ""
 },
-"fetched": "2026-09-16"
+"fetched": "2026-09-25"
 },
 "2609.13065": {
 "data": {
@@ -621,7 +621,7 @@
 "openalex": "https://openalex.org/W7212573384",
 "venue": ""
 },
-"fetched": "2026-09-16"
+"fetched": "2026-09-25"
 },
 "2609.13108": {
 "data": {
@@ -629,7 +629,7 @@
 "openalex": "https://openalex.org/W7212889684",
 "venue": ""
 },
-"fetched": "2026-09-16"
+"fetched": "2026-09-25"
 },
 "2609.13143": {
 "data": {
@@ -637,7 +637,7 @@
 "openalex": "https://openalex.org/W7212916758",
 "venue": ""
 },
-"fetched": "2026-09-16"
+"fetched": "2026-09-25"
 },
 "2609.13399": {
 "data": {
@@ -673,7 +673,7 @@
 },
 "2609.14197": {
 "data": null,
-"fetched": "2026-09-19"
+"fetched": "2026-09-25"
 },
 "2609.14230": {
 "data": {
@@ -909,7 +909,7 @@
 },
 "2609.18907": {
 "data": null,
-"fetched": "2026-09-19"
+"fetched": "2026-09-25"
 },
 "2609.19260": {
 "data": {
@@ -929,7 +929,7 @@
 },
 "2609.19317": {
 "data": null,
-"fetched": "2026-09-19"
+"fetched": "2026-09-25"
 },
 "2609.19321": {
 "data": {
@@ -941,11 +941,15 @@
 },
 "2609.19534": {
 "data": null,
-"fetched": "2026-09-19"
+"fetched": "2026-09-25"
 },
 "2609.19784": {
-"data": null,
-"fetched": "2026-09-19"
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7213675713",
+"venue": ""
+},
+"fetched": "2026-09-25"
 },
 "2609.19806": {
 "data": {
@@ -986,5 +990,385 @@
 "venue": ""
 },
 "fetched": "2026-09-19"
+},
+"2609.21249": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.21376": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7213932116",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.21560": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7213918243",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.21574": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7213862595",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.21725": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7213884616",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.22002": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.22025": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.22442": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214058418",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.22841": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214050670",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.22946": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214053434",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.23050": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214031432",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.23328": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.23382": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214042253",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.23651": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214042467",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.24381": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214029579",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.24461": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.24502": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214031455",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.24533": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.24572": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7213998074",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.24759": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214050824",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.24800": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214004370",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.24827": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7213998047",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.24858": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214024083",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.24900": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214046670",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.24933": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214028289",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.25208": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214123169",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.25223": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214084627",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.25232": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214098519",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.25248": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214108057",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.25296": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214081436",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.25336": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214113055",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.25593": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214106209",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.25598": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214104090",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.25673": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214084143",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.25751": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.25753": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214100572",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.26005": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214069937",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.26341": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214086358",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.26429": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214118587",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.26573": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214079092",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.26674": {
+"data": {
+"citationCount": 0,
+"openalex": "https://openalex.org/W7214066449",
+"venue": ""
+},
+"fetched": "2026-09-25"
+},
+"2609.26880": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.26889": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.26949": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.26958": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.27072": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.27239": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.27456": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.27601": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.27983": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.28139": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.28271": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.28657": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.28837": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.28881": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.28897": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.28924": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.29300": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.29736": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.30179": {
+"data": null,
+"fetched": "2026-09-25"
+},
+"2609.30195": {
+"data": null,
+"fetched": "2026-09-25"
 }
 }

@@ -1,0 +1,297 @@
+{
+ "run": "2026-09-25",
+ "mode": "daily",
+ "generated": "2026-09-25T06:10:20+00:00",
+ "ranked": true,
+ "status": {
+  "run": "2026-09-25",
+  "mode": "daily",
+  "pools": {
+   "A": "ok",
+   "B": "ok"
+  },
+  "counts": {
+   "A": 6,
+   "B": 3
+  },
+  "dropped_seen": 52,
+  "dropped_old": 339,
+  "watched": 0,
+  "citations": "ok (0/9 found)",
+  "backfill": "ok (checked 177 papers, updated 35 item(s) in 4 digest(s))"
+ },
+ "items": [
+  {
+   "id": "2609.28657",
+   "title": "Quantum computational advantage in random-circuit sampling on IBM superconducting quantum computers",
+   "authors": [
+    "Tigran Sedrakyan",
+    "Yuxuan Zhang",
+    "Hovnatan Karapetyan",
+    "Joshua D. Baktay",
+    "Hrant Gharibyan",
+    "Hayk Tepanyan"
+   ],
+   "abstract": "We report forward random-circuit sampling (RCS) on the 120-qubit Nighthawk r2 superconducting processor (\\textit{ibm\\_phoenix}) with square-lattice connectivity, using 61 qubits, native CZ gates, and the standard cloud execution stack with no benchmark-specific calibration. Two independent fidelity estimators---mirror benchmarking and three- and four-patch cross-entropy benchmarking (XEB)---agree with each other at every measured depth, the mirror from 4 to 40 cycles and the patched estimators from 20 to 40 cycles, across more than two orders of magnitude of fidelity decay, and exceed the first-generation Nighthawk r1 device by more than an order of magnitude at fixed depth. The 36-cycle circuits sit at the depth where tensor-network contraction cost saturates at system size: a contraction-cost estimator validated against the published Sycamore and Zuchongzhi networks places the single-amplitude cost at $\\sim$$10^{22}$ complex operations. At $F_{\\mathrm{XEB}}(36)=2.3\\times10^{-3}$ under favorable memory assumptions this implies $1.2\\times10^{27}$ machine operations within the bounded-fidelity rejection-sampling model --- more than a century of runtime on the Frontier supercomputer --- to collect a $10^{6}$-sample ensemble, which takes only 19\\,s on Nighthawk r2. To our knowledge, this is the first demonstration of quantum advantage for a vanilla random-circuit sampling on a commercially and broadly accessible quantum processor that most non-expert quantum computer users can easily replicate.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-23",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 78,
+   "why": "61 qubits on IBM's Nighthawk r2 sample circuits a century of Frontier supercomputer time would need, in 19 seconds.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.30179",
+   "title": "Tunable hyperbolic metamaterials for brightening single-photon emission",
+   "authors": [
+    "Manobina Karmakar",
+    "Pavel Klok",
+    "Filip Ligmajer",
+    "Leonardo de S. Menezes"
+   ],
+   "abstract": "Hyperbolic metamaterials (HMMs) are widely used to enhance spontaneous emission through their exceptionally large photonic density of states, yet large Purcell factors (>100) rarely translate into brighter emission, exposing both a practical limitation of HMMs as brightening platforms and a flaw in the Purcell factor itself as a figure of merit. Here we systematically evaluate spontaneous emission enhancement and photon outcoupling in metal-dielectric HMMs (TiO$_2$/Ag and phase-change Sb$_2$S$_3$/Ag) using effective medium theory, transfer matrix calculations, and full-wave FDTD simulations. We show that planar HMMs with Purcell factors exceeding 100 have external quantum efficiencies below 0.01, yielding an actual radiative Purcell factor (PF$_{rad}$) of only 1-2. Nanopatterning the HMM into a photonic crystal efficiently couples trapped high-k modes into free space, raising PF$_{rad}$ by an order of magnitude. Incorporating the phase-change material Sb$_2$S$_3$ further enables dynamic tuning of the hyperbolic spectral window and active control over emission brightness: an optimized nanostructured design reaches PF$_{rad}$ ~ 10-15 in the near-infrared, with switching contrast exceeding a factor of 15 upon phase transition. These results establish the radiative Purcell factor as a more reliable figure of merit than the conventional Purcell factor for engineering quantum emitters, and provide a practical route toward actively tunable, bright single-photon sources based on hyperbolic metamaterials.",
+   "categories": [
+    "physics.optics"
+   ],
+   "submitted": "2026-09-24",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 62,
+   "why": "Nanopatterned phase-change metamaterials raise emitters' radiative Purcell factor tenfold, showing plain Purcell factor overstates real brightness.",
+   "kind": "T",
+   "eli5": {
+    "plain": "They test whether stacking metal and dielectric layers into a 'hyperbolic metamaterial' actually makes single-photon emitters brighter, not just faster to emit.",
+    "how": "Nanopatterning the layered stack into a photonic-crystal-like structure lets light trapped in high-momentum modes escape to free space, and swapping in a phase-change material lets them switch the effect on and off.",
+    "matters": "It shows the usual Purcell factor metric can be misleading — a mode-density boost doesn't guarantee more usable photons — a caution relevant whenever an experiment quotes an enhancement factor for a photon source or detector.",
+    "caveat": "Even after nanopatterning, only 10-15% of decay events actually escape as usable photons, well short of the near-unity efficiencies quantum networks need."
+   }
+  },
+  {
+   "id": "2609.28837",
+   "title": "Imaging how fluctuations destroy superconductivity in two dimensions",
+   "authors": [
+    "Logan Bishop-Van Horn",
+    "Teng Zhang",
+    "Sara Metti",
+    "Tyler Lindemann",
+    "Michael J. Manfra",
+    "Kathryn A. Moler"
+   ],
+   "abstract": "Two-dimensional superconductors are model systems for thermal and quantum fluctuations. Key questions persist: whether existing models quantitatively describe the destruction of superconductivity, and whether an intermediate \"anomalous metal state\" represents a new phase of matter. We use scanning magnetic susceptibility to directly image the local phase stiffness, a thermodynamic measure of superconducting order, in gate-tunable Josephson junction arrays, a model two-dimensional superconductor. Across a broad range of carrier densities, we find that the superconducting critical temperature and phase stiffness are suppressed more strongly than expected from thermal fluctuations alone. At low carrier densities, we find that anomalous metal transport and large-scale spatial inhomogeneity emerge together. These results indicate that quantum fluctuations suppress superconductivity and that anomalous metal behavior emerges from phase slips in spatially disordered regions.",
+   "categories": [
+    "cond-mat.supr-con",
+    "cond-mat.mes-hall"
+   ],
+   "submitted": "2026-09-23",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 60,
+   "why": "Scanning susceptibility imaging shows quantum, not just thermal, fluctuations suppress 2D superconductivity, tracking the anomalous metal to disorder.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.28924",
+   "title": "Quantum Gates Built on a Spin Qubit and a Kitaev Parity Qubit",
+   "authors": [
+    "Zhi-Hai Liu",
+    "Jiang Zhang",
+    "Guilu Long",
+    "H. Q. Xu"
+   ],
+   "abstract": "Spin is typically traced out in the description of quantum-dot-based Kitaev chains to simplify the construction of Majorana fermions. Yet the intrinsic spin structure of poor-man's Majorana modes in minimal Kitaev chains under finite Zeeman fields offers a natural interface for the Kitaev parity qubit to interact with other spinful systems. Here, we establish such a platform to bridge the parity qubit and a quantum-dot spin qubit, with the effective coupling governed by the spin-dependent delocalization of the Majorana modes. Depending on whether the spin qubit is coupled to one or two chains constituting the parity qubit, the parity-spin coupling exhibits distinct forms: an anisotropic parity-conserving exchange interaction or a nontrivial exchange tensor tunable via the interchain superconducting-phase bias. Leveraging fast spin-qubit manipulation, we further demonstrate universal parity-qubit control, high-fidelity qubit-state readout, and entangling operations between the parity and spin qubits. These results turn the spinful structure of poor-man's Majoranas from a finite-field imperfection into a resource for hybrid quantum control.",
+   "categories": [
+    "cond-mat.mes-hall"
+   ],
+   "submitted": "2026-09-24",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 55,
+   "why": "Spin-qubit control drives a Kitaev parity qubit through tunable exchange coupling, adding readout and entangling gates to poor-man's Majoranas.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.29736",
+   "title": "100 million photons per second from a single organic molecule",
+   "authors": [
+    "Siwei Luo",
+    "Tim Hebenstreit",
+    "Alexey Shkarin",
+    "Jan Renger",
+    "Tobias Utikal",
+    "Stephan Goetzinger"
+   ],
+   "abstract": "At cryogenic temperatures, organic single-photon sources (SPSs) offer Fourier-limited emission, virtually unlimited photostability, and emission wavelengths selectable by molecular design, making them attractive for quantum metrology, secure communication, and photonic quantum information processing. However, their efficient integration with photonic microstructures has remained challenging, limiting photon collection from single organic emitters under cryogenic operation. Here, we demonstrate a cryogenic planar metallo-dielectric antenna that efficiently directs the emission of a single dibenzoterrylene (DBT) molecule towards the collection optics. The device reaches a collection efficiency of 97% and delivers 100 million photons per second into the first lens. We measure a photon indistinguishability for the Fourier-limited transition of 91.2% while maintaining a high single-photon purity of 97.7% under strong continuous-wave (CW) and pulsed excitation. These results establish organic molecules as a high-performance platform for single-photon generation and represent an important step towards scalable organic quantum photonic technologies.",
+   "categories": [
+    "quant-ph",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-24",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 55,
+   "why": "A cryogenic antenna collects 97% of a single molecule's photons, delivering 100 million indistinguishable photons per second.",
+   "kind": "E",
+   "eli5": {
+    "plain": "A single dye molecule cooled to near absolute zero is fitted with a tiny metal antenna that catches almost all its light and sends it straight to a detector.",
+    "how": "A planar metallo-dielectric antenna around the molecule funnels 97% of its emission into the collection lens, letting continuous excitation push out 100 million photons per second while keeping most of them identical to each other.",
+    "matters": "High collection efficiency is exactly the bottleneck that limits building usable itinerant single-photon sources and networks; the antenna design principle could inform how other photon sources couple into a collection path.",
+    "caveat": "The 91% photon indistinguishability and 98% purity are good but not record numbers, and the molecule still needs cryogenic, narrow-band operation to work at all."
+   }
+  },
+  {
+   "id": "2609.29300",
+   "title": "A low-temperature entropy source for on-chip true random number generation: universal robustness beyond device quality",
+   "authors": [
+    "Y. Q. Chai",
+    "M. Y. Wang",
+    "X. N. Feng",
+    "L. F. Wei"
+   ],
+   "abstract": "True random number generation is a critical capability for fault-tolerant quantum computing at millikelvin temperatures. Yet existing Josephson-junction-based TRNGs all rest on a widely accepted but untested assumption: that reliable entropy extraction requires precisely controlled device parameters. Here we show that this assumption does not always hold. We demonstrate a counterintuitive finding: a single current-biased Josephson junction, regardless of its parameter quality, can serve as a cryptographic-grade true random number generator. To establish the universality of this conclusion, we deliberately selected the most extremely deviated devices from fabrication, with critical currents three orders of magnitude away from theoretical predictions and $I_cR$ products an order of magnitude above conventional values, as the ultimate stress test. Even under these extreme conditions, the raw Shannon entropy reaches 0.9981~bit (99.8\\% of the theoretical maximum), with a min-entropy of 0.9271~bit. Using a square-wave pulsed-bias scheme, we tune the switching probability to $P\\approx0.5$. After SHA-256 post-processing, the bitstreams pass all 15 NIST SP 800-22 tests under a conservative $m=3$ criterion that is more demanding than the standard recommendation, and this certification holds across the entire 100-700~mK operating window of a dilution refrigerator.",
+   "categories": [
+    "quant-ph",
+    "physics.app-ph"
+   ],
+   "submitted": "2026-09-24",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 50,
+   "why": "A wildly out-of-spec Josephson junction still yields cryptographic-grade random bits, passing NIST tests from 100 to 700 mK.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.28881",
+   "title": "Reconfigurable bus-based quantum router for modular superconducting processors",
+   "authors": [
+    "Benzheng Yuan",
+    "chaojie Zhang",
+    "Yangyang Fei",
+    "Chuanbing Han",
+    "Haoran He",
+    "Huihui Sun",
+    "Bo Zhao",
+    "Fudong Liu",
+    "Weilong Wang",
+    "Zheng Shan"
+   ],
+   "abstract": "Scaling superconducting quantum processors requires interconnects that provide both non-local connectivity and parallel entangling operations. Nearest-neighbour couplings require distant interactions to be routed through SWAP networks, increasing the native two-qubit-gate count and potentially extending the circuit critical path. Here we introduce a bus-based reconfigurable quantum router for modular superconducting processors. Flux-tunable SQUID couplers selectively connect interface qubits to two shared buses, allowing destructive interference to suppress idle interactions while supporting two disjoint controlled-$Z$ (CZ) gates in parallel. Full-system Hamiltonian simulations yield parallel-gate errors at the level of $10^{-3}$, and open-system analysis identifies the coherence requirements for high-fidelity operation. We further assess the circuit-level consequences using hardware-aware compilation and resource-constrained scheduling. For 36-qubit quantum Fourier transform (QFT), QAOA-MaxCut and random-pairing circuits, the router reduces the median SWAP count by up to $34\\%$ and the native CZ count by up to $20\\%$ relative to a matched two-dimensional grid. End-to-end depth reduction is circuit dependent, reaching $20\\%$ for QAOA-MaxCut but remaining negligible for the QFT despite its lower gate count. These results show that enhanced connectivity and schedulable parallelism provide distinct benefits, establishing the router as a compiler-visible hardware resource for modular superconducting quantum processors.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-24",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 48,
+   "why": "A flux-tunable bus router cuts SWAP counts up to 34% and CZ counts up to 20% on simulated 36-qubit circuits.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.28897",
+   "title": "Characterization and Active Control of Position-Dependent Timing Dynamics in Superconducting Strip Detectors",
+   "authors": [
+    "Sahil R. Patel",
+    "Kristen M. Parzuchowski",
+    "Eli Mueller",
+    "Boris Korzh",
+    "Emanuel Knehr",
+    "Adam N. McCaughan",
+    "Martin J. Stevens",
+    "Matthew D. Shaw",
+    "Jason P. Allmaras"
+   ],
+   "abstract": "Superconducting strip single-photon detectors (SSPDs) have emerged as scalable, wide-strip variants of traditional nanowire counterparts. Despite practical advantages including improved optical fill factors and enhanced signal-to-noise ratios the fundamental detection physics governing these micro-scale geometries remains largely unexplored. Here, we investigate the underlying photoresponse of a 20 um-wide tungsten silicide SSPD, demonstrating a slew-rate-corrected timing jitter of 13.2 ps at 532 nm and 20.5 ps at 1550 nm, alongside saturated internal detection efficiency up to 1550 nm. Using focused free-space optical scanning, we reveal that detector timing jitter is strongly influenced by a spatially dependent slew rate between edge and center absorption events. To mitigate this impact, we utilize a parallel superconducting rail architecture to actively redistribute supercurrent. This in-situ tuning minimizes the latency mismatch and mitigates thermally activated intrinsic dark counts, extending the device's ability to operate at higher temperatures. Finally, comparing these dynamics with time-dependent Ginzburg-Landau (TDGL) modeling elucidates the physical origins of the position-dependent photoresponse, highlighting how superconducting rails or specialized readout electronics can mitigate negative impacts on timing jitter.",
+   "categories": [
+    "physics.ins-det",
+    "physics.app-ph",
+    "physics.optics",
+    "quant-ph"
+   ],
+   "submitted": "2026-09-24",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 35,
+   "why": "Edge-versus-centre absorption sets a superconducting strip detector's timing jitter, corrected by actively redistributing current across parallel rails.",
+   "kind": "E",
+   "eli5": {
+    "plain": "They mapped, spot by spot, how fast a wide superconducting strip detector responds after absorbing a photon, and found the response speed depends on exactly where on the strip the photon lands.",
+    "how": "Scanning a focused laser across the strip while comparing the current pulses' rise times reveals that edge hits and centre hits have different slew rates; adding parallel superconducting rails to redistribute current evens this out.",
+    "matters": "Timing jitter and dark counts limit how precisely arrival time can be used to encode or herald single photons, so a fix that works at higher operating temperature is useful wherever fast, low-noise photon timing matters, including microwave-photon detection schemes.",
+    "caveat": "The demonstration is on one 20 um-wide device at optical wavelengths; whether the same rail trick scales to arrays or to microwave single-photon detectors is untested."
+   }
+  },
+  {
+   "id": "2609.30195",
+   "title": "Loan Portfolio Optimization with Variational Quantum Algorithms",
+   "authors": [
+    "Balaganchi A. Bhargava",
+    "Kamlesh Kumar",
+    "Gouranga Dinda",
+    "Aniruddha Biswas",
+    "Vijay S. Rao",
+    "Debarag Banerjee",
+    "Arun Sehrawat"
+   ],
+   "abstract": "Loan portfolio optimization (LPO) seeks portfolios that minimize credit risk while satisfying practical selection constraints. Accounting for portfolio-level risk requires modeling not only expected losses but also loss variability and borrower-default correlations, leading to a large-scale combinatorial optimization problem whose complexity grows rapidly with portfolio size. In this work, we formulate LPO as a Quadratic Constrained Binary Optimization (QCBO) problem that jointly captures expected and unexpected losses and transform the resulting formulation into a Quadratic Unconstrained Binary Optimization (QUBO) model suitable for variational quantum optimization. To address the limited qubit resources of current quantum hardware, we employ Pauli Correlation Encoding (PCE), which enables a large number of portfolio-selection variables to be represented using comparatively few qubits. The proposed framework is evaluated on a real-world microfinance dataset comprising 2012 borrowers. For problem instances with up to 1000 portfolio-selection variables, we benchmark classical simulations of a variational quantum algorithm (VQA) against Google OR-Tools under matched time budgets, obtaining feasible portfolios with an objective-value gap of about 40% across all sizes. We further implement the framework on superconducting quantum hardware for instances containing up to 1500 variables. Across these instances, the experimentally obtained objective values are within 10% of the corresponding simulation results. These findings demonstrate the feasibility of applying PCE-based variational quantum optimization to large-scale loan portfolio optimization under current quantum hardware limitations.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-24",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 30,
+   "why": "PCE-based variational optimization solves 1500-variable loan portfolios on real superconducting hardware, within 10% of simulation results.",
+   "kind": "TE",
+   "eli5": null
+  }
+ ]
+}

@@ -352,7 +352,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7213675713"
+   },
    "url": null,
    "section": "A",
    "score": 68,
