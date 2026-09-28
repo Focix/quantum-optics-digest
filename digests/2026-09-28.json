@@ -1,0 +1,220 @@
+{
+ "run": "2026-09-28",
+ "mode": "daily",
+ "generated": "2026-09-28T06:09:23+00:00",
+ "ranked": true,
+ "status": {
+  "run": "2026-09-28",
+  "mode": "daily",
+  "pools": {
+   "A": "ok",
+   "B": "ok"
+  },
+  "counts": {
+   "A": 3,
+   "B": 3
+  },
+  "dropped_seen": 47,
+  "dropped_old": 347,
+  "watched": 0,
+  "citations": "ok (0/6 found)",
+  "backfill": "error: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.03421%7C10.48550%2FarXiv.2609.03543%7C10.48550%2FarXiv.2609.03650%7C10.48550%2FarXiv.2609.03737%7C10.48550%2FarXiv.2609.03910%7C10.48550%2FarXiv.2609.04150%7C10.48550%2FarXiv.2609.04171%7C10.48550%2FarXiv.2609.04368%7C10.48550%2FarXiv.2609.04447%7C10.48550%2FarXiv.2609.04492%7C10.48550%2FarXiv.2609.04580%7C10.48550%2FarXiv.2609.04704%7C10.48550%2FarXiv.2609.05192%7C10.48550%2FarXiv.2609.05222%7C10.48550%2FarXiv.2609.05226%7C10.48550%2FarXiv.2609.05387%7C10.48550%2FarXiv.2609.05402%7C10.48550%2FarXiv.2609.05634%7C10.48550%2FarXiv.2609.05659%7C10.48550%2FarXiv.2609.05672%7C10.48550%2FarXiv.2609.05838%7C10.48550%2FarXiv.2609.06399%7C10.48550%2FarXiv.2609.06471%7C10.48550%2FarXiv.2609.07076%7C10.48550%2FarXiv.2609.07250%7C10.48550%2FarXiv.2609.07317%7C10.48550%2FarXiv.2609.07338%7C10.48550%2FarXiv.2609.07393%7C10.48550%2FarXiv.2609.07613%7C10.48550%2FarXiv.2609.07616%7C10.48550%2FarXiv.2609.07708%7C10.48550%2FarXiv.2609.07892%7C10.48550%2FarXiv.2609.08278%7C10.48550%2FarXiv.2609.08348%7C10.48550%2FarXiv.2609.08455%7C10.48550%2FarXiv.2609.08569%7C10.48550%2FarXiv.2609.08591%7C10.48550%2FarXiv.2609.08598%7C10.48550%2FarXiv.2609.08727%7C10.48550%2FarXiv.2609.08811%7C10.48550%2FarXiv.2609.08908%7C10.48550%2FarXiv.2609.08925%7C10.48550%2FarXiv.2609.09097%7C10.48550%2FarXiv.2609.09227%7C10.48550%2FarXiv.2609.09312%7C10.48550%2FarXiv.2609.09334%7C10.48550%2FarXiv.2609.09371%7C10.48550%2FarXiv.2609.09426%7C10.48550%2FarXiv.2609.09495%7C10.48550%2FarXiv.2609.09771&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429"
+ },
+ "items": [
+  {
+   "id": "2609.31280",
+   "title": "Quantum environment afterglow from broadband excitation spectroscopy in superconducting qubits",
+   "authors": [
+    "J. R. Guimarães",
+    "Y. Liu",
+    "Y. Gao",
+    "Y. Haddad",
+    "A. Galicia",
+    "D. A. Volkov",
+    "J. T. Schmieder",
+    "H. Bhardwaj",
+    "M. Neis",
+    "J. Cereijo",
+    "M. Jerger",
+    "P. A. Bushev",
+    "R. Barends"
+   ],
+   "abstract": "Understanding the qubit environment is central to fault-tolerant superconducting quantum computation. Characterization typically relies on relaxation, leaving excitation largely underexplored. Here, we access this information with time-resolved broadband excitation spectroscopy. The resulting qubit excitation spectrum reveals a highly structured landscape, interspersed with cold regions. Combined with postselection, this technique enables full reconstruction of the noise power spectral density (PSD) and separates quantum from classical noise. With feed-forward, it exposes long-lived two-level-systems (TLSs), whose relaxation times span tens of microseconds to milliseconds - uncovering an intrinsic link between the qubit-TLS coupling and TLS relaxation. The data suggest that the long-lived TLSs are intrinsic to the qubit environment, and can cause excitation that lasts for many qubit operation cycles. Consequently, the environment retains a memory of prior dynamics, and properties like gate fidelity become non-Markovian and protocol-dependent. The presented approach enables identifying and bypassing the hidden roadblocks formed by long-lived TLSs in fault-tolerant quantum computation.",
+   "categories": [
+    "quant-ph",
+    "cond-mat.mes-hall"
+   ],
+   "submitted": "2026-09-25",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 62,
+   "why": "Time-resolved broadband excitation spectroscopy reveals long-lived two-level-system memory that makes gate fidelity history-dependent.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.31068",
+   "title": "Feedback cooling of a levitated nanoparticle in a radially polarized vector beam trap",
+   "authors": [
+    "Felipe Almeida",
+    "M. Rademacher",
+    "J. M. H. Gosling",
+    "P. F. Barker"
+   ],
+   "abstract": "We demonstrate optical levitation and feedback cooling of a silica nanoparticle (radius = 78~nm) trapped within a radial vector beam (RVB) in high vacuum. Radial vector beams, when focused by a high-NA lens, produce a smaller focal spot than conventional Gaussian beams, yielding tighter optical potentials and potentially reduced photon-recoil heating rates. A vortex wave plate was used to generate the RVB using an aspheric lens (NA = 0.77) to form the trap. Cold-damping feedback was used to cool the center of mass motion in the radial and axial trap directions to temperatures in the mK range. At higher temperatures and pressures, additional trap frequencies arising from the nonlinear RVB optical potential are observed. This demonstration is a step toward exploiting structured light for levitated quantum optomechanics where these traps can be used to suppress bulk and motional heating.",
+   "categories": [
+    "physics.optics",
+    "quant-ph"
+   ],
+   "submitted": "2026-09-25",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 58,
+   "why": "A radially polarized vector-beam trap tightens the optical potential and feedback-cools a levitated nanoparticle to millikelvin temperatures.",
+   "kind": "E",
+   "eli5": {
+    "plain": "They trapped and cooled a nanoparticle by shining a specially shaped, donut-like radially polarized laser beam on it instead of an ordinary round beam.",
+    "how": "The vector beam focuses to a smaller spot than a Gaussian beam, giving a tighter trap; feedback cooling then damps the particle's motion down to millikelvin temperatures.",
+    "matters": "Levitated optomechanics is a testbed for motional quantum states and force sensing, and a tighter, lower-heating trap is a route toward the quantum ground state, a goal shared with cavity and circuit optomechanics.",
+    "caveat": "Cooling reaches only the millikelvin range, well above the ground state, and the new heating channels from the vector beam's nonlinear potential are only briefly noted."
+   }
+  },
+  {
+   "id": "2609.30333",
+   "title": "Onset of random-matrix statistics in the Yukawa-Sachdev-Ye-Kitaev model: Spectral correlations and Krylov complexity",
+   "authors": [
+    "Sizheng Cao",
+    "Hyun-Sik Jeong",
+    "Yi-Li Wang"
+   ],
+   "abstract": "The Yukawa-Sachdev-Ye-Kitaev (YSYK) model, a solvable model of non-Fermi liquids with a proposed cavity-QED realization, couples $N$ complex fermions to $M$ bosons of frequency $ω_0$ through random Yukawa couplings of strength $g$, and its dynamics depends only on $R\\equivω_0/g^{2/3}$. For $R\\ll1$ the bosons are slow and act as a static random background in which the fermions are free, while for $R\\gg1$ they are only virtually excited and generate a random four-fermion interaction of rank $M$, which is generically chaotic for $M\\geq2$. Using exact diagonalization at infinite temperature, we follow the emergence of random-matrix statistics between these limits with unfolded spectral statistics and the Krylov complexity of the thermofield-double state. For complex couplings the level-spacing distribution evolves from Poisson to Gaussian-unitary-ensemble (GUE) statistics, the spectral form factor develops a correlation hole and a ramp, and the Krylov complexity evaluated on the unfolded spectrum develops a peak above its late-time plateau whose height reaches the GUE value. All diagnostics locate the onset around $R\\approx0.3$, and adding boson modes moves it to smaller $R$. This delineates the parameter regime in which a cavity-QED realization would display random-matrix spectral correlations. On the other hand, real couplings give the same crossover towards Gaussian-orthogonal-ensemble (GOE) statistics, and along an interpolation between the two the peak height follows the mean gap ratio, so the peak identifies the symmetry class as well as the onset of chaos. Without unfolding the peak stays about 20$\\%$ below its random-matrix value in both classes, which we trace to the non-semicircular density of states, and at larger $R$ the boson-number bands slow down the spreading of the state in Krylov space.",
+   "categories": [
+    "nlin.CD",
+    "cond-mat.str-el",
+    "hep-th",
+    "quant-ph"
+   ],
+   "submitted": "2026-09-24",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 42,
+   "why": "Exact diagonalization pins the crossover to random-matrix spectral statistics in a cavity-QED-realizable Yukawa-SYK model near R≈0.3.",
+   "kind": "T",
+   "eli5": {
+    "plain": "They studied a solvable model of fermions randomly coupled to bosons and worked out exactly when its energy-level spacings start to look like those of a random matrix, a signature of quantum chaos.",
+    "how": "Using exact diagonalization of the Yukawa-SYK model, they tracked level statistics, the spectral form factor, and Krylov complexity as the ratio of boson frequency to coupling strength is varied.",
+    "matters": "The model has a proposed cavity-QED implementation, so this maps out the parameter regime where a cavity-based simulator would actually show chaotic, random-matrix behavior.",
+    "caveat": "The analysis is purely theoretical and numerical; no cavity-QED experiment realizing this crossover is reported."
+   }
+  },
+  {
+   "id": "2609.31069",
+   "title": "Plasmonic Modes in hybrid Josephson Junction Arrays",
+   "authors": [
+    "Alex Kirchner",
+    "Simon Feyrer",
+    "Vjeko Dimić",
+    "Johanna Berger",
+    "Davide Curcio",
+    "Giorgio Biasiol",
+    "Michael Prager",
+    "Matthias Kronseder",
+    "Dominique Bougeard",
+    "Nicola Paradiso",
+    "Christoph Strunk",
+    "Leandro Tosi"
+   ],
+   "abstract": "We present microwave characterization measurements of Josephson junction arrays (JJAs) based on epitaxial Al-InAs quantum well heterostructure. The Josephson inductance of the constituent planar junctions can be derived by probing the low-energy plasmon modes of these devices. Applying an out-of-plane magnetic field gives rise to a Fraunhofer-like diffraction pattern, from which the current-phase relation and the effective transparency can be extracted. JJAs can be used to achieve high inductances, suitable for the implementation of quantum circuits. They also provide an excellent test-bed for studying the microscopic excitations of hybrid superconductor-semiconductor devices associated with the presence of Andreev states. Here, we demonstrate their tunability over a broad range of out-of-plane magnetic fields.",
+   "categories": [
+    "cond-mat.mes-hall",
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-09-25",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 34,
+   "why": "Microwave probing of Al-InAs Josephson junction arrays extracts current-phase relation and transparency from plasmon-mode Fraunhofer patterns.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.31194",
+   "title": "Optical characterization of excited-state spin Hamiltonians and clock transitions at telecommunication wavelength in Tm3+:YAlO3",
+   "authors": [
+    "Akshay Babu Karyath",
+    "Luozhen Li",
+    "Julien Bertrand",
+    "Alexandre Kings",
+    "Tianyang Shen",
+    "Gabriel Aeppli",
+    "Simon Gerber",
+    "Guy Matmon",
+    "Wolfgang Tittel"
+   ],
+   "abstract": "The zero-phonon line (ZPL) between the two excited-state manifolds 3F4 and 3H4 of the trivalent thulium ion in yttrium aluminum perovskite (Tm3+:YAlO3) lies within the telecom E-band at around 1451 nm and exhibits an optical coherence time of a few μs at cryogenic temperatures. To improve this time in view of potential applications, e.g. single-photon sources and optical quantum memory, we characterized the magnetic properties of the lowest Stark levels of these two manifolds. Varying the external magnetic field amplitude and orientation, we measured the enhanced nuclear Zeeman splitting by probing the field-dependent frequency detuning of side holes created by means of spectral hole burning, and we characterized the inhomogeneous line shift caused by the quadratic Zeeman interaction. Together, this allowed us to establish the spin Hamiltonians for the lowest Stark level of the 3F4 and 3H4 manifolds, and to predict optical clock transitions for particular orientations and magnitudes of the magnetic field",
+   "categories": [
+    "quant-ph",
+    "physics.atom-ph",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-25",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 33,
+   "why": "Magnetic-field spectroscopy maps the excited-state spin Hamiltonian of telecom-band Tm3+:YAlO3 and predicts optical clock transitions.",
+   "kind": "E",
+   "eli5": {
+    "plain": "They measured how a rare-earth ion's optical transition shifts in magnetic fields to map out its excited-state spin energy levels.",
+    "how": "By varying the strength and direction of an external magnetic field and tracking shifts of spectral holes burned into a Tm3+:YAlO3 crystal, they fit the spin Hamiltonian of the two excited-state manifolds.",
+    "matters": "Long-coherence, telecom-wavelength ions like this are candidates for optical-to-microwave quantum memories that could one day interface with superconducting qubits.",
+    "caveat": "This is spectroscopic characterization only; no photon storage, single-photon source, or coherence-time improvement is demonstrated."
+   }
+  },
+  {
+   "id": "2609.30632",
+   "title": "A Novel $q$-Derivative Framework with Applications to $q$-Deformed Thermodynamics and Leakage Suppression in Superconducting Qubits",
+   "authors": [
+    "André A. A. Marinho",
+    "Gisele B. Freitas",
+    "Clovis A. C. Filho"
+   ],
+   "abstract": "We propose a new $q$-derivative operator built directly from Jackson's $q$-number formulation, designed to preserve the structural properties of standard differential calculus while incorporating deformation effects. By analyzing $q$-deformed Heisenberg algebras, we demonstrate that this formulation maintains the consistency of thermodynamic quantities-such as internal energy, particle number, and specific heat-in dilute gas limits without requiring ad-hoc chain-rule modifications. Furthermore, we explore the physical implications of algebraic deformation using the Biedenharn-Macfarlane realization, showing how $q$-deformation induces intrinsic anharmonicity in quantum oscillator spectra and affects multi-level quantum systems ($d \\ge 3$). Applying this algebraic scheme to superconducting transmon qubits, we derive analytical pulse-shaping corrections that generalize the Derivative Removal by Adiabatic Gate (DRAG) technique, offering a robust method to suppress computational leakage in ultra-fast quantum logic operations.",
+   "categories": [
+    "quant-ph",
+    "cond-mat.stat-mech"
+   ],
+   "submitted": "2026-09-24",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 18,
+   "why": "A q-deformed derivative operator yields DRAG-like pulse corrections claimed to suppress leakage in fast transmon gates.",
+   "kind": "T",
+   "eli5": null
+  }
+ ]
+}
