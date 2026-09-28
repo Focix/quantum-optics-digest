@@ -1,0 +1,1961 @@
+{
+ "run": "2026-09-28",
+ "mode": "weekly",
+ "generated": "2026-09-28T11:35:16+00:00",
+ "ranked": true,
+ "status": {
+  "run": "2026-09-28",
+  "mode": "weekly",
+  "pools": {
+   "A": "ok",
+   "B": "ok",
+   "C": "ok"
+  },
+  "counts": {
+   "A": 4,
+   "B": 35,
+   "C": 30
+  },
+  "dropped_seen": 65,
+  "dropped_old": 466,
+  "journal_search": "error: Server error '503 Service Unavailable' for url 'https://api.openalex.org/works?filter=title_and_abstract.search%3A%22superconducting+qubit%22+OR+transmon+OR+fluxonium%2Cfrom_publication_date%3A2026-09-14%2Cprimary_location.source.type%3Ajournal&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=100&sort=publication_date%3Adesc&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503",
+  "error": "journal search failed: Server error '503 Service Unavailable' for url 'https://api.openalex.org/works?filter=title_and_abstract.search%3A%22superconducting+qubit%22+OR+transmon+OR+fluxonium%2Cfrom_publication_date%3A2026-09-14%2Cprimary_location.source.type%3Ajournal&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=100&sort=publication_date%3Adesc&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503 | citation lookup failed: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.25751%7C10.48550%2FarXiv.2609.30179%7C10.48550%2FarXiv.2609.29736%7C10.48550%2FarXiv.2609.28897%7C10.48550%2FarXiv.2609.28271%7C10.48550%2FarXiv.2609.28139%7C10.48550%2FarXiv.2609.27983%7C10.48550%2FarXiv.2609.27601%7C10.48550%2FarXiv.2609.27072%7C10.48550%2FarXiv.2609.26949%7C10.48550%2FarXiv.2609.26889%7C10.48550%2FarXiv.2609.23328%7C10.48550%2FarXiv.2609.22025%7C10.48550%2FarXiv.2609.31075%7C10.48550%2FarXiv.2609.29248%7C10.48550%2FarXiv.2609.28391%7C10.48550%2FarXiv.2609.27640%7C10.48550%2FarXiv.2609.27390%7C10.48550%2FarXiv.2609.27004%7C10.48550%2FarXiv.2609.26941%7C10.48550%2FarXiv.2609.25214%7C10.48550%2FarXiv.2609.24835%7C10.48550%2FarXiv.2609.24269%7C10.48550%2FarXiv.2609.24169%7C10.48550%2FarXiv.2609.23255%7C10.48550%2FarXiv.2609.22998%7C10.48550%2FarXiv.2609.22937%7C10.48550%2FarXiv.2609.22890%7C10.48550%2FarXiv.2609.20823%7C10.48550%2FarXiv.2609.20757%7C10.48550%2FarXiv.2609.20708%7C10.48550%2FarXiv.2609.20678%7C10.48550%2FarXiv.2609.20133%7C10.48550%2FarXiv.2609.19862%7C10.48550%2FarXiv.2609.19814%7C10.48550%2FarXiv.2609.19625%7C10.48550%2FarXiv.2609.18570%7C10.48550%2FarXiv.2609.18559%7C10.48550%2FarXiv.2609.17307%7C10.48550%2FarXiv.2609.17294%7C10.48550%2FarXiv.2609.16490%7C10.48550%2FarXiv.2609.15868%7C10.48550%2FarXiv.2609.14989&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+  "watched": 0,
+  "citations": "error: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.25751%7C10.48550%2FarXiv.2609.30179%7C10.48550%2FarXiv.2609.29736%7C10.48550%2FarXiv.2609.28897%7C10.48550%2FarXiv.2609.28271%7C10.48550%2FarXiv.2609.28139%7C10.48550%2FarXiv.2609.27983%7C10.48550%2FarXiv.2609.27601%7C10.48550%2FarXiv.2609.27072%7C10.48550%2FarXiv.2609.26949%7C10.48550%2FarXiv.2609.26889%7C10.48550%2FarXiv.2609.23328%7C10.48550%2FarXiv.2609.22025%7C10.48550%2FarXiv.2609.31075%7C10.48550%2FarXiv.2609.29248%7C10.48550%2FarXiv.2609.28391%7C10.48550%2FarXiv.2609.27640%7C10.48550%2FarXiv.2609.27390%7C10.48550%2FarXiv.2609.27004%7C10.48550%2FarXiv.2609.26941%7C10.48550%2FarXiv.2609.25214%7C10.48550%2FarXiv.2609.24835%7C10.48550%2FarXiv.2609.24269%7C10.48550%2FarXiv.2609.24169%7C10.48550%2FarXiv.2609.23255%7C10.48550%2FarXiv.2609.22998%7C10.48550%2FarXiv.2609.22937%7C10.48550%2FarXiv.2609.22890%7C10.48550%2FarXiv.2609.20823%7C10.48550%2FarXiv.2609.20757%7C10.48550%2FarXiv.2609.20708%7C10.48550%2FarXiv.2609.20678%7C10.48550%2FarXiv.2609.20133%7C10.48550%2FarXiv.2609.19862%7C10.48550%2FarXiv.2609.19814%7C10.48550%2FarXiv.2609.19625%7C10.48550%2FarXiv.2609.18570%7C10.48550%2FarXiv.2609.18559%7C10.48550%2FarXiv.2609.17307%7C10.48550%2FarXiv.2609.17294%7C10.48550%2FarXiv.2609.16490%7C10.48550%2FarXiv.2609.15868%7C10.48550%2FarXiv.2609.14989&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+  "backfill": "error: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.03421%7C10.48550%2FarXiv.2609.03543%7C10.48550%2FarXiv.2609.03650%7C10.48550%2FarXiv.2609.03737%7C10.48550%2FarXiv.2609.03910%7C10.48550%2FarXiv.2609.04150%7C10.48550%2FarXiv.2609.04171%7C10.48550%2FarXiv.2609.04368%7C10.48550%2FarXiv.2609.04447%7C10.48550%2FarXiv.2609.04492%7C10.48550%2FarXiv.2609.04580%7C10.48550%2FarXiv.2609.04704%7C10.48550%2FarXiv.2609.05192%7C10.48550%2FarXiv.2609.05222%7C10.48550%2FarXiv.2609.05226%7C10.48550%2FarXiv.2609.05387%7C10.48550%2FarXiv.2609.05402%7C10.48550%2FarXiv.2609.05634%7C10.48550%2FarXiv.2609.05659%7C10.48550%2FarXiv.2609.05672%7C10.48550%2FarXiv.2609.05838%7C10.48550%2FarXiv.2609.06399%7C10.48550%2FarXiv.2609.06471%7C10.48550%2FarXiv.2609.07076%7C10.48550%2FarXiv.2609.07250%7C10.48550%2FarXiv.2609.07317%7C10.48550%2FarXiv.2609.07338%7C10.48550%2FarXiv.2609.07393%7C10.48550%2FarXiv.2609.07613%7C10.48550%2FarXiv.2609.07616%7C10.48550%2FarXiv.2609.07708%7C10.48550%2FarXiv.2609.07892%7C10.48550%2FarXiv.2609.08278%7C10.48550%2FarXiv.2609.08348%7C10.48550%2FarXiv.2609.08455%7C10.48550%2FarXiv.2609.08569%7C10.48550%2FarXiv.2609.08591%7C10.48550%2FarXiv.2609.08598%7C10.48550%2FarXiv.2609.08727%7C10.48550%2FarXiv.2609.08811%7C10.48550%2FarXiv.2609.08908%7C10.48550%2FarXiv.2609.08925%7C10.48550%2FarXiv.2609.09097%7C10.48550%2FarXiv.2609.09227%7C10.48550%2FarXiv.2609.09312%7C10.48550%2FarXiv.2609.09334%7C10.48550%2FarXiv.2609.09371%7C10.48550%2FarXiv.2609.09426%7C10.48550%2FarXiv.2609.09495%7C10.48550%2FarXiv.2609.09771&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429"
+ },
+ "items": [
+  {
+   "id": "2609.31280",
+   "title": "Quantum environment afterglow from broadband excitation spectroscopy in superconducting qubits",
+   "authors": [
+    "J. R. Guimarães",
+    "Y. Liu",
+    "Y. Gao",
+    "Y. Haddad",
+    "A. Galicia",
+    "D. A. Volkov",
+    "J. T. Schmieder",
+    "H. Bhardwaj",
+    "M. Neis",
+    "J. Cereijo",
+    "M. Jerger",
+    "P. A. Bushev",
+    "R. Barends"
+   ],
+   "abstract": "Understanding the qubit environment is central to fault-tolerant superconducting quantum computation. Characterization typically relies on relaxation, leaving excitation largely underexplored. Here, we access this information with time-resolved broadband excitation spectroscopy. The resulting qubit excitation spectrum reveals a highly structured landscape, interspersed with cold regions. Combined with postselection, this technique enables full reconstruction of the noise power spectral density (PSD) and separates quantum from classical noise. With feed-forward, it exposes long-lived two-level-systems (TLSs), whose relaxation times span tens of microseconds to milliseconds - uncovering an intrinsic link between the qubit-TLS coupling and TLS relaxation. The data suggest that the long-lived TLSs are intrinsic to the qubit environment, and can cause excitation that lasts for many qubit operation cycles. Consequently, the environment retains a memory of prior dynamics, and properties like gate fidelity become non-Markovian and protocol-dependent. The presented approach enables identifying and bypassing the hidden roadblocks formed by long-lived TLSs in fault-tolerant quantum computation.",
+   "categories": [
+    "quant-ph",
+    "cond-mat.mes-hall"
+   ],
+   "submitted": "2026-09-25",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 88,
+   "why": "Excitation spectroscopy exposes two-level systems that relax over milliseconds, so the qubit environment remembers earlier cycles and gate fidelity turns protocol-dependent.",
+   "kind": "E",
+   "eli5": {
+    "plain": "By watching what excites a qubit rather than what relaxes it, they found defects around the qubit that stay excited for up to a millisecond and keep feeding energy back into it.",
+    "how": "A broadband drive is swept in time while the qubit is read out repeatedly; post-selection separates real excitation events from readout error, feed-forward isolates individual two-level systems, and the resulting excitation spectrum reconstructs the full noise power spectral density and splits quantum from classical noise.",
+    "matters": "A millisecond memory in the environment is longer than a whole error-correction round, so the same gate can have different fidelity depending on what ran before it, which breaks the independent-error assumption every decoder is built on.",
+    "caveat": "The link between qubit-defect coupling and defect lifetime comes from one sample family, and the paper identifies the roadblock without yet showing a fabrication or operating change that removes it."
+   }
+  },
+  {
+   "id": "2609.26889",
+   "title": "Deterministic photon waveform adaptation for quantum connectivity",
+   "authors": [
+    "Jeffrey Mohan",
+    "Jérémy Berroir",
+    "Filippo Borselli",
+    "David Libault",
+    "Ferhat Loubar",
+    "Kilian Müller",
+    "Jed Rowland",
+    "Félix Hoffet",
+    "Eleni Diamanti",
+    "Tom Darras",
+    "Tommaso Mazzoni",
+    "Julien Laurat"
+   ],
+   "abstract": "The scalability of quantum technologies will depend on the ability to interconnect independent quantum systems through photonic channels. However, heterogeneous quantum platforms emit and absorb photons with widely differing properties, severely limiting inter-node interference and modular connectivity. Here we demonstrate a cold-atom optical quantum memory that simultaneously achieves near-unity storage-and-retrieval efficiency and deterministic temporal adaptation of single photons between arbitrary and programmable input and output pulse waveforms. Operating at high optical depth and within a fully integrated architecture, the system can store photons with durations spanning over three orders of magnitude and reshape them arbitrarily without compromising efficiency, achieving compatibility with many current platforms. By augmenting the role of a quantum memory from a passive storage element to an active programmable photonic interface, our results establish a key building block for scalable entanglement-based quantum networks and modular quantum computing architectures.",
+   "categories": [
+    "quant-ph",
+    "physics.atom-ph"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 86,
+   "why": "A cold-atom memory reshapes stored photons into arbitrary output waveforms at near-unity efficiency, over three orders of magnitude of pulse duration.",
+   "kind": "E",
+   "eli5": {
+    "plain": "An atomic memory that swallows a single photon and spits it back out with whatever pulse shape you ask for, losing almost nothing in the process.",
+    "how": "A high-optical-depth cold-atom ensemble stores the photon as a collective spin excitation; shaping the control field on write and read maps an arbitrary input envelope onto an arbitrary output envelope, and the high optical depth is what keeps efficiency near unity while the shapes change.",
+    "matters": "Linking unlike platforms fails on waveform mismatch, not on efficiency alone: a microwave-optical link hands over photons microseconds long to emitters that want nanoseconds. A memory that is also a programmable shaper removes that mismatch instead of engineering around it.",
+    "caveat": "It works in the optical at an atomic transition wavelength, so a superconducting node still needs a transducer in front of it, and the demonstration reshapes single photons rather than multiphoton or entangled inputs."
+   }
+  },
+  {
+   "id": "2609.27983",
+   "title": "Optical Schrödinger cat states generated using cavity Rydberg quantum photonics",
+   "authors": [
+    "Hendrik Hegels",
+    "Mae Eichenberger",
+    "Gerhard Rempe",
+    "Stephan Dürr"
+   ],
+   "abstract": "We introduce cavity Rydberg quantum photonics as a novel platform for generating hybrid entangled states of optical photons. The system achieves world-record sizes of these states and has the potential to produce yet larger states in the future. In the hybrid entangled state produced here, a superposition of two coherent states is entangled with a polarization qubit carried by a photon in another beam path. We perform quantum state tomography of this hybrid entangled state and evaluate various key properties. By optimizing the decoherence we increase the size compared to previous hybrid entangled states, reaching a size of $α^2= 2.4$. Besides the fundamental interest in Schrödinger cat states, this work is interesting because of potential applications in the field of quantum information processing.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-23",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 84,
+   "why": "Rydberg-blockade cavity entangles a polarisation qubit with a coherent-state superposition of size alpha^2 = 2.4, the largest such hybrid state measured.",
+   "kind": "E",
+   "eli5": {
+    "plain": "They made a beam of light that is in a superposition of two different amplitudes, and entangled that superposition with the polarisation of a photon travelling elsewhere.",
+    "how": "Light in a cavity filled with a Rydberg-blockaded atomic medium acquires a nonlinearity strong enough at the few-photon level to split a coherent state into two components; full tomography of the joint state then certifies the entanglement, and the size record comes from suppressing decoherence in the medium.",
+    "matters": "This is the optical counterpart of the cat-state work done with microwave cavities and transmons, and its size is set by how strong a photon-photon interaction you can get. Hybrid discrete-continuous entanglement is the resource for teleporting between qubit-encoded and field-encoded nodes.",
+    "caveat": "alpha^2 = 2.4 is a record among hybrid entangled states but still a small cat: the two components overlap appreciably, and the Rydberg medium's decoherence is what caps it."
+   }
+  },
+  {
+   "id": "2609.25232",
+   "title": "Strong coupling of a reconfigurable ${}^{171}$Yb atom array to a tunable telecom-band nanofiber cavity",
+   "authors": [
+    "Hideki Ozawa",
+    "Neville Chen",
+    "Yusuke Hisai",
+    "Shunichiro Hashimoto",
+    "Kenichi N. Komagata",
+    "Remi T. Oddon",
+    "Shanjou Yang",
+    "Seitaro Horikawa",
+    "Seigo Kikura",
+    "Shigehito Miki",
+    "Takao Aoki",
+    "Tadayuki Yoshitake",
+    "Hideki Konishi",
+    "Shinichi Sunami",
+    "Akihisa Goban",
+    "Ryotaro Inoue"
+   ],
+   "abstract": "Nanophotonic cavities provide strong atom-photon coupling in a compact, directly fiber-coupled geometry, while a reconfigurable array of $^{171}$Yb atoms combines high-fidelity gates with a metastable qubit state coupled directly to a telecom-band transition, making the two a natural interface between neutral-atom quantum processors and telecom quantum networks. Here, we realize strong atom-cavity coupling on the ${}^{3}\\mathrm{P}_0 \\leftrightarrow {}^{3}\\mathrm{D}_1$ transition of ${}^{171}\\mathrm{Yb}$, establishing, to our knowledge, the first neutral-atom cavity-QED system to reach the single-atom strong-coupling regime on a telecom-band atomic transition. Reflection spectroscopy of a single-sided cavity yields a single-atom internal cooperativity of $C_{\\mathrm{in}}=5.6(1.0)$ and collective coupling following $\\sqrt{N}$ scaling up to $N=5$ atoms, with homogeneous coupling at antinodes over $\\sim$200 $\\mathrmμ$m along the nanofiber. Thermal tuning of a fiber Bragg grating provides in situ control of the cavity outcoupling rate over two orders of magnitude from the undercoupled to the overcoupled regime, relevant for various atom-cavity protocols. We confirm compatibility with reconfigurable atom arrays by demonstrating 99.95(6)\\% imaging fidelity and trap lifetimes comparable to free-space array, at 1 $\\mathrmμ$m from the nanofiber axis. Moreover, the diameter-engineered antireflection design of the nanofiber enables tweezer-based atom transport across the nanofiber with no measurable loss or heating at 4.5 $\\mathrmμ$m above the nanofiber, supporting a two-layer architecture for the nanofiber-integrated atom array. From the demonstrated atom-cavity coupling, atom capacity, and cavity mode profile, we project time-multiplexed remote atom-atom entanglement generation at 40 kHz, with prospects for further scaling through technical enhancements and channel multiplexing.",
+   "categories": [
+    "quant-ph",
+    "cond-mat.quant-gas",
+    "physics.atom-ph",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 82,
+   "why": "A ytterbium array reaches single-atom strong coupling on a telecom transition, with cavity outcoupling tuned over two orders of magnitude.",
+   "kind": "E",
+   "eli5": {
+    "plain": "Single atoms held in a reconfigurable array talk strongly to light in a fibre cavity, at the wavelength telecom fibres carry best.",
+    "how": "Ytterbium-171 atoms are trapped along a nanofiber cavity and coupled on the metastable 3P0 to 3D1 transition near telecom wavelengths; reflection spectroscopy of the single-sided cavity gives an internal cooperativity of 5.6 per atom and root-N collective scaling up to five atoms, while heating a fibre Bragg grating tunes the outcoupling rate in situ.",
+    "matters": "Atom arrays are good processors and bad network nodes, because their photons are the wrong colour for fibre. Strong coupling directly at telecom removes the frequency conversion stage; the tunable mirror is the same knob a circuit-QED experimenter uses to trade internal Q for emission rate.",
+    "caveat": "Five atoms and a cooperativity of 5.6 is strong coupling but not high-fidelity gate territory, and nanofiber cavities bring their own heating and atom-loss problems in an array that is supposed to be reconfigurable."
+   }
+  },
+  {
+   "id": "2609.29736",
+   "title": "100 million photons per second from a single organic molecule",
+   "authors": [
+    "Siwei Luo",
+    "Tim Hebenstreit",
+    "Alexey Shkarin",
+    "Jan Renger",
+    "Tobias Utikal",
+    "Stephan Goetzinger"
+   ],
+   "abstract": "At cryogenic temperatures, organic single-photon sources (SPSs) offer Fourier-limited emission, virtually unlimited photostability, and emission wavelengths selectable by molecular design, making them attractive for quantum metrology, secure communication, and photonic quantum information processing. However, their efficient integration with photonic microstructures has remained challenging, limiting photon collection from single organic emitters under cryogenic operation. Here, we demonstrate a cryogenic planar metallo-dielectric antenna that efficiently directs the emission of a single dibenzoterrylene (DBT) molecule towards the collection optics. The device reaches a collection efficiency of 97% and delivers 100 million photons per second into the first lens. We measure a photon indistinguishability for the Fourier-limited transition of 91.2% while maintaining a high single-photon purity of 97.7% under strong continuous-wave (CW) and pulsed excitation. These results establish organic molecules as a high-performance platform for single-photon generation and represent an important step towards scalable organic quantum photonic technologies.",
+   "categories": [
+    "quant-ph",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-24",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 80,
+   "why": "A cryogenic metallo-dielectric antenna collects 97% of one molecule's emission, delivering 10^8 photons per second at 91.2% indistinguishability.",
+   "kind": "E",
+   "eli5": {
+    "plain": "A single dye molecule in a mirror-like sandwich emits a hundred million photons a second, almost all of which go into the lens.",
+    "how": "A planar metallo-dielectric antenna around a dibenzoterrylene molecule at cryogenic temperature redirects the dipole emission into a narrow cone, giving 97% collection into the first lens while the Fourier-limited transition keeps 91.2% two-photon indistinguishability and 97.7% single-photon purity.",
+    "matters": "Organic molecules were the platform with the best linewidths and the worst photon budget, and the budget was the whole problem. This is a brightness a quantum-dot source would be pleased with, from an emitter whose wavelength you choose by chemistry.",
+    "caveat": "Planar antennas are efficient but not fibre-coupled, the indistinguishability is measured on the Fourier-limited line rather than under the strong pumping that gives the highest rate, and molecules still need liquid-helium temperatures."
+   }
+  },
+  {
+   "id": "2609.25248",
+   "title": "In-orbit operation of a programmable quantum photonic processor",
+   "authors": [
+    "Simon Steiner",
+    "Peter Schiansky",
+    "Antonius Scherer",
+    "Riccardo Albiero",
+    "Mathias Dragosits",
+    "Zhenghao Yin",
+    "Martin Mauser",
+    "Patrik Zahálka",
+    "Raphael Pimenta",
+    "Cristóbal Melo",
+    "Cédric Léonard",
+    "Abhiram Rajan",
+    "Niki Di Giano",
+    "Antonino Caime",
+    "Roberto Osellame",
+    "Francesco Ceccarelli",
+    "Daniel Martínez",
+    "Tobias Guggemos",
+    "Iris Agresti",
+    "Philip Walther"
+   ],
+   "abstract": "Quantum technologies promise computational capabilities beyond the reach of classical systems. A forward-looking application lies in satellite missions, which increasingly depend on onboard computing under stringent constraints on size, weight and power. Quantum photonics is particularly attractive here: photon interference can enhance the machine-learning models needed to process large onboard data volumes, at fixed hardware resources. However, harnessing this interference requires more than generating single photons, as they must remain mutually indistinguishable: a fragile condition that is hard to maintain within the technically demanding framework of a space mission, which includes a rocket launch, strong thermal drifts, and radiation. This is why quantum states of light, though already generated and transmitted in orbit for secure communication and fundamental tests, have never been used as a computational resource. Here, we report a programmable quantum photonic platform operating on a nanosatellite, processing two photons in a six-mode universal integrated circuit. By programming distinct unitaries and tuning the photons into indistinguishability, we observe two-photon interference, establishing the on-board generation, manipulation and detection of non-classical light. This extends space-based technologies towards in-orbit quantum-assisted computing, for instance local encoding of Earth-observation data, or nodes in a distributed quantum network.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 76,
+   "why": "Two photons interfere in a six-mode programmable circuit aboard a nanosatellite, the first use of quantum light as a computational resource in orbit.",
+   "kind": "E",
+   "eli5": {
+    "plain": "A small satellite carries a photonic chip that computes using the interference of two photons, and it still works after launch.",
+    "how": "A six-mode universal integrated interferometer is programmed in orbit and fed two photons whose mutual indistinguishability has to survive launch vibration, thermal cycling and radiation; the machine-learning tasks run onboard are the ones where photon interference improves the model at fixed hardware.",
+    "matters": "Not a physics result so much as a robustness result: it says an interferometer whose function depends on indistinguishability can hold alignment through conditions far worse than a lab, which is the objection usually raised against photonic hardware leaving the optical table.",
+    "caveat": "Two photons in six modes is a demonstration, not an advantage, and the onboard benefit over a classical processor at the same size, weight and power is asserted rather than measured."
+   }
+  },
+  {
+   "id": "2609.18559",
+   "title": "Extensibly Causally Separable Processes Admit Realizations as Quantum Circuits with Classical Control of Causal Order",
+   "authors": [
+    "Wenjie Wei",
+    "Shengshi Pang"
+   ],
+   "abstract": "Indefinite causal order extends the conventional circuit paradigm by allowing local quantum operations to be connected without a predetermined global order. Within the process-matrix framework, it is characterized by causal nonseparability, whereas extensible causal separability (ECS) requires that, under arbitrary input-ancilla extensions, a process admit a recursive decomposition into components, each compatible with a particular operation acting first. Quantum circuits with classical control of causal order (QC-CC), in which previous outcomes dynamically determine which operation acts next, are known to generate ECS processes, but whether every ECS process admits such a realization has remained a longstanding open problem. We settle it through a generalized teleportation construction that realizes every multipartite ECS process as a QC-CC. We further establish consistency between ECS definitions for trivial and nontrivial global past and future systems. These results provide ECS with an exact operational interpretation and identify QC-CC as the complete circuit structure underlying this class of processes.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-16",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 76,
+   "why": "A generalised teleportation construction realises every extensibly causally separable process as a circuit with classical control of order, settling an open problem.",
+   "kind": "T",
+   "eli5": {
+    "plain": "Processes where the order of operations is decided on the fly, by earlier measurement results, were suspected to cover a certain well-defined class exactly. This proves they do.",
+    "how": "Extensible causal separability asks that a process stay decomposable into 'this party acted first' pieces even when arbitrary ancillas are attached. The proof builds, for any such process, an explicit circuit that teleports states between the parties and uses previous outcomes to pick who acts next.",
+    "matters": "It draws the line cleanly: anything genuinely order-indefinite, the kind of process people hope buys a computational advantage, now cannot be explained away as a classically controlled circuit, and the converse direction is no longer an open question.",
+    "caveat": "The construction is a realisation in principle; the teleportation overhead is not costed, so this says what is possible, not what an experiment would build."
+   }
+  },
+  {
+   "id": "2609.28271",
+   "title": "Broadband Quantum Optical Storage with Chemically Engineered Molecular Eu$^\\text{3+}$ Complex",
+   "authors": [
+    "Yisheng Lei",
+    "Senthil Kumar Kuppusamy",
+    "Idris Tlemsani",
+    "Suma Al-Hunaishi",
+    "Pengrui Jiao",
+    "Olaf Fuhr",
+    "Mario Ruben",
+    "Philippe Goldner",
+    "Diana Serrano"
+   ],
+   "abstract": "Broadband quantum memory devices are essential elements for future quantum networks. Here we propose a broadband quantum memory scheme called Hole Anti-hole Grating Echo Memory (HAGEM) for rare-earth ions in solids. We provide a Eu$^\\text{3+}$ molecular complex with special hyperfine level structures of which the hyperfine level separations are in a specific mathematical correlation that can be obtained by harnessing chemical engineering. Using the memory protocol and material, we experimentally demonstrate a quantum optical storage efficiency of 14.9% and a memory bandwidth of 200MHz, which can easily be extended to a few GHz. With this demonstration, we show the first quantum application enabled by molecular engineering which cannot be achieved by any other existing Eu$^\\text{3+}$ solid-state materials. In addition, we provide a framework for the chemical engineering of solid-state materials with rare-earth ions for quantum applications consisting of material design, synthesis & characterization techniques, and analytical methods for the quantum properties of rare-earth (RE) ions in solids. This work establishes a new direction in which molecular rare-earth ions can be used for a wide range of quantum applications, which cannot be realized by existing solid-state materials. This will greatly facilitate the development of molecular quantum emitter systems for real world applications.",
+   "categories": [
+    "quant-ph",
+    "physics.chem-ph"
+   ],
+   "submitted": "2026-09-23",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 74,
+   "why": "A chemically designed europium complex with commensurate hyperfine splittings stores light at 200 MHz bandwidth and 14.9% efficiency.",
+   "kind": "TE",
+   "eli5": {
+    "plain": "Chemists built a molecule whose internal energy levels sit at deliberately chosen spacings, and that spacing lets it store light pulses far shorter than rare-earth crystals normally manage.",
+    "how": "The new protocol burns a hole-and-antihole grating into the inhomogeneous absorption line, so an incoming pulse is absorbed and re-emitted as an echo; it only works if the hyperfine splittings stand in a particular arithmetic relation, which is what the molecular design supplies.",
+    "matters": "Memory bandwidth is what decides whether a memory can catch the photons a fast emitter produces, and rare-earth crystals have been stuck in the megahertz range. Designing the level structure chemically rather than hunting for a crystal is a different search space.",
+    "caveat": "14.9% efficiency is far from the near-unity a network node needs, the extension to gigahertz bandwidth is projected rather than shown, and molecular crystals still have to prove the coherence and stability that inorganic hosts give for free."
+   }
+  },
+  {
+   "id": "2609.31075",
+   "title": "On the applicability of Kolmogorov's theory of probability to the description of quantum phenomena. Part II: Bell inequalities",
+   "authors": [
+    "Maik Reddiger"
+   ],
+   "abstract": "Among the various \"no-go theorems\" in the foundations of quantum mechanics, Bell inequalities are among the few, which do not implicitly rely on the mathematical structure of quantum mechanics. Instead, Bell inequalities are commonly understood to rest on Kolmogorov's theory of probability and a \"locality\" assumption. Physical evidence supporting their violation is hence taken as evidence against at least one of these two assumptions. This work provides a comprehensive analysis of the physical debate on Bell inequalities from the point of view of Kolmogorov's theory of probability, focusing on the Bell-Clauser-Horn-Shimony-Holt inequality (BCHSH inequality). The central contribution is the motivation and mathematical study of the notion of contextuality in Bell experiments: in so-called contextual Bell models the detectors themselves behave randomly and the distribution of the random detector parameters depends on the chosen detector settings. It is shown how even \"classical\" Bell experiments motivate such a description. The need to account for contextuality was pointed out before by de la Peña, Cetto, Brody, Lochak, Bohm, Hiley and others. A broad class of contextual models is proven to satisfy the BCHSH inequality, thereby generalizing a previous result by Gill and Lambare. Nonetheless, even under strong locality requirements, contextual Bell models may violate the BCHSH inequality: based on work by Popescu and Rohrlich, we consider a \"proof of concept\" example exhibiting the maximum possible violation. Contrary to the much debated \"loopholes\" in empirical tests of Bell inequalities, contextuality thus reveals a conceptual misunderstanding in the physical conclusions commonly drawn from Bell inequality violations.",
+   "categories": [
+    "quant-ph",
+    "math-ph"
+   ],
+   "submitted": "2026-09-25",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 74,
+   "why": "Letting detector settings shift the distribution of hidden detector parameters reproduces CHSH violation inside Kolmogorov probability, so locality need not be what fails.",
+   "kind": "T",
+   "eli5": {
+    "plain": "A careful argument that violating Bell's inequality does not force you to give up ordinary probability theory or locality, if the detectors themselves are allowed to behave randomly in a setting-dependent way.",
+    "how": "In the contextual Bell models studied here, each detector carries its own random parameter whose distribution depends on the setting chosen for that detector. Within Kolmogorov's framework this suffices to reproduce the CHSH violation, and the paper shows that even ordinary classical Bell-type experiments motivate such a description.",
+    "matters": "It relocates what a Bell violation rules out. If the loophole is this cheap, the interesting claim is not 'nature is nonlocal' but 'detector behaviour cannot be treated as setting-independent', which is a statement about apparatus, not about spacelike separation.",
+    "caveat": "Setting-dependent detector parameters are close to the measurement-dependence loophole, and the paper argues the notion is physically natural rather than demonstrating any experiment where it is needed."
+   }
+  },
+  {
+   "id": "2609.20708",
+   "title": "Proof of a positive coherent-error threshold for topological quantum codes",
+   "authors": [
+    "Shiro Tamiya",
+    "Masato Koashi"
+   ],
+   "abstract": "Threshold analyses of quantum error-correcting codes are well established for stochastic error models, in which errors occur randomly with given probabilities. However, errors in actual devices can also be coherent, such as unwanted $Z$ rotations due to imperfect control, which are not captured by stochastic error models. For the surface code, numerical studies have indicated threshold behavior even under coherent errors, but a rigorous proof of threshold existence is lacking. Here we prove that a positive threshold for coherent $Z$-rotation errors exists for quantum low-density parity-check codes with a bounded number of logical qubits, including the surface code and other topological codes. Specifically, we show that the maximum-likelihood Pauli recovery suppresses the entanglement infidelity exponentially in the code distance up to a prefactor linear in the number of physical qubits whenever the rotation angles lie below a constant that is independent of the code size. The proof combines Fourier analysis to retain the interference among the amplitudes of coherent errors with the cluster expansion of abstract polymer models. Our results expand the theoretical foundation of quantum error correction and offer a statistical-mechanical description of quantum error correction beyond stochastic errors.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-17",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 74,
+   "why": "Proves maximum-likelihood recovery suppresses coherent Z-rotation errors exponentially in distance, so topological codes have a genuine threshold against over-rotation.",
+   "kind": "T",
+   "eli5": {
+    "plain": "A proof that surface codes really do have an error threshold when the errors are small systematic over-rotations rather than random flips, which until now was only seen in simulations.",
+    "how": "Coherent rotations keep their phases, so errors interfere instead of adding up as probabilities; the proof uses Fourier analysis to keep that interference and then bounds the entanglement infidelity of maximum-likelihood Pauli recovery, showing exponential decay in code distance below a size-independent rotation angle.",
+    "matters": "Calibration error is exactly this kind of error: every pulse is slightly off in the same direction. Threshold statements quoted from stochastic simulations were formally silent about it, and now they are not.",
+    "caveat": "The result covers qLDPC codes with a bounded number of logical qubits and assumes maximum-likelihood decoding, which is not what a real-time decoder does; the prefactor still grows linearly in the physical qubit count."
+   }
+  },
+  {
+   "id": "2609.26949",
+   "title": "Measurement-based feedback as a flexible tool to control non-Poissonian photon statistics",
+   "authors": [
+    "Ming Li",
+    "JunYan Luo",
+    "Georg Engelhardt"
+   ],
+   "abstract": "Non-Poissonian photon statistics are usually traced to nonlinear interactions, nonclassical states, or engineered reservoirs. Here we show that measurement-based feedback can be alternatively deployed to control the Poissonian character of the measurement statistics in an externally-driven linear cavity. Each photon detection triggers a weak displacement operation whose phase determines how the feedback interferes with the coherent cavity field, resulting in a significant cavity response. Full counting statistics and two-time photon correlations show that the feedback phase controls the sign and strength of the induced correlations, continuously tuning the emission statistics between super- and sub-Poissonian regimes. At generic phases, the Mandel parameter responds linearly to the feedback amplitude, whereas at specific phases, the leading response becomes quadratic. The same phase dependence is also found in higher-order cumulants of the emission statistics. These results establish measurement-based feedback as a route to controlling photon statistics in otherwise linear driven-dissipative systems.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 73,
+   "why": "Photon-triggered weak displacements tune emission continuously from sub- to super-Poissonian in a linear cavity, with no nonlinearity or nonclassical input.",
+   "kind": "T",
+   "eli5": {
+    "plain": "Detect a photon leaving a cavity, immediately nudge the cavity field a little, and the photon statistics change character: bunched or antibunched, as you choose.",
+    "how": "Each click triggers a small displacement whose phase sets whether the fed-back amplitude interferes constructively or destructively with the coherent field already there; full counting statistics show the Mandel parameter responding linearly to feedback amplitude at generic phases and quadratically at special ones.",
+    "matters": "Nonclassical statistics normally cost you a strong nonlinearity, a single emitter or an engineered bath. In microwave circuits the feedback loop is the easy part, so this is a route to antibunched output from a linear resonator and a fast digital controller.",
+    "caveat": "It shapes the statistics of a driven coherent field rather than producing genuine single photons, and the achievable Mandel parameter is bounded by detection efficiency and loop latency, neither of which is modelled in detail."
+   }
+  },
+  {
+   "id": "2609.24900",
+   "title": "Explanation of the Observed Energy Exchange through the vacuum in Optomechanics",
+   "authors": [
+    "Vincenzo Macrì",
+    "Franco Nori",
+    "Alessandro Ferreri"
+   ],
+   "abstract": "In cavity optomechanics, the standard large-detuning regime is commonly described by retaining only the radiation-pressure interaction, while higher-order mirror--field interactions are assumed to be negligible. This approximation, however, fails to provide a microscopic explanation for the vacuum-mediated heat transfer observed between the mechanical membranes in the experiment of Fong, et.al.,[Nature \\textbf{576}, 243 (2019)], whose physical origin has remained under active debate. Here, using a fully quantum model, we show that the neglected higher-order optomechanical interactions naturally generate phonon-phonon coupling and quantitatively account for the observed energy exchange within the standard optomechanical framework. Building on this microscopic description, we further propose a protocol in which phonon-phonon interaction drives a cyclic process enabling net work extraction. Our results establish the fundamental role of higher-order optomechanical interactions and provide a microscopic framework for describing next-generation optomechanical experiments beyond the linear approximation.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 72,
+   "why": "Higher-order mirror-field coupling generates a phonon-phonon interaction that quantitatively accounts for the disputed vacuum-mediated heat flow between membranes.",
+   "kind": "T",
+   "eli5": {
+    "plain": "Two mechanical membranes in a cavity were seen exchanging heat through apparently empty space in a 2019 experiment; this explains the mechanism without new physics.",
+    "how": "The usual treatment keeps only radiation pressure linear in the mirror displacement. Keeping the next-order mirror-field terms produces a direct phonon-phonon coupling between the two membranes, whose magnitude reproduces the measured energy exchange.",
+    "matters": "It settles a debate that had attracted more exotic explanations, and the same neglected terms exist in electromechanical circuits, where a nominally dispersive coupling can hide a direct mechanical channel between two resonators.",
+    "caveat": "The account is a fit to one published dataset with a model the authors chose, not an independent measurement, and the proposed work-extraction cycle built on top of it is a proposal with no experimental estimate."
+   }
+  },
+  {
+   "id": "2609.18570",
+   "title": "Catalytic Activation of Genuine Multipartite Entanglement and Nonlocality",
+   "authors": [
+    "Eliot Donnadieu",
+    "Pavel Sekatski",
+    "Nicolas Brunner",
+    "Victor Barizien"
+   ],
+   "abstract": "We demonstrate the possibility to activate genuine multipartite entanglement (GME), the strongest form of entanglement for multipartite states, within the framework of quantum catalysis. Specifically, we show that any biseparable state (i.e. not GME) that is not partition separable can be deterministically transformed into a GME state via the help of a catalyst and local operations, without any classical communication. In turn, we construct a catalytic protocol tailored to the multipartite case. The protocol is termed \"sum-to-product\", as it transforms a mixture of states into their tensor product in a heralded manner. We apply this protocol to random network entangled states, which are biseparable by construction, and demonstrate catalytic activation of both GME and genuine multipartite Bell nonlocality.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-16",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 72,
+   "why": "A catalyst plus local operations turns any biseparable state that is not partition-separable into a genuinely multipartite entangled and nonlocal one, with no classical communication.",
+   "kind": "T",
+   "eli5": {
+    "plain": "Some states look like mixtures of two-party entanglement, with no genuine three-way entanglement. Borrowing a helper state, which you get back unchanged, converts them into genuinely multipartite entangled states.",
+    "how": "The 'sum-to-product' protocol turns a mixture of states into their tensor product in a heralded way; applied to network states, which are biseparable by construction because each link is only bipartite, it produces genuine multipartite entanglement and genuine multipartite Bell nonlocality using local operations alone.",
+    "matters": "Genuine multipartite entanglement was treated as a property a state either has or lacks. Catalysis shows the classification is not closed under free operations, which changes what a quantum network built from pairwise links can in principle certify.",
+    "caveat": "Deterministic on the target but heralded in the protocol, and it needs states that are biseparable yet not partition-separable, so it does not manufacture genuine multipartite entanglement from nothing."
+   }
+  },
+  {
+   "id": "2609.27072",
+   "title": "Programmable Coherent Memory Kernels for Quantum Reservoir Computing in Waveguide QED",
+   "authors": [
+    "Hong Jiang",
+    "Yu Wu",
+    "Yue Ban",
+    "Xi Chen",
+    "Juan José García-Ripoll"
+   ],
+   "abstract": "Reservoir computing requires not only long memory, but also memory distributed over the timescales relevant to a given task. In most quantum reservoir computing architectures, however, the memory profile emerges from intrinsic dynamics and cannot be directly engineered. Here we introduce a waveguide-QED quantum reservoir in which coherent memory return is controlled by the coupling geometry. The reservoir consists of a driven Kerr-nonlinear resonator coupled to a one-dimensional waveguide at spatially separated points. An unmeasured propagating field carries information about past inputs and coherently returns it to the resonator after a finite propagation time, forming a non-Markovian feedback channel without intermediate measurement or classical reinjection. Delay-resolved memory benchmarks reveal two complementary functions: waveguide propagation determines when past information returns, whereas Kerr dynamics convert the returned field into nonlinear temporal features accessible through a linear readout. NARMA-$n$ prediction shows that the optimal feedback delay shifts systematically with task order and approximately tracks the explicit input-product lag. These results establish coherent delayed feedback as a mechanism for engineering task-relevant memory in quantum reservoir computing.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 71,
+   "why": "Two-point coupling makes the waveguide delay decide when past inputs return, so a reservoir's memory timescale becomes a geometric design choice.",
+   "kind": "T",
+   "eli5": {
+    "plain": "A resonator wired to a transmission line at two places hears its own past output come back after a fixed flight time, and that delay is a tunable memory for computing with the dynamics.",
+    "how": "The field emitted at one coupling point travels to the other and returns, forming coherent non-Markovian feedback with no measurement in the loop; the waveguide sets when information returns, while the resonator's Kerr nonlinearity turns the returned field into the nonlinear temporal features a linear readout can use.",
+    "matters": "This is a giant atom in reservoir-computing clothing, and every ingredient exists in a superconducting circuit: a Kerr resonator, a line, two coupling points. It also states the design rule cleanly: geometry sets the memory timescale, nonlinearity sets what you can compute with it.",
+    "caveat": "The benchmarks are NARMA-style synthetic tasks in simulation; nothing here addresses loss along the delay line, which is exactly what limits the usable delay on a chip."
+   }
+  },
+  {
+   "id": "2609.26674",
+   "title": "Fluctuation-Driven Nonlinear Amplification of Quantum Statistics",
+   "authors": [
+    "Yuewei Song",
+    "Zhenghe Zhou",
+    "Shuai Wan",
+    "Hecheng Wang",
+    "Jinpeng Li",
+    "Bowen Liu",
+    "Yinhai Li",
+    "Chunhua Dong",
+    "Guangcan Guo",
+    "Chong Wang",
+    "Zhiyuan Zhou",
+    "Baosen Shi"
+   ],
+   "abstract": "Photon statistics have moved to the forefront of modern optics, as intensity fluctuations and correlations shape multiphoton interactions and reveal information beyond mean-intensity measurements. Developing high-quality photon sources with pronounced correlations is a fundamental necessity in these fields. Here we demonstrate fluctuation-driven nonlinear statistical amplification of quantum light in spontaneous four-wave mixing using filtered amplified spontaneous emission (ASE). Extending the coherent-pump framework to fluctuating fields, we show how nonlinear weighting of pump intensity combines with bosonic bunching to amplify quantum statistics and reshape temporal correlations. In a SiN microring, ASE pumping increases the zero-delay unconditional second-order correlation from 2.01 to 7.58 and extends the Hanbury Brown--Twiss correlation time by a factor of approximately 2.4. The super-bunched quantum source nevertheless retains heralded single-photon behaviour with $g_H^{(2)}(0)\\simeq0.04$, while the same ASE pump supports time--energy entanglement in a silicon waveguide with a raw Franson visibility of 89.84\\%. These results establish driving-field statistics as a design dimension for quantum light, broadening the horizons for research into higher-order correlations and nonlinear physics.",
+   "categories": [
+    "quant-ph",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 70,
+   "why": "Pumping four-wave mixing with filtered amplified spontaneous emission lifts unconditional g2(0) from 2.01 to 7.58 while heralded photons stay single.",
+   "kind": "TE",
+   "eli5": {
+    "plain": "Swapping a clean laser pump for deliberately noisy light makes the photon pairs come out in far burstier clumps, without spoiling their usefulness as a single-photon source.",
+    "how": "In spontaneous four-wave mixing the pair rate goes as pump intensity squared, so a fluctuating pump is weighted towards its bright moments; combined with bosonic bunching this amplifies the output correlations, measured in a silicon nitride microring as g2(0) rising to 7.58 with a 2.4-times longer correlation time, while the heralded value stays at 0.04.",
+    "matters": "Super-bunched light with a controllable correlation time is what you want for driving multiphoton processes and for calibrating correlation measurements, and here it comes from a filter rather than a new device. The same intensity-squared weighting applies to any parametric process, including microwave ones.",
+    "caveat": "The strong correlations are unconditional: the source is brighter in bursts, not better as a single-photon source, and the added pump bandwidth has to be filtered back out, which costs rate."
+   }
+  },
+  {
+   "id": "2609.27640",
+   "title": "Near-Optimal Bell Nonlocality with GKP and Entangled Cat States",
+   "authors": [
+    "Özlem Erkılıç",
+    "Aritra Das",
+    "S. Nibedita Swain",
+    "Simon Devitt",
+    "Timothy C. Ralph"
+   ],
+   "abstract": "Gottesman-Kitaev-Preskill (GKP) states are widely studied as a bosonic encoding for fault-tolerant quantum computing because small displacement errors can be identified and corrected through syndrome measurements. However, fault-tolerant operation requires substantially greater GKP squeezing than is currently available in optical platforms. It is therefore important to identify quantum-information tasks that can be realised with finite-squeezing GKP states. Here, we study Bell nonlocality in finite-energy GKP Bell states under experimentally motivated measurement constraints. Although finite-energy GKP Bell states support Bell nonlocality even at low squeezing, logical Pauli measurements alone cannot reveal it. Accessing the maximum CHSH violation supported by the state generally requires logical non-Clifford rotations. We instead show that the required non-Gaussian resource can reside in the measurement itself. Photon-number-resolving detection combined with Gaussian preprocessing and adaptive feed-forward closely approaches the maximum violation of the CHSH Bell inequality without implementing logical non-Clifford gates. The same measurement principle strongly enhances Bell violations for cat-code Bell pairs and entangled coherent states, demonstrating that its usefulness extends beyond the GKP lattice. Our results identify non-Gaussian measurements as a practical route to revealing Bell nonlocality in finite-energy bosonic states.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-23",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 70,
+   "why": "Photon-number-resolving detection with Gaussian preprocessing and feed-forward nearly saturates CHSH violation for finite-energy GKP Bell states, without non-Clifford gates.",
+   "kind": "T",
+   "eli5": {
+    "plain": "Grid-encoded states of light can show Bell nonlocality even when they are only weakly squeezed, but the obvious measurements miss it; counting photons instead finds nearly all of it.",
+    "how": "Logical Pauli measurements on finite-energy GKP Bell states reveal no violation, and reaching the state's maximum CHSH value normally needs logical non-Clifford rotations. The authors move the non-Gaussian resource into the measurement: photon-number-resolving detection with Gaussian preprocessing and adaptive feed-forward approaches the maximum violation.",
+    "matters": "GKP states in circuits are far from fault-tolerance-grade squeezing, so the useful question is what sub-threshold GKP states are good for. It also makes the general point that a hard non-Gaussian operation can sometimes be moved from the state preparation into the detector.",
+    "caveat": "Optical photon-number-resolving detection at the required efficiency is itself hard, and the analysis is a numerical study under chosen measurement constraints rather than a proposal with a full loss budget."
+   }
+  },
+  {
+   "id": "2609.21560",
+   "title": "Giant-Atom-Induced High-Order Output Zeros in a Coupled-Cavity Array",
+   "authors": [
+    "Mengxue Li",
+    "H. Z. Shen",
+    "H. D. Liu",
+    "Gangcheng Wang"
+   ],
+   "abstract": "Coherent perfect absorption, zero transmission and zero reflection are several scattering phenomena governed by interference engineering in Hermitian and non-Hermitian systems. Higher-order coherent perfect absorption can significantly broaden the absorption bandwidth, while existing implementations rely on scattering zero degeneracy induced by exceptional points or additional momentum-dependent phase delays introduced in incident waves. We propose a scheme where a giant atom couples to a one-dimensional coupled-cavity array at two spatially separated sites. The spatially separated coupling configuration of the giant atom generates tunable nonlocal interference phases that dominate the scattering interference process. We further investigate the zero-reflection and zero-transmission behaviors under single-sided incidence. Remarkably, we find that for certain parameter choices, zero transmission can persist over the entire propagating band, rather than being restricted to a single momentum. Our results reveal that the giant-atom interference mechanism enables bandwidth-enhanced coherent perfect absorption and bandwidth-enhanced zero transmission in the absence of exceptional points and incident momentum-dependent phase delays. Our work provides a physical route for coherent wave manipulation in coupled-cavity quantum networks.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-18",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 69,
+   "why": "Two-point coupling of a giant atom kills transmission across an entire propagating band instead of at a single momentum.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.24858",
+   "title": "Overcoming the Hong-Ou-Mandel interference limitation for the second photon from a two-photon cascade",
+   "authors": [
+    "Raphael Joos",
+    "Michal Vyvlecka",
+    "Tim Strobel",
+    "Benjamin Breiholz",
+    "Furkan Aglarci",
+    "Ponraj Vijayan",
+    "Hans-Georg Babin",
+    "Arne Ludwig",
+    "Michael Jetter",
+    "Simone L. Portalupi",
+    "Peter Michler"
+   ],
+   "abstract": "Quantum emitters such as semiconductor quantum dots can provide entangled photon pairs emitting from a system of cascaded states. However, the resulting temporal correlation between the two photons from the three-level ladder system has been shown to set a limit on the achievable two-photon interference. In this work, we show that such limitation, for photons emitted by the second transition, is only due to reduced temporal overlap at the interference beam splitter. We investigate this theoretically and experimentally by determining time-resolved four-photon coincidences between two successively emitted photon pairs. Post-emission synchronization shows the recovery of maximum interference visibility; in prospective quantum networks this could be achieved via deterministic quantum memories.",
+   "categories": [
+    "quant-ph",
+    "cond-mat.mes-hall",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 68,
+   "why": "Four-photon coincidences show the cascade's second photon loses interference only through timing jitter, fully recovered by post-emission synchronisation.",
+   "kind": "TE",
+   "eli5": null
+  },
+  {
+   "id": "2609.24933",
+   "title": "A thermal microwave bus for neutral atom quantum computing",
+   "authors": [
+    "Matthew J. H. Kendall",
+    "Christopher J. Watson",
+    "Michael Ben Shem",
+    "Jonathan D. Breeze"
+   ],
+   "abstract": "High-fidelity two-qubit gates in neutral-atom arrays rely on the Rydberg blockade, which is intrinsically short ranged and requires long range connectivity to be achieved through atom shuttling. We propose a four level architecture, where the typical ground state qubit can be leveraged for its long lifetime and the Rydberg states couple to a microwave cavity, allowing for long range cavity mediated gates. We first find the thermal dependence of two established protocols, the dispersive iSWAP native to the Tavis-Cummings model and the Controlled phase gate generated from driving the cavity. We simulate them under the presence of Rydberg decay, thermal photons, finite cavity linewidth and find fidelities which accompany closed form bounds. We then introduce the bichromatic Raman gate, which only virtually populates the Rydberg states and cancels dispersive shifts to mitigate both atomic and cavity decay, achieving a fidelity of $F = 0.997$. Finally, we consider a full optical tweezer array in a microwave cavity, and show that using a cavity mediated gate to close the periodic boundaries of the toric code shortens an error correction round by a factor of 2.3 for realistic array sizes. This was then applied to the wider family of Bivariate bicycle codes, and we find that it shortens a round of the gross code by a factor of 4.8.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 67,
+   "why": "A bichromatic Raman gate through a microwave cavity links distant Rydberg atoms at 0.997 fidelity while only virtually populating Rydberg states.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.22998",
+   "title": "The Generalised Causality Principle",
+   "authors": [
+    "Sahil Gopalkrishna Naik"
+   ],
+   "abstract": "The no-signalling principle lies at the heart of Bell-type experiments involving spacelike-separated parties. Although not all no-signalling correlations can be realized within quantum theory, the no-sinalling principle itself remains fundamental even for post-quantum theories, since its violation would imply superluminal signalling. In the spirit of device independent nature of the Bell inequalities, there has recently been growing interest in causal inequalities, which identify correlations admitting no causal explanation. Such correlations have been rigorously studied within the process-matrix formalism, which is built upon a constraint analogous to spacelike separation in Bell scenarios. We refer to this constraint as the single-interaction constraint, whereby each party interacts with the environment only once. Despite considerable effort, no fundamental guiding principle is currently known that characterizes the restrictions this constraint imposes on the correlations generated by Process Matrices. In this work, we address this gap by proposing a generalized causality principle for the bipartite case. We show that for certain cases, the generalised causality principle defines a strict subset of the set of all signalling correlations. This principle thus provides a fundamental limit on quantum and even post-quantum theories subject to the single-interaction constraint. By analogy with no-signalling, whose violation excludes certain causal structures among the parties, a violation of the generalised causality principle rules out a corresponding class of causal structures(causal structures with the single interaction constraint). More broadly, our techniques provide a general framework for deriving generalised causal constraints, applicable to a wide class of indefinite-causal-order scenarios.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-19",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 66,
+   "why": "Proposes a causality principle bounding which process-matrix correlations are physical when each party acts once, a constraint the formalism has lacked.",
+   "kind": "T",
+   "eli5": {
+    "plain": "The framework used to describe processes without a fixed order of events allows correlations that may be unphysical, and nobody knew what principle should rule them out. This proposes one.",
+    "how": "Just as no-signalling constrains Bell correlations without assuming quantum theory, the generalised causality principle constrains the correlations a process matrix can produce under the single-interaction constraint, where each party touches the environment only once.",
+    "matters": "Indefinite causal order is normally justified by analogy with nonlocality, and the analogy was missing its no-signalling. Having a candidate principle is what makes device-independent statements about causal order possible.",
+    "caveat": "A proposed principle, not a derivation from anything more primitive, and its physical justification is as contestable as no-signalling once was."
+   }
+  },
+  {
+   "id": "2609.15868",
+   "title": "Generation of entanglement and magic via continuous homodyne monitoring of a qubit pair",
+   "authors": [
+    "Debmalya Das",
+    "Giuseppe Magnifico",
+    "Maria Maffei"
+   ],
+   "abstract": "Continuous weak measurements of quantum systems are of great relevance in quantum foundations and applications. They can be achieved by probing the quantum system of interest by repeatedly measuring an auxiliary system weakly coupled to it. Here we study two qubits coupled in different points to a common one-dimensional electromagnetic field and simultaneously monitored in the right- and left-propagating output channels by homodyne detection. Using a collision-model description, we derive an analytical Stochastic Master Equation (SME) governing the resulting diffusive quantum trajectories, including the interference between the two measurement channels. For nonlinear functions of the quantum state, such as entropies, averages over quantum trajectories generally differ from the corresponding quantities evaluated on the unconditional state. Through this mechanism, we show that continuous monitoring generates entanglement, absent in the unconditional dynamics, and enhances quantum magic in the qubit pair during the decay. Both resources can be tuned through the optical phase accumulated between the qubits and the phases of homodyne local oscillators. Our results establish continuous homodyne monitoring of multiple emitters as a tunable mechanism for generating quantum resources.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-14",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 66,
+   "why": "Homodyne monitoring of two qubits in a shared waveguide generates entanglement and magic along trajectories that the averaged state does not show.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.28897",
+   "title": "Characterization and Active Control of Position-Dependent Timing Dynamics in Superconducting Strip Detectors",
+   "authors": [
+    "Sahil R. Patel",
+    "Kristen M. Parzuchowski",
+    "Eli Mueller",
+    "Boris Korzh",
+    "Emanuel Knehr",
+    "Adam N. McCaughan",
+    "Martin J. Stevens",
+    "Matthew D. Shaw",
+    "Jason P. Allmaras"
+   ],
+   "abstract": "Superconducting strip single-photon detectors (SSPDs) have emerged as scalable, wide-strip variants of traditional nanowire counterparts. Despite practical advantages including improved optical fill factors and enhanced signal-to-noise ratios the fundamental detection physics governing these micro-scale geometries remains largely unexplored. Here, we investigate the underlying photoresponse of a 20 um-wide tungsten silicide SSPD, demonstrating a slew-rate-corrected timing jitter of 13.2 ps at 532 nm and 20.5 ps at 1550 nm, alongside saturated internal detection efficiency up to 1550 nm. Using focused free-space optical scanning, we reveal that detector timing jitter is strongly influenced by a spatially dependent slew rate between edge and center absorption events. To mitigate this impact, we utilize a parallel superconducting rail architecture to actively redistribute supercurrent. This in-situ tuning minimizes the latency mismatch and mitigates thermally activated intrinsic dark counts, extending the device's ability to operate at higher temperatures. Finally, comparing these dynamics with time-dependent Ginzburg-Landau (TDGL) modeling elucidates the physical origins of the position-dependent photoresponse, highlighting how superconducting rails or specialized readout electronics can mitigate negative impacts on timing jitter.",
+   "categories": [
+    "physics.ins-det",
+    "physics.app-ph",
+    "physics.optics",
+    "quant-ph"
+   ],
+   "submitted": "2026-09-24",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 65,
+   "why": "Edge and centre absorption events differ in slew rate; a parallel superconducting rail redistributes current and removes the resulting 13 ps jitter mismatch.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.20757",
+   "title": "Procrastinating einselection in non-Markovian quantum dynamics",
+   "authors": [
+    "Michael J. Moody",
+    "Tara Kalsi",
+    "Agung Budiyono",
+    "Sebastian Deffner"
+   ],
+   "abstract": "Among the processes governed by open-system and dissipative quantum dynamics, environment-induced superselection, or einselection, is particularly foundational, since it describes the formation of a preferred set of pointer states through environmental monitoring and ultimately the emergence of classicality. Especially in the context of Quantum Darwinism, einselection can be studied in terms of the motion of an observable towards its pointer value. To this end, we derive a quantum speed limit for observables for finite-dimensional systems governed by differentiable time-local open dynamics. We identify two mechanisms through which non-Markovianity can enhance observable speed: direct dissipative motion supported by population retention or revival, and indirect enhancement through restoration of the asymmetry available for coherent motion. For permanent einselection, this delays the emergence of the pointer basis due to accumulated negativity.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-17",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 64,
+   "why": "A speed limit for observables shows non-Markovian backflow delays pointer-state emergence, so einselection can be postponed rather than only slowed.",
+   "kind": "T",
+   "eli5": {
+    "plain": "Environments normally pick out a preferred set of classical-looking states quickly. When the environment feeds information back, that selection can be held off.",
+    "how": "The authors derive a quantum speed limit for how fast an observable can move towards its pointer value under time-local open dynamics, then identify two ways non-Markovianity raises that speed: dissipative motion supported by population revival, and restored asymmetry enabling coherent motion. Accumulated negativity in the dynamics is what delays permanent einselection.",
+    "matters": "Superconducting qubits sit in structured environments, and the emergence of a preferred basis is usually assumed to be instantaneous. A bound that ties the delay to measurable non-Markovianity turns a conceptual story into something with a timescale.",
+    "caveat": "The bound applies to differentiable time-local dynamics in finite dimensions, which excludes strongly structured baths, and delay is quantified for chosen models rather than measured."
+   }
+  },
+  {
+   "id": "2609.24800",
+   "title": "Collective cavity quantum electrodynamics in solid-state optical clocks",
+   "authors": [
+    "Karen Mamian",
+    "Georgy A. Kazakov",
+    "Thorsten Schumm",
+    "Charles Roques-Carmes"
+   ],
+   "abstract": "Solid-state frequency standards are generally limited by strong decoherence, rendering conventional interrogation schemes inefficient. The $^{229}$Th nuclear clock provides a unique and timely platform for solid-state optical metrology and nuclear cavity quantum electrodynamics (QED), featuring a coherence time many orders of magnitude shorter than the radiative lifetime in current experiments. Here, we propose and analyze three cavity QED-enhanced clock interrogation schemes that turn this timescale mismatch into an advantage, leveraging collective coupling of thorium nuclei to nanophotonic modes to enable fast interrogation and detection despite the long population lifetime. We reveal the central role of collective cooperativity in determining the clock frequency instability, and derive the optimal conditions (power, working-point detuning, thorium density) for clock operation.",
+   "categories": [
+    "physics.optics",
+    "nucl-th",
+    "quant-ph"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 63,
+   "why": "Turns the thorium-229 clock's short coherence time into an asset by collectively coupling nuclei to a nanophotonic mode for fast interrogation.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.25751",
+   "title": "Analysis of Josephson junctions switching time distributions for the detection of single microwave photons",
+   "authors": [
+    "A. S. Piedjou Komnang",
+    "C. Guarcello",
+    "C. Barone",
+    "C. Gatti",
+    "S. Pagano",
+    "Vincenzo Pierro",
+    "A. Rettaroli",
+    "G. Filatrella"
+   ],
+   "abstract": "We investigate an optimal scheme for the detection of single microwave photons by a Josephson junction through the analysis of its switching times distribution. The proposed analysis is of support for the decision about the existence of the photon field, which is important in the case of rare events. We assume that the cavity and the transmission line are ideal (each photon absorbed to the cavity gives a current pulse as the output of the transmission line) and the photon source is periodic. The employed methodology consists in comparing the switching probabilities of a Josephson junction exposed to a train of current pulses, simulating a weak photon field, with that of the same device in absence of pulses. In both cases, thermal noise can induce thermal activated switchings. The investigation of the unbalance in the number of switching events in the two cases, gives an estimate of the efficiency of the detection. Furthermore, in the assumption of escapes described by Kramers model, it is possible to provide a relationship between the properties of the photons field, the quantum efficiency of the detection process, and the Josephson junctions switching features at finite temperatures.",
+   "categories": [
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "A",
+   "score": 62,
+   "why": "Kramers-model analysis turns a junction's switching-time histogram into a detection efficiency and a decision rule for rare single-photon events.",
+   "kind": "T",
+   "eli5": {
+    "plain": "A calculation of how to tell, from the times at which a Josephson junction jumps to a voltage state, whether a faint microwave field contained photons at all.",
+    "how": "The junction sits biased just below its critical current, so thermal noise alone makes it switch at random times; a photon pulse adds to that rate, and comparing the two switching-time distributions with Kramers escape theory gives the quantum efficiency.",
+    "matters": "Counting single microwave photons still has no detector as routine as an avalanche diode in the optical, and this is the statistics you need to claim a detection when the false-positive rate from thermal escape is comparable to the signal.",
+    "caveat": "Cavity and line are taken as ideal and the source periodic, so the numbers bound what the switching statistics allow, not what a real absorber and its loss budget would deliver."
+   }
+  },
+  {
+   "id": "2609.29248",
+   "title": "The Uncertainty Principle, Uncertainty Relations, and Underlying Trajectories: Feynman, Nelson, Bohm, and Persistent Kac-Dirac Dynamics",
+   "authors": [
+    "Partha Ghose"
+   ],
+   "abstract": "A distinction should be made between quantum uncertainty relations and the broader uncertainty principle. The former are precise statistical consequences of quantum mechanics; the latter, when interpreted as excluding simultaneously definite conjugate variables and particle trajectories, is an additional ontological claim not implied by the uncertainty relations themselves. We examine this distinction using Feynman paths, Nelson's stochastic mechanics, Bohmian mechanics, and finite-speed persistent Kac dynamics. Feynman paths exhibit Brownian-like short-time scaling, while Nelson derives Schrödinger dynamics from Wiener diffusion supplemented by dynamical assumptions. Bohmian mechanics, by contrast, reproduces quantum predictions while retaining definite particle trajectories. Kac dynamics provides continuous, piecewise differentiable finite-speed trajectories whose diffusive limit approaches Wiener kinematics. Moreover, after an appropriate Wick rotation, its coupled two-sector transport equations can be mapped to the Dirac equation. These examples demonstrate that the experimentally established uncertainty relations are compatible with markedly different underlying path structures. They therefore do not, by themselves, rule out a microscopic trajectory description of quantum dynamics.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-24",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 62,
+   "why": "Separates the statistical uncertainty relations from the ontological ban on trajectories, with finite-speed Kac dynamics mapping onto the Dirac equation.",
+   "kind": "T",
+   "eli5": {
+    "plain": "Two different claims travel under the name 'uncertainty principle': a statement about the spread of measurement results, and a stronger claim that particles have no trajectories at all. Only the first follows from quantum mechanics.",
+    "how": "Feynman paths, Nelson's stochastic mechanics, Bohmian mechanics and Kac's finite-speed persistent random walk are compared. Feynman paths show Brownian short-time scaling, Nelson derives Schrodinger dynamics from diffusion plus extra assumptions, Bohmian mechanics keeps trajectories and the predictions, and Wick-rotated Kac dynamics maps to the Dirac equation.",
+    "matters": "It is a clean piece of hygiene about what the experiments actually exclude, and the Kac-to-Dirac mapping is the concrete part: a finite-speed trajectory model reproducing relativistic quantum kinematics is not what the folklore expects.",
+    "caveat": "Mostly a synthesis of known positions, and the Kac mapping is presented as a formal correspondence rather than a physical model with independent predictions."
+   }
+  },
+  {
+   "id": "2609.17307",
+   "title": "Forbidden Subspaces in Quantum State Smoothing",
+   "authors": [
+    "Chon-Fai Kam",
+    "Kai-Wen Wong"
+   ],
+   "abstract": "A system between a preparation and a post-selection has had no agreed state since 1964. With positivity as the criterion, a post-selection admits an interval of orderings around the symmetric one exactly when the subspace it forbids is spanned by eigenvectors of a full-rank filtered state. Otherwise it certifies contextuality, testable on a qubit. The averaged filtered state carries the entanglement spectrum of the record, so the smallest forbidden subspaces a symmetry allows are even-dimensional in the Haldane class and odd in the trivial one. That parity is the record's topological class.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-15",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 61,
+   "why": "Positivity fixes when a pre- and post-selected state is orderable; otherwise it certifies contextuality, and the forbidden subspace's parity labels the record's topological class.",
+   "kind": "T",
+   "eli5": {
+    "plain": "What state should you assign to a system between preparation and a later successful post-selection? Demanding only that the answer be a legitimate positive state already decides the question in some cases and forces contextuality in others.",
+    "how": "The post-selection forbids a subspace. If that subspace is spanned by eigenvectors of a full-rank filtered state, an interval of operator orderings around the symmetric one stays positive; if not, no ordering works and contextuality is certified, on a qubit. The averaged filtered state carries the record's entanglement spectrum, so symmetry makes the smallest allowed forbidden subspaces even-dimensional in the Haldane phase and odd in the trivial one.",
+    "matters": "Smoothed states are what you write down when you continuously monitor a qubit and then condition on a later outcome, which is exactly circuit-QED practice, and the paper says when that assignment is forced and when it is a choice.",
+    "caveat": "Extremely compressed, and the topological reading rests on identifying the record's entanglement spectrum with a symmetry-protected class, which is a strong structural assumption."
+   }
+  },
+  {
+   "id": "2609.14989",
+   "title": "Correlation and Branching Mechanisms in the Quantum-to-Classical Transition of Interacting Systems",
+   "authors": [
+    "Bingyu Cui"
+   ],
+   "abstract": "We analyze the quantum-to-classical transition of interacting systems from the viewpoint of reduced dynamical closure. Bohmian trajectories are used as a diagnostic of the probability flow generated by the full wavefunction, rather than as an alternative set of quantum predictions. A closed classical or semiclassical description of a retained coordinate can emerge either because interaction-induced correlations are suppressed or because the observable of interest is insensitive to the correlations that remain. Three models are used to isolate distinct mechanisms. In a hard-core collision, the leading tail of a broad relative-coordinate wave packet reaches the boundary before its center and generates spatial nonseparability through reflection and interference. In the Rabi model, the mixed quantum-classical Ehrenfest approximation fails when spin-position covariances prevent the spin dynamics from being determined solely by the mean oscillator coordinate. In an internal-state-dependent force model, the total mean position obeys an exact Ehrenfest equation, while the wavefunction separates into branch-resolved pointer components; mean classicality therefore does not imply branch-level classicality. These examples show that the quantum-to-classical transition of interacting systems is controlled not only by wave-packet localization but also by whether and how interaction-induced correlations enter the reduced equations of motion.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-14",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 60,
+   "why": "Bohmian flow diagnoses when a retained coordinate closes into classical dynamics, and why Ehrenfest fails once spin-position covariances build up.",
+   "kind": "T",
+   "eli5": {
+    "plain": "Three simple models show what has to be true for one part of an interacting system to follow its own classical equation, and what breaks when it does not.",
+    "how": "Bohmian trajectories are used only as a readout of the full wavefunction's probability flow. A closed classical description emerges either when interaction-induced correlations are suppressed or when the observable does not feel the remaining ones. A hard-core collision generates nonseparability through tail reflection; in the Rabi model spin-position covariance kills the mean-field Ehrenfest approximation; in a state-dependent force the total mean position still obeys an exact law.",
+    "matters": "Mean-field or Ehrenfest treatments are the default when a qubit is coupled to a mechanical or classical-looking degree of freedom, and this gives the covariance condition under which that default is safe.",
+    "caveat": "Three toy models chosen to isolate mechanisms; there is no general criterion, and the Bohmian machinery is a diagnostic here rather than a claim about ontology."
+   }
+  },
+  {
+   "id": "2609.31069",
+   "title": "Plasmonic Modes in hybrid Josephson Junction Arrays",
+   "authors": [
+    "Alex Kirchner",
+    "Simon Feyrer",
+    "Vjeko Dimić",
+    "Johanna Berger",
+    "Davide Curcio",
+    "Giorgio Biasiol",
+    "Michael Prager",
+    "Matthias Kronseder",
+    "Dominique Bougeard",
+    "Nicola Paradiso",
+    "Christoph Strunk",
+    "Leandro Tosi"
+   ],
+   "abstract": "We present microwave characterization measurements of Josephson junction arrays (JJAs) based on epitaxial Al-InAs quantum well heterostructure. The Josephson inductance of the constituent planar junctions can be derived by probing the low-energy plasmon modes of these devices. Applying an out-of-plane magnetic field gives rise to a Fraunhofer-like diffraction pattern, from which the current-phase relation and the effective transparency can be extracted. JJAs can be used to achieve high inductances, suitable for the implementation of quantum circuits. They also provide an excellent test-bed for studying the microscopic excitations of hybrid superconductor-semiconductor devices associated with the presence of Andreev states. Here, we demonstrate their tunability over a broad range of out-of-plane magnetic fields.",
+   "categories": [
+    "cond-mat.mes-hall",
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-09-25",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 58,
+   "why": "Fraunhofer patterns in the plasmon modes of Al-InAs junction arrays give the current-phase relation and transparency of a high-inductance element.",
+   "kind": "E",
+   "eli5": {
+    "plain": "Microwave measurements of a chain of semiconductor-based Josephson junctions, used to read off how each junction responds to current and magnetic field.",
+    "how": "The array's low-energy plasmon resonances depend on the Josephson inductance, so tracking them versus an out-of-plane field produces a diffraction-like pattern from which the current-phase relation and effective junction transparency are extracted.",
+    "matters": "Superinductances are the scarce component in fluxonium-style circuits, and an epitaxial Al-InAs array is both a candidate inductor and a clean place to see Andreev states, which are the main suspect in loss of hybrid devices.",
+    "caveat": "This is device characterisation: no qubit, no coherence numbers, and the field tunability that makes it interesting is also what makes it hard to place next to flux-sensitive circuitry."
+   }
+  },
+  {
+   "id": "2609.25673",
+   "title": "Post-selected enhancement of phase sensitivity in a two-path interferometer",
+   "authors": [
+    "Ryuya Fukuda",
+    "Katsuki Tanaka",
+    "Masataka Iinuma",
+    "Holger F. Hofmann"
+   ],
+   "abstract": "Post-selected metrology can exceed the standard quantum limit of single photon interference by concentrating all of the available Fisher information in a subset of post-selected outcomes. Here we apply this principle to a standard two-path interferometer, activating the Fisher information concentrated in the low probability output port by transferring the phase sensitivity to the circular polarizations of the photon. We obtain a phase gradient of the post-selected interference fringe that corresponds to that of a four-photon NOON state, providing a direct comparison of the performance of multi-photon interference with single-photon post-selection.",
+   "categories": [
+    "quant-ph",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 58,
+   "why": "Post-selecting the dark port of a single-photon interferometer yields the fringe gradient of a four-photon NOON state.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.24269",
+   "title": "On the Born rule in a new quantum approach",
+   "authors": [
+    "Inge S. Helland"
+   ],
+   "abstract": "In the context of a new approach towards quantum foundation, the Born rule is proved under a weak condition through several steps. The sole weak condition behind the Born rule is called the transition probability principle, which is closely related to the likelihood principle of statistics. This condition is discussed from several points of view. The whole approach leads to a simpler state concept than the traditional one in finite-dimensional quantum mechanics.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 58,
+   "why": "Derives the Born rule from a transition-probability postulate akin to the likelihood principle of statistics, with a leaner notion of state.",
+   "kind": "T",
+   "eli5": {
+    "plain": "Another attempt to show that the squared-amplitude rule for quantum probabilities is not an extra assumption but follows from something weaker and more intuitive.",
+    "how": "The derivation proceeds in stages from what the author calls the transition probability principle, a condition closely related to the likelihood principle in statistics, and ends with a simpler state concept for finite-dimensional quantum mechanics.",
+    "matters": "How much of quantum mechanics is forced and how much is stipulated is the central question of every reconstruction programme, and the Born rule is the most contested stipulation.",
+    "caveat": "One instalment of the author's ongoing programme; whether the transition probability principle is genuinely weaker than what it derives, rather than the Born rule in other clothes, is exactly what a reader has to judge."
+   }
+  },
+  {
+   "id": "2609.25593",
+   "title": "Resonant multi-harmonic acousto-optics for programmable frequency control of visible light in a CMOS platform",
+   "authors": [
+    "Jacob M. Freedman",
+    "Matthew J. Storey",
+    "Daniel Dominguez",
+    "Andrew Leenheer",
+    "Nils T. Otterstrom",
+    "Matt Eichenfield"
+   ],
+   "abstract": "Scaling quantum control for atoms, ions, and solid-state emitters requires gigahertz-frequency spectral control of high-power visible light in a volume-manufacturable platform. Silicon nitride photonics provides high power handling and CMOS-foundry compatibility but has no intrinsic mechanism for high-speed modulation. Integration with piezoelectric materials enables acousto-optic phase modulation, and mechanical resonant enhancement has made it efficient at gigahertz frequencies. However, a single resonance restricts the modulation waveform to a single tone, imposing Bessel-function sideband amplitudes and limiting frequency-shifting efficiency to 33.9%. Here we engineer a silicon nitride acousto-optic microstructure to support harmonically spaced resonances at 1.14 GHz and 2.28 GHz, each strongly optomechanically coupled to a 730 nm guided optical mode, so that tailored non-sinusoidal modulation waveforms can be resonantly synthesized. By piezoelectrically controlling the two mechanical amplitudes and their relative phase, we demonstrate 50% conversion to one sideband (1.5x the single-tone theoretical maximum), a flat seven-line comb, and a frequency shift with 60 dB carrier and 53 dB image suppression - to our knowledge the highest reported for an integrated modulator. The devices are fabricated in a 200 mm CMOS foundry, and we measure 91.7% yield without post-fabrication tuning across 36 devices from three wafers. We also show how the technique can be straightforwardly scaled to three or more harmonics. This result overcomes the trade-off between resonant enhancement and spectral programmability, with important consequences including improved single-qubit gate efficiency for hyperfine qubits.",
+   "categories": [
+    "physics.optics",
+    "quant-ph"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 57,
+   "why": "Two harmonically spaced mechanical resonances synthesise non-sinusoidal drives, pushing single-sideband conversion of visible light in silicon nitride to 50%.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.19625",
+   "title": "Experimental certification of the nonlocal advantages of quantum imaginarity",
+   "authors": [
+    "Jian-Hao Wu",
+    "Kai-Yu Yuan",
+    "Yun-Xiang Tian",
+    "Hao-Ran Tan",
+    "Yan-Xin Rong",
+    "Zhen Shang",
+    "Yong-Jian Gu",
+    "Ya Xiao"
+   ],
+   "abstract": "Quantum imaginarity is a distinct resource in quantum information theory, yet its nonlocal properties have not been fully explored. Here, we report an experimental study of the nonlocal advantage of quantum imaginarity (NAQI), in which local measurements on one subsystem can steer the average imaginarity of the conditional states of the other subsystem beyond the corresponding classical bound. The $l_1$-norm of imaginarity inequality is adopted as an experimentally accessible witness. A hybrid optimization algorithm that combines a genetic algorithm with sequential quadratic programming is developed to avoid local optima and accelerate the search for optimal measurement settings. Using polarization-encoded photonic qubits, we prepare two classes of two-qubit Bell-diagonal states and experimentally characterize the imaginarity of the conditional states following local measurements. Clear violations of the $l_1$-norm of imaginarity inequality are observed, providing an experimental certification of NAQI. We further investigate the relationship among NAQI, the nonlocal advantage of quantum coherence (NAQC), and Bell nonlocality based on their respective inequality criteria. For the two-qubit Werner states considered in this work, the regions of states that violate the respective criteria satisfy $\\mathcal{D}_{\\rm NAQC}\\subset\\mathcal{D}_{\\rm NAQI}\\subset\\mathcal{D}_{\\rm BN}$. Our work provides an experimental realization of NAQI and a comparison of different forms of quantum nonclassicality in a photonic platform.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-17",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 57,
+   "why": "A photonic experiment steers a partner's average imaginarity past the classical bound, certifying imaginarity as a nonlocal resource.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.22841",
+   "title": "High-Q Magneto-Optical Microdisk Resonators Based on Monocrystalline Bismuth-substituted Yttrium Iron Garnets",
+   "authors": [
+    "Takeru Yambe",
+    "Kota Taniguchi",
+    "Tatsuya Kitai",
+    "Daisuke Sato",
+    "Syuan Gao",
+    "Hajime Kumazaki",
+    "Shun Fujii",
+    "Takasumi Tanabe",
+    "Satoshi Iwamoto",
+    "Yasutomo Ota"
+   ],
+   "abstract": "Microresonators based on diverse material platforms have driven the progress of integrated photonics by enhancing light-matter interactions in compact volumes. Extending this strategy to magneto-optical (MO) media is highly attractive for nonreciprocal photonics, magnonics, and quantum transduction, yet compact high-Q resonators based on single-crystalline yttrium iron garnet (YIG) have remained elusive because of the difficulty of its nanofabrication. Here we demonstrate high-Q, small-mode-volume MO microdisk resonators based on monocrystalline Bi-substituted YIG (Bi:YIG). Low-loss Bi:YIG thin films prepared by bonding and thinning, combined with optimized Ar-plasma etching, enable submicron-thick, air-suspended microdisks that support telecom-band whispering-gallery modes with $Q = 1.52\\times 10^5$, a mode volume $V \\approx 200$ cubic wavelengths, and $Q/V \\approx 760$, representing an orders-of-magnitude improvement for integrated high-Q YIG MO cavities. The device exhibits clear magnetic-field-dependent spectral responses, including reciprocal resonance shifts and nonreciprocal frequency splitting of counter-propagating modes. A perturbative analytical model quantitatively reproduces these responses and indicates an effective MO coefficient about twice the bulk value, suggesting a possible miniaturization-induced enhancement. These results establish monocrystalline YIG microdisks as a compact high-Q MO platform for integrated isolators, optomechanics, microcombs, and photon-magnon quantum interfaces.",
+   "categories": [
+    "physics.optics"
+   ],
+   "submitted": "2026-09-19",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 56,
+   "why": "Bonded and plasma-etched Bi:YIG microdisks reach Q of 1.5e5 in 200 cubic wavelengths, with nonreciprocal response to field.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.24169",
+   "title": "No violation on a generalisation of Leggett-Garg inequality and Bell-CHSH inequality with extended probability",
+   "authors": [
+    "Sirawit Kajonsombat",
+    "Pongwit Srisangyingcharoen"
+   ],
+   "abstract": "A generalisation of the Leggett-Garg inequality (LGI) and the Bell-CHSH inequality is proposed in this work, by replacing a classical probability notion with an extended probability notion. The extended probability serves as an underlying layer of reality to the classical probability. Within the consistent history framework, the underlying layer is so-called a non-settleable history. Hence, the bounds of the LGIs and Bell-CHSH inequalities are extended. The resulting generalised inequalities are satisfied without violation for arbitrary measurement settings. Furthermore, generalised Macro- realism and generalised Local realism are introduced and analysed within the extended probability framework without relying on an explicit measurement. This opens up further possibilities on one of the great pursuits in physics, understanding on how a quantum system can possess classical properties.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 56,
+   "why": "Replacing classical probability with non-settleable histories lifts the Leggett-Garg and CHSH bounds so that no measurement setting violates them.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.23651",
+   "title": "Nonequilibrium energy transport and fluctuations in two-photon-driven nonlinear quantum optical systems",
+   "authors": [
+    "Y. T. Chen",
+    "Y. W. Lu",
+    "J. C. Lu",
+    "C. Wang"
+   ],
+   "abstract": "Understanding nonequilibrium transport and fluctuations driven by nonclassical light in nonlinear quantum optical systems is challenging. Here, we formulate a driven quantum master equation in the rotating frame combined with full counting statistics, retaining the drive-induced frequency shifts in the system-reservoir interactions and providing a unified description of drive-assisted incoherent transitions based on the rotated system dressed-basis. Applied to a Kerr resonator and a nonlinear Jaynes-Cummings model, the approach reveals pronounced multiphoton-resonant enhancement of the drive input energy current, with significant high peaks under two-photon driving compared to the single-photon case. The two-photon resonance relations are analytically obtained. Resonance structure in the nonlinear Jaynes-Cummings model nonlinearly relies on qubit-photon couplings, with additional dressed-state branches. A low-energy-state approximation attributes the resonant current enhancement to dressed-state hybridization and efficient activation of incoherent energy exchange processes. Beyond the average current, two-photon-driving induced energy exchange picture near resonance also substantially modifies the second-order current fluctuation and higher-order current cumulant, while increasing the time-normalized signal-to-noise ratio. Adding two-photon loss introduces extra incoherent photon-pair exchange pathways and further reshapes the current and its fluctuations. We hope these results may deepen interpretation of photon driving and quantum dissipation cooperatively governing nonequilibrium energy transport and fluctuations.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-20",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 55,
+   "why": "Full counting statistics in the rotated dressed basis show two-photon driving enhances the input energy current far beyond single-photon resonances.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.16490",
+   "title": "A complete classification of the existence of finite-dimensional quantum solutions to inconsistent linear constraint systems",
+   "authors": [
+    "Markus Frembs"
+   ],
+   "abstract": "Linear constraint systems (LCS) provide a compact algebraic language for nonlocal games and state-independent contextuality. In the binary case the Mermin--Peres square shows that inconsistent LCS can be solved by promoting variables to local Pauli operators, whereas a series of no-go results excludes analogous Pauli-, Clifford- and monomial unitary-based constructions at odd prime modulus. We first isolate the reason for this difference: for tensor-product quantum solutions, the obstruction to a classical solution of a LCS over $\\mathbb{Z}_n$ decomposes into obstruction classes carried by the individual factors. As a consequence, a genuinely global obstruction cannot arise solely by tensoring locally unobstructed systems. The argument is specific to odd modulus; at even modulus the reordering phase need not vanish, as in Pauli-based examples. Given this distinction, we instead associate LCS to finite arrangements of rank-one projectors and resolutions of the identity in finite-dimensional vector spaces. Quantum solvability for such LCS is automatic and the search for a quantum-classical gap rests entirely on proving classical unsatisfiability of the underlying modular incidence problem of the arrangement. By relating such LCS with group-valued frame functions, we identify a family of examples in the work of [Harding, Jager, and Smith, Int. J. Theor. Phys. 44, 539 (2005)]. To establish the (non)existence of classically unsatisfiable LCS over $\\mathbb{Z}_n$ with quantum solutions in all dimensions $d$ and for all $n\\in\\mathbb{N}$, we further construct explicit examples for the cases $d=n$ prime. Our main result thus positively resolves the existence problem of such LCS beyond the binary case: such systems exist if and only if $d\\geq 3$ and $\\gcd(n,d)>1$. Moreover, we establish the existence of LCS with a quantum-classical gap over finite fields if and only if $d\\geq 3$ and $p\\mid d$.",
+   "categories": [
+    "quant-ph",
+    "math-ph"
+   ],
+   "submitted": "2026-09-15",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 55,
+   "why": "Classifies which inconsistent linear constraint systems admit finite-dimensional quantum solutions, explaining why odd-modulus analogues of Mermin-Peres cannot exist.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.28139",
+   "title": "Beyond Antibunching: Photon Correlation Analysis Reveals Blinking Origin",
+   "authors": [
+    "Patricia Kallert",
+    "Santiago Bermúdez-Feijóo",
+    "Giorgio De Pascalis",
+    "Nicolas Claro-Rodriguez",
+    "Ioannis Caltzidis",
+    "Normen Auler",
+    "Eva Berger",
+    "Rebecca Aschwanden",
+    "Tobias Krieger",
+    "Saimon. F. Covre da Silva",
+    "Sandra Stroj",
+    "Quirin Buchinger",
+    "Michele B. Rota",
+    "Thomas Hummel",
+    "Sven Höfling",
+    "Armando Rastelli",
+    "Rinaldo Trotta",
+    "Dirk Reuter",
+    "Sonja Barkhofen",
+    "Klaus D. Jöns",
+    "Tobias Huber-Loyola"
+   ],
+   "abstract": "A variety of quantum emitters compete in the quest for the best single-photon source for photonic quantum technologies. Consequently, only a consistent approach to analyze the second-order auto correlation function allows comparison of the multi-photon contribution ($g^{(2)}(0)$) of different sources. However, the community employs different and inconsistent methods for blinking sources, leading to incomparable benchmarks of source quality. Here, we use the emission of an inherently non-blinking quantum dot (QD) and apply artificial blinking through two different mechanisms: masking the recorded raw data in post-processing and emulation of a blinking system by gating the laser excitation pulses. We then compare the $g^{(2)}(0)$ values with the non-blinking result. For the analysis, we investigate five estimators of $g^{(2)}(0)$ actively used in the literature. While fitting the envelope of the correlations on long-time scales with the correct blinking model is the best choice, normalizing to the Poisson level gives by far the worst proximity. Furthermore, we test our predictive model to identify the underlying blinking mechanism of a QD in a circular Bragg grating cavity.",
+   "categories": [
+    "quant-ph",
+    "cond-mat.mes-hall"
+   ],
+   "submitted": "2026-09-23",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 54,
+   "why": "Artificially blinking a stable quantum dot shows envelope fitting recovers the true g2(0) while normalising to the Poisson level fails worst.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.20823",
+   "title": "Environment Alignment and Redundant Record Formation in Imperfect-CNOT Quantum Darwinism",
+   "authors": [
+    "Aleksander Lasek",
+    "Paweł Horodecki"
+   ],
+   "abstract": "Quantum Darwinism explains objective information through redundant environmental records. Earlier work established that imperfect records can be amplified and that environment self-evolution can enhance or suppress their formation. We investigate how preparation, interaction angle, and field disorder combine in an imperfect-CNOT model with random Gaussian couplings and pure, noninteracting environment qubits. We find that, without fields, a single alignment parameter $Λ$ determines the preparation and interaction-angle dependence of conditional-state distinguishability. Increasing interaction imperfection or local field strength can improve or suppress recording. We explain this nonmonotonic response through the geometry of conditional branch separation. For the pure initial environments considered here, the $Z$ basis remains optimal for Holevo information, so field-assisted recording requires no change of the recorded system observable. Comparing uniform local field strengths with Gaussian-distributed strengths at equal root-mean-square strength shows how disorder broadens both beneficial and detrimental field effects. Exact expressions for fragment information and numerical simulations with up to 24 environment qubits quantify the distinction between high mean information and reliable records across fragments and throughout a finite observation window. These results connect the geometry of local information acquisition to the fragment sizes needed for robust recording. The branch-distinguishability analysis itself requires only the conditional evolution of each environment qubit and extends to other interactions that preserve a system pointer basis.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-17",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 54,
+   "why": "A single alignment parameter governs how imperfect CNOT recording and local field disorder help or hurt redundant environmental records.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.27601",
+   "title": "Scalable integration of silicon carbide color centers into nanophotonic structures",
+   "authors": [
+    "Raphael Wörnle",
+    "Jonas Schmid",
+    "Dennis Grüner",
+    "Jonah Heiler",
+    "Flavie Davidson-Marquis",
+    "Georgy V. Astakhov",
+    "Vadim Vorobyov",
+    "Florian Kaiser",
+    "Jonathan Körber",
+    "Jörg Wrachtrup"
+   ],
+   "abstract": "Color centers in silicon carbide are a promising platform for quantum technologies, offering long-coherence electron and nuclear spins for storing and manipulating quantum information, as well as single-photon emission for quantum communication. Low photon collection efficiency is commonly addressed by integrating color centers into nanophotonic devices. Here, we report a scalable method for the deterministic integration of color centers into silicon carbide nanopillars, using the same nanoscale mask for both implantation of oxygen-related color centers (PL5, PL6) and subsequent nanopillar fabrication via dry etching. This approach solves the issue of low color center creation yield in nanostructures, with figures of merit comparable to bulk samples. We demonstrate count rate enhancements of up to one order of magnitude for PL5 and four times for PL6, while preserving spin coherence times. Our method is directly applicable to other solid-state platforms, offering a scalable route to efficiently integrate color centers into nanostructures.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-23",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 52,
+   "why": "One mask for both implantation and etching puts oxygen-related colour centres in silicon carbide pillars, raising count rates tenfold at unchanged spin coherence.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.25214",
+   "title": "Nonlocal advantage of quantum coherence in tau-lepton pairs from electron--positron collisions",
+   "authors": [
+    "Yoav Afik",
+    "Juan Ramón Muñoz de Nova",
+    "Sarthak Sharma",
+    "Surya Sundar Raman"
+   ],
+   "abstract": "Quantum correlations have recently attracted significant attention in collider physics, with Nonlocal Advantage of Quantum Coherence (NAQC) representing the strongest form of quantum correlation studied so far. Owing to its strength, NAQC is considerably more challenging to observe than Bell nonlocality since it is only present in narrower regions of phase space. Unlike other systems, tau-lepton pair ($τ^+τ^-$) production in electron--positron ($e^+e^-$) collisions provides an ideal testing ground, as it exhibits strong quantum correlations and, in particular, NAQC over a large region of phase space. In this paper, we investigate NAQC in $e^+e^- \\to τ^+τ^-$ production at center-of-mass energies of 10.58 and 91.19~GeV, corresponding to the ongoing Belle~II and future FCC-$ee$ experiments, respectively. Remarkably, for our experimental proposal, we develop a dedicated NAQC witness, which allows to certify NAQC presence by measuring one single magnitude. We estimate the experimental sensitivities needed to establish the presence of NAQC, finding that a large fraction of the number of events (specifically, 0.18 for Belle~II and 0.31 for FCC-$ee$) contribute to the NAQC signal. A 5$σ$ observation of NAQC requires a precision of approximately 1\\% at Belle~II, while a precision of a few percent is sufficient at FCC-$ee$. The resulting observation would constitute the strongest form of quantum correlation measured in a collider to date. In addition, we design an experimental scheme to implement the steering game leading to the NAQC definition, representing the first implementation of a steering game in a high-energy collider. Our results are easily extendable to other electron--positron colliders with different center-of-mass energies.",
+   "categories": [
+    "quant-ph",
+    "hep-ex",
+    "hep-ph",
+    "hep-th"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 52,
+   "why": "A single-observable witness would certify nonlocal advantage of quantum coherence in tau pairs at Belle II and FCC-ee energies.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.25753",
+   "title": "Photon-Statistics Control of Strong-Field Rydberg-State Excitation",
+   "authors": [
+    "Tao Jiang",
+    "Jinlei Liu",
+    "Haopu Dou",
+    "Lingyi Zhao",
+    "Peng Xiang",
+    "Liangjun Peng",
+    "Renyu Wang",
+    "Jing Zhao",
+    "Xiaowei Wang",
+    "Yue Lang",
+    "Zengxiu Zhao"
+   ],
+   "abstract": "Photon statistics provides a new control dimension for strong-field bound-state formation. Using a quantum-optical phase-space formulation coupled to time-dependent Schrödinger-equation calculations, we show that field fluctuations enhance multiphoton Rydberg excitation by broadening AC-Stark-shifted resonances, but suppress tunneling-mediated recapture even as ionization increases. A quantum-statistical recapture model attributes the latter to ensemble-induced dispersion of relative path phases. Photon statistics also reshapes Rydberg-manifold parity, linking field statistics to recapture coherence and final-state symmetry.",
+   "categories": [
+    "quant-ph",
+    "physics.atom-ph"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 51,
+   "why": "Field fluctuations broaden Stark-shifted resonances to aid multiphoton Rydberg excitation while suppressing tunnelling recapture and reshaping final-state parity.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.19862",
+   "title": "Automated search for highly contextual Kochen-Specker proofs",
+   "authors": [
+    "Axel Muller",
+    "Metod Saniga"
+   ],
+   "abstract": "Observable-based Kochen-Specker proofs are configurations of multi-qubit Pauli observables grouped into contexts whose products are plus or minus the indentity. Their robustness as state-independent contextuality tests can be measured by the tolerated error per context $\\varepsilon = 2d/|H|$, where $d$ is the contextuality degree and $|H|$ the number of contexts. Since the degree depends only on an underlying abstract structure called the hypergram i.e. the pair formed by the context hypergraph and the anticommutation graph, the search for highly contextual proofs can be carried out on them instead, with no reference to qubits or to any particular Pauli labeling. We further exploit this by enumerating anticommutation graphs first, and then by associating to each graph $G$ the single hypergram carrying its entire hypergraph support $HS(G)$, so that exactly one candidate is examined per graph. Applied to the House of Graphs database and to censuses of vertex-transitive graphs on at most 24 vertices, this pipeline recovers the Peres-Mermin square, the doily and the Mermin pentagram, and yields configurations reaching $\\varepsilon = 0.707$, against $0.424$ for the previous published record. The best configurations are predominantly those stemming from line graphs and unions of graphs; we explain the former by showing that every perfect matching of a graph is a context of its line graph, which exhibits the Peres-Mermin square and the doily as the first members of two infinite families. We close with finite geometric descriptions of the most striking configurations inside symplectic polar spaces, in terms of ovoids, hyperbolic quadrics and Fano planes.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-17",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 51,
+   "why": "Enumerating anticommutation graphs instead of Pauli labelings finds Kochen-Specker proofs ranked by tolerated error per context.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.26429",
+   "title": "Photonic CZ gates based on few-photon scattering from emitter-cavity systems",
+   "authors": [
+    "Mateusz Duda",
+    "Pieter Kok"
+   ],
+   "abstract": "In this paper we analyze the performance of photonic CZ gates based on N waveguide-coupled cavities containing two-level emitters. We derive single- and two-photon scattering matrices for one cavity using the input-output formalism of quantum optics and for N>1 cavities using the SLH formalism, allowing us to compute the CZ gate fidelity. We consider two input Gaussian wave packets that are centered on a two-photon transition of the emitter-cavity system, and find a trade-off between optimizing the single-photon and two-photon wave packet shape. While the single-photon wave packet is preserved for large emitter-cavity coupling rates, where there is little overlap with the single-photon transitions, the two-photon wave packet acquires the necessary $π$ phase shift for smaller coupling rates, comparable to the cavity decay rate multiplied by the number of cavities. We find that this trade-off limits the CZ gate fidelity to approximately 60% when averaging over all input states.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 50,
+   "why": "Wave-packet shaping trades single- against two-photon transitions, capping emitter-cavity photonic CZ fidelity near 60% averaged over inputs.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.22890",
+   "title": "Time and causality in quantum gravity",
+   "authors": [
+    "Charis Anastopoulos"
+   ],
+   "abstract": "The problem of time in quantum gravity is often presented as a consequence of applying quantum theory to general relativity. These notes adopt a broader perspective. We first examine how time enters classical mechanics, relativity, quantum theory, and quantum field theory, distinguishing three principal aspects: causal order, temporal duration, and the present. This analysis shows that the conceptual difficulties associated with time do not arise only when gravity is quantised. Tensions between causal structure, clocks, observables, and measurement are already present in the theories from which quantum gravity is constructed. We then survey responses to the problem of time across the principal approaches to quantum gravity. These include canonical and Wheeler-DeWitt quantisation, path-integral and histories formulations, perturbative and background-dependent approaches, causal sets, and twistor theory. The programmes are compared according to whether they retain an external time, render time problematic through quantisation, or incorporate causal or temporal structure into their foundations. Particular emphasis is placed on questions arising from quantum foundations and relativistic quantum information. We conclude by examining linearised gravity and weak-gravity quantum systems. This regime shows that the problem of time is not confined to Planck-scale physics, but arises already in attempts to provide a predictive and operationally meaningful quantum description of spacetime near flat geometry.",
+   "categories": [
+    "gr-qc",
+    "hep-th",
+    "quant-ph"
+   ],
+   "submitted": "2026-09-19",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 50,
+   "why": "Argues the problem of time already afflicts pre-gravitational theories, then sorts quantum-gravity programmes by how each handles causal order and duration.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.31068",
+   "title": "Feedback cooling of a levitated nanoparticle in a radially polarized vector beam trap",
+   "authors": [
+    "Felipe Almeida",
+    "M. Rademacher",
+    "J. M. H. Gosling",
+    "P. F. Barker"
+   ],
+   "abstract": "We demonstrate optical levitation and feedback cooling of a silica nanoparticle (radius = 78~nm) trapped within a radial vector beam (RVB) in high vacuum. Radial vector beams, when focused by a high-NA lens, produce a smaller focal spot than conventional Gaussian beams, yielding tighter optical potentials and potentially reduced photon-recoil heating rates. A vortex wave plate was used to generate the RVB using an aspheric lens (NA = 0.77) to form the trap. Cold-damping feedback was used to cool the center of mass motion in the radial and axial trap directions to temperatures in the mK range. At higher temperatures and pressures, additional trap frequencies arising from the nonlinear RVB optical potential are observed. This demonstration is a step toward exploiting structured light for levitated quantum optomechanics where these traps can be used to suppress bulk and motional heating.",
+   "categories": [
+    "physics.optics",
+    "quant-ph"
+   ],
+   "submitted": "2026-09-25",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 48,
+   "why": "A radially polarised trap cools a silica nanoparticle to millikelvin and reveals extra frequencies from the potential's nonlinearity.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.24835",
+   "title": "Trade-offs and experimental feasibility of nonlocal polygamy with two-outcome Bell inequalities",
+   "authors": [
+    "Josep Batle",
+    "Tomasz Rybotycki",
+    "Tomasz Białecki",
+    "Piotr Gawron",
+    "Adam Bednorz"
+   ],
+   "abstract": "Entanglement and Bell nonlocality have different sharing constraints across subsystems of a multipartite quantum system. We examine simultaneous violations of Bell inequalities with two-outcome observables and two or three measurement settings per party. We identify configurations whose simultaneous violations can be demonstrated on IBM Quantum hardware, and derive bounds and trade-off relations for several polygamous configurations. The results connect experimental capabilities of quantum computers with mathematical methods for studying the limits of quantum correlations.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 48,
+   "why": "Maps which pairs of two-outcome Bell inequalities can be violated at once, with configurations reachable on IBM hardware.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.22025",
+   "title": "Cavity-QED analysis of InAs quantum-dot single photon production",
+   "authors": [
+    "W. W. Chow",
+    "S. Peana",
+    "D. I. Herman",
+    "K. Y. Lee",
+    "A. Cejan",
+    "C. Shang",
+    "G. Moody",
+    "J. E. Bowers",
+    "F. Jahnke"
+   ],
+   "abstract": "Cavity quantum electrodynamics is used to study the extent cavity enhancement affects single photon performance of an InAs quantum dot, in terms of emission rate, purity and indistinguishability at different temperatures. Parametric studies show a tradeoff between single photon production rate and purity, as well as between indistinguishability and purity. The results indicate the importance of quantum carrier-photon correlations that yield substantial corrections to mean-field treatments, especially at high light-matter coupling strength, where cavity enhancement is most effective.",
+   "categories": [
+    "quant-ph",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-18",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 47,
+   "why": "Carrier-photon correlations beyond mean field set the rate-purity and purity-indistinguishability trade-offs of a cavity-enhanced quantum dot.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.22937",
+   "title": "Efficient creation of shallow NV$^-$ ensembles by high-angle ion implantation",
+   "authors": [
+    "Kento Sasaki",
+    "Hideyuki Watanabe",
+    "Tokuyuki Teraji",
+    "Takashi Taniguchi",
+    "Kenji Watanabe",
+    "Kensuke Kobayashi"
+   ],
+   "abstract": "Negatively charged nitrogen-vacancy (NV$^-$) centers located a few nanometers below the diamond surface are key quantum defects for nanoscale sensing of external spins. However, the creation of shallow NV$^-$ centers with high yield remains a materials challenge. Here, we demonstrate that high-angle ion implantation enhances the creation efficiency of shallow NV$^-$ centers. By implanting $^{15}$N ions at angles exceeding 60$^\\circ$, we achieve high NV$^-$ yields approaching 10% with effective NV$^-$ depths below 10 nm. These yields are significantly higher than those typically reported for shallow NV$^-$ creation. The enhanced NV$^-$ yield is consistent with an increased vacancy-to-nitrogen ratio in the near-surface region, which is expected to promote NV formation during annealing. The created NV$^-$ ensembles show coherence properties comparable to those of single shallow NV$^-$ centers at similar depths, and allow detection of nuclear spins in van der Waals materials attached to the diamond surface. Our results establish geometric control of ion implantation as a simple and broadly applicable approach to engineer shallow vacancy-related quantum defects.",
+   "categories": [
+    "quant-ph",
+    "cond-mat.mtrl-sci"
+   ],
+   "submitted": "2026-09-19",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 46,
+   "why": "Implanting nitrogen beyond 60 degrees raises shallow NV yield to nearly 10% under 10 nm, enough to read nuclear spins in stacked materials.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.24381",
+   "title": "Versatile Quantum Machine Learning with an Ultra-low Power Photonic Quantum Reservoir Computer",
+   "authors": [
+    "Wei Wang",
+    "Zan Tang",
+    "Menglong Fang",
+    "Daiqin Su",
+    "Mile Gu",
+    "Jayne Thompson",
+    "Lip Ket Chin",
+    "Hong Cai",
+    "Leong-Chuan Kwek",
+    "Ai-Qun Liu"
+   ],
+   "abstract": "Integrated photonic microprocessors provide high-bandwidth, massively parallel linear computation, but realizing nonlinear feature maps and temporal memory remain key challenges for machine learning. Conventional approaches rely on active tuning and additional nonlinear elements, increasing architectural complexity and power overhead. Here we demonstrate an integrated photonic quantum reservoir computer that achieves nonlinear mapping, fading memory, and task versatility without active tuning of the reservoir core. The same chip supports accurate static classification, dynamic prediction, and stable autonomous forecasting, establishing broad utility across both classification and temporal inference tasks. Competitive performance is retained in the zero-bias state, where all on-chip phase shifters are unpowered, eliminating active control and reducing computational power consumption to zero. This passive operation highlights a scalable route to multifunctional machine-learning hardware, where large-scale photonic quantum processors can be repurposed as reservoirs without reconfiguring their internal optical networks. By combining quantum-state encoding, multimode interferometric mixing, and photon-statistical readout, this architecture provides a physically grounded paradigm for low-power, large-scale quantum reservoir computing.",
+   "categories": [
+    "quant-ph",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-21",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 45,
+   "why": "A photonic reservoir classifies and forecasts with every phase shifter unpowered, so the nonlinear map costs no tuning power.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.30179",
+   "title": "Tunable hyperbolic metamaterials for brightening single-photon emission",
+   "authors": [
+    "Manobina Karmakar",
+    "Pavel Klok",
+    "Filip Ligmajer",
+    "Leonardo de S. Menezes"
+   ],
+   "abstract": "Hyperbolic metamaterials (HMMs) are widely used to enhance spontaneous emission through their exceptionally large photonic density of states, yet large Purcell factors (>100) rarely translate into brighter emission, exposing both a practical limitation of HMMs as brightening platforms and a flaw in the Purcell factor itself as a figure of merit. Here we systematically evaluate spontaneous emission enhancement and photon outcoupling in metal-dielectric HMMs (TiO$_2$/Ag and phase-change Sb$_2$S$_3$/Ag) using effective medium theory, transfer matrix calculations, and full-wave FDTD simulations. We show that planar HMMs with Purcell factors exceeding 100 have external quantum efficiencies below 0.01, yielding an actual radiative Purcell factor (PF$_{rad}$) of only 1-2. Nanopatterning the HMM into a photonic crystal efficiently couples trapped high-k modes into free space, raising PF$_{rad}$ by an order of magnitude. Incorporating the phase-change material Sb$_2$S$_3$ further enables dynamic tuning of the hyperbolic spectral window and active control over emission brightness: an optimized nanostructured design reaches PF$_{rad}$ ~ 10-15 in the near-infrared, with switching contrast exceeding a factor of 15 upon phase transition. These results establish the radiative Purcell factor as a more reliable figure of merit than the conventional Purcell factor for engineering quantum emitters, and provide a practical route toward actively tunable, bright single-photon sources based on hyperbolic metamaterials.",
+   "categories": [
+    "physics.optics"
+   ],
+   "submitted": "2026-09-24",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 44,
+   "why": "Planar hyperbolic metamaterials with Purcell factors above 100 emit no brighter; patterning them into a photonic crystal recovers an order of magnitude.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.31194",
+   "title": "Optical characterization of excited-state spin Hamiltonians and clock transitions at telecommunication wavelength in Tm3+:YAlO3",
+   "authors": [
+    "Akshay Babu Karyath",
+    "Luozhen Li",
+    "Julien Bertrand",
+    "Alexandre Kings",
+    "Tianyang Shen",
+    "Gabriel Aeppli",
+    "Simon Gerber",
+    "Guy Matmon",
+    "Wolfgang Tittel"
+   ],
+   "abstract": "The zero-phonon line (ZPL) between the two excited-state manifolds 3F4 and 3H4 of the trivalent thulium ion in yttrium aluminum perovskite (Tm3+:YAlO3) lies within the telecom E-band at around 1451 nm and exhibits an optical coherence time of a few μs at cryogenic temperatures. To improve this time in view of potential applications, e.g. single-photon sources and optical quantum memory, we characterized the magnetic properties of the lowest Stark levels of these two manifolds. Varying the external magnetic field amplitude and orientation, we measured the enhanced nuclear Zeeman splitting by probing the field-dependent frequency detuning of side holes created by means of spectral hole burning, and we characterized the inhomogeneous line shift caused by the quadratic Zeeman interaction. Together, this allowed us to establish the spin Hamiltonians for the lowest Stark level of the 3F4 and 3H4 manifolds, and to predict optical clock transitions for particular orientations and magnitudes of the magnetic field",
+   "categories": [
+    "quant-ph",
+    "physics.atom-ph",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-25",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 42,
+   "why": "Hole burning in a scanned magnetic field fixes the spin Hamiltonians of both thulium excited-state manifolds and predicts telecom clock transitions.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.25598",
+   "title": "Efficient Ion-Photon Quantum Interface with Long-Working-Distance Exceeding 26 mm",
+   "authors": [
+    "Jungwoo Choi",
+    "Inhyuk Oh",
+    "Chanyang Im",
+    "Gibeom Son",
+    "Junki Kim"
+   ],
+   "abstract": "Trapped-ion quantum networks rely on efficient ion-photon interfaces, while objective-based free-space collection systems must balance high photon collection with sufficient working distance for practical integration with ion-trap hardware. Here, we design and characterize an ion-photon interface with a long working distance of 26.15 mm and a high numerical aperture of 0.5. The core of the interface is a photon-collection objective consisting of six commercial spherical lenses with optimized spacing. The interface achieved an overall fiber-coupled photon-detection efficiency of (1.29$\\pm$0.09)% from the ion to the detector and maintains fiber coupling over several hours without active realignment, supporting stable operation of the ion-to-fiber interface. Photon-correlation measurements show clear antibunching in the fiber-coupled fluorescence, confirming the preservation of non-classical photon statistics. These results demonstrate a practical implementation of a long-working-distance photon collection interface for trapped-ion quantum network experiments.",
+   "categories": [
+    "quant-ph",
+    "physics.atom-ph",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 40,
+   "why": "A six-lens objective collects ion fluorescence from 26 mm away at NA 0.5, holding 1.29% fibre-coupled detection for hours without realignment.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.20133",
+   "title": "Private communication from Pauli channels with no privacy",
+   "authors": [
+    "Uthirakalyani G",
+    "Pritam Halder",
+    "David Elkouss"
+   ],
+   "abstract": "A channel capacity quantifies the communication capability of a noisy physical process. In contrast to communication channels in the classical world, quantum theory makes this capability contextual. We show that two Pauli two-qubit channels, each with zero private classical capacity, can be used to transmit private information when used together. One is a two-qubit Pauli channel whose environment can reconstruct the receiver output up to matrix transposition; the other is an antidegradable channel. We obtain a similar result when the second channel is the 50% qubit erasure channel. A simple binary code built from rank-three mixtures of Bell states activates private communication. The main ingredient in our construction is a transpose-antidegradable channel that is not antidegradable.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-17",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 40,
+   "why": "Two Pauli channels of zero private capacity transmit private information when combined, activated by a rank-three Bell-mixture code.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.23382",
+   "title": "Unified Spectral, Dynamical, and Correlation Signatures of an Exceptional Point in Cavity Optomechanics",
+   "authors": [
+    "Khazali Fahmi",
+    "Ahmad R. T. Nugraha",
+    "Ferry A. A. Nugraha",
+    "Adam B. Cahaya"
+   ],
+   "abstract": "We investigate how the exceptional-point structure of a dissipative cavity optomechanical system is inherited by experimentally accessible dynamical, spectral, and quantum-statistical observables. At optical-mechanical resonance, the effective non-Hermitian first-moment dynamics exhibits a second-order exceptional point, where two eigenvalues and their eigenvectors coalesce and the eigenvalue splitting follows the characteristic square-root dependence on perturbations. We show that the same square-root feature also governs transient photon and phonon populations, first-order coherence, spectral poles, and second-order intensity correlations. Below the exceptional point, the dynamics is non-oscillatory, whereas above it damped oscillations emerge together with frequency splitting of the spectral poles. At the exceptional point, the Jordan-block structure produces polynomial-exponential relaxation and a second-order spectral pole. Using the quantum regression theorem and Gaussian moment factorization, we further show that the stationary fluctuations satisfy the Siegert relation linking first- and second-order correlations. Although the zero-delay autocorrelations retain their thermal value, the finite-delay intensity correlations exhibit clear exceptional point signatures. This finding connects non-Hermitian mode coalescence with measurable dynamical and correlation observables in cavity optomechanics.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-20",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 38,
+   "why": "Square-root splitting at an optomechanical exceptional point also appears in transient populations, first-order coherence and intensity correlations.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.23255",
+   "title": "Complete Detector Records and Contextual Source Laws in a Retrocausal Spin Model",
+   "authors": [
+    "D. M. Theshan N. Weerasinghe"
+   ],
+   "abstract": "Detector outcome probabilities can be independent of a later measurement setting even when earlier timestamps, detector seeds, or environmental records depend on that setting. We characterize complete-record preservation for a positive wrapped-Cauchy retrocausal spin source. An antipodal identity yields necessary and sufficient conditions for passive and environmental readouts, and source compensation permits a common normalized analyzer for source spins and prepared continuations. Gaussian controller and reset calculations distinguish inverse raw history weights from normalized thermal operations. A quantum instrument provides an operational benchmark, whereas a setting-dependent separable source produces setting-dependent statistics at an earlier joint probe. For two equal-width contexts, a calibrated weak probe requires a minimum source change of $\\operatorname{sech}(2g)/8$ in trace distance for exact protection at every nonzero strength. The signal--source-change tradeoff is sharp for this pair of contexts. A contextual positive-history construction recovers the isolated hidden law and preserves records for a specified class of finite adaptive quantum apparatuses, subject to quantum calibration and restricted field access. Direct readout of an added likelihood field distinguishes two future axes with unit probability. The analytical results are supported by continuous-angle and quantum-trajectory simulations, deterministic quadrature, and exhaustive enumeration of a finite policy class. The analysis concerns the specified statistical models; their microscopic physical realization remains an open question.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-19",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 38,
+   "why": "Gives necessary and sufficient conditions for a retrocausal spin source to leave timestamps and environmental records free of the later setting.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.22946",
+   "title": "Secure Quantum Metasurfaces for Direct Quantum Key Distribution Measurements",
+   "authors": [
+    "Yan He",
+    "Adetunmise C. Dada"
+   ],
+   "abstract": "Quantum key distribution (QKD) can deliver information-theoretic security, but its receivers are still typically assembled from cascaded bulk optics. Metasurfaces offer a radical reduction in this complexity. Here, we make the metasurface function as the QKD measurement device itself. We design wavelength-specific dielectric apertures at 780, 1550, 2000, and 10 600 nm that interweave the linear H/V and circular R/L phase libraries at a 0.44--0.49λ cell pitch, i.e., below half the operating wavelength, and map the complete passive-BB84 measurement directly onto four detector channels. This subwavelength basis co-location prevents an ordinary propagating-wave aperture mask from isolating one basis without simultaneously attenuating or perturbing the other. Simulated full-wave focal-plane intensities are converted directly into conditional Born probabilities using fitted, calibration-fixed detector regions. The selected designs achieve probability fidelities of 97.96--99.08%, four-port collected efficiencies of 17.43--40.94%, and mean intrinsic quantum bit error rates of 1.42--3.96%. At 1550 nm, the selected design gives an asymptotic device-level yield of 0.151 secret bits per incident photon under an ideal single-photon model. Six-state detector tomography gives positive both-basis security bounds for all six reconstructed receiver models, including their polarization-dependent loss, basis imbalance and crosstalk. These results establish protocol-matched meta-optics as a route to compact, passive QKD receivers.",
+   "categories": [
+    "quant-ph",
+    "physics.optics"
+   ],
+   "submitted": "2026-09-19",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 35,
+   "why": "Interleaved subwavelength phase libraries let one metasurface perform the whole passive-BB84 measurement onto four detectors, in simulation.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.27390",
+   "title": "Higher-order Spatially Separated Correlations and Quantum Magic in the Long-range Transverse Field Ising Model",
+   "authors": [
+    "Paweł Cieśliński",
+    "Wiesław Laskowski"
+   ],
+   "abstract": "Long-range interacting quantum systems exhibit interesting phenomena beyond the nearest-neighbours regime. Such interactions can reach further separated particles and change the behaviour of many-body correlations. Here, we analyse their structure in the antiferromagnetic long-range interaction transverse field Ising model with power-law interactions decaying as $1/r^α$. We examine the spatial behaviour of basis-independent total multipartite correlations, called sector lengths $S_k$, of its ground state in the vicinity of critical points for different interaction exponents $α$ and fixed system size. These correlation functions were shown to indicate entanglement and the existence of local realistic models, allowing us to make claims about the Bell nonlocality and entanglement in the system. We further investigate them in the context of non-stabiliserness, often referred to as quantum magic, which holds information on their classical simulability and usefulness for quantum computation. We evaluate R{é}nyi stabiliser entropy near and outside the criticality and show that cumulative magic, up to the critical point, increases with $α$ for all of the examined system sizes. Our results provide new insights into the interplay between the long-range interactions, observable non-classical phenomena and their classical simulability.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-23",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 35,
+   "why": "Sector lengths and stabiliser entropy track how power-law interactions redistribute multipartite correlations and magic near criticality.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.23328",
+   "title": "$f$-2$f$ self-referencing for silicon nitride photonics via a heterogeneously integrated lithium niobate layer",
+   "authors": [
+    "Weichen Fan",
+    "Bastian Ruhnke",
+    "Camiel Op de Beeck",
+    "Giulio Tavani",
+    "Anton Vasiliev",
+    "Franz Kärtner",
+    "Tobias Herr"
+   ],
+   "abstract": "Heterogeneous integration combines complementary material properties in a single photonic platform. Here, we demonstrate on-chip $f$-2$f$ self-referencing in a heterogeneously integrated Si$_3$N$_4$/LiNbO$_3$ platform, in which supercontinuum generation in a Si$_3$N$_4$ waveguide and second-harmonic generation in a LiNbO$_3$ layer are spatially separated and linked by adiabatic escalator couplers. Pumped by a 1560 nm mode-locked laser with 75 pJ on-chip pulse energy, we detect the carrier-envelope offset frequency with 30 dB signal-to-noise ratio in 300 kHz resolution bandwidth. A comparative measurement confirms that the second harmonic originates in the LiNbO$_3$ layer and indicates opportunity for further improvements through periodic poling. These results establish heterogeneous Si$_3$N$_4$/LiNbO$_3$ integration as a viable building block for self-referenced ultrafast pulse sources in low-loss Si$_3$N$_4$ photonics.",
+   "categories": [
+    "physics.optics"
+   ],
+   "submitted": "2026-09-20",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 32,
+   "why": "Adiabatic couplers link silicon nitride supercontinuum to a lithium niobate second-harmonic stage, detecting the offset frequency at 30 dB signal-to-noise.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.26941",
+   "title": "Measurement-Only Dynamical Phase Transitions in Spin-1 Chains",
+   "authors": [
+    "Kemal Aziz",
+    "Haining Pan",
+    "J. H. Pixley"
+   ],
+   "abstract": "We study measurement-only dynamics in an interacting spin-1 chain, using forced, normalized local projections rather than Born-rule-sampled measurement outcomes. Starting from the nearest-neighbor (NN) Affleck-Kennedy-Lieb-Tasaki (AKLT) Haldane symmetry-protected topological state, we show that competing local projectors drive this order toward three distinct dynamical phases: a featureless topologically trivial product state, an explicitly dimerized valence-bond-solid state, and a topologically trivial next-nearest-neighbor (NNN) AKLT state consisting of two interwoven Haldane chains. Using matrix product state and exact statevector simulations, we identify continuous transitions among these phases and characterize them using nonlocal string order parameters, local dimer order, and entanglement scaling. For the NN-NNN AKLT model, finite-size signatures are consistent with an intervening extended critical regime rather than a single direct transition. These results extend studies of monitored topology to a bosonic SPT and show that local projections can control both topological and valence-bond-solid order.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 32,
+   "why": "Forced local projections drive an AKLT chain into trivial, dimerised or interwoven-Haldane phases through continuous transitions.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.30333",
+   "title": "Onset of random-matrix statistics in the Yukawa-Sachdev-Ye-Kitaev model: Spectral correlations and Krylov complexity",
+   "authors": [
+    "Sizheng Cao",
+    "Hyun-Sik Jeong",
+    "Yi-Li Wang"
+   ],
+   "abstract": "The Yukawa-Sachdev-Ye-Kitaev (YSYK) model, a solvable model of non-Fermi liquids with a proposed cavity-QED realization, couples $N$ complex fermions to $M$ bosons of frequency $ω_0$ through random Yukawa couplings of strength $g$, and its dynamics depends only on $R\\equivω_0/g^{2/3}$. For $R\\ll1$ the bosons are slow and act as a static random background in which the fermions are free, while for $R\\gg1$ they are only virtually excited and generate a random four-fermion interaction of rank $M$, which is generically chaotic for $M\\geq2$. Using exact diagonalization at infinite temperature, we follow the emergence of random-matrix statistics between these limits with unfolded spectral statistics and the Krylov complexity of the thermofield-double state. For complex couplings the level-spacing distribution evolves from Poisson to Gaussian-unitary-ensemble (GUE) statistics, the spectral form factor develops a correlation hole and a ramp, and the Krylov complexity evaluated on the unfolded spectrum develops a peak above its late-time plateau whose height reaches the GUE value. All diagnostics locate the onset around $R\\approx0.3$, and adding boson modes moves it to smaller $R$. This delineates the parameter regime in which a cavity-QED realization would display random-matrix spectral correlations. On the other hand, real couplings give the same crossover towards Gaussian-orthogonal-ensemble (GOE) statistics, and along an interpolation between the two the peak height follows the mean gap ratio, so the peak identifies the symmetry class as well as the onset of chaos. Without unfolding the peak stays about 20$\\%$ below its random-matrix value in both classes, which we trace to the non-semicircular density of states, and at larger $R$ the boson-number bands slow down the spreading of the state in Krylov space.",
+   "categories": [
+    "nlin.CD",
+    "cond-mat.str-el",
+    "hep-th",
+    "quant-ph"
+   ],
+   "submitted": "2026-09-24",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 30,
+   "why": "Raising the boson frequency drives Yukawa-SYK spectra from Poisson to GUE statistics, with Krylov complexity peaking at the random-matrix value.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.17294",
+   "title": "ConteXtuAlity: an open source Python package for contextuality",
+   "authors": [
+    "Vallée Kim"
+   ],
+   "abstract": "We present an open source Python package, ConteXtuAlity, for computing various quantities related to contextuality. This package features an interface to the sheaf-theoretic framework for contextuality, providing an implementation of measurement scenarios and empirical models as well as linear programs to compute the contextual fraction and the signalling fraction. In this work, we demonstrate the package's features and give examples of its use. We also provide benchmarks, demonstrating how performances scale with the size of measurement scenarios. The package is designed for both experienced theorists and newcomers to the field of contextuality alike, with an emphasis on flexibility and extensibility.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-15",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 30,
+   "why": "Open-source package computes contextual and signalling fractions from sheaf-theoretic measurement scenarios, with scaling benchmarks.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.19814",
+   "title": "Long-horizon autoformalization of a core theorem underlying MIP* = RE",
+   "authors": [
+    "Sirui Lu",
+    "Ruixuan Deng",
+    "David Zhu",
+    "Zhengfeng Ji"
+   ],
+   "abstract": "Landmark mathematical formalizations have taken specialist teams years to complete. We present FormalFlow, a system that coordinates AI proving agents under human supervision to address statement drift and proof composition in long-horizon formalization. Drawing on software engineering principles and practices, it uses a shared blueprint to guide nested planning, proving and review loops. Agents strengthen verification and review throughout formalization. We completed a machine-checked Lean 4 proof of the quantum soundness of the classical low individual-degree test, a core theorem underlying MIP* = RE. Developing the proof took 63 days; greater parallelism could further reduce this time. The final library contains 126,367 lines of Lean code, all generated by agents. The formalization corrects side conditions and intermediate errors while preserving the published final error bound under corrected assumptions. This work provides a verified foundation for quantum complexity and demonstrates a route to affordable verification of major research proofs by small teams.",
+   "categories": [
+    "quant-ph",
+    "cs.AI",
+    "cs.LO"
+   ],
+   "submitted": "2026-09-17",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 29,
+   "why": "AI proving agents produce a 126,000-line Lean proof of the low-degree test behind MIP*=RE in 63 days, correcting published side conditions.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.26573",
+   "title": "Power-resolved ergotropy and correlation redistribution in a bosonic quantum battery driven by a coherent-state superposition",
+   "authors": [
+    "João P. d'El-Rey",
+    "Tailan S. Sarubi",
+    "Ana C. S. Costa",
+    "José G. G. de Oliveira"
+   ],
+   "abstract": "Ergotropic-gap relations provide thermodynamic witnesses of quantum correlations, but a direct dynamical connection between extractable work and entanglement remains largely unexplored in multipartite non-Gaussian bosonic systems. Here, we establish such a connection for a bosonic quantum battery driven by a coherent-state superposition. Despite the infinite-dimensional Hilbert space, the dynamics retains a simple structure that allows the relevant work and correlation measures to be obtained exactly. We show that the loss of extractable work associated with the passive part of the battery energy is directly determined by charger-battery entanglement. This relation also separates the charging power into contributions from energy transfer and from changes in the battery spectrum. At the same time, multipartite correlations are progressively redistributed from charger-involving correlations to correlations internal to the battery. For a symmetric resonant protocol, complete energy transfer coincides with charger-battery disentanglement and fully extractable stored energy, while multipartite correlations within the battery are maximal. Individual cells, however, remain mixed, revealing a distinction between global and local work extraction. We further show that, in the regime considered, locally extractable work is entirely supported by energetic coherence. Under single-photon loss, the analytical structure survives, but environmental correlations separate charger disentanglement from maximal work extraction.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 28,
+   "why": "Work lost to the battery's passive energy is fixed exactly by charger-battery entanglement in a coherent-state-driven bosonic battery.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.30632",
+   "title": "A Novel $q$-Derivative Framework with Applications to $q$-Deformed Thermodynamics and Leakage Suppression in Superconducting Qubits",
+   "authors": [
+    "André A. A. Marinho",
+    "Gisele B. Freitas",
+    "Clovis A. C. Filho"
+   ],
+   "abstract": "We propose a new $q$-derivative operator built directly from Jackson's $q$-number formulation, designed to preserve the structural properties of standard differential calculus while incorporating deformation effects. By analyzing $q$-deformed Heisenberg algebras, we demonstrate that this formulation maintains the consistency of thermodynamic quantities-such as internal energy, particle number, and specific heat-in dilute gas limits without requiring ad-hoc chain-rule modifications. Furthermore, we explore the physical implications of algebraic deformation using the Biedenharn-Macfarlane realization, showing how $q$-deformation induces intrinsic anharmonicity in quantum oscillator spectra and affects multi-level quantum systems ($d \\ge 3$). Applying this algebraic scheme to superconducting transmon qubits, we derive analytical pulse-shaping corrections that generalize the Derivative Removal by Adiabatic Gate (DRAG) technique, offering a robust method to suppress computational leakage in ultra-fast quantum logic operations.",
+   "categories": [
+    "quant-ph",
+    "cond-mat.stat-mech"
+   ],
+   "submitted": "2026-09-24",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 25,
+   "why": "A q-deformed derivative yields generalised DRAG corrections claimed to cut transmon leakage, with no device data and no comparison to standard pulse shaping.",
+   "kind": "T",
+   "eli5": {
+    "plain": "A mathematical framework that deforms ordinary calculus is applied to transmon pulse shaping, producing a variant of the standard leakage-cancelling pulse.",
+    "how": "A new q-derivative built from Jackson q-numbers is used on deformed Heisenberg algebras, giving an anharmonic oscillator spectrum, and the correction terms are then read as pulse-shaping corrections that generalise DRAG.",
+    "matters": "Leakage out of the computational subspace is a real limit on fast gates, so any pulse correction is worth a look, but the value here rests on the deformation parameter meaning something physical in a transmon.",
+    "caveat": "No measurement and no numerical benchmark against ordinary DRAG; the deformation parameter is not connected to any measurable circuit quantity, so the claimed suppression is untested."
+   }
+  },
+  {
+   "id": "2609.21574",
+   "title": "Frequency-swept Brillouin spectroscopy",
+   "authors": [
+    "Lin Kang",
+    "Shahrin Jahan Jaima",
+    "Jitao Zhang"
+   ],
+   "abstract": "Spontaneous Brillouin microscopy provides non-contact access to the viscoelastic properties of materials. Standard measurements typically utilize a single-wavelength continuous-wave laser to illuminate a specimen and excites a spontaneous Brillouin scattering signal, which is then recorded by a spectrometer. Existing Brillouin spectrometers are mostly built around either a scanning Fabry-Pérot etalon or a virtually imaged phased array (VIPA) etalon. While performing well, these setups are bulky and demand significant optical expertise to construct and maintain. Here, we propose a new approach to conducting Brillouin spectroscopy. In this approach, a frequency-swept laser excites a series of Brillouin spectra with incrementally shifted central frequencies, while a frequency picker, consisting of a narrow bandpass filter and a highly sensitive single-photon detector, sequentially records each spectral component to reconstruct the full spectrum. We demonstrate that the frequency-swept Brillouin spectroscopy can run under shot-noise limited condition using standard samples. Compared with conventional spectrometers, our system features a much more compact design for portable applications and holds potential for rapid mechanical imaging through multiplexing.",
+   "categories": [
+    "physics.optics"
+   ],
+   "submitted": "2026-09-18",
+   "pool": "B",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "B",
+   "score": 22,
+   "why": "Sweeping the laser and picking frequencies with a filter and single-photon detector reconstructs Brillouin spectra without an etalon.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2609.28391",
+   "title": "Quantum score matching with applications to learning thermal states",
+   "authors": [
+    "Yulong Dong",
+    "Jiaqi Leng"
+   ],
+   "abstract": "Score matching has driven major advances in classical generative learning by enabling models to learn from data without evaluating intractable normalization constants, or partition functions. Yet, extending this principle to quantum learning requires rethinking its foundations, as quantum states are described by noncommuting density operators rather than scalar probabilities. The noncommutativity creates fundamental challenges not only in defining quantum scores, but also in developing a training framework with efficient circuit implementations and rigorous theoretical guarantees. In this work, we bridge this gap by establishing a general quantum score-matching framework with end-to-end theoretical guarantees. Applied to Gibbs-state learning, our approach avoids additional thermal-state preparation and achieves information-theoretically optimal sample complexity in the high-temperature regime for Hamiltonians with bounded locality and interaction degree. This positions score matching as a new route to state-of-the-art performance in learning quantum Gibbs states. Beyond these theoretical results, numerical simulations show that our method remains effective even when gradients are estimated inaccurately under limited measurement budgets. Experiments on IBM quantum hardware further demonstrate that quantum score matching is NISQ-friendly: without any error mitigation or correction, it reduces the relative Hamiltonian-parameter error from 64% to approximately 10%. Together, these results extend score matching into an experimentally realizable paradigm for quantum-state learning.",
+   "categories": [
+    "quant-ph",
+    "cs.LG"
+   ],
+   "submitted": "2026-09-23",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 18,
+   "why": "Defines quantum scores for noncommuting density operators and attains optimal sample complexity for learning high-temperature Gibbs states.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.27004",
+   "title": "Free semigroup non-relativistic phase space states quantisation",
+   "authors": [
+    "Georgii Koniukov"
+   ],
+   "abstract": "Quantisation is considered as an action of classical point operators on field states at the Planck scale of the phase space. Emphasis is placed on the sequence of physical variables. A \"state language/Dirac notation\" for classical mechanics is introduced; in many cases, it replaces the principle of stationary action for conservative systems. Observed classical and quantum dynamics are considered as different vectorisations of the free semigroup contribution of time. There is a dream of describing classical dynamics as complex transformations of state vectors over such a free semigroup, rather than solving differential equations. The transition from the alphabet to states, from states to state functions, and from state functions to measurable quantities is managed by projectors. An attempt is made to provide a derivation of the Legendre transformation. The trivial multiplication of the potential energy by the wave function in the coordinate representation and its non-trivial operator action in the momentum representation are obtained without a Fourier transform nor the Planck scale. The quantisation procedure is divided into two stages: first, the action of point-like classical operators on field functions; and second, accounting for the physically finite scale of the Planck length against the backdrop of the possible infinitesimality in the classical phase space. The concept of an angle between states is introduced, defining the measure of \"quantumness\". The free semigroup time contribution is studied in the context of the Born rule.",
+   "categories": [
+    "quant-ph",
+    "cond-mat.mes-hall"
+   ],
+   "submitted": "2026-09-22",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 15,
+   "why": "Recasts quantisation as classical point operators acting on phase-space field states, aiming to replace stationary action with a state algebra.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2609.20678",
+   "title": "Schrijver-Delsarte rigidity in association schemes and undecidability of quantum graph homomorphism",
+   "authors": [
+    "Lorenzo Ciardo",
+    "Iris Hebbeker",
+    "Gideo Joubert",
+    "Jana Kreiß",
+    "Antoine Mottet"
+   ],
+   "abstract": "We prove RE-completeness of the quantum homomorphism problem parameterised by families of graphs derived from the classic metric association schemes. These include Kneser graphs, $q$-Kneser graphs, and the complements of Johnson, Grassmann, and Hamming graphs. Our proof develops a spectral method for establishing non-contextuality of quantum polymorphisms. It combines an equality analysis of Roberson's bound on the projective packing number in terms of Schrijver's theta with a structural argument inspired by Erdős-Ko-Rado theory.",
+   "categories": [
+    "math.CO",
+    "cs.CC",
+    "cs.DM",
+    "math.OA",
+    "quant-ph"
+   ],
+   "submitted": "2026-09-17",
+   "pool": "C",
+   "tags": [],
+   "cite": null,
+   "url": null,
+   "section": "C",
+   "score": 12,
+   "why": "Proves quantum graph homomorphism undecidable for Kneser and Johnson-type families via a spectral non-contextuality argument.",
+   "kind": "T",
+   "eli5": null
+  }
+ ]
+}
