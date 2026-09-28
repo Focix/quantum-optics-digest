@@ -6,14 +6,9 @@ from typing import Any
 
 from digest.models import Candidate
 
-DAILY_SECTIONS = {"A", "B", "computing"}
-WEEKLY_SECTIONS = {"weekly"}
+SECTIONS = {"A", "B", "C", "computing"}
 KINDS = {"T", "E", "TE"}  # theory, experiment, both
-ELI5_FIELDS = ("plain", "how", "matters", "caveat")  # the Explain panel, see prompts/rank_daily.md
-
-
-def sections_for(mode: str) -> set[str]:
-    return WEEKLY_SECTIONS if mode == "weekly" else DAILY_SECTIONS
+ELI5_FIELDS = ("plain", "how", "matters", "caveat")  # the Explain panel, see prompts/rank_weekly.md
 
 
 def clean_eli5(value: Any) -> dict[str, str] | None:
@@ -43,7 +38,7 @@ def validate_ranking(ranking: Any, candidates: list[Candidate], *, mode: str) ->
     if ranking.get("mode") != mode:
         errors.append(f"mode {ranking.get('mode')!r} does not match run mode {mode!r}")
 
-    allowed = sections_for(mode)
+    allowed = SECTIONS
     known = {c.id for c in candidates}
     covered: set[str] = set()
     for n, item in enumerate(items):

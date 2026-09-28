@@ -53,8 +53,7 @@ struct Digest: Codable {
 }
 
 enum Section {
-    /// `computing` is deliberately absent: those papers are held for the Saturday weekly,
-    /// exactly as on the site's daily pages.
+    /// Only A and B fit a widget; foundations (C) and computing stay on the site.
     static let all: [(key: String, title: String)] = [
         ("A", "Superconducting atoms"),
         ("B", "Other platforms"),

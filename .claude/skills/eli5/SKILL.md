@@ -42,4 +42,4 @@ model into `out/ranking.json` and carried through to `digests/` and `docs/`:
 
 The reader is a physicist, so "plain English" means no sub-field jargon, not no physics. Do not
 restate the title, and do not repeat `why` — `why` is the one-line reason to read it, `eli5` is
-the explanation for someone outside the sub-field. `prompts/rank_daily.md` holds the binding rules.
+the explanation for someone outside the sub-field. `prompts/rank_weekly.md` holds the binding rules.

@@ -10,7 +10,7 @@ from digest.models import Candidate, Paper
 from digest.watch import watch_tags
 
 # Pools are processed in this order; a paper already placed stays in its first pool.
-POOL_ORDER = ["A", "B"]
+POOL_ORDER = ["A", "B", "C"]
 
 _COMPUTING_RE = re.compile(
     r"surface code|error[- ]correct|logical qubit|quantum processor|gate fidelit|"

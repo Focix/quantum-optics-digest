@@ -1,4 +1,4 @@
-"""Static site rendering: one page per section (A, B, weekly), archive pages, stylesheet."""
+"""Static site rendering: one page per section (A, B, C, computing), archive pages, stylesheet."""
 
 from __future__ import annotations
 
@@ -15,17 +15,20 @@ from digest.watch import watched_names
 SECTION_TITLES = {
     "A": "Superconducting artificial atoms",
     "B": "Quantum optics on other platforms",
-    "weekly": "Superconducting quantum computing, weekly",
-    "computing": "Superconducting quantum computing (held for Saturday)",
+    "C": "Foundations of quantum mechanics",
+    "computing": "Superconducting quantum computing",
 }
-PAGES = {"A": "index.html", "B": "b.html", "weekly": "weekly.html"}
-NAV_LABELS = {"A": "A · Superconducting atoms", "B": "B · Other platforms", "weekly": "Weekly · Computing"}
-SECTION_ORDER = ["A", "B", "weekly", "computing"]
+# Until 2026-09-28 the digest ran daily and held computing papers, titles only, for the
+# Saturday weekly; those daily digests keep rendering that way in the archive.
+HELD_TITLE = "Superconducting quantum computing (held for the weekly)"
+PAGES = {"A": "index.html", "B": "b.html", "C": "c.html", "computing": "weekly.html"}
+NAV_LABELS = {"A": "A · Superconducting atoms", "B": "B · Other platforms", "C": "C · Foundations", "computing": "Computing"}
+SECTION_ORDER = ["A", "B", "C", "computing"]
 KIND_TITLES = {"T": "theory", "E": "experiment", "TE": "theory and experiment"}
 TOP_N = 10
-PREVIOUS_DAYS = 14
+PREVIOUS_RUNS = 14  # older digests listed under a section, collapsed
 FEED_MIN_SCORE = 50  # feed entries list papers at or above this score, plus watched ones
-WEEKLY_STALE_DAYS = 8  # a Saturday weekly is only overdue once the next week has started
+STALE_DAYS = 8  # a Monday run is only overdue once the next one has had a day to land
 BANNER_CHARS = 240  # per message; the full text stays in the digest JSON
 FEED_ENTRIES = 30
 SITE_TITLE = "Quantum Optics Digest"
@@ -296,6 +299,11 @@ def _items(digest: dict[str, Any], section: str) -> list[dict[str, Any]]:
     return [i for i in digest.get("items", []) if i.get("section") == section]
 
 
+def _held(digest: dict[str, Any], section: str) -> bool:
+    """Computing papers of an old daily digest: listed as titles, ranked later by a weekly."""
+    return section == "computing" and digest["mode"] == "daily"
+
+
 def _unranked_note(digest: dict[str, Any]) -> str:
     if digest.get("ranked", True):
         return ""
@@ -322,8 +330,10 @@ def render_digest_body(digest: dict[str, Any], *, site: Site = Site()) -> str:
         if key not in present:
             continue
         items = _items(digest, key)
-        parts.append(f"<h3>{_esc(SECTION_TITLES.get(key, str(key)))} <span class=\"meta\">({len(items)})</span></h3>")
-        if key == "computing":
+        held = _held(digest, key)
+        title = HELD_TITLE if held else SECTION_TITLES.get(key, str(key))
+        parts.append(f"<h3>{_esc(title)} <span class=\"meta\">({len(items)})</span></h3>")
+        if held:
             parts.append(_titles_details(f"{len(items)} papers", items, site=site, run=run, data=data))
         else:
             parts.append(_papers(items, site=site, run=run, data=data))
@@ -332,13 +342,6 @@ def render_digest_body(digest: dict[str, Any], *, site: Site = Site()) -> str:
 
 def _pretty_date(iso: str) -> str:
     return date.fromisoformat(iso).strftime("%A %-d %B %Y")
-
-
-def previous_working_day(today: date) -> date:
-    d = today - timedelta(days=1)
-    while d.weekday() >= 5:
-        d -= timedelta(days=1)
-    return d
 
 
 def _trim(message: str, limit: int = BANNER_CHARS) -> str:
@@ -358,9 +361,8 @@ def _banner(
 ) -> str:
     """The warning strip for one page, about the newest digest *that page shows*.
 
-    Each page reports its own mode: a weekly failure has to reach the weekly page, which it
-    could not when every page read the newest daily (a throttled weekly on 2026-09-19 left
-    no trace on the site). `missing` is None where the body already explains an absent digest.
+    Every page reads the newest weekly digest now; `missing` is None where the body already
+    explains an absent digest.
     """
     messages: list[str] = []
     if error:
@@ -388,7 +390,7 @@ def _header(current: str | None, *, root: str) -> str:
     )
     return (
         f"<h1><a href=\"{root or './'}\">{SITE_TITLE}</a></h1>"
-        '<p class="sub">New arXiv papers ranked each weekday morning against a written interest statement.</p>'
+        '<p class="sub">New arXiv papers ranked every Monday morning against a written interest statement.</p>'
         f"<nav>{links}</nav>"
         '<p class="legend"><span class="kind kind-T">T</span>theory &nbsp; <span class="kind kind-E">E</span>experiment '
         '&nbsp; <span class="kind kind-TE">TE</span>both &nbsp; score ≥80 highlighted &nbsp; '
@@ -426,57 +428,39 @@ def _archive_footer(digests: list[dict[str, Any]], *, site: Site) -> str:
     return f"<footer><h2>Archive</h2><ul>{links}</ul>{about}</p></footer>"
 
 
+def _run_label(d: dict[str, Any]) -> str:
+    when = _pretty_date(d["run"])
+    return f"Week to {when}" if d["mode"] == "weekly" else f"{when} (daily)"
+
+
 def _day_details(d: dict[str, Any], items: list[dict[str, Any]], *, site: Site) -> str:
     top = next((i["title"] for i in items if i.get("score") is not None), None)
     hint = f" · {_esc(top)}" if top else ""
     return (
-        f"<details class=\"day\"><summary>{_pretty_date(d['run'])} · {len(items)} papers{hint}</summary>"
+        f"<details class=\"day\"><summary>{_run_label(d)} · {len(items)} papers{hint}</summary>"
         f"{_unranked_note(d)}{_papers(items, site=site, run=d['run'], data=_data_name(d))}</details>"
     )
 
 
 def _section_body(digests: list[dict[str, Any]], section: str, *, site: Site) -> str:
-    dailies = [d for d in digests if d["mode"] == "daily"]
+    """This week's papers of one section, then the older digests that had any, collapsed.
+
+    Older digests include the dailies from before the switch to a weekly run, except for
+    their held computing lists, which the weekly after them ranked.
+    """
+    latest = next((d for d in digests if d["mode"] == "weekly"), None)
     parts = [f"<h2>{_esc(SECTION_TITLES[section])}</h2>"]
-    if dailies:
-        latest = dailies[0]
-        parts.append(f"<h3>Today · {_pretty_date(latest['run'])}</h3>")
+    if latest is None:
+        parts.append('<p class="meta">No weekly digest yet. The first one comes on Monday.</p>')
+    else:
+        parts.append(f"<h3>This week · {_pretty_date(latest['run'])}</h3>")
         parts.append(
             _unranked_note(latest) + _papers(_items(latest, section), site=site, run=latest["run"], data=_data_name(latest))
         )
-    previous = dailies[1 : 1 + PREVIOUS_DAYS]
+    previous = [d for d in digests if d is not latest and _items(d, section) and not _held(d, section)]
     if previous:
-        parts.append("<h2>Previous days</h2>")
-        parts.extend(_day_details(d, _items(d, section), site=site) for d in previous)
-    return "\n".join(parts)
-
-
-def _weekly_body(digests: list[dict[str, Any]], today: date, *, site: Site) -> str:
-    weeklies = [d for d in digests if d["mode"] == "weekly"]
-    dailies = [d for d in digests if d["mode"] == "daily"]
-    parts = [f"<h2>{_esc(SECTION_TITLES['weekly'])}</h2>"]
-    if weeklies:
-        latest = weeklies[0]
-        parts.append(f"<h3>Week ending {_pretty_date(latest['run'])}</h3>")
-        parts.append(
-            _unranked_note(latest) + _papers(_items(latest, "weekly"), site=site, run=latest["run"], data=_data_name(latest))
-        )
-        since = date.fromisoformat(latest["run"])
-    else:
-        parts.append('<p class="meta">No weekly digest yet. The first one comes on Saturday.</p>')
-        since = today - timedelta(days=7)
-    pool = [
-        {**i, "_data": _data_name(d)}
-        for d in dailies
-        if date.fromisoformat(d["run"]) > since
-        for i in _items(d, "computing")
-    ]
-    if pool:
-        parts.append(f"<h3>Pool for the next weekly digest <span class=\"meta\">({len(pool)})</span></h3>")
-        parts.append(_titles_details(f"{len(pool)} computing papers since {since.isoformat()}", pool, site=site, run=None))
-    if len(weeklies) > 1:
-        parts.append("<h2>Previous weeks</h2>")
-        parts.extend(_day_details(d, _items(d, "weekly"), site=site) for d in weeklies[1 : 1 + PREVIOUS_DAYS])
+        parts.append("<h2>Previous digests</h2>")
+        parts.extend(_day_details(d, _items(d, section), site=site) for d in previous[:PREVIOUS_RUNS])
     return "\n".join(parts)
 
 
@@ -489,19 +473,11 @@ def render_page(
     log_url: str | None = None,
     site: Site = Site(),
 ) -> str:
-    body = _weekly_body(digests, today, site=site) if page == "weekly" else _section_body(digests, page, site=site)
-    mode = "weekly" if page == "weekly" else "daily"
-    newest = next((d for d in digests if d["mode"] == mode), None)
-    if mode == "weekly":
-        # The weekly runs on Saturday, so "older than a weekday" would cry stale all week.
-        # A missed Saturday is only called out once the next weekday comes around.
-        stale_before, missing = today - timedelta(days=WEEKLY_STALE_DAYS), None
-    else:
-        stale_before, missing = previous_working_day(today), "No digest has been generated yet."
+    newest = next((d for d in digests if d["mode"] == "weekly"), None)
     parts = [
         _header(page, root=""),
-        _banner(newest, today, error, log_url, stale_before=stale_before, missing=missing),
-        body,
+        _banner(newest, today, error, log_url, stale_before=today - timedelta(days=STALE_DAYS), missing=None),
+        _section_body(digests, page, site=site),
         _archive_footer(digests, site=site),
     ]
     return _page(f"{SITE_TITLE} · {NAV_LABELS[page]}", "\n".join(p for p in parts if p), css_href="style.css", root="")
@@ -521,7 +497,7 @@ def _feed_entry(digest: dict[str, Any], *, site: Site) -> str:
     link = f"{site.base}archive/{_archive_name(digest)}"
     picked: list[tuple[str, list[dict[str, Any]]]] = []
     for key in SECTION_ORDER:
-        if key == "computing":
+        if _held(digest, key):
             continue
         items = [i for i in _items(digest, key) if (i.get("score") or 0) >= FEED_MIN_SCORE or _watched(i)]
         if items:
@@ -589,8 +565,6 @@ def render_site(
     for d in digests:
         (docs / "archive" / _archive_name(d)).write_text(render_archive(d, site=site))
         (docs / "data" / f"{_data_name(d)}.json").write_text(json.dumps(digest_data(d), ensure_ascii=False))
-    # Stable URL for clients that cannot guess the newest run date (the desktop widget;
-    # a weekend or a failed run leaves today's file missing).
-    latest = next((d for d in digests if d["mode"] == "daily"), None)
-    if latest is not None:
-        (docs / "data" / "latest.json").write_text(json.dumps(digest_data(latest), ensure_ascii=False))
+    # Stable URL for clients that cannot guess the newest run date (the desktop widget).
+    if digests:
+        (docs / "data" / "latest.json").write_text(json.dumps(digest_data(digests[0]), ensure_ascii=False))

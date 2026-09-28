@@ -12,4 +12,4 @@ Relevant: quantum optics done with superconducting circuits.
 - Bosonic modes used as optical-style resources (cat states, squeezing, photon-number-resolved detection) when the emphasis is on the light, not on error correction.
 - Single microwave photon detectors and counters.
 
-Not relevant daily (section `computing`, low daily score): error correction, surface codes, logical qubits, multi-qubit processors, gate fidelity records, compilation, calibration tooling, fabrication-only and materials papers, TLS loss studies, readout multiplexing engineering. These are held for the Saturday computing digest.
+Not section A (section `computing`, scored there instead): error correction, surface codes, logical qubits, multi-qubit processors, gate fidelity records, compilation, calibration tooling, fabrication-only and materials papers, TLS loss studies, readout multiplexing engineering. These go to the computing section of the same weekly digest, ranked against `interests/computing.md`.

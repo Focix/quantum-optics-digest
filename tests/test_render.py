@@ -21,7 +21,7 @@ def item(
     }
 
 
-def digest(run: str, items: list[dict[str, Any]], mode: str = "daily", status: dict[str, Any] | None = None, ranked: bool = True) -> dict[str, Any]:
+def digest(run: str, items: list[dict[str, Any]], mode: str = "weekly", status: dict[str, Any] | None = None, ranked: bool = True) -> dict[str, Any]:
     return {"run": run, "mode": mode, "generated": "x", "ranked": ranked, "status": status or {}, "items": items}
 
 
@@ -43,63 +43,51 @@ def test_section_page_shows_only_its_section_with_top_ten_and_collapsed_rest() -
     assert "Title b1" not in a_page
     assert 'class="kind kind-E"' in a_page
     assert 'class="banner"' not in a_page
-    # navigation between the three pages
-    assert 'href="b.html"' in a_page and 'href="weekly.html"' in a_page
+    # navigation between the four pages
+    assert 'href="b.html"' in a_page and 'href="c.html"' in a_page and 'href="weekly.html"' in a_page
+    assert "This week · Thursday 10 September 2026" in a_page
 
     b_page = render_page(digests, page="B", today=TODAY)
     assert "Title b1" in b_page and "Title a0" not in b_page
     assert 'class="kind kind-T"' in b_page
 
 
-def test_daily_pages_banner_the_newest_daily_error_and_staleness() -> None:
-    err = [digest("2026-09-10", [], status={"error": "arXiv 503 on pool A"})]
-    for page in ("A", "B"):
-        html = render_page(err, page=page, today=TODAY)
+def test_every_page_banners_the_newest_weekly_error_and_staleness() -> None:
+    err = [digest("2026-09-28", [], status={"error": "arXiv 503 on pool A"})]
+    for page in ("A", "B", "C", "computing"):
+        html = render_page(err, page=page, today=date(2026, 9, 28))
         assert 'class="banner"' in html and "arXiv 503 on pool A" in html
 
-    stale = render_page([digest("2026-09-07", [])], page="A", today=TODAY)  # Monday's digest on Thursday
-    assert "stale" in stale
-    friday_ok = render_page([digest("2026-09-11", [])], page="A", today=date(2026, 9, 14))
-    assert 'class="banner"' not in friday_ok
-    explicit = render_page([digest("2026-09-10", [])], page="A", today=TODAY, error="fetch.py exited 1", log_url="https://x/log")
+    weekly = [digest("2026-09-21", [])]
+    # The week until the next Monday, and that Monday's own day in case it lands late.
+    for today in (date(2026, 9, 22), date(2026, 9, 28), date(2026, 9, 29)):
+        assert 'class="banner"' not in render_page(weekly, page="A", today=today)
+    assert "stale" in render_page(weekly, page="A", today=date(2026, 9, 30))
+
+    explicit = render_page(err, page="A", today=date(2026, 9, 28), error="fetch.py exited 1", log_url="https://x/log")
     assert "fetch.py exited 1" in explicit and 'href="https://x/log"' in explicit
 
 
-def test_weekly_page_banners_the_weekly_run_not_the_daily() -> None:
+def test_an_old_dailys_trouble_no_longer_reaches_the_banner() -> None:
     digests = [
-        digest("2026-09-19", [], mode="weekly", status={"error": "citation lookup failed: 429"}),
-        digest("2026-09-18", [], status={"error": "arXiv 503 on pool A"}),
+        digest("2026-09-28", [item("a1", "A", 90)]),
+        digest("2026-09-28", [], mode="daily", status={"error": "arXiv 503 on pool A"}),
     ]
-    saturday = date(2026, 9, 19)
-
-    weekly = render_page(digests, page="weekly", today=saturday)
-    assert "citation lookup failed: 429" in weekly
-    assert "arXiv 503 on pool A" not in weekly  # the daily's trouble belongs on the daily pages
-
-    daily = render_page(digests, page="A", today=saturday)
-    assert "arXiv 503 on pool A" in daily and "citation lookup failed: 429" not in daily
+    assert 'class="banner"' not in render_page(digests, page="A", today=date(2026, 9, 28))
 
 
-def test_weekly_staleness_allows_the_week_between_saturdays() -> None:
-    weekly = [digest("2026-09-19", [], mode="weekly"), digest("2026-09-25", [])]
-    # Every weekday after the Saturday run, and the next Saturday before it runs.
-    for today in (date(2026, 9, 22), date(2026, 9, 25), date(2026, 9, 26)):
-        assert 'class="banner"' not in render_page(weekly, page="weekly", today=today)
-    # A Saturday that never ran is called out once the next week starts.
-    assert "stale" in render_page(weekly, page="weekly", today=date(2026, 9, 28))
-
-
-def test_weekly_page_without_a_weekly_explains_itself_in_the_body_only() -> None:
-    html = render_page([digest("2026-09-10", [])], page="weekly", today=TODAY)
+def test_before_the_first_weekly_the_body_explains_and_old_dailies_stay_listed() -> None:
+    html = render_page([digest("2026-09-10", [item("a1", "A", 90)], mode="daily")], page="A", today=TODAY)
     assert "No weekly digest yet" in html
     assert 'class="banner"' not in html  # no "No digest has been generated yet" on top of it
+    assert "Thursday 10 September 2026 (daily)" in html and "Title a1" in html
 
 
 def test_archive_page_carries_its_own_runs_failure() -> None:
-    d = digest("2026-09-19", [item("a1", "weekly", 90)], mode="weekly", status={"error": "journal search failed: 429"})
+    d = digest("2026-09-19", [item("a1", "computing", 90)], status={"error": "journal search failed: 429"})
     html = render_archive(d)
     assert 'class="banner"' in html and "journal search failed: 429" in html
-    assert 'class="banner"' not in render_archive(digest("2026-09-18", [item("a1", "A", 90)]))
+    assert 'class="banner"' not in render_archive(digest("2026-09-18", [item("a1", "A", 90)], mode="daily"))
 
 
 def test_unranked_digest_lists_candidates_without_scores() -> None:
@@ -107,27 +95,36 @@ def test_unranked_digest_lists_candidates_without_scores() -> None:
     assert "Title a1" in html and "unranked" in html
 
 
-def test_weekly_page_shows_latest_weekly_and_upcoming_pool() -> None:
+def test_computing_page_shows_ranked_weeks_not_the_held_daily_lists() -> None:
     digests = [
-        digest("2026-09-12", [item("w1", "weekly", 88)], mode="weekly"),
-        digest("2026-09-14", [item("c1", "computing", 30), item("a1", "A", 90)]),
-        digest("2026-09-05", [item("w0", "weekly", 70)], mode="weekly"),
+        digest("2026-09-28", [item("k1", "computing", 88), item("a2", "A", 90)]),
+        digest("2026-09-25", [item("c1", "computing", 30), item("a1", "A", 90)], mode="daily"),
+        digest("2026-09-19", [item("k0", "computing", 70)]),
     ]
-    html = render_page(digests, page="weekly", today=date(2026, 9, 14))
-    assert "Title w1" in html
-    assert "Title c1" in html          # computing items after the last weekly digest
-    assert "Title a1" not in html
-    assert html.index("Title w1") < html.index("Title w0")   # previous weekly digests below, collapsed
+    html = render_page(digests, page="computing", today=date(2026, 9, 28))
+    assert "Title k1" in html and "Title k0" in html
+    assert "Title c1" not in html  # held for the weekly that ranked it
+    assert "Title a1" not in html and "Title a2" not in html
+    assert html.index("Title k1") < html.index("Week to Saturday 19 September 2026") < html.index("Title k0")
+
+
+def test_foundations_page_shows_section_c() -> None:
+    digests = [digest("2026-09-28", [item("f1", "C", 84, kind="T"), item("a1", "A", 90)])]
+    html = render_page(digests, page="C", today=date(2026, 9, 28))
+    assert "Foundations of quantum mechanics" in html
+    assert "Title f1" in html and "Title a1" not in html
+    assert 'href="c.html" class="current"' in html
 
 
 def test_previous_days_archive_and_site_files(tmp_path: Path) -> None:
-    digests = [digest("2026-09-12", [item("w1", "weekly", 88)], mode="weekly")]
+    digests = [digest("2026-09-12", [item("w1", "computing", 88)])]
     for day in range(1, 20):
         run = date(2026, 9, 12) - timedelta(days=day)
-        digests.append(digest(run.isoformat(), [item(f"p{day}", "A", 50), item(f"q{day}", "B", 40)]))
+        digests.append(digest(run.isoformat(), [item(f"p{day}", "A", 50), item(f"q{day}", "B", 40)], mode="daily"))
     html = render_page(digests, page="A", today=date(2026, 9, 12))
+    assert "No new papers" in html  # this week had no A papers; older digests still listed
     assert "Title p1" in html
-    assert "Title p14" in html and "Title p16" not in html
+    assert "Title p14" in html and "Title p15" not in html
     assert "Title q1" not in html
     assert 'href="archive/2026-08-27.html"' in html
 
@@ -136,7 +133,7 @@ def test_previous_days_archive_and_site_files(tmp_path: Path) -> None:
 
     docs = tmp_path / "docs"
     render_site(digests, docs, today=date(2026, 9, 12))
-    for name in ("index.html", "b.html", "weekly.html", "style.css", "archive/2026-09-12-weekly.html", "archive/2026-08-24.html"):
+    for name in ("index.html", "b.html", "c.html", "weekly.html", "style.css", "archive/2026-09-12-weekly.html", "archive/2026-08-24.html"):
         assert (docs / name).exists(), name
 
 
@@ -166,14 +163,16 @@ def test_feedback_links_present_only_with_repo() -> None:
 def test_feed_lists_scored_and_watched_papers(tmp_path: Path) -> None:
     items = [item("a1", "A", 90), item("a2", "A", 55), item("a3", "A", 20), item("b1", "B", 10, kind="T"), item("c1", "computing", 70)]
     items[3]["tags"] = ["watch:Someone"]
-    digests = [digest("2026-09-10", items), digest("2026-09-12", [item("w1", "weekly", 85)], mode="weekly")]
+    weekly = [item("k1", "computing", 85), item("f1", "C", 60, kind="T")]
+    digests = [digest("2026-09-10", items, mode="daily"), digest("2026-09-12", weekly)]
     feed = render_feed(digests, site=SITE)
     assert feed.startswith('<?xml version="1.0"')
     assert '<link rel="self" href="https://focix.github.io/quantum-optics-digest/feed.xml"/>' in feed
     assert feed.count("<entry>") == 2
     assert "1 to read, 1 worth the title" in feed
     assert "Title a1" in feed and "Title a2" in feed and "Title b1" in feed
-    assert "Title a3" not in feed and "Title c1" not in feed
+    assert "Title a3" not in feed and "Title c1" not in feed  # a daily's computing list was held
+    assert "Title k1" in feed and "Title f1" in feed
     assert "archive/2026-09-10.html" in feed and "archive/2026-09-12-weekly.html" in feed
     assert "does a thing" in feed
 
@@ -187,46 +186,45 @@ def test_feed_lists_scored_and_watched_papers(tmp_path: Path) -> None:
 
 
 def test_zotero_button_data_files_and_script(tmp_path: Path) -> None:
-    items = [item("a1", "A", 90), item("c1", "computing", 30)]
-    digests = [digest("2026-09-14", items), digest("2026-09-12", [item("w1", "weekly", 85)], mode="weekly")]
-    html = render_page(digests, page="A", today=date(2026, 9, 14), site=SITE)
-    assert '<button type="button" class="zot" data-id="a1" data-src="2026-09-14"' in html
+    digests = [
+        digest("2026-09-28", [item("a1", "A", 90), item("k1", "computing", 30)]),
+        digest("2026-09-25", [item("d1", "A", 85)], mode="daily"),
+    ]
+    html = render_page(digests, page="A", today=date(2026, 9, 28), site=SITE)
+    assert '<button type="button" class="zot" data-id="a1" data-src="2026-09-28-weekly"' in html
+    assert 'data-id="d1" data-src="2026-09-25"' in html  # an old daily points at its own file
     assert 'class="zot-setup"' in html and '<dialog id="zot-dialog">' in html
     assert '<body data-root="">' in html and '<script src="zotero.js" defer>' in html
-    weekly = render_page(digests, page="weekly", today=date(2026, 9, 14), site=SITE)
-    assert 'data-id="w1" data-src="2026-09-12-weekly"' in weekly
-    assert 'data-id="c1" data-src="2026-09-14"' in weekly      # pool items point at their own day's file
-    assert "_data" not in weekly
 
     docs = tmp_path / "docs"
-    render_site(digests, docs, today=date(2026, 9, 14), site=SITE)
+    render_site(digests, docs, today=date(2026, 9, 28), site=SITE)
     assert (docs / "zotero.js").exists()
     import json
-    data = json.loads((docs / "data" / "2026-09-14.json").read_text())
+    data = json.loads((docs / "data" / "2026-09-28-weekly.json").read_text())
     assert data["items"]["a1"]["abstract"] == "abs" and data["items"]["a1"]["authors"][0] == "A One"
-    assert set(data["items"]) == {"a1", "c1"}
-    assert (docs / "data" / "2026-09-12-weekly.json").exists()
-    archive = (docs / "archive" / "2026-09-14.html").read_text()
+    assert set(data["items"]) == {"a1", "k1"}
+    assert (docs / "data" / "2026-09-25.json").exists()
+    archive = (docs / "archive" / "2026-09-28-weekly.html").read_text()
     assert '<body data-root="../">' in archive and '<script src="../zotero.js" defer>' in archive
 
 
-def test_latest_json_is_the_newest_daily(tmp_path: Path) -> None:
+def test_latest_json_is_the_newest_run(tmp_path: Path) -> None:
     digests = [
-        digest("2026-09-12", [item("w1", "weekly", 85)], mode="weekly"),
-        digest("2026-09-11", [item("a1", "A", 90)]),
-        digest("2026-09-10", [item("a0", "A", 70)]),
+        digest("2026-09-28", [item("a1", "A", 90)]),
+        digest("2026-09-28", [item("a0", "A", 70)], mode="daily"),
+        digest("2026-09-25", [item("a9", "A", 70)], mode="daily"),
     ]
     docs = tmp_path / "docs"
-    render_site(digests, docs, today=date(2026, 9, 12), site=SITE)
+    render_site(digests, docs, today=date(2026, 9, 28), site=SITE)
     import json
     latest = json.loads((docs / "data" / "latest.json").read_text())
-    assert latest["run"] == "2026-09-11" and latest["mode"] == "daily"
+    assert latest["run"] == "2026-09-28" and latest["mode"] == "weekly"
     assert set(latest["items"]) == {"a1"}
 
 
-def test_latest_json_absent_without_a_daily(tmp_path: Path) -> None:
+def test_latest_json_absent_without_a_digest(tmp_path: Path) -> None:
     docs = tmp_path / "docs"
-    render_site([digest("2026-09-12", [item("w1", "weekly", 85)], mode="weekly")], docs, today=date(2026, 9, 12), site=SITE)
+    render_site([], docs, today=date(2026, 9, 28), site=SITE)
     assert not (docs / "data" / "latest.json").exists()
 
 
@@ -260,9 +258,12 @@ def test_explain_text_is_escaped() -> None:
     assert "&lt;script&gt;" in page
 
 
-def test_computing_papers_never_get_an_explain_panel() -> None:
-    """They are titles-only until the weekly re-ranks them, so prompts must not ask for one."""
-    d = digest("2026-09-10", [item("c1", "computing", 90, eli5=ELI5)])
+def test_only_held_computing_lists_go_without_an_explain_panel() -> None:
+    """An old daily listed computing papers as titles; the weekly ranks them in full."""
+    held = digest("2026-09-10", [item("c1", "computing", 90, eli5=ELI5)], mode="daily")
+    assert 'class="explain"' not in render_archive(held)
+    assert "held for the weekly" in render_archive(held)
 
-    assert 'class="explain"' not in render_archive(d)
-    assert 'class="explain"' not in render_page([d], page="weekly", today=TODAY)
+    weekly = digest("2026-09-28", [item("k1", "computing", 90, eli5=ELI5)])
+    assert 'class="explain"' in render_archive(weekly)
+    assert 'class="explain"' in render_page([weekly], page="computing", today=date(2026, 9, 28))

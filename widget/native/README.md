@@ -39,8 +39,8 @@ site, and force-refreshes the widget timeline.
 | Large | Section headings, top 5 per section, with why-lines |
 
 Watchlist papers appear on top of those counts with a ★, whatever they scored, as on the site.
-Clicking a paper opens its arXiv page; clicking elsewhere opens the digest site. `computing`
-papers are left out, since they are held for the Saturday weekly.
+Clicking a paper opens its arXiv page; clicking elsewhere opens the digest site. Only sections A
+and B are shown; foundations (C) and computing live on the site.
 
 Timeline refresh is hourly, or every 15 minutes while a fetch is failing.
 

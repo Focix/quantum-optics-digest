@@ -1,7 +1,7 @@
 #!/usr/bin/env -S uv run
 """Merge out/ into digests/ and regenerate docs/.
 
-Usage: uv run scripts/render.py [--mode daily|weekly] [--error "what failed"] [--backfill-only]
+Usage: uv run scripts/render.py [--error "what failed"] [--backfill-only]
 With --error no digest is written and state is untouched; the page shows a banner.
 """
 
@@ -19,7 +19,6 @@ from digest.pipeline import Paths, load_config, publish, refresh, site_from, tod
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--mode", choices=["daily", "weekly"], default="daily")
     parser.add_argument("--error", help="the run failed at some step; render a banner instead of a digest")
     parser.add_argument("--log-url", help="link to the run log, shown in the banner")
     parser.add_argument("--today", help="override the run date (YYYY-MM-DD), default: today in Moscow")
@@ -37,7 +36,7 @@ def main() -> int:
         print(f"citation backfill: {refresh(paths, config, today=today, site=site_from(config))}")
         return 0
     digest = publish(
-        paths, mode=args.mode, today=today, error=args.error, log_url=args.log_url,
+        paths, today=today, error=args.error, log_url=args.log_url,
         site=site_from(config), config=config,
     )
     if digest is None:

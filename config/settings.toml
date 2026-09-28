@@ -1,6 +1,9 @@
 [run]
-window_days = 7          # rolling window of submission dates
-cap = 120                # max candidates handed to the model per run (newest kept)
+# The digest runs weekly, but arXiv announces a paper up to ~3 days after its submission date
+# (a late-Friday submission is listed Monday night), so the window reaches well past the
+# previous run; state/seen.json keeps the overlap from showing a paper twice.
+window_days = 14         # rolling window of submission dates
+cap = 250                # max candidates handed to the model per run (newest kept)
 seen_keep_days = 60      # prune state/seen.json entries older than this
 timezone = "Europe/Moscow"
 
@@ -11,7 +14,7 @@ repo = "Focix/quantum-optics-digest"
 
 [arxiv]
 max_results = 200
-delay_seconds = 5             # pause between arXiv requests (a daily run makes only 2)
+delay_seconds = 5             # pause between arXiv requests (a run makes one per pool)
 # Short on purpose: a throttled pool falls back to OpenAlex (see [backup]) rather than
 # waiting arXiv out. A throttled arXiv answers slowly, so the timeout matters more than
 # the backoff does; together these bound a fully-throttled run at roughly two minutes.
@@ -37,7 +40,8 @@ mailto = "fdmiester@gmail.com"
 # both clear up within days, and nothing else ever revisits a published digest.
 backfill_days = 30
 
-[weekly]
-lookback_days = 7        # daily digests to pull computing-tagged papers from
-journal_search_query = '"superconducting qubit" OR transmon OR fluxonium'
-journal_lookback_days = 14
+[journal]
+# Journal articles with no arXiv version, found through OpenAlex and ranked with the
+# computing papers. Needs [citations] enabled; deduplicated against state/seen.json.
+query = '"superconducting qubit" OR transmon OR fluxonium'
+lookback_days = 14

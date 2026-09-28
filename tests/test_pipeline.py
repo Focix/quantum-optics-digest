@@ -9,8 +9,7 @@ from digest.models import Paper
 from digest.pipeline import (
     FetchXml,
     Paths,
-    fetch_daily,
-    fetch_weekly,
+    fetch_candidates,
     load_config,
     make_arxiv_fetcher,
     publish,
@@ -33,22 +32,23 @@ def paths(tmp_path: Path) -> Paths:
     return p
 
 
-def test_fetch_daily_writes_candidates_status_and_next_seen(paths: Paths) -> None:
+def test_fetch_writes_candidates_status_and_next_seen(paths: Paths) -> None:
     urls: list[str] = []
 
     def fetch_xml(url: str) -> str:
         urls.append(url)
         return FIXTURE
 
-    status = fetch_daily(load_config(paths), paths, fetch_xml=fetch_xml, today=TODAY)
+    status = fetch_candidates(load_config(paths), paths, fetch_xml=fetch_xml, today=TODAY)
 
-    assert len(urls) == 2
+    assert len(urls) == 3
     candidates = json.loads(paths.candidates.read_text())
     # the same two papers come back for every pool; A wins, so B and C add nothing; newest id first
     assert [(c["id"], c["pool"]) for c in candidates] == [("2609.09426", "A"), ("2609.08348", "A")]
     assert candidates[0]["tags"] == ["platform:sc"]
-    assert status["pools"] == {"A": "ok", "B": "ok"}
-    assert status["counts"] == {"A": 2, "B": 0}
+    assert status["mode"] == "weekly"
+    assert status["pools"] == {"A": "ok", "B": "ok", "C": "ok"}
+    assert status["counts"] == {"A": 2, "B": 0, "C": 0}
     assert status["citations"] == "disabled"
     assert "error" not in status
     assert json.loads(paths.status.read_text()) == status
@@ -59,20 +59,20 @@ def test_fetch_daily_writes_candidates_status_and_next_seen(paths: Paths) -> Non
 def test_overflow_is_noted_in_status_without_error(paths: Paths) -> None:
     config = load_config(paths)
     config["run"]["cap"] = 1
-    status = fetch_daily(config, paths, fetch_xml=lambda url: FIXTURE, today=TODAY)
+    status = fetch_candidates(config, paths, fetch_xml=lambda url: FIXTURE, today=TODAY)
 
     assert status["overflow"].startswith("1 oldest candidates dropped")
     assert "error" not in status
     assert len(json.loads(paths.candidates.read_text())) == 1
 
 
-def test_fetch_daily_records_pool_failure_and_keeps_going(paths: Paths) -> None:
+def test_fetch_records_pool_failure_and_keeps_going(paths: Paths) -> None:
     def fetch_xml(url: str) -> str:
         if "physics.optics" in url:
             raise RuntimeError("503 Service Unavailable")
         return FIXTURE
 
-    status = fetch_daily(load_config(paths), paths, fetch_xml=fetch_xml, today=TODAY)
+    status = fetch_candidates(load_config(paths), paths, fetch_xml=fetch_xml, today=TODAY)
 
     assert status["pools"]["B"].startswith("error: 503")
     assert "pool B" in status["error"]
@@ -80,52 +80,72 @@ def test_fetch_daily_records_pool_failure_and_keeps_going(paths: Paths) -> None:
 
 
 def test_publish_writes_digest_promotes_seen_and_renders(paths: Paths) -> None:
-    fetch_daily(load_config(paths), paths, fetch_xml=lambda url: FIXTURE, today=TODAY)
-    ranking = {"run": "2026-09-10", "mode": "daily", "items": [
+    fetch_candidates(load_config(paths), paths, fetch_xml=lambda url: FIXTURE, today=TODAY)
+    ranking = {"run": "2026-09-10", "mode": "weekly", "items": [
         {"id": "2609.09426", "section": "computing", "score": 30, "why": "Computes E_J for amorphous barriers.", "kind": "T"},
-        {"id": "2609.08348", "section": "computing", "score": 35, "why": "Instantaneous-frame theory of parametric gates.", "kind": "T"},
+        {"id": "2609.08348", "section": "computing", "score": 85, "why": "Instantaneous-frame theory of parametric gates.", "kind": "T"},
     ]}
     paths.ranking.write_text(json.dumps(ranking))
 
-    digest = publish(paths, mode="daily", today=TODAY)
+    digest = publish(paths, today=TODAY)
 
     assert digest is not None
-    assert digest["ranked"] is True
-    assert (paths.digests / "2026-09-10.json").exists()
+    assert digest["ranked"] is True and digest["mode"] == "weekly"
+    assert (paths.digests / "2026-09-10-weekly.json").exists()
     assert set(json.loads(paths.seen.read_text())) == {"2609.08348", "2609.09426"}
-    weekly = (paths.docs / "weekly.html").read_text()  # computing items feed the weekly pool
-    assert "Instantaneous-Frame Theory" in weekly
+    computing = (paths.docs / "weekly.html").read_text()  # ranked in the same run, with why-lines
+    assert "Instantaneous-Frame Theory" in computing and "Instantaneous-frame theory of parametric gates." in computing
+    assert (paths.docs / "c.html").exists()
     assert 'class="banner"' not in (paths.docs / "index.html").read_text()
 
 
 def test_publish_with_error_renders_banner_and_leaves_state_alone(paths: Paths) -> None:
-    fetch_daily(load_config(paths), paths, fetch_xml=lambda url: FIXTURE, today=TODAY)
-    digest = publish(paths, mode="daily", today=TODAY, error="fetch.py exited 1")
+    fetch_candidates(load_config(paths), paths, fetch_xml=lambda url: FIXTURE, today=TODAY)
+    digest = publish(paths, today=TODAY, error="fetch.py exited 1")
 
     assert digest is None
     assert not paths.seen.exists()
     assert "fetch.py exited 1" in (paths.docs / "index.html").read_text()
 
 
-def test_fetch_weekly_collects_computing_items_from_recent_digests(paths: Paths) -> None:
-    paths.digests.mkdir()
-    old = {"run": "2026-09-01", "mode": "daily", "ranked": True, "status": {}, "items": [
-        {"id": "old", "title": "Old", "authors": [], "abstract": "", "categories": [], "submitted": "2026-09-01",
-         "pool": "A", "tags": ["platform:sc"], "cite": None, "section": "computing", "score": 40, "why": "x"}]}
-    recent = {"run": "2026-09-09", "mode": "daily", "ranked": True, "status": {}, "items": [
-        {"id": "new", "title": "New", "authors": [], "abstract": "", "categories": [], "submitted": "2026-09-09",
-         "pool": "A", "tags": ["platform:sc"], "cite": None, "section": "computing", "score": 40, "why": "x"},
-        {"id": "optics", "title": "Optics", "authors": [], "abstract": "", "categories": [], "submitted": "2026-09-09",
-         "pool": "A", "tags": ["platform:sc"], "cite": None, "section": "A", "score": 90, "why": "x"}]}
-    for d in (old, recent):
-        (paths.digests / f"{d['run']}.json").write_text(json.dumps(d))
+class FakeJournal:
+    """Stands in for OpenAlexClient in the journal search; knows no arXiv ids."""
 
-    status = fetch_weekly(load_config(paths), paths, today=date(2026, 9, 12))
+    last_error = None
 
-    candidates = json.loads(paths.candidates.read_text())
-    assert [(c["id"], c["pool"]) for c in candidates] == [("new", "weekly")]
-    assert status["counts"] == {"weekly": 1}
-    assert status["citations"] == "disabled"
+    def __init__(self, records: list[dict[str, object]]) -> None:
+        self.records = records
+
+    def search_journal(self, query: str, *, published_after: str) -> list[dict[str, object]]:
+        return self.records
+
+    def enrich(self, ids: list[str]) -> dict[str, dict[str, object]]:
+        return {}
+
+
+def journal_record(id: str, has_arxiv: bool = False) -> dict[str, object]:
+    return {
+        "id": id, "url": f"https://doi.org/10.1/{id}", "title": f"Journal {id}", "authors": ["A One"],
+        "abstract": "a transmon abstract", "publicationDate": "2026-09-08", "hasArxiv": has_arxiv,
+        "cite": {"citationCount": 3, "venue": "PRX Quantum"},
+    }
+
+
+def test_journal_articles_join_the_run_once(paths: Paths, monkeypatch: pytest.MonkeyPatch) -> None:
+    import digest.pipeline as pipeline
+
+    records = [journal_record("W1"), journal_record("W2", has_arxiv=True), journal_record("W3")]
+    monkeypatch.setattr(pipeline, "_citation_client", lambda config, paths: FakeJournal(records))
+    paths.state.mkdir()
+    paths.seen.write_text(json.dumps({"W3": "2026-09-03"}))  # shown last week
+
+    status = fetch_candidates(load_config(paths), paths, fetch_xml=lambda url: FIXTURE, today=TODAY)
+
+    journal = [c for c in json.loads(paths.candidates.read_text()) if c["pool"] == "journal"]
+    assert [c["id"] for c in journal] == ["W1"]
+    assert journal[0]["tags"] == ["source:openalex"] and journal[0]["url"] == "https://doi.org/10.1/W1"
+    assert status["counts"]["journal"] == 1 and status["journal_search"] == "ok"
+    assert "W1" in json.loads(paths.seen_next.read_text())
 
 
 # -- arXiv transport -------------------------------------------------------
@@ -279,9 +299,9 @@ def test_pool_falls_back_to_openalex_when_arxiv_fails(paths: Paths) -> None:
         asked.append(str(pool["backup_query"]))
         return [backup_paper("2609.09426")]
 
-    status = fetch_daily(load_config(paths), paths, fetch_xml=boom, today=TODAY, backup=backup)
+    status = fetch_candidates(load_config(paths), paths, fetch_xml=boom, today=TODAY, backup=backup)
 
-    assert len(asked) == 2  # both pools fell back
+    assert len(asked) == 3  # every pool fell back
     assert status["pools"]["A"].startswith("backup: 1 from OpenAlex after arXiv failed")
     assert status["counts"]["A"] == 1
     # the reader is told the digest is thin, not just that something broke
@@ -293,9 +313,9 @@ def test_backup_is_not_used_when_arxiv_works(paths: Paths) -> None:
     def backup(pool: dict[str, object]) -> list[Paper]:
         raise AssertionError("backup must not run when arXiv answers")
 
-    status = fetch_daily(load_config(paths), paths, fetch_xml=lambda url: FIXTURE, today=TODAY, backup=backup)
+    status = fetch_candidates(load_config(paths), paths, fetch_xml=lambda url: FIXTURE, today=TODAY, backup=backup)
 
-    assert status["pools"] == {"A": "ok", "B": "ok"}
+    assert status["pools"] == {"A": "ok", "B": "ok", "C": "ok"}
     assert "error" not in status
 
 
@@ -303,18 +323,18 @@ def test_backup_failure_reports_both_errors(paths: Paths) -> None:
     def backup(pool: dict[str, object]) -> list[Paper]:
         raise RuntimeError("OpenAlex 500")
 
-    status = fetch_daily(load_config(paths), paths, fetch_xml=boom, today=TODAY, backup=backup)
+    status = fetch_candidates(load_config(paths), paths, fetch_xml=boom, today=TODAY, backup=backup)
 
     assert "backup failed: OpenAlex 500" in status["pools"]["A"]
     assert "429" in status["error"] and "OpenAlex backup also failed" in status["error"]
 
 
 def test_pool_without_a_backup_query_just_reports_the_arxiv_error(paths: Paths) -> None:
-    status = fetch_daily(load_config(paths), paths, fetch_xml=boom, today=TODAY, backup=lambda pool: None)
+    status = fetch_candidates(load_config(paths), paths, fetch_xml=boom, today=TODAY, backup=lambda pool: None)
 
     assert status["pools"]["A"].startswith("error: arXiv request failed")
     assert "OpenAlex" not in status["error"]
-    assert status["counts"] == {"A": 0, "B": 0}
+    assert status["counts"] == {"A": 0, "B": 0, "C": 0}
 
 
 # -- citation backfill -----------------------------------------------------
@@ -427,18 +447,18 @@ def test_publish_backfills_this_runs_own_items_and_records_the_note(
         "id": "a1", "title": "T", "authors": ["A One"], "abstract": "abs", "categories": ["quant-ph"],
         "submitted": "2026-09-09", "pool": "A", "tags": [], "cite": None, "url": None,
     }]))
-    paths.ranking.write_text(json.dumps({"run": TODAY.isoformat(), "mode": "daily", "items": [
+    paths.ranking.write_text(json.dumps({"run": TODAY.isoformat(), "mode": "weekly", "items": [
         {"id": "a1", "section": "A", "score": 90, "why": "w", "kind": "E"}
     ]}))
-    paths.status.write_text(json.dumps({"run": TODAY.isoformat(), "mode": "daily"}))
+    paths.status.write_text(json.dumps({"run": TODAY.isoformat(), "mode": "weekly"}))
     use_fake_openalex(monkeypatch, FakeOpenAlex({"a1": {"citationCount": 7, "venue": "Nature"}}))
 
-    digest = publish(paths, mode="daily", today=TODAY, config=load_config(paths))
+    digest = publish(paths, today=TODAY, config=load_config(paths))
 
     assert digest is not None
     assert digest["status"]["backfill"] == "ok (checked 1 papers, updated 1 item(s) in 1 digest(s))"
     assert digest["items"][0]["cite"] == {"citationCount": 7, "venue": "Nature"}
-    on_disk = json.loads((paths.digests / "2026-09-10.json").read_text())
+    on_disk = json.loads((paths.digests / "2026-09-10-weekly.json").read_text())
     assert on_disk["items"][0]["cite"] == {"citationCount": 7, "venue": "Nature"}
     assert "7 citations" in (paths.docs / "index.html").read_text()
 
@@ -446,10 +466,10 @@ def test_publish_backfills_this_runs_own_items_and_records_the_note(
 def test_publish_without_config_does_not_backfill(paths: Paths, monkeypatch: pytest.MonkeyPatch) -> None:
     paths.out.mkdir(parents=True, exist_ok=True)
     paths.candidates.write_text("[]")
-    paths.status.write_text(json.dumps({"run": TODAY.isoformat(), "mode": "daily"}))
+    paths.status.write_text(json.dumps({"run": TODAY.isoformat(), "mode": "weekly"}))
     client = use_fake_openalex(monkeypatch, FakeOpenAlex())
 
-    digest = publish(paths, mode="daily", today=TODAY)
+    digest = publish(paths, today=TODAY)
 
     assert digest is not None and "backfill" not in digest["status"]
     assert client.asked == []

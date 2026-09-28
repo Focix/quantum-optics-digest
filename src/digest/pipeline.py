@@ -1,4 +1,4 @@
-"""End-to-end steps used by the scripts: fetch (daily/weekly) and publish."""
+"""End-to-end steps used by the scripts: fetch and publish, once a week."""
 
 from __future__ import annotations
 
@@ -27,6 +27,9 @@ from digest.store import add_error, build_digest, digest_path, load_digests, mer
 FetchXml = Callable[[str], str]
 # A pool's fallback source: returns its papers, or None when no backup applies.
 Backup = Callable[[dict[str, Any]], "list[Paper] | None"]
+
+# The only mode new digests are written in. Older files in digests/ also carry "daily".
+MODE = "weekly"
 
 # arXiv asks callers to identify themselves; an anonymous UA is likelier to be throttled.
 USER_AGENT = "quantum-optics-digest/1.0 (+https://github.com/Focix/quantum-optics-digest)"
@@ -264,10 +267,43 @@ def _make_backup(config: dict[str, Any], paths: Paths, *, today: date) -> Backup
     return backup
 
 
-# -- daily -----------------------------------------------------------------
+# -- fetch -----------------------------------------------------------------
 
 
-def fetch_daily(
+def _journal_candidates(
+    config: dict[str, Any],
+    client: OpenAlexClient,
+    *,
+    today: date,
+    exclude: set[str],
+    watchlist: list[str],
+) -> list[Candidate]:
+    """Journal articles with no arXiv version, ranked alongside the computing papers."""
+    journal = config["journal"]
+    after = (today - timedelta(days=int(journal["lookback_days"]))).isoformat()
+    candidates: list[Candidate] = []
+    for record in client.search_journal(journal["query"], published_after=after):
+        if record["hasArxiv"] or record["id"] in exclude:
+            continue  # arXiv papers come through the pools; shown ones are in state/seen.json
+        exclude.add(record["id"])
+        candidates.append(
+            Candidate(
+                id=record["id"],
+                title=record["title"],
+                authors=record["authors"],
+                abstract=record["abstract"],
+                categories=[],
+                submitted=date.fromisoformat(record["publicationDate"]) if record["publicationDate"] else today,
+                pool="journal",
+                tags=["source:openalex", *watch_tags(record["authors"], watchlist)],
+                cite=record["cite"],
+                url=record["url"],
+            )
+        )
+    return candidates
+
+
+def fetch_candidates(
     config: dict[str, Any],
     paths: Paths,
     *,
@@ -276,7 +312,7 @@ def fetch_daily(
     backup: Backup | None = None,
 ) -> dict[str, Any]:
     run_cfg = config["run"]
-    status: dict[str, Any] = {"run": today.isoformat(), "mode": "daily", "pools": {}, "counts": {}}
+    status: dict[str, Any] = {"run": today.isoformat(), "mode": MODE, "pools": {}, "counts": {}}
     pools: dict[str, list[Paper]] = {}
     refill = backup or _make_backup(config, paths, today=today)
     for name, pool in config["pools"].items():
@@ -316,74 +352,31 @@ def fetch_daily(
         cap=int(run_cfg["cap"]),
         watchlist=watchlist,
     )
+    candidates = selection.candidates
     status["counts"] = {name: selection.per_pool.get(name, 0) for name in config["pools"]}
     status["dropped_seen"] = selection.dropped_seen
     status["dropped_old"] = selection.dropped_old
-    watched = sum(1 for c in selection.candidates if any(t.startswith("watch:") for t in c.tags))
-    if watchlist:
-        status["watched"] = watched
     if selection.overflow:  # noted, not an error: the page stays green
         status["overflow"] = f"{selection.overflow} oldest candidates dropped over the cap of {run_cfg['cap']}"
 
-    _enrich(selection.candidates, _citation_client(config, paths), status)
-
-    _write_json(paths.candidates, [c.to_json() for c in selection.candidates])
-    _write_json(paths.seen_next, mark_seen(seen, selection.candidates, today=today, keep_days=int(run_cfg["seen_keep_days"])))
-    _write_json(paths.status, status)
-    return status
-
-
-# -- weekly ----------------------------------------------------------------
-
-
-def fetch_weekly(config: dict[str, Any], paths: Paths, *, today: date) -> dict[str, Any]:
-    weekly = config["weekly"]
-    status: dict[str, Any] = {"run": today.isoformat(), "mode": "weekly", "counts": {}}
-    since = today - timedelta(days=int(weekly["lookback_days"]))
-    candidates: list[Candidate] = []
-    seen_ids: set[str] = set()
-    for digest in load_digests(paths.digests):
-        if digest["mode"] != "daily" or date.fromisoformat(digest["run"]) < since:
-            continue
-        for item in digest["items"]:
-            if item.get("section") == "computing" and item["id"] not in seen_ids:
-                seen_ids.add(item["id"])
-                c = Candidate.from_json(item)
-                c.pool = "weekly"
-                candidates.append(c)
-
-    watchlist = load_watchlist(paths.watchlist)
     client = _citation_client(config, paths)
-    if client is not None and weekly.get("journal_search_query"):
+    if client is not None and config.get("journal", {}).get("query"):
         try:
-            after = (today - timedelta(days=int(weekly["journal_lookback_days"]))).isoformat()
-            for record in client.search_journal(weekly["journal_search_query"], published_after=after):
-                if record["hasArxiv"] or record["id"] in seen_ids:
-                    continue  # arXiv papers are already covered by the daily pool
-                seen_ids.add(record["id"])
-                candidates.append(
-                    Candidate(
-                        id=record["id"],
-                        title=record["title"],
-                        authors=record["authors"],
-                        abstract=record["abstract"],
-                        categories=[],
-                        submitted=date.fromisoformat(record["publicationDate"]) if record["publicationDate"] else today,
-                        pool="weekly",
-                        tags=["source:openalex", *watch_tags(record["authors"], watchlist)],
-                        cite=record["cite"],
-                        url=record["url"],
-                    )
-                )
+            exclude = set(seen) | {c.id for c in candidates}
+            found = _journal_candidates(config, client, today=today, exclude=exclude, watchlist=watchlist)
+            candidates.extend(found)
+            status["counts"]["journal"] = len(found)
             status["journal_search"] = "ok"
-        except Exception as exc:
+        except Exception as exc:  # the arXiv pools still go out
             status["journal_search"] = f"error: {exc}"
             add_error(status, f"journal search failed: {exc}")
 
+    if watchlist:
+        status["watched"] = sum(1 for c in candidates if any(t.startswith("watch:") for t in c.tags))
     _enrich(candidates, client, status)
-    candidates.sort(key=lambda c: c.submitted, reverse=True)
-    status["counts"] = {"weekly": len(candidates)}
+
     _write_json(paths.candidates, [c.to_json() for c in candidates])
+    _write_json(paths.seen_next, mark_seen(seen, candidates, today=today, keep_days=int(run_cfg["seen_keep_days"])))
     _write_json(paths.status, status)
     return status
 
@@ -410,8 +403,8 @@ def refresh(paths: Paths, config: dict[str, Any], *, today: date, site: Site | N
 def publish(
     paths: Paths,
     *,
-    mode: str,
     today: date,
+    mode: str = MODE,
     error: str | None = None,
     log_url: str | None = None,
     site: Site | None = None,
@@ -432,7 +425,7 @@ def publish(
         if existing.exists():  # a second run today (manual or retried) must not lose the first
             digest = merge_digests(json.loads(existing.read_text()), digest)
         write_digest(paths.digests, digest)
-        if mode == "daily" and paths.seen_next.exists():
+        if paths.seen_next.exists():
             _write_json(paths.seen, _read_json(paths.seen_next, {}))
         if config is not None:
             note = backfill_citations(paths, config, today=today)

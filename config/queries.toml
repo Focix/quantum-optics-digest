@@ -16,3 +16,9 @@ label = "Quantum optics on other platforms"
 categories = ["quant-ph", "physics.optics", "physics.atom-ph"]
 query = '''abs:"cavity QED" OR abs:"waveguide QED" OR abs:"single photon" OR abs:"single-photon" OR abs:"photon statistics" OR abs:"resonance fluorescence" OR abs:"squeezed light" OR abs:"quantum emitter" OR abs:"giant atom" OR abs:optomechanical OR (abs:Rydberg AND abs:photon) OR (abs:"trapped ion" AND abs:photon) OR (abs:"quantum dot" AND abs:photon)'''
 backup_query = '''"cavity QED" OR "waveguide QED" OR "single photon" OR "photon statistics" OR "resonance fluorescence" OR "squeezed light" OR "quantum emitter" OR "giant atom" OR optomechanical'''
+
+[pools.C]
+label = "Foundations of quantum mechanics"
+categories = ["quant-ph", "physics.hist-ph"]
+query = '''abs:"foundations of quantum" OR abs:"quantum foundations" OR abs:"interpretation of quantum" OR abs:"interpretations of quantum" OR abs:"measurement problem" OR abs:"Wigner's friend" OR abs:"Born rule" OR abs:"Bohmian" OR abs:"pilot wave" OR abs:"de Broglie-Bohm" OR abs:"many-worlds" OR abs:Everett OR abs:QBism OR abs:"relational quantum" OR abs:"objective collapse" OR abs:"collapse model" OR abs:"wave function collapse" OR abs:"wavefunction collapse" OR abs:"hidden variable" OR abs:"ontological model" OR abs:"psi-epistemic" OR abs:contextuality OR abs:"Kochen-Specker" OR abs:"Bell nonlocality" OR abs:"Leggett-Garg" OR abs:macrorealism OR abs:"generalized probabilistic theor" OR abs:"general probabilistic theor" OR abs:"reconstruction of quantum" OR abs:"quantum Darwinism" OR abs:"quantum-to-classical transition" OR abs:"indefinite causal order" OR abs:"quantum reference frame"'''
+backup_query = '''"foundations of quantum mechanics" OR "interpretation of quantum mechanics" OR "measurement problem" OR "Wigner's friend" OR "Born rule" OR "Bohmian mechanics" OR "many-worlds" OR QBism OR "collapse model" OR contextuality OR "Leggett-Garg" OR "quantum Darwinism"'''

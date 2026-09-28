@@ -59,7 +59,7 @@
     "openalex": "https://openalex.org/W7213261016"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 90,
    "why": "NbSe2-hBN-NbSe2 merged-element transmon reaches 55 us T1 and 21 us echo, matching Al-AlOx coherence in a far smaller footprint.",
    "kind": "E",
@@ -98,7 +98,7 @@
     "openalex": "https://openalex.org/W7213434259"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 88,
    "why": "Lindblad dynamics of 50-site chains on 100 active ibm_kingston qubits at 1700-gate depth maps the dissipative phase diagram from 117 hardware points.",
    "kind": "E",
@@ -134,7 +134,7 @@
     "openalex": "https://openalex.org/W7212889684"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 87,
    "why": "Pairing error detection with first-order PEC on ibm_aachen cuts sampling overhead 63x over six Trotter steps, using 22 data and 27 check qubits.",
    "kind": "TE",
@@ -192,7 +192,7 @@
     "openalex": "https://openalex.org/W7213610873"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 85,
    "why": "Graphene or hBN encapsulation grows air-stable inch-scale monolayer NbSe2 at 0.7 nH per square kinetic inductance, patterned into circuits without oxidation.",
    "kind": "E",
@@ -250,7 +250,7 @@
     "openalex": "https://openalex.org/W7213236710"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 84,
    "why": "Consecutive Landau-Zener transitions drive a two-qubit gate tunable across hundreds of MHz, demonstrated on both flux-qubit chiplets and monolithic transmons.",
    "kind": "TE",
@@ -291,7 +291,7 @@
     "openalex": "https://openalex.org/W7213597055"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 82,
    "why": "Reverse annealing across 4,500 qubits runs reservoir computing that forecasts chaotic time series, the largest quantum machine-learning experiment so far.",
    "kind": "E",
@@ -331,7 +331,7 @@
     "openalex": "https://openalex.org/W7212659363"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 81,
    "why": "Fourteen transmons fix the maximum sub-resonant drive amplitude as one function of frequency-to-anharmonicity ratio, bounding achievable parametric coupler rates.",
    "kind": "TE",
@@ -366,7 +366,7 @@
     "openalex": "https://openalex.org/W7213580593"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 80,
    "why": "A Magnus-derived pulse shape needs only one baseband flux channel, cutting coupler-ramp leakage in a fast iSWAP by three orders of magnitude.",
    "kind": "T",
@@ -412,7 +412,7 @@
     "openalex": "https://openalex.org/W7212556904"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 76,
    "why": "A 300 mm cryogenic wafer prober reads sub-700 mK electron temperatures across a full 150 mm wafer, opening high-throughput screening.",
    "kind": "E",
@@ -458,7 +458,7 @@
     "openalex": "https://openalex.org/W7213590102"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 72,
    "why": "Germanium flopping-mode hole spin qubit hits 99.76 percent single-qubit fidelity at 5 mT using only -52 dBm of drive power.",
    "kind": "E",
@@ -496,7 +496,7 @@
     "openalex": "https://openalex.org/W7213422683"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 72,
    "why": "Fixed-point FIR/IIR cascade on QubiC corrects flux-line distortion at a 500 MHz fabric clock for 88 DSP slices and 162 ns latency.",
    "kind": "TE",
@@ -527,7 +527,7 @@
     "openalex": "https://openalex.org/W7213528096"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 70,
    "why": "A ten-mode coaxial cable mediates an adiabatic CZ between chips, simulated at 4.7e-7 infidelity in 377 ns with no extra coupler.",
    "kind": "T",
@@ -558,7 +558,7 @@
     "openalex": "https://openalex.org/W7213415991"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 68,
    "why": "One Rabi-driven qubit coupled to two cavity modes programs a massive 2D Dirac Hamiltonian, showing rotational Zitterbewegung tracking effective mass.",
    "kind": "E",
@@ -588,7 +588,7 @@
    ],
    "cite": null,
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 66,
    "why": "Modulating coupler flux alone gives a 25 ns microwave-free CZ between fluxonium and transmon, near 99.9 percent once decoherence is included.",
    "kind": "T",
@@ -619,7 +619,7 @@
     "openalex": "https://openalex.org/W7213329531"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 64,
    "why": "Enforcing Ehrenfest equations on selected observables cuts the measurement cost of variational real-time evolution, benchmarked on 24 IQM Emerald qubits.",
    "kind": "TE",
@@ -649,7 +649,7 @@
     "openalex": "https://openalex.org/W7213396912"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 63,
    "why": "First entangling-gate proposal for capacitively coupled soft 0-pi qubits reaches about 99.9 percent in 160 ns via a non-computational transition.",
    "kind": "T",
@@ -679,7 +679,7 @@
     "openalex": "https://openalex.org/W7212521242"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 60,
    "why": "Spectroscopy of a driven two-level Hamiltonian picks out factor pairs of six-digit integers using neither entanglement nor any two-qubit gate.",
    "kind": "E",
@@ -707,7 +707,7 @@
     "openalex": "https://openalex.org/W7213526282"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 58,
    "why": "Process-tensor measures separate temporal, spatial and total noise correlations, turning measured lower bounds into witnesses of minimum memory dimension.",
    "kind": "T",
@@ -737,7 +737,7 @@
     "openalex": "https://openalex.org/W7213398442"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 55,
    "why": "Conditional transmon spectrum compiles repetition-code recovery into an open-loop cycle, slowing logical coherence decay with no syndrome measurement at all.",
    "kind": "T",
@@ -774,7 +774,7 @@
     "openalex": "https://openalex.org/W7212582324"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 50,
    "why": "Three nuclear spin qubits in diamond run Grover at room temperature, with 99.98 percent gate fidelity and 77 percent single-target success.",
    "kind": "E",
@@ -810,7 +810,7 @@
     "openalex": "https://openalex.org/W7213362166"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 48,
    "why": "Open-source full-stack neutral-atom simulator exposes patch rotation as a bottleneck; the co-optimised architecture gains 2.27x on fault-tolerant workloads.",
    "kind": "T",
@@ -839,7 +839,7 @@
     "openalex": "https://openalex.org/W7212588007"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 45,
    "why": "Measurement crosstalk on VTT hardware classifies a neighbour's readout at 76 percent, below the 96 percent previously reported on IBM machines.",
    "kind": "E",
@@ -869,7 +869,7 @@
     "openalex": "https://openalex.org/W7213577585"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 36,
    "why": "Classical-field simulations find hysteresis and retrapping in an atomic Josephson junction, following the Stewart-McCumber scaling of underdamped superconducting junctions.",
    "kind": "T",
@@ -898,7 +898,7 @@
     "openalex": "https://openalex.org/W7213292993"
    },
    "url": null,
-   "section": "weekly",
+   "section": "computing",
    "score": 33,
    "why": "Higher-order gradient terms in a ferromagnetic weak link produce a Josephson diode effect beyond the weak-exchange-field regime.",
    "kind": "T",

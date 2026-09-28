@@ -1,12 +1,22 @@
 # Quantum Optics Digest — system design and implementation plan
 
-Rev 2, 2026-09-10. Interactive version: https://claude.ai/code/artifact/58ccfec2-0590-4091-9332-6676b3e17921 (also `design/plan.html`).
+Rev 2, 2026-09-10; Rev 3 (weekly) 2026-09-28, see below. Interactive version: https://claude.ai/code/artifact/58ccfec2-0590-4091-9332-6676b3e17921 (also `design/plan.html`).
 
 ## Summary
 
 Every weekday at 09:00 Moscow a Claude Code cloud routine clones this repo, runs a Python script that pulls the last seven days of arXiv listings for two fixed query sets, drops anything already shown, enriches the rest with OpenAlex citation metadata, and hands the candidates to the routine's own model. The model sorts them into two sections, scores each against a written interest statement, writes a one-line reason per paper, and a render script turns the result into a static page committed to `docs/` and served by GitHub Pages. Saturday at 10:00 a second routine does the same for the week's superconducting quantum computing papers with a stronger model.
 
 No MCP server is involved in the routine. The arxiv and Semantic Scholar MCP servers (the latter now unused) are thin wrappers over the same public APIs and cannot be attached to a cloud routine; they are for interactive sessions only.
+
+## Rev 3, 2026-09-28: one weekly digest
+
+The daily run and the Saturday computing run are replaced by a single run every **Monday 09:00 Moscow** (`0 6 * * 1` UTC, Opus 5), and a fourth section is added. What changed against the rest of this document:
+
+- **Sections**: A and B as before; **C foundations of quantum mechanics** (interpretations, measurement problem, no-go theorems, reconstructions, contextuality/nonlocality as statements about reality, experimental tests) from a new arXiv pool over `quant-ph` + `physics.hist-ph` (`interests/c_foundations.md`); **computing** is now ranked in the same run from pool A's non-optics papers plus the OpenAlex journal search, instead of being held for Saturday (`interests/computing.md`).
+- **Window** 14 days, cap 250. arXiv lists a paper up to ~3 days after its submission date, so a 7-day window at weekly cadence would drop late-Friday submissions; `state/seen.json` removes the overlap. Journal-search papers are now deduplicated through `seen.json` too.
+- **One prompt** `prompts/rank_weekly.md`, sections `A`/`B`/`C`/`computing`, `eli5` for the top ten of each. `scripts/fetch.py` and `scripts/render.py` take no `--mode`; every new digest is `digests/YYYY-MM-DD-weekly.json`.
+- **Pages**: `index.html` (A), `b.html` (B), `c.html` (C), `weekly.html` (computing). Each shows the newest weekly and, collapsed, older digests with papers in that section — including the dailies from before the switch. The three computing-only weeklies had their section renamed `weekly` → `computing`.
+- **Banner** goes stale 8 days after the newest weekly. `data/latest.json` is the newest run of any mode.
 
 ## Decisions
 
