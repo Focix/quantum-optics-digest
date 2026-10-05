@@ -1,1 +1,13 @@
-[]
+[
+ {
+  "issue": 2,
+  "id": "2609.26889",
+  "verdict": "up",
+  "section": "B",
+  "score": 86,
+  "run": "2026-09-28",
+  "title": "Deterministic photon waveform adaptation for quantum connectivity",
+  "note": null,
+  "created": "2026-09-28"
+ }
+]
