@@ -1,30 +1,139 @@
 {
  "run": "2026-10-26",
  "mode": "weekly",
- "generated": "2026-10-26T06:36:01+00:00",
+ "generated": "2026-10-26T19:57:22+00:00",
  "ranked": true,
  "status": {
   "run": "2026-10-26",
   "mode": "weekly",
   "pools": {
-   "A": "error: arXiv request failed after 3 attempts: The read operation timed out (backup failed: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=title_and_abstract.search%3A%22superconducting+qubit%22+OR+%22superconducting+circuit%22+OR+%22superconducting+resonator%22+OR+transmon+OR+fluxonium+OR+%22circuit+QED%22+OR+%22circuit+quantum+electrodynamics%22+OR+%22artificial+atom%22+OR+%22microwave+photon%22+OR+%22Josephson+junction%22%2Clocations.source.id%3AS4306400194%2Cfrom_publication_date%3A2026-10-12&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=200&sort=publication_date%3Adesc&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429)",
+   "A": "ok",
    "B": "ok",
    "C": "ok"
   },
   "counts": {
-   "A": 0,
-   "B": 26,
-   "C": 10
+   "A": 24,
+   "B": 0,
+   "C": 0,
+   "journal": 6
   },
-  "error": "pool A: arXiv request failed after 3 attempts: The read operation timed out; OpenAlex backup also failed: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=title_and_abstract.search%3A%22superconducting+qubit%22+OR+%22superconducting+circuit%22+OR+%22superconducting+resonator%22+OR+transmon+OR+fluxonium+OR+%22circuit+QED%22+OR+%22circuit+quantum+electrodynamics%22+OR+%22artificial+atom%22+OR+%22microwave+photon%22+OR+%22Josephson+junction%22%2Clocations.source.id%3AS4306400194%2Cfrom_publication_date%3A2026-10-12&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=200&sort=publication_date%3Adesc&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429 | journal search failed: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=title_and_abstract.search%3A%22superconducting+qubit%22+OR+transmon+OR+fluxonium%2Cfrom_publication_date%3A2026-10-12%2Cprimary_location.source.type%3Ajournal&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=100&sort=publication_date%3Adesc&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429 | citation lookup failed: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2610.32885%7C10.48550%2FarXiv.2610.32762%7C10.48550%2FarXiv.2610.32368%7C10.48550%2FarXiv.2610.32154%7C10.48550%2FarXiv.2610.31947%7C10.48550%2FarXiv.2610.31938%7C10.48550%2FarXiv.2610.31452%7C10.48550%2FarXiv.2610.31283%7C10.48550%2FarXiv.2610.30857%7C10.48550%2FarXiv.2610.30686%7C10.48550%2FarXiv.2610.30473%7C10.48550%2FarXiv.2610.30124%7C10.48550%2FarXiv.2610.28749%7C10.48550%2FarXiv.2610.28596%7C10.48550%2FarXiv.2610.28046%7C10.48550%2FarXiv.2610.27872%7C10.48550%2FarXiv.2610.27856%7C10.48550%2FarXiv.2610.27854%7C10.48550%2FarXiv.2610.27639%7C10.48550%2FarXiv.2610.27602%7C10.48550%2FarXiv.2610.27226%7C10.48550%2FarXiv.2610.27161%7C10.48550%2FarXiv.2610.25471%7C10.48550%2FarXiv.2610.24891%7C10.48550%2FarXiv.2610.26901%7C10.48550%2FarXiv.2610.26892%7C10.48550%2FarXiv.2610.32319%7C10.48550%2FarXiv.2610.32160%7C10.48550%2FarXiv.2610.31729%7C10.48550%2FarXiv.2610.31632%7C10.48550%2FarXiv.2610.30998%7C10.48550%2FarXiv.2610.29834%7C10.48550%2FarXiv.2610.29804%7C10.48550%2FarXiv.2610.29779%7C10.48550%2FarXiv.2610.28732%7C10.48550%2FarXiv.2610.26465&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
-  "dropped_seen": 39,
-  "dropped_old": 324,
-  "journal_search": "error: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=title_and_abstract.search%3A%22superconducting+qubit%22+OR+transmon+OR+fluxonium%2Cfrom_publication_date%3A2026-10-12%2Cprimary_location.source.type%3Ajournal&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=100&sort=publication_date%3Adesc&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+  "dropped_seen": 113,
+  "dropped_old": 463,
+  "journal_search": "ok",
   "watched": 0,
-  "citations": "error: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2610.32885%7C10.48550%2FarXiv.2610.32762%7C10.48550%2FarXiv.2610.32368%7C10.48550%2FarXiv.2610.32154%7C10.48550%2FarXiv.2610.31947%7C10.48550%2FarXiv.2610.31938%7C10.48550%2FarXiv.2610.31452%7C10.48550%2FarXiv.2610.31283%7C10.48550%2FarXiv.2610.30857%7C10.48550%2FarXiv.2610.30686%7C10.48550%2FarXiv.2610.30473%7C10.48550%2FarXiv.2610.30124%7C10.48550%2FarXiv.2610.28749%7C10.48550%2FarXiv.2610.28596%7C10.48550%2FarXiv.2610.28046%7C10.48550%2FarXiv.2610.27872%7C10.48550%2FarXiv.2610.27856%7C10.48550%2FarXiv.2610.27854%7C10.48550%2FarXiv.2610.27639%7C10.48550%2FarXiv.2610.27602%7C10.48550%2FarXiv.2610.27226%7C10.48550%2FarXiv.2610.27161%7C10.48550%2FarXiv.2610.25471%7C10.48550%2FarXiv.2610.24891%7C10.48550%2FarXiv.2610.26901%7C10.48550%2FarXiv.2610.26892%7C10.48550%2FarXiv.2610.32319%7C10.48550%2FarXiv.2610.32160%7C10.48550%2FarXiv.2610.31729%7C10.48550%2FarXiv.2610.31632%7C10.48550%2FarXiv.2610.30998%7C10.48550%2FarXiv.2610.29834%7C10.48550%2FarXiv.2610.29804%7C10.48550%2FarXiv.2610.29779%7C10.48550%2FarXiv.2610.28732%7C10.48550%2FarXiv.2610.26465&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
-  "backfill": "error: Client error '429 Too Many Requests' for url 'https://api.openalex.org/works?filter=doi%3A10.48550%2FarXiv.2609.14989%7C10.48550%2FarXiv.2609.15868%7C10.48550%2FarXiv.2609.16490%7C10.48550%2FarXiv.2609.17294%7C10.48550%2FarXiv.2609.17307%7C10.48550%2FarXiv.2609.18559%7C10.48550%2FarXiv.2609.18570%7C10.48550%2FarXiv.2609.19625%7C10.48550%2FarXiv.2609.19814%7C10.48550%2FarXiv.2609.19862%7C10.48550%2FarXiv.2609.20133%7C10.48550%2FarXiv.2609.20678%7C10.48550%2FarXiv.2609.20708%7C10.48550%2FarXiv.2609.20757%7C10.48550%2FarXiv.2609.20823%7C10.48550%2FarXiv.2609.21249%7C10.48550%2FarXiv.2609.21376%7C10.48550%2FarXiv.2609.21560%7C10.48550%2FarXiv.2609.21574%7C10.48550%2FarXiv.2609.21725%7C10.48550%2FarXiv.2609.22002%7C10.48550%2FarXiv.2609.22025%7C10.48550%2FarXiv.2609.22442%7C10.48550%2FarXiv.2609.22841%7C10.48550%2FarXiv.2609.22890%7C10.48550%2FarXiv.2609.22937%7C10.48550%2FarXiv.2609.22946%7C10.48550%2FarXiv.2609.22998%7C10.48550%2FarXiv.2609.23050%7C10.48550%2FarXiv.2609.23255%7C10.48550%2FarXiv.2609.23328%7C10.48550%2FarXiv.2609.23382%7C10.48550%2FarXiv.2609.23651%7C10.48550%2FarXiv.2609.24169%7C10.48550%2FarXiv.2609.24269%7C10.48550%2FarXiv.2609.24381%7C10.48550%2FarXiv.2609.24461%7C10.48550%2FarXiv.2609.24502%7C10.48550%2FarXiv.2609.24533%7C10.48550%2FarXiv.2609.24572%7C10.48550%2FarXiv.2609.24759%7C10.48550%2FarXiv.2609.24800%7C10.48550%2FarXiv.2609.24827%7C10.48550%2FarXiv.2609.24835%7C10.48550%2FarXiv.2609.24858%7C10.48550%2FarXiv.2609.24900%7C10.48550%2FarXiv.2609.24933%7C10.48550%2FarXiv.2609.25208%7C10.48550%2FarXiv.2609.25214%7C10.48550%2FarXiv.2609.25223&select=id%2Cdoi%2Ctitle%2Ccited_by_count%2Cpublication_date%2Cprimary_location%2Clocations%2Cauthorships%2Cabstract_inverted_index&per-page=50&mailto=fdmiester%40gmail.com'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429"
+  "citations": "ok (20/24 found)",
+  "merged": "36 item(s) kept from an earlier run today",
+  "backfill": "ok (checked 392 papers, updated 316 item(s) in 7 digest(s))"
  },
  "items": [
+  {
+   "id": "2610.32347",
+   "title": "Entangled logical qubits on a superconducting quantum processor",
+   "authors": [
+    "Robin Harper",
+    "Xanda C. Kolesnikow",
+    "Campbell K. McLauchlan",
+    "Georgia M. Nixon",
+    "Stephen D. Bartlett",
+    "Benjamin J. Brown"
+   ],
+   "abstract": "We demonstrate high-fidelity logical qubit operations using \\texttt{ibm\\_phoenix}, a square-lattice array of 120 coupled superconducting qubits that are capable of fast reset. Using strategies to exclude underperforming components together with noise informed decoding, we routinely produce surface codes at distance-3 and distance-5 with logical error per round below 1\\%. We demonstrate entanglement between two logical qubits, where logical Bell-state fidelities above 93\\% are observed for entanglement created via lattice surgery. With three logical qubits and lattice surgery, we perform logical teleportation of a range of states and gates, observing fidelities in the range 78\\% - 93\\%. Using reset to reduce qubit leakage, we show that repeated rounds of stabilizer measurements continue to exhibit improvements in a stability experiment up to $\\sim 2\\cdot 10^{-7}$ over 170 measurement rounds.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-10-23",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 92,
+   "why": "IBM's 120-qubit ibm_phoenix runs distance-5 surface codes below 1% per round, entangles logical qubits, and teleports logical states via lattice surgery.",
+   "kind": "E",
+   "eli5": {
+    "plain": "IBM made error-protected 'logical' qubits on a 120-qubit chip, entangled two of them and teleported quantum states between them.",
+    "how": "Surface codes at distance 3 and 5 spread each logical qubit over many physical qubits; lattice surgery, merging and splitting code patches, creates logical Bell pairs (above 93%) and teleportation (78–93%).",
+    "matters": "Operations between logical qubits, not just memory, are the next milestone after below-threshold storage, and IBM is now doing them on a square lattice with fast reset.",
+    "caveat": "Underperforming components are excluded by hand and decoding is noise-informed, so how this scales without hand-picking is not shown."
+   }
+  },
+  {
+   "id": "2610.29986",
+   "title": "Meter-scale quantum interconnects between large quantum processors",
+   "authors": [
+    "Neereja M. Sundaresan",
+    "Nicholas Cotaj",
+    "Yadav Prasad Kandel",
+    "Eric Lewandowski",
+    "Christian Robert Longton",
+    "Yves Martin",
+    "Jae-woong Nah",
+    "Kathryn Pooley",
+    "Martin Sandberg",
+    "Michael Scanlon",
+    "Chi Xiong",
+    "Emanuil Sashev Yanev",
+    "David Abraham",
+    "Abhinandan Antony",
+    "Vincent Arena",
+    "Nicholas Bornman",
+    "Khanh Dang",
+    "Oliver Dial",
+    "Christopher Guarino",
+    "Gabriel Haspil",
+    "Jared Hertzberg",
+    "Kentaro Heya",
+    "Swetha Kamlapurkar",
+    "Michael Karschner",
+    "George Keefe",
+    "Eric Liniger",
+    "Laura Luo",
+    "Thomas G. McConkey",
+    "David Olson",
+    "Jason Orcutt",
+    "Dmitry Ovchinnikov",
+    "Timothy Phung",
+    "Sankeerth Rajalingam",
+    "Michael Selvanayagam",
+    "William Shanks",
+    "Dongbing Shao",
+    "Abigail Shearrow",
+    "Adam Stabile",
+    "Jiri Stehlik",
+    "Joseph Suttle",
+    "Jeng-Bang Yau",
+    "Eric Zhang"
+   ],
+   "abstract": "Modular quantum architecture requires long-distance quantum interconnects to stitch together individual processor modules. Such interconnects, long-distance couplers or L-couplers, must support coherent quantum operation over meter-scale distances and scale to multiple connections between any two modules. Here we demonstrate four L-couplers operating between two 120-qubit IBM Nighthawk R1 superconducting qubit processors. Each L-coupler joins two Nighthawk lattice qubits through two frequency-tunable L-qubits, two RF-SQUID based \"i2m\" couplers, and 80 cm of superconducting aluminum coax. Each cable installs perpendicular to the processor surface, to enable denser connections, and is joined to the chip by an indium-to-indium room temperature pressure bond made after both modules were mounted. L-coupler modes near 5 GHz, with internal quality factors of 0.86 to 1.09e6, carry relay-based state transfer at a mean network benchmarking fidelity of 99.00%, with a best link of 99.29 +/- 0.07%. We then realize distant CZ gates between lattice qubits in separate modules at a mean fidelity of 94.75%, with a best link of 96.42 +/- 0.28%, and use them to generate entangled states across the two processors, including a demonstration of simultaneous Bell pair generation using two adjacent L-couplers. These four high-fidelity L-couplers establish a practical path to scalable quantum interconnects for modular quantum computing.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-10-21",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223230680"
+   },
+   "url": null,
+   "section": "A",
+   "score": 82,
+   "why": "Four 80 cm coax links coherently couple two 120-qubit IBM processors, a working meter-scale microwave interconnect between modules.",
+   "kind": "E",
+   "eli5": {
+    "plain": "IBM wired two separate quantum chips together with superconducting cables almost a meter long and showed qubits on different chips can still talk quantum-mechanically.",
+    "how": "Each link runs from a lattice qubit through a tunable 'L-qubit' and a SQUID-based coupler into 80 cm of aluminium coax, which carries the microwave excitation between modules; cables plug in vertically to save chip area.",
+    "matters": "This is state transfer between remote nodes over a real microwave line, the same physics as microwave quantum networks, now running between production-scale processors.",
+    "caveat": "The abstract does not give transfer fidelities or loss per link here, and four links between two chips is still far from a dense multi-module fabric."
+   }
+  },
   {
    "id": "2610.32319",
    "title": "Finite Nonsignalling Resources Suffice to Simulate Entangled Qubits",
@@ -54,6 +163,44 @@
    }
   },
   {
+   "id": "2610.27834",
+   "title": "Controlled-Z Gates via Floquet Coupling to Two Auxiliary States in Transmon Circuits",
+   "authors": [
+    "Yutao Chen",
+    "Jia-Chi Zhang",
+    "Tian-Ming Li",
+    "Yu Liu",
+    "Kai Xu",
+    "Heng Fan"
+   ],
+   "abstract": "High-fidelity entangling gates are essential for quantum information processing. In transmon circuits, higher excited states provide additional pathways for engineering interactions within the computational subspace. Here we demonstrate controlled-Z (CZ) gates that exploit two noncomputational states, $\\ket{02}$ and $\\ket{20}$, through selective Floquet coupling. The nontrivial parametric modulation can activate both auxiliary transitions from $\\ket{11}$ while suppressing the leading exchange between $\\ket{01}$ and $\\ket{10}$. Based on this approach, we develop two gate protocols: a nonadiabatic round trip through a bright auxiliary superposition and adiabatic evolution along a zero-energy dark state, both achieving average gate fidelities above $99.99\\%$ in numerical simulations. Control of the modulation phase further extends the bright-state protocol to conventional and unconventional geometric CZ gates. Effective-model simulations show that unconventional control improves tolerance to residual $ZZ$ coupling and static qubit-frequency offsets relative to conventional control over the parameter ranges examined. Simulations including neighboring spectator qubits show that the original nonadiabatic bright-state and adiabatic dark-state CZ protocols retain high gate fidelities. This framework offers new routes toward the experimental realization of CZ gates and their geometric implementations.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-10-20",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223139278"
+   },
+   "url": null,
+   "section": "computing",
+   "score": 78,
+   "why": "Floquet-couples |11⟩ to both |02⟩ and |20⟩ while suppressing |01⟩–|10⟩ exchange, giving two new CZ gate protocols on transmons.",
+   "kind": "E",
+   "eli5": {
+    "plain": "A new way to make the standard two-qubit gate on transmons, borrowing two higher energy levels instead of one.",
+    "how": "A parametric drive opens transitions from the both-excited state to two auxiliary states at once, while cancelling the swap between singly excited states; the round trip imprints the needed phase.",
+    "matters": "More pathways means more freedom to trade speed against leakage and crosstalk, which is where CZ gates still lose fidelity.",
+    "caveat": "Fidelities are not given in the abstract, so whether this beats standard flux-pulsed CZ is unclear."
+   }
+  },
+  {
    "id": "2610.31632",
    "title": "What does quantum parameter estimation estimate? A no-go result for true quantity values",
    "authors": [
@@ -68,7 +215,11 @@
    "submitted": "2026-10-22",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223394653"
+   },
    "url": null,
    "section": "C",
    "score": 78,
@@ -79,6 +230,92 @@
     "how": "They generalise estimation to quantities that fluctuate quantum-mechanically, list the assumptions behind 'true value' talk, and show these clash with state completeness and generic probe–system entanglement.",
     "matters": "It puts the measurement problem inside ordinary parameter estimation, the language used for every qubit-frequency or photon-number estimate; realism about measured values has a price.",
     "caveat": "The theorem hinges on how 'true value' is formalised; a reader who treats parameters as classical settings, not quantum variables, escapes it."
+   }
+  },
+  {
+   "id": "2610.24212",
+   "title": "Optimal robust single-qubit gates in superconducting quantum processors",
+   "authors": [
+    "Tangyou Huang",
+    "Anuj Aggarwal",
+    "Jingjun Zhu",
+    "Akshay Gaikwad",
+    "David Niepce",
+    "Marcus Rommel",
+    "Andreas Nylander",
+    "Amr Osman",
+    "Anita Fadavi Rousari",
+    "Janka Biznárová",
+    "Stéphane Guérin",
+    "Gheorghe Sorin Paraoanu",
+    "Anton Frisk Kockum",
+    "Giovanna Tancredi"
+   ],
+   "abstract": "Fault-tolerant quantum computing requires high-fidelity quantum gates that are resilient to control errors and device imperfections. Here, we develop energy-optimal control pulses for single-qubit gates that are simultaneously robust against frequency detuning and waveform inhomogeneities while also suppressing leakage outside the computational subspace. Combining the optimized pulse envelopes with an adaptive control scheme, we experimentally demonstrate optimal robust gates on a superconducting quantum processor. For a gate duration of 90ns, we achieve fidelities above 99.9% for the X gate and 99.6% for Hadamard-type gates. For the X gate, we maintain fidelities above 99.5% for simultaneous drive-amplitude variations up to 20% and qubit detuning up to 4 MHz. This robustness outperforms that of conventional Gaussian pulses by an order of magnitude, without much difference in peak gate fidelity. These results establish a route towards robust single-qubit control in large-scale quantum processors, advancing the development of fault-tolerant quantum computing.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-10-16",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223068630"
+   },
+   "url": null,
+   "section": "computing",
+   "score": 74,
+   "why": "Energy-optimal robust single-qubit pulses keep X-gate fidelity above 99.5% under detuning and waveform errors, with leakage suppressed, on hardware.",
+   "kind": "E",
+   "eli5": {
+    "plain": "They designed microwave pulses for single-qubit gates that keep working even when the qubit frequency or pulse shape drifts.",
+    "how": "Optimal control finds pulse envelopes that cancel first-order sensitivity to detuning and amplitude errors and avoid exciting the third level; an adaptive loop tunes them on the device.",
+    "matters": "Robust gates reduce how often a large processor has to be recalibrated.",
+    "caveat": "90 ns gates are slow compared with typical 20–40 ns single-qubit gates, and 99.9% is not a record."
+   }
+  },
+  {
+   "id": "2610.27137",
+   "title": "Active isolation of transmon readout with a tunable inductive bridge",
+   "authors": [
+    "Chunyang Ding",
+    "Chuyao Tong",
+    "Paul Varosy",
+    "Nikitha Jain",
+    "Ziyi Zhao",
+    "Eric I. Rosenthal",
+    "Konrad W. Lehnert",
+    "David I. Schuster"
+   ],
+   "abstract": "Scalable superconducting quantum computation requires fast, high-fidelity readout. Currently, this is assisted through cryogenic amplification of the readout signal. In traditional dispersive readout schemes, the amplifiers that are used to provide high signal-to-noise ratio also generate thermal noise that can decohere the qubits, demanding additional ferrite-based isolators to suppress this noise. Here, we integrate a chip-scale microwave switch, the tunable inductive bridge, into the readout chain of a fixed-frequency transmon. Flux-pulsing the switch, such that it transmits only during the readout, did not make a discernable difference to qubit coherence, residual excited-state population, or readout fidelity metrics. By injecting broadband noise that mimics amplifier thermal photons, we show that the switch suppresses the resulting qubit dephasing by more than $30$~dB, consistent with its independently measured on-off ratio, establishing it as a potential chip-based integrated replacement for readout-chain isolators.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-10-19",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223125865"
+   },
+   "url": null,
+   "section": "computing",
+   "score": 72,
+   "why": "An on-chip flux-pulsed inductive-bridge switch isolates a transmon from amplifier noise without hurting coherence, a step toward removing ferrite isolators.",
+   "kind": "E",
+   "eli5": {
+    "plain": "They put a fast on-chip microwave switch in the readout line that only opens during measurement, to block noise flowing back from the amplifier.",
+    "how": "A tunable inductive bridge is flux-pulsed to transmit only while reading out; the rest of the time it reflects amplifier back-action away from the qubit.",
+    "matters": "Bulky magnetic isolators are one of the main obstacles to scaling readout wiring; a chip switch could replace them.",
+    "caveat": "Coherence and residual population were merely not worse; it is a single fixed-frequency transmon, not a multiplexed chain."
    }
   },
   {
@@ -103,7 +340,11 @@
    "submitted": "2026-10-20",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223129208"
+   },
    "url": null,
    "section": "B",
    "score": 72,
@@ -130,7 +371,11 @@
    "submitted": "2026-10-22",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223325821"
+   },
    "url": null,
    "section": "B",
    "score": 70,
@@ -141,6 +386,48 @@
     "how": "Each emitter absorbs one photon of a pre-entangled narrowband pair, so the entanglement is imported rather than created by interfering identical emissions; mismatch then matters far less.",
     "matters": "Superconducting qubits are never identical either; importing entanglement from a shaped two-mode source is a protocol that maps onto microwave nodes with frequency spread.",
     "caveat": "Simulation only, with narrowband entangled photons assumed available at the right frequencies; absorption efficiency and source brightness set the real rate."
+   }
+  },
+  {
+   "id": "2610.28057",
+   "title": "Optimal Quantum-Circuit Synthesis and Implementation of General Unitaries with Parallelized Bitstring-Conditioned Rotations",
+   "authors": [
+    "Heikki Suominen",
+    "Suman Kundu",
+    "Heidi Kivijärvi",
+    "Sasu Tuohino",
+    "Mikko Tuokkola",
+    "Eemeli Forsbom",
+    "Madhavi Chand",
+    "Vasilii Vadimov",
+    "R. Vijay",
+    "Mikko Möttönen"
+   ],
+   "abstract": "We theoretically introduce a quantum-circuit synthesis protocol to realize any $n$-qubit transformation $U\\in U(2^n)$, up to a diagonal. The resulting circuit is directly native to and optimal in gate count and depth for systems where bitstring-conditioned rotations with tunable angle and axis, $C^{(n-1)}R(θ,φ)$, form the set of native operations. Subsequently, we suggest how this protocol can be implemented in a few-mode superconducting circuit, and experimentally demonstrate the method for the smallest nontrivial case, i.e., for two qubits. We report an average gate fidelity of 97.6 % for Haar-random two-qubit unitaries up to phase shifts in the computational basis. Importantly, these results suggest that multimode devices, such as those in the multimon or multiunimon families may become competitive with qubit-array networks for general-unitary implementations for qubit counts as low as three.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-10-20",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223081518"
+   },
+   "url": null,
+   "section": "computing",
+   "score": 66,
+   "why": "Gate-count-optimal synthesis of any n-qubit unitary from bitstring-conditioned rotations, demonstrated at 97.6% on Haar-random two-qubit unitaries.",
+   "kind": "TE",
+   "eli5": {
+    "plain": "A recipe for building any multi-qubit operation from a special kind of native gate, tested on two superconducting qubits.",
+    "how": "If the hardware can rotate one qubit conditioned on the exact state of all others, any unitary decomposes into the minimum number of such rotations; a few-mode circuit provides them.",
+    "matters": "Native multi-controlled gates could cut circuit depth compared with CNOT-based compilation.",
+    "caveat": "Only the two-qubit case is demonstrated, and 97.6% is well below standard two-qubit gate fidelities."
    }
   },
   {
@@ -159,7 +446,11 @@
    "submitted": "2026-10-20",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223199190"
+   },
    "url": null,
    "section": "C",
    "score": 66,
@@ -170,6 +461,144 @@
     "how": "Physical states come from averaging over a gauge group; choosing a frame orientation is like gauge fixing in path integrals, and the resulting change-of-frame map is unitary.",
     "matters": "It addresses whether time measured by a physical, interacting clock gives sensible quantum dynamics, a question underlying relational readings of quantum mechanics.",
     "caveat": "Formal and restricted to unimodular gauge groups; no experiment is proposed, and the interacting examples are simple models."
+   }
+  },
+  {
+   "id": "2610.30056",
+   "title": "High-fidelity and robust controlled-Z gates for superconducting transmon qubits. I. Intrinsic errors and decoherence",
+   "authors": [
+    "Chia-Hsien Huang",
+    "Hsi-Sheng Goan"
+   ],
+   "abstract": "Fault-tolerant quantum computing requires quantum gates that combine short duration, high fidelity, and robustness to noise. As quantum processors scale, robustness becomes increasingly important because exhaustive characterization and frequent recalibration of individual gates become impractical. We present a comprehensive optimal-control framework for controlled-Z (CZ) gates between directly coupled, frequency-tunable transmons that systematically accounts for intrinsic Hamiltonian errors and realistic decoherence mechanisms, including energy relaxation and dephasing. Using smooth, single-shot flux pulses, we obtain 12-ns CZ gates---close to the theoretical speed limit of 11.6 ns---with intrinsic errors suppressed to the $2\\times10^{-5}$ level. We construct dephasing noise models, calibrated against published experimental measurements, that capture fast dephasing from room-temperature control electronics and slow dephasing from $1/f$ flux noise. Using these models, we identify dephasing sweet spots that suppress sensitivity to dephasing noise. We further exploit transmon asymmetry as a design parameter to access distinct noise-resilient operating regimes. These results establish an experimentally applicable framework for balancing gate speed, fidelity, and noise robustness while reducing characterization and recalibration overhead.",
+   "categories": [
+    "quant-ph",
+    "cond-mat.mes-hall",
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-10-21",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223241495"
+   },
+   "url": null,
+   "section": "computing",
+   "score": 64,
+   "why": "Optimal-control flux pulses give 12 ns CZ gates near the 11.6 ns speed limit with errors suppressed under realistic decoherence.",
+   "kind": "T",
+   "eli5": {
+    "plain": "Theory for the fastest possible high-fidelity two-qubit gate between tunable transmons.",
+    "how": "Smooth single flux pulses are optimised against the full transmon Hamiltonian including leakage, relaxation and dephasing.",
+    "matters": "Shorter gates lose less to decoherence; a 12 ns CZ would be among the fastest proposed.",
+    "caveat": "Simulation only; flux-line distortions and calibration drift are added in part II, but neither paper is an experiment."
+   }
+  },
+  {
+   "id": "W7221906196",
+   "title": "Population-Based Discrimination of Classical and Few-Photon Microwave Fields with a Flux-Tunable Transmon Qudit",
+   "authors": [
+    "A.V. Pashchenko",
+    "Olga V. Tikhonova",
+    "Irina A Solovykh",
+    "Соловьев Игорь Иванович",
+    "Maxim V Tereshonok",
+    "N. V. Klenov",
+    "Dmitry S. Yakovlev"
+   ],
+   "abstract": "Interactions between few-photon microwave fields and superconducting artificial atoms provide a method to study photon statistics and manipulate quantum states for photonic quantum information processing. Superconducting transmons couple to microwave fields through an anharmonic ladder of energy levels, producing a response beyond the two-level description. Here, we propose and analyze a detector based on a flux-tunable transmon qudit in circuit quantum electrodynamics. Within a Kerr-type model, we calculate its population response to classical-field excitation and quantized Fock and coherent states. In the four-photon example, a selected detuning produces periodic, nearly complete transfer to the fourth transmon level for a Fock input, while a coherent input of equal mean energy gives a population of approximately 0.2 at the same interaction time. In the linear regime, we derive a target-population bound for classical inputs. From single-tone and two-tone spectroscopy, analyzed using the cosine transmon Hamiltonian, we extract circuit parameters and resolve higher transitions. Ramsey interferometry characterizes dephasing on the fundamental transition. We propose a detection protocol combining flux-selected interaction with dispersive population readout. Our results establish a population-based framework for microwave-state discrimination using a superconducting artificial atom.",
+   "categories": [],
+   "submitted": "2026-10-15",
+   "pool": "journal",
+   "tags": [
+    "source:openalex"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "Sensors",
+    "openalex": "https://openalex.org/W7221906196"
+   },
+   "url": "https://doi.org/10.3390/s26206538",
+   "section": "A",
+   "score": 64,
+   "why": "Proposes reading few-photon microwave statistics from transmon-qudit level populations, separating Fock from coherent inputs via a tuned detuning.",
+   "kind": "T",
+   "eli5": {
+    "plain": "A theory proposal for telling apart a classical microwave pulse and a pulse with a fixed number of photons by looking at which energy levels of a transmon end up occupied.",
+    "how": "The transmon's unequally spaced levels respond differently to each photon number; at a chosen detuning a four-photon Fock state pumps population almost completely up the ladder, while a coherent state smears it out.",
+    "matters": "Photon-number-resolving detection of itinerant microwave light is scarce; a transmon used as a multi-level counter is cheap to build with existing hardware.",
+    "caveat": "Pure Kerr-model calculation, no decoherence-limited device or real propagating pulse shapes; whether the contrast survives T1 and imperfect absorption is open."
+   }
+  },
+  {
+   "id": "2610.27743",
+   "title": "Multimode Parametric Amplifier for K-Band Quantum Measurements",
+   "authors": [
+    "Chulwoo Ahn",
+    "Vladimir Manucharyan"
+   ],
+   "abstract": "We demonstrate K-band nondegenerate three-wave-mixing amplification in a multimode resonator comprising an array of 500 SNAILs. Pairing K-band signal modes with lower-frequency internal idler modes enables 20 dB of gain continuously from 19.6 to 25.6 GHz with pump frequencies below 32.2 GHz. At 20 dB gain, the 3-dB bandwidth ranges from 2.6 to 11.7 MHz, and the input-referred 1-dB compression power reaches -100.9 dBm. In the 20-22 GHz band, the average added noise is 0.73 quanta. A two-mode nondegenerate parametric amplification model describes the measured gain response and gain-bandwidth behavior, while a multimode Kerr model captures the overall compression scale. Our amplifier provides a practical solution for implementing a state-of-the-art readout of superconducting qubits in the K-band.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-10-20",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223117932"
+   },
+   "url": null,
+   "section": "A",
+   "score": 62,
+   "why": "A 500-SNAIL multimode amplifier gives 20 dB gain across 19.6–25.6 GHz with 0.73 quanta added noise, near-quantum-limited K-band amplification.",
+   "kind": "TE",
+   "eli5": {
+    "plain": "They built a near-quantum-limited microwave amplifier that works at about 20–26 GHz, far above the usual 4–8 GHz band.",
+    "how": "A long chain of 500 SNAIL nonlinear elements forms a resonator with many modes; pumping pairs a high-frequency signal mode with a lower-frequency internal idler mode to amplify it.",
+    "matters": "Higher-frequency qubits and photons are less sensitive to thermal noise; any K-band quantum-optics experiment needs an amplifier like this to read out weak fields.",
+    "caveat": "Instantaneous bandwidth is only 2.6–11.7 MHz and saturation is at −101 dBm, so it is tunable rather than broadband and not yet multiplexing-ready."
+   }
+  },
+  {
+   "id": "W7221516464",
+   "title": "Flux-tunable transmon with an Al/AlO x /4Hb-TaS2 Josephson junction",
+   "authors": [
+    "Eliya Blumenthal",
+    "Ilay Mangel",
+    "Amit Kanigel",
+    "Shay Hacohen-Gourgy"
+   ],
+   "abstract": "Incorporating van der Waals (vdW) superconductors into Josephson elements extends circuit-QED beyond conventional Al/AlOx/Al junctions, enabling microwave probes of unconventional condensates and subgap excitations. We realize a flux-tunable transmon whose nonlinear inductive element is an Al/AlOx/4Hb-TaS2 Josephson junction, with a tunnel barrier formed by full in situ oxidation of ultrathin Al layers on an exfoliated 4Hb-TaS2 flake in a process compatible with standard transmon fabrication. In a three-dimensional copper cavity, the device shows a SQUID-like flux-dependent spectrum that is well reproduced by a dressed transmon–cavity Hamiltonian in the transmon regime. We measure sub-microsecond energy relaxation (T1=0.08–0.69 μs), while Ramsey measurements indicate dephasing faster than our 16 ns resolution. A naive Ambegaokar–Baratoff comparison using room-temperature junction resistances gives a suppressed effective energy scale; however, cross-sectional TEM reveals an amorphous region at the TaS2 interface, most likely produced by the pre-deposition ion-milling step. We therefore attribute the suppressed EJRn product primarily to a non-ideal hybrid interface. This work demonstrates the integration of 4Hb-TaS2 into a circuit-QED device and establishes an interface-optimization baseline for future edge-sensitive designs targeting boundary and subgap degrees of freedom in vdW superconductors.",
+   "categories": [],
+   "submitted": "2026-10-12",
+   "pool": "journal",
+   "tags": [
+    "source:openalex"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "Applied Physics Letters",
+    "openalex": "https://openalex.org/W7221516464"
+   },
+   "url": "https://doi.org/10.1063/5.0352556",
+   "section": "computing",
+   "score": 62,
+   "why": "A transmon with an Al/AlOx/4Hb-TaS2 junction works in a 3D cavity, bringing a van der Waals superconductor into standard circuit QED.",
+   "kind": "E",
+   "eli5": {
+    "plain": "They made a transmon qubit whose junction is half aluminium, half an exotic layered superconductor, and it behaves like a normal transmon.",
+    "how": "Ultrathin aluminium is oxidised on an exfoliated 4Hb-TaS2 flake to form the tunnel barrier; the spectrum in a copper cavity matches a dressed transmon model.",
+    "matters": "Transmons become a microwave probe of unconventional superconductors, and new junction materials might reduce the defects that limit coherence.",
+    "caveat": "Coherence is sub-microsecond, so this is a materials probe, not a better qubit."
    }
   },
   {
@@ -228,7 +657,11 @@
    "submitted": "2026-10-20",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223237093"
+   },
    "url": null,
    "section": "computing",
    "score": 62,
@@ -257,7 +690,11 @@
    "submitted": "2026-10-21",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223242116"
+   },
    "url": null,
    "section": "C",
    "score": 62,
@@ -295,7 +732,11 @@
    "submitted": "2026-10-22",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223295602"
+   },
    "url": null,
    "section": "B",
    "score": 60,
@@ -306,6 +747,73 @@
     "how": "Electro-optic conversion turns light into high-frequency electrical signals and back, with on-chip striplines wiring the blocks together so no coax enters the cryostat.",
     "matters": "Fibre-only control of a cold stage is exactly the heat-load and wiring problem of scaling superconducting processors, and the electro-optic coupling numbers are relevant to transduction.",
     "caveat": "Conversion efficiencies near 1%/mW are far from quantum-limited, and the frequencies are above the few-GHz band superconducting qubits use."
+   }
+  },
+  {
+   "id": "2610.30681",
+   "title": "High-fidelity and robust controlled-Z gates for superconducting transmon qubits. II. System-parameter uncertainties and overall errors",
+   "authors": [
+    "Chia-Hsien Huang",
+    "Hsi-Sheng Goan"
+   ],
+   "abstract": "In the companion paper (Part I), we developed an optimal-control framework to suppress intrinsic and decoherence-induced errors in controlled-Z (CZ) gates between directly coupled, frequency-tunable transmons. Here, we extend this framework to incorporate uncertainties in coupling strength, anharmonicities, and zero-flux qubit frequencies, enabling the design of high-fidelity gates robust against noise and parameter uncertainties. We classify these uncertainties by whether they perturb the off-diagonal coupling strengths or the diagonal detunings of the Hamiltonian, and we identify distinct suppression mechanisms for each class. Coupling errors are mitigated through dynamical decoupling induced by strong detuning modulation. For a 30-ns gate, this strategy reduces the coupling error to $6.21\\times10^{-7}$ and tolerates coupling-strength uncertainties up to $2π\\times4$ MHz while keeping total gate infidelity below $10^{-3}$. Detuning errors are minimized near a symmetric-detuning operating point that balances the two dominant leakage-mediated interactions. A 24-ns gate operated near this point tolerates individual uncertainties of up to $2π\\times5$ MHz in each relevant diagonal parameter under the same infidelity threshold. We further optimize gate performance under realistic conditions where intrinsic errors, decoherence, and parameter uncertainties coexist across six representative stages of progressively improving hardware performance. The resulting stage-specific controls achieve lower infidelity and greater robustness. Together with the companion study (Part I), this framework offers a practical approach to balance speed, fidelity, and robustness while reducing the need for exhaustive characterization and frequent recalibration in large-scale superconducting quantum processors.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-10-22",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223337129"
+   },
+   "url": null,
+   "section": "computing",
+   "score": 58,
+   "why": "Extends the 12 ns CZ design to parameter uncertainty, separating coupling errors from detuning errors and suppressing each differently.",
+   "kind": "T",
+   "eli5": {
+    "plain": "Part II of the fast-CZ theory: making the gate still work when you do not know the device parameters exactly.",
+    "how": "Errors in coupling are cancelled by dynamical-decoupling-like structure in the pulse, while frequency errors are handled by separate robustness terms.",
+    "matters": "Robustness to fabrication spread is what makes a gate usable without per-pair tuning.",
+    "caveat": "Theory and numerics, same caveat as part I."
+   }
+  },
+  {
+   "id": "2610.27471",
+   "title": "Engineering \\(XY\\) and \\(ZZ\\) interactions between two remote superconducting qubits via a multimode waveguide",
+   "authors": [
+    "Da-Wei Wang",
+    "Yu-xi Liu"
+   ],
+   "abstract": "Waveguides provide a flexible platform for long-range interactions between superconducting qubits. Here, we study how to engineer the effective \\(XY\\) and \\(ZZ\\) interactions between two qubits via qubit frequency assignments and multimode interference determined by the mode configuration and standing-wave parities of a finite multimode waveguide. For a single-mode waveguide, we find that \\(XY\\) and \\(ZZ\\) interactions cannot be simultaneously suppressed to zero and the residual qubit-qubit coupling always exists. For example, the \\(XY\\) interaction may be suppressed to a negligible level when two qubits and the waveguide mode satisfy the two-photon resonant condition, but the \\(ZZ\\) interaction cannot be switched off. For multimode configurations within the central dispersive window, the engineered interaction types are very different for odd and even numbers of modes. Even-mode configurations can readily produce strong \\(XY\\) interactions, whereas odd-mode configurations can strongly suppress the \\(XY\\) interaction while retaining a finite \\(ZZ\\) interaction. Full-Hamiltonian simulations of minimal two- and three-mode configurations confirm \\(XY\\)-dominated SWAP dynamics and \\(ZZ\\)-dominated CZ-type dynamics, respectively. These results establish a frequency assignment criterion of qubits and waveguide modes for selectively engineering long-range qubit-qubit interaction types induced by the waveguide with finite multimode.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-10-20",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223101565"
+   },
+   "url": null,
+   "section": "A",
+   "score": 58,
+   "why": "Shows XY and ZZ couplings between remote qubits on a multimode waveguide can be nulled together only using several modes' standing-wave parities.",
+   "kind": "T",
+   "eli5": {
+    "plain": "Theory for how two distant qubits on a long resonant waveguide interact, and how to switch off their unwanted crosstalk.",
+    "how": "Each waveguide mode contributes a coupling whose sign depends on whether the mode's standing wave is symmetric or antisymmetric at the two qubits; picking qubit frequencies between modes lets these contributions cancel.",
+    "matters": "Long-range waveguide links are a route to remote entanglement; knowing when residual ZZ is unavoidable tells you how to place qubit frequencies.",
+    "caveat": "A finite, standing-wave waveguide rather than an open line, and no experiment; disorder and loss are not the focus."
    }
   },
   {
@@ -364,6 +872,81 @@
    }
   },
   {
+   "id": "2610.29901",
+   "title": "Superconducting parametric amplifiers based on arrays of unequal Josephson junction elements",
+   "authors": [
+    "Boris Chesca",
+    "Tom Dixon",
+    "Narendra Acharya",
+    "Renuka D. Pothuraju",
+    "Jacob W. Dunstan",
+    "Connor D. Shelly",
+    "Oscar W. Kennedy"
+   ],
+   "abstract": "Impedance matching is a crucial feature of an amplifier used to increase its instantaneous bandwidth and is typically achieved using static LC resonators. Here we show an approach to impedance matching in parametric amplifiers using arrays of unequal Josephson-junction-based elements (rf/dc SQUIDs, SNAILs, etc). The elements act either as small-footprint flux-tunable inductors forming an impedance-matching circuit, or 'active' amplifier elements which result in amplifier gain. We develop an analytical theory describing these systems, predicting a quasi-non-periodic amplifier frequency and gain modulation with applied flux and the broadening of gain bandwidths. We demonstrate this in devices using arrays of flux-focused SNAILs where flux biasing varies across the array. We find instantaneous bandwidths of 200 MHz with $>$17 dB of gain centred at $\\sim$5.4 GHz in a device without a static impedance matcher. This broadening of amplifier bandwidth is stable with $>$100 MHz bandwidth at 17 dB gain across $>$1.2 GHz tunable bandwidth. Our analytical model captures flux dependence and qualitatively reproduces gain-bandwidths giving confidence in our understanding of these systems and allowing operational figures of merit to be optimised in future devices.",
+   "categories": [
+    "quant-ph",
+    "physics.app-ph"
+   ],
+   "submitted": "2026-10-21",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223198105"
+   },
+   "url": null,
+   "section": "A",
+   "score": 55,
+   "why": "Unequal-junction arrays double as tunable impedance-matching networks and gain elements, broadening paramp bandwidth with flux-dependent gain modulation.",
+   "kind": "TE",
+   "eli5": {
+    "plain": "A new way to make Josephson parametric amplifiers wider-band, by making the junctions in the chain deliberately different from each other.",
+    "how": "Some of the junction-based elements act as compact tunable inductors that match the amplifier to the 50-ohm line, while others provide the parametric gain; theory and devices show broader gain bands.",
+    "matters": "Wideband, near-quantum-limited amplification is the first stage of every itinerant-photon measurement in circuit QED.",
+    "caveat": "The abstract does not quote noise temperature or compression, the numbers that decide whether it beats existing impedance-matched paramps."
+   }
+  },
+  {
+   "id": "2610.24167",
+   "title": "Probing wetting and solidification dynamics of neon thin films with a high-$T_c$ superconducting circuit",
+   "authors": [
+    "Brennan Dizdar",
+    "Yueheng Shi",
+    "David I. Schuster",
+    "Christopher S. Lang"
+   ],
+   "abstract": "Integrating condensed noble gases with superconducting circuits offers new opportunities for operating hybrid quantum devices. In particular, electrons on solid neon have recently emerged as exceptionally coherent charge qubits, however the growth of the underlying neon films on patterned devices remains poorly controlled. We monitor neon films near the triple point using a multimode resonator fabricated from high-$T_c$ YBCO, which remains superconducting at temperatures where the liquid phase exists and whose geometry sets a thickness-sensing window near 1 $μ$m. In the liquid state we observe rich film dynamics: uniform wetting that saturates near 20 nm, drainage of thicker films, and spontaneous thickness oscillations, reflecting the extreme sensitivity of thick films in this regime. A galvanic connection to our sensing volume enables in-situ electrostatic tuning of the liquid film thickness. Statistics of freezing the neon across various liquid levels reveal variations of the solid film thickness by approximately an order of magnitude. We also observe a two-fold increase in the quality factor of the resonators at the level of $10^3$ with added neon and rule out dielectric loss as the limiting factor. Our results demonstrate that hermetic packaging facilitates the investigation of both rich non-equilibrium fluid dynamics and the impact of condensed noble gas films on microwave loss in superconducting circuits, but may not be the best modality for growing solid neon films with precisely controlled thickness.",
+   "categories": [
+    "quant-ph",
+    "physics.flu-dyn"
+   ],
+   "submitted": "2026-10-16",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7222994086"
+   },
+   "url": null,
+   "section": "computing",
+   "score": 55,
+   "why": "A YBCO multimode resonator watches neon films wet, drain and solidify near the triple point, informing electron-on-neon qubit fabrication.",
+   "kind": "E",
+   "eli5": {
+    "plain": "They used a high-temperature superconducting resonator as a thickness gauge to watch thin neon films grow, flow and freeze.",
+    "how": "The neon changes the resonator's frequencies; YBCO stays superconducting at the 25 K where liquid neon exists, so they can watch the liquid phase directly.",
+    "matters": "Electrons on solid neon are among the most coherent charge qubits; controlling the neon film is the bottleneck for making them reproducibly.",
+    "caveat": "Film physics only, no qubit measured; the sensing window sits around 1 µm, much thicker than the films qubits use."
+   }
+  },
+  {
    "id": "2610.31452",
    "title": "Nanopillar metasurfaces uniting high optical reflectivity with ultracoherent nanomechanics",
    "authors": [
@@ -386,7 +969,11 @@
    "submitted": "2026-10-22",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223374052"
+   },
    "url": null,
    "section": "B",
    "score": 55,
@@ -417,7 +1004,11 @@
    "submitted": "2026-10-20",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223085233"
+   },
    "url": null,
    "section": "B",
    "score": 55,
@@ -445,7 +1036,11 @@
    "submitted": "2026-10-19",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223041481"
+   },
    "url": null,
    "section": "C",
    "score": 55,
@@ -501,7 +1096,11 @@
    "submitted": "2026-10-22",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223363390"
+   },
    "url": null,
    "section": "B",
    "score": 52,
@@ -529,7 +1128,11 @@
    "submitted": "2026-10-18",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223040568"
+   },
    "url": null,
    "section": "B",
    "score": 52,
@@ -540,6 +1143,42 @@
     "how": "Identical bosons bunch together more than distinguishable ones; averaging bunching signatures over a generic interferometer gives an indistinguishability estimate with polynomial sampling cost.",
     "matters": "Certifying identical photons in situ matters for any multi-photon microwave interference experiment too, where indistinguishability is usually inferred indirectly.",
     "caveat": "The polynomial guarantee is with high probability for Haar-random interferometers and uniform loss; structured devices and nonuniform loss are not covered."
+   }
+  },
+  {
+   "id": "2610.31885",
+   "title": "Optimal Control of a Fluxonium Circuit with the Q-PRONTO Numerical Method",
+   "authors": [
+    "John Barta",
+    "Brian D. Isakov",
+    "Pablo Aramburu Sanchez",
+    "Jieqiu Shao",
+    "Tamás Kalmár",
+    "Trevyn F. Q. Larson",
+    "Marco M. Nicotra",
+    "András Gyenis"
+   ],
+   "abstract": "Optimizing the control of large quantum systems is a resource-intensive task, where the convergence rate of the underlying iterative schemes is crucial. The recently developed Quantum Projection Operator-Based Newton Method for Trajectory Optimization (Q-PRONTO) offers a unique quadratic convergence for controlling quantum states, while most model-based solvers guarantee only an approximately linear convergence rate. As a proof of concept, here, we design and benchmark single-qubit gates optimized by Q-PRONTO based on the circuit Hamiltonian of a fluxonium superconducting qubit. To ensure that we can apply a long string of arbitrary pulses to the circuit, we modify the firmware associated with the Quantum Instrumentation Control Kit (QICK) by altering its memory allocation. We characterize the performance of the optimal solutions using standard randomized benchmarking and achieve a total error per gate of $6.6\\times10^{-4}$.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-10-22",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 50,
+   "why": "Q-PRONTO, a quadratically convergent optimal-control solver, designs fluxonium single-qubit gates run on hardware through modified firmware.",
+   "kind": "E",
+   "eli5": {
+    "plain": "A faster-converging pulse optimiser, tested by designing gates for a fluxonium qubit.",
+    "how": "A Newton-type method on the full circuit Hamiltonian converges quadratically; firmware changes let the device play long arbitrary pulse strings.",
+    "matters": "Fluxonium needs non-standard pulses; faster optimisers shorten calibration.",
+    "caveat": "Proof of concept; the abstract gives no fidelity comparison with standard pulses."
    }
   },
   {
@@ -561,7 +1200,11 @@
    "submitted": "2026-10-20",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223084987"
+   },
    "url": null,
    "section": "B",
    "score": 50,
@@ -583,7 +1226,11 @@
    "submitted": "2026-10-20",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223088826"
+   },
    "url": null,
    "section": "B",
    "score": 50,
@@ -607,13 +1254,54 @@
    "submitted": "2026-10-19",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223125271"
+   },
    "url": null,
    "section": "B",
    "score": 50,
    "why": "Inverse-designed dielectric enclosure collects emission from the full 4π solid angle into one beam; ray bending demonstrated only in 2D.",
    "kind": "E",
    "eli5": null
+  },
+  {
+   "id": "W7222091308",
+   "title": "Integrated scheme for transferring quantum entanglement via backward acousto-optic polarization conversion in a thin-film lithium niobate resonator",
+   "authors": [
+    "A. A. Nevzorov",
+    "K. Padalka",
+    "K. Guseva",
+    "Evelina E. Maksumova",
+    "I. Shmatkov",
+    "И. О. Венедиктов",
+    "Vadim V. Kovalyuk",
+    "Gregory N Gol'tsman"
+   ],
+   "abstract": "We present a numerical study of the design of a microwave-to-optical quantum converter based on Brillouin backscattering in a single thin-film lithium niobate racetrack resonator. The conversion involves TE0 to TM0 polarization conversion mediated by an even-parity acoustic mode that can be excited by a conventional symmetric interdigital transducer. Co-localization of the optical and acoustic fields within a single resonator enhances their interaction, while the signal is separated from the strong optical pump by propagation direction, polarization, and frequency. Combining full-vector electromagnetic and acoustic calculations with a pulsed entanglement transfer protocol, we obtain a vacuum coupling of g0/2π = 2 kHz for the designed perimeter and show that cooperativity of C = 1 is achieved with a calculated on-chip pump power of approximately 2.94 μW for Qopt = 107 and Qac = 105. Under these assumptions, the protocol enables entanglement transfer from a superconducting qubit to a flying telecom photon, supporting the proposed architecture as a compact platform for integrated quantum transduction.",
+   "categories": [],
+   "submitted": "2026-10-15",
+   "pool": "journal",
+   "tags": [
+    "source:openalex"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "Journal of Applied Physics",
+    "openalex": "https://openalex.org/W7222091308"
+   },
+   "url": "https://doi.org/10.1063/5.0356014",
+   "section": "A",
+   "score": 48,
+   "why": "Simulates microwave-to-optical entanglement transfer via Brillouin backscattering in one thin-film lithium niobate racetrack resonator.",
+   "kind": "T",
+   "eli5": {
+    "plain": "A design study for a device that converts microwave quantum signals into optical ones using sound waves in a lithium niobate ring.",
+    "how": "A microwave drive excites an acoustic wave, which scatters light from one polarization to another; the converted photon travels backwards, separating it from the strong optical pump.",
+    "matters": "Transducers like this are how superconducting nodes might eventually be linked over optical fibre.",
+    "caveat": "Numerical only, with no superconducting qubit in the loop and no added-noise budget at millikelvin temperatures."
+   }
   },
   {
    "id": "2610.30124",
@@ -634,7 +1322,11 @@
    "submitted": "2026-10-21",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223218227"
+   },
    "url": null,
    "section": "B",
    "score": 48,
@@ -693,7 +1385,11 @@
    "submitted": "2026-10-20",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223144766"
+   },
    "url": null,
    "section": "B",
    "score": 45,
@@ -732,6 +1428,68 @@
     "matters": "Three-path interference is the setting where Born's rule could be tested for higher-order interference; this builds the instrument.",
     "caveat": "No Born-rule test is performed yet; gate fidelity is about 93%."
    }
+  },
+  {
+   "id": "2610.28204",
+   "title": "Parallel Teleportation via AME(5,2) States on IBM Quantum Hardware",
+   "authors": [
+    "Zheng Liang Lim",
+    "Hoi-Kwong Lo"
+   ],
+   "abstract": "The five-qubit Absolutely Maximally Entangled AME$(5,2)$ state, whose every pair of qubits is maximally mixed so that all its information lives in non-local correlations, could in principle serve as a single shared quantum networking resource for teleporting two unknown qubits in parallel (each via its own Bell measurement and Pauli correction). Nonetheless, its hardware implementations remain scarce despite its theoretical importance. Here, we demonstrate parallel teleportation based on a five-qubit absolutely maximally entangled state, AME$(5,2)$, on the superconducting processor ibm_pittsburgh. We construct three-qubit Clifford decoders that extract two Bell pairs using three logical two-qubit gates for each of 60 inequivalent sender-receiver assignments. Using parallelization and classical Pauli frame post-processing, we retain reference-receiver entanglement on both channels after three teleportation rounds. With XY4 dynamical decoupling and the lowest-cost decoder, the final entanglement fidelities are $0.704\\pm0.028$ and $0.680\\pm0.022$, where uncertainties are pointwise $99\\%$ confidence-interval half-widths over eight trials. Their lower bounds exceed the separability threshold of $1/2$. The decoder with lower circuit depth generally retains higher mean fidelity, and XY4 generally improves on XX. These results establish a hardware demonstration of two-channel entanglement transmission through repeated AME-assisted teleportation and provide compact decoding circuits for reconfigurable multipartite communication.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-10-20",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223095426"
+   },
+   "url": null,
+   "section": "computing",
+   "score": 44,
+   "why": "Parallel two-qubit teleportation through a five-qubit AME(5,2) state on ibm_pittsburgh, with Clifford decoders extracting two Bell pairs.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2610.24213",
+   "title": "Generalized Svetlichny Inequalities as a Cross-Platform Benchmark for Quantum Processors",
+   "authors": [
+    "Andrés Camilo Granda Arango",
+    "Giuseppe Sergioli",
+    "Luigi Iapichino",
+    "Tobias Valentin Bauer",
+    "Carlo Cuccu",
+    "Roberto Giuntini"
+   ],
+   "abstract": "A cross-platform benchmark should be device-independent yet sensitive to imperfections accumulated during execution. Building on prior work, we formulate and validate a protocol through demonstrations based on generalized Svetlichny inequality violations (a simulation, rather than a loophole-free certification, of multipartite nonlocality) for larger subsystem sizes. We apply it unchanged to three processors, the trapped-ion Marmot and IBEX Q1 (both manufactured by AQT) and the superconducting Euro-Q-Exa System 1 (IQM), using identical GHZ-state circuits with fixed theoretical measurement settings from N=2 to N=10 qubits. Both trapped-ion processors sustain violations up to ten qubits, while the superconducting processor loses them beyond six qubits under unmitigated (raw) conditions; readout-error mitigation recovers violations up to eight qubits, with a substantial fraction of the degradation attributable to measurement imperfections. These processors provide a heterogeneous testbed for validating the protocol's cross-platform applicability and discriminating power, demonstrating its practicality as a common framework for assessing collective quantum performance.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-10-16",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223043809"
+   },
+   "url": null,
+   "section": "computing",
+   "score": 38,
+   "why": "Svetlichny-inequality GHZ benchmark: two AQT ion processors violate up to ten qubits, the IQM superconducting system fewer.",
+   "kind": "E",
+   "eli5": null
   },
   {
    "id": "2610.31947",
@@ -774,7 +1532,11 @@
    "submitted": "2026-10-19",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223125902"
+   },
    "url": null,
    "section": "B",
    "score": 35,
@@ -797,7 +1559,11 @@
    "submitted": "2026-10-22",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223374913"
+   },
    "url": null,
    "section": "C",
    "score": 35,
@@ -809,6 +1575,41 @@
     "matters": "It gives context for weak values and the two-state vector formalism, which are often used to interpret weak measurements in circuit QED.",
     "caveat": "Personal recollection, not argument; nothing new is claimed about the physics."
    }
+  },
+  {
+   "id": "2610.24196",
+   "title": "Nonlocality as a Benchmarking Tool for Quantum Processors",
+   "authors": [
+    "Andrés Camilo Granda Arango",
+    "Carla Sophie Rieger",
+    "Carlo Cuccu",
+    "Giuseppe Sergioli",
+    "Luigi Iapichino",
+    "Tobias Valentin Bauer",
+    "Roberto Giuntini",
+    "Federico Hernán Holik"
+   ],
+   "abstract": "Benchmarking quantum processors is a central task in every roadmap aimed at quantum advantage. Here, we discuss a benchmarking protocol based on the violation of the Svetlichny inequality, which is designed to simulate genuine multipartite nonlocality. We compare it with Mermin's inequality, and present the results of applying this framework to two different quantum processing units -the superconducting system Garnet (from IQM) and the ion-trap system Marmot (from AQT), testing different families of quantum circuits for three to five qubits under identical experimental conditions. We also run simultaneous triplet tests across the full register, including a comparison between GHZ and linear cluster states, to probe how Svetlichny-inequality violations depend on qubit location and calibration. Our results demonstrate that tests based on genuine multipartite nonlocality provide a powerful tool to characterize the collective performance of quantum devices and to guide their calibration and optimization.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-10-16",
+   "pool": "A",
+   "tags": [
+    "platform:sc",
+    "computing"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223017090"
+   },
+   "url": null,
+   "section": "computing",
+   "score": 34,
+   "why": "Compares Svetlichny and Mermin benchmarks on IQM Garnet and AQT Marmot for three to five qubits, including simultaneous register-wide triplets.",
+   "kind": "E",
+   "eli5": null
   },
   {
    "id": "2610.31938",
@@ -831,6 +1632,105 @@
    "score": 33,
    "why": "Exact fidelity under fluctuating qubit–cavity coupling depends on one decoherence factor set by the integrated noise correlation.",
    "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2610.24391",
+   "title": "Quantum state tomography through multi-frequency Josephson effect",
+   "authors": [
+    "Xian-Peng Zhang",
+    "Ting-Rui Hu",
+    "Zhen-Biao Yang",
+    "Rubén Seoane Souto",
+    "Yugui Yao"
+   ],
+   "abstract": "Macroscopic quantum effects emerge when the coherent behavior of countless microscopic quantum states manifests collectively at a visible scale, as exemplified by the supercurrent carried by innumerable finite-momentum Cooper pairs. By rigorously analyzing the time evolution of superconducting nanodevices including finite-momentum superconductors and quantum-dot Josephson junctions, we analytically derive the ubiquitous macroscopic supercurrent that originates from quantum interference between distinct many-body eigenstates, which we term as the dynamic interference supercurrent. The dynamic interference supercurrent in a system of two Andreev spin qubits exhibits multi-frequency Josephson effect in the absence of external voltage and is governed by the response of the many-body eigenfunctions ($\\vert r\\rangle$) to variations in the superconducting phase $φ$, determined by the $φ$-space Berry connection $C_{rr'}=\\langle r|\\partial_φ|r'\\rangle$. The macroscopic dynamic interference supercurrent, an inherent property of the superposition state itself, enables an advanced quantum entanglement measurement of the Andreev spin qubits. These findings open new avenues for investigating superconducting nanodevice properties from a wave-function level, with substantial implications for advancing quantum science and technology in solid-state superconducting devices, such as quantum computer, communication, memory, and sensor.",
+   "categories": [
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-10-17",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223066480"
+   },
+   "url": null,
+   "section": "computing",
+   "score": 32,
+   "why": "Predicts multi-frequency Josephson supercurrents from interference between many-body eigenstates, proposing them as a tomography readout for Andreev spin qubits.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2610.32622",
+   "title": "Trace-distance characterization of recurrent pairwise synchronization in cavity-coupled superconducting qubits",
+   "authors": [
+    "Tiantian Huan"
+   ],
+   "abstract": "We theoretically investigate recurrent pairwise synchronization in three super?conducting qubits coupled to a common single-mode microwave cavity. The qubits interact indirectly through the cavity field and are driven by a coher?ent microwave field. We obtain the coherent dynamics in the dressed-state basis and quantify pairwise synchronization by the trace distance between reduced single-qubit density matrices. The trace-distance dynamics exhibit oscillatory wave-packet structures, with low-trace-distance regions identifying finite syn?chronization windows. An envelope-threshold procedure is introduced to extract the representative duration of these windows. By varying the middle-qubit coupling strength and the relative coupling ratio of the outer qubits, we con?struct a parameter-dependent map of the synchronization-window duration. The duration decreases rapidly with increasing relative outer-qubit coupling and becomes weakly dependent on the middle-qubit coupling in the stronger-coupling regime. These results provide a reduced-state-based characterization of coherent collective dynamics in multiqubit circuit-QED systems.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-10-23",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "A",
+   "score": 30,
+   "why": "Characterises transient pairwise synchronization of three cavity-coupled driven qubits by trace distance between reduced states.",
+   "kind": "T",
+   "eli5": {
+    "plain": "A theory study of how three driven qubits sharing one microwave cavity temporarily fall into step with each other.",
+    "how": "They solve the dressed-state dynamics and measure how similar two qubits' states are; windows where the difference is small count as synchronization.",
+    "matters": "Mostly of conceptual interest: it is a way to describe collective dynamics in a cavity rather than a new optical effect.",
+    "caveat": "Coherent dynamics only, an ad hoc threshold defines the windows, and no experimental proposal is given."
+   }
+  },
+  {
+   "id": "2610.26223",
+   "title": "Sidewall Metrology Protocol for Superconducting Qubit Devices",
+   "authors": [
+    "Jørgen Garnæs",
+    "Henrik S. Guttesen",
+    "Astrid T. Rømer",
+    "Oscar Danielsson",
+    "Emily P. Duggan",
+    "Zhenhai Sun",
+    "Asen Lyubenov Georgiev",
+    "Li Wei Chang",
+    "Morten Kjaergaard",
+    "Mark Bieler",
+    "Lukas Grünhaupt",
+    "Sabbir A. Khan"
+   ],
+   "abstract": "Sidewall morphology is a potentially important factor influencing superconducting qubit performance, yet its quantitative characterization remains challenging due to the absence of standardized measurement protocols. In this work, we develop a scanning probe microscopy-based measurement framework for the quantitative characterization of superconducting qubit sidewalls. The framework introduces a refined root mean square lateral sidewall roughness descriptor and a new curvature-equivalent radius for quantifying vertical sidewall morphology. The descriptors and measurement procedures are applied to different components of qubit devices, forming the basis of a proposed sidewall characterization protocol. This provides a foundation for quantitative comparisons of fabrication processes across laboratories, enabling future investigations of correlations between sidewall geometry and qubit performance.",
+   "categories": [
+    "quant-ph",
+    "cond-mat.mtrl-sci",
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-10-19",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223044363"
+   },
+   "url": null,
+   "section": "computing",
+   "score": 30,
+   "why": "Scanning-probe protocol with new roughness and curvature descriptors to quantify qubit sidewall morphology; no link to loss shown.",
+   "kind": "E",
    "eli5": null
   },
   {
@@ -858,6 +1758,41 @@
    "score": 30,
    "why": "Argues the soccer-ball problem vanishes for coherent light and proposes a petawatt two-colour delay test of minimal-length physics.",
    "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2610.26015",
+   "title": "Phase engineering of odd parity state in a quantum dot Josephson junction",
+   "authors": [
+    "Shohei Kobayashi",
+    "Tyler Lindemann",
+    "Sergei Gronin",
+    "Geoffrey Gardner",
+    "Peter Stano",
+    "Daniel Loss",
+    "Michael Manfra",
+    "Seigo Tarucha",
+    "Sadashige Matsuo"
+   ],
+   "abstract": "Controlling fermion parity in quantum-dot Josephson junctions (QDJJs) enables access to novel superconducting physics. While parity transitions are usually tuned electrically, we study phase-induced transitions in a strongly coupled QDJJ using the superconducting phase difference across the dot terminals, denoted by $φ$. We find that this phase allows control over the ground state parity, with parity transitions observed as the Andreev bound states (ABSs) energies crossing zero. These crossings occur near $φ= π$, and their behavior is in good correspondence to a simple model considering a single-level quantum dot proximitized by a superconductor. These results place phase-controlled QDJJ arrays as a promising platform for exploring exotic phenomena such as Majorana zero modes.",
+   "categories": [
+    "cond-mat.mes-hall"
+   ],
+   "submitted": "2026-10-19",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223018603"
+   },
+   "url": null,
+   "section": "computing",
+   "score": 28,
+   "why": "Superconducting phase tunes ground-state parity of a strongly coupled quantum-dot Josephson junction, with crossings near π.",
+   "kind": "E",
    "eli5": null
   },
   {
@@ -895,6 +1830,42 @@
    }
   },
   {
+   "id": "W7223319095",
+   "title": "From Macroscopic Quantum Tunneling to Circuit QED: Coherence and Dissipation in 3D Transmon Qubits",
+   "authors": [
+    "Gustavo Moreto",
+    "Diego Molina",
+    "Saulo Gabriel Pereira Nascimento Alberton",
+    "Denys Brito",
+    "Ednilson Cunha",
+    "Arthur Rebello",
+    "Daniel Benvenutti",
+    "Agatha Dutra",
+    "Beatriz Sacramento",
+    "Italo L. Soares Andrade",
+    "Lucas Medeiros Ruela",
+    "Francisco P. M. Rouxinol"
+   ],
+   "abstract": "Abstract Superconducting quantum circuits are a leading platform for quantum-information processing, but their development requires expertise spanning device design, microfabrication, cryogenic operation, microwave control, and quantum characterization. In this work, we report the realization of a flux-tunable superconducting transmon platform and present an integrated workflow encompassing design, fabrication, measurement, and numerical modeling. The device consists of an $$Al/AlO_x/Al$$ transmon coupled to a three-dimensional microwave cavity operating in the circuit quantum electrodynamics (cQED) dispersive regime. Two-tone spectroscopy reveals a fundamental transition frequency of $$\\omega _{01}=5.0122~\\textrm{GHz}$$ and an anharmonicity of $$\\alpha /2\\pi =-202.4~\\textrm{MHz}$$ , corresponding to $$E_J/E_C \\approx 82.9$$ . Flux spectroscopy yields a cavity-qubit coupling strength of $$g/2\\pi = 260~\\textrm{MHz}$$ , while the cavity linewidth gives a loaded quality factor of $$Q_L=6127$$ and a Purcell limit of $$T_1^{\\textrm{Purcell}}\\approx 82~\\mu \\textrm{s}$$ . Time-domain measurements yield coherence times of $$T_1 = 17.4~\\mu \\textrm{s}$$ and $$T_2^* = 5.8~\\mu \\textrm{s}$$ . To investigate coherence and dissipation in the device, the experimental observations are analyzed within a Lindblad master-equation framework describing cavity photon loss and thermal excitation, qubit energy relaxation, and pure dephasing processes. Using a set of experimentally extracted parameters, the model reproduces the measured spectroscopic and time-domain observables, providing a quantitative description of the open-system dynamics of the transmon-cavity platform. The analysis shows that the measured coherence is primarily limited by pure dephasing and energy-relaxation processes, whereas thermal excitation plays a minor role under the experimental conditions. Inspired by the broader framework of quantum dissipation in macroscopic quantum systems pioneered by Caldeira and collaborators, this approach enables a quantitative analysis of relaxation and dephasing processes in superconducting quantum circuits. Beyond the characterization of a single device, the present work demonstrates the establishment of the expertise, infrastructure, and experimental workflow required for the design, fabrication, measurement, and modeling of superconducting quantum circuits, contributing to the development of quantum technologies in Brazil and related applications.",
+   "categories": [],
+   "submitted": "2026-10-23",
+   "pool": "journal",
+   "tags": [
+    "source:openalex"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "Brazilian Journal of Physics",
+    "openalex": "https://openalex.org/W7223319095"
+   },
+   "url": "https://doi.org/10.1007/s13538-026-02171-y",
+   "section": "computing",
+   "score": 24,
+   "why": "End-to-end workflow for a flux-tunable 3D transmon in a cavity, from fabrication to modelling; a platform report rather than a new result.",
+   "kind": "TE",
+   "eli5": null
+  },
+  {
    "id": "2610.27602",
    "title": "Resolving Nonlocal State Reduction via Induced Coherence in Frequency-Comb Biphoton Sources",
    "authors": [
@@ -907,7 +1878,11 @@
    "submitted": "2026-10-20",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223150593"
+   },
    "url": null,
    "section": "C",
    "score": 22,
@@ -919,6 +1894,63 @@
     "matters": "It recasts induced coherence and complementarity, but its bearing on the measurement problem is asserted rather than shown.",
     "caveat": "Decoherence after tracing out a mode is standard and does not by itself solve the measurement problem; the broad claim does not engage the existing literature."
    }
+  },
+  {
+   "id": "2610.32839",
+   "title": "Finite-Temperature Transconductance of Multiterminal Josephson Junctions with Topological Andreev Spectra",
+   "authors": [
+    "Gleb S. Seleznev",
+    "David C. Ohnmacht",
+    "Wolfgang Belzig"
+   ],
+   "abstract": "Multiterminal Josephson junctions (MTJJs) provide a controllable platform for engineering topological Andreev spectra. At zero temperature, Andreev bound states (ABSs) with nonzero Chern numbers give rise to quantized transconductance between superconducting terminals. We derive the finite-temperature transconductance of MTJJs using linear-response theory. We first demonstrate the destructive role of temperature: changes in the thermal occupations of the ABSs destroy exact transconductance quantization. We then show that finite temperature can also play a constructive role by making the transconductance sensitive to finite-energy topological crossings hidden from the zero-temperature response. Our results establish the thermal limitations of transconductance quantization and identify finite-temperature transport as a probe of otherwise inaccessible topology in Andreev spectra.",
+   "categories": [
+    "cond-mat.supr-con",
+    "cond-mat.mes-hall"
+   ],
+   "submitted": "2026-10-23",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": null,
+   "url": null,
+   "section": "computing",
+   "score": 20,
+   "why": "Finite temperature destroys quantized transconductance in multiterminal junctions but exposes finite-energy topological Andreev crossings.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "W7223056301",
+   "title": "Scalable quantum circuit for Zeno-enhanced interaction free quantum sensing",
+   "authors": [
+    "R. Sujay",
+    "Aditya S Maller",
+    "Sujay V Kulkarni",
+    "Nishita Manohar Hosea",
+    "Bharath Manchikodi",
+    "Jayavrinda Vrindavanam V",
+    "Pranawa C. Deshmukh"
+   ],
+   "abstract": "An Elitzur–Vaidman bomb tester demonstrates interaction-free sensing: detecting an object without absorbing a photon. The original protocol, however, has a success probability capped at 25%. We present a scalable quantum circuit that harnesses the quantum Zeno effect to overcome this limit. A single probe qubit undergoes repeated cycles of a small rotation followed by a controlled-NOT (CNOT) with an ancilla qubit representing the obstacle. The circuit requires only two qubits, regardless of the number of cycles N and has depth linear in N, compatible with near-term processors that support mid-circuit measurement and conditional reset. We simulate the circuit under ideal conditions and under a depolarizing noise model with gate errors typical of superconducting qubits (CNOT error 2% and single-qubit gate error rate 0.1%). Under noise, the success probability peaks around N=14 (reaching 72.0%), outperforming the original 25% limit by nearly a factor of three, with a well-defined optimal region. The protocol requires approximately 4.4 times fewer photons than the original Elitzur–Vaidman scheme to achieve 99.9% confidence. Its simple repetitive structure and well-defined optimal regime make it a practical benchmark for quantifying gate errors and decoherence on noisy intermediate-scale quantum hardware for quantum sensing applications.",
+   "categories": [],
+   "submitted": "2026-10-20",
+   "pool": "journal",
+   "tags": [
+    "source:openalex"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "AVS Quantum Science",
+    "openalex": "https://openalex.org/W7223056301"
+   },
+   "url": "https://doi.org/10.1116/5.0343736",
+   "section": "computing",
+   "score": 20,
+   "why": "Two-qubit Zeno circuit beats the 25% Elitzur–Vaidman limit for interaction-free sensing, simulated with noise, not run on hardware.",
+   "kind": "T",
+   "eli5": null
   },
   {
    "id": "2610.24891",
@@ -939,12 +1971,50 @@
    "submitted": "2026-10-17",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223003440"
+   },
    "url": null,
    "section": "B",
    "score": 20,
    "why": "Filtering helium streaking data isolates a perturbative two-photon s/d amplitude ratio hidden in the multiphoton signal.",
    "kind": "TE",
+   "eli5": null
+  },
+  {
+   "id": "2610.29124",
+   "title": "Magnetization and Josephson current coupling drives the Josephson diode effect in FeTe0.55Se0.45 van der Waals junctions",
+   "authors": [
+    "Seung-Hyun Shin",
+    "Cheong-Eung Ahn",
+    "Chang-Won Choi",
+    "Taekoo Oh",
+    "Si-Young Choi",
+    "Genda Gu",
+    "Gil Young Cho",
+    "Gil-Ho Lee"
+   ],
+   "abstract": "The Josephson diode effect (JDE) reflects symmetry breaking in the current-phase relation (CPR) of Josephson junctions, yet establishing its microscopic origin is often challenging. We investigate the mechanism of the JDE in van der Waals Josephson junctions based on FeTe0.55Se0.45, a platform where superconductivity, topology, and magnetism may coexist at the interface. Our devices exhibit a robust zero-field diode response with asymmetric switching currents. Magnetic-field measurements reveal a hysteretic Fraunhofer pattern and magnetic-resonance-induced voltage feature, evidencing interfacial magnetism coupled to the Josephson current. Microwave response further shows half-integer Shapiro steps with asymmetric evolution, demonstrating contributions from both a second harmonic and a magnetization-induced phase shift in CPR. Numerical simulations combining magnetization dynamics and Josephson phase dynamics reproduce these features, confirming that the JDE originates from interfacial coupling between magnetization and Josephson current. This work provides a transport-based route to pinpoint the microscopic mechanism of the JDE, establishing a platform for exploring magnetically active interfacial superconductivity, and enables the design of nonreciprocal superconducting devices in clean, interface-engineered van der Waals systems.",
+   "categories": [
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-10-21",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223219872"
+   },
+   "url": null,
+   "section": "computing",
+   "score": 16,
+   "why": "Interfacial magnetism coupled to the supercurrent drives the zero-field Josephson diode effect in FeTe0.55Se0.45 junctions.",
+   "kind": "E",
    "eli5": null
   },
   {
@@ -965,7 +2035,11 @@
    "submitted": "2026-10-20",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223114139"
+   },
    "url": null,
    "section": "B",
    "score": 15,
@@ -990,11 +2064,110 @@
    "submitted": "2026-10-16",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223143290"
+   },
    "url": null,
    "section": "B",
    "score": 15,
    "why": "Review of symmetry and interference in strong-field photoelectron momentum distributions, with an outlook on non-classical drives.",
+   "kind": "T",
+   "eli5": null
+  },
+  {
+   "id": "2610.29021",
+   "title": "Josephson effect in symmetry-mismatched van der Waals hybrid junctions of NbSe2-Bi2Sr2CaCu2O8+x and NbSe2-Bi2Sr2-xLaxCuO6+y",
+   "authors": [
+    "Yuying Zhu",
+    "Ziye Liu",
+    "Hongtao Yan",
+    "Lin Zhao",
+    "Xingjiang Zhou",
+    "Qi-Kun Xue",
+    "Ding Zhang"
+   ],
+   "abstract": "Coupling superconductors of different symmetries may lead to emergent quantum phenomena but experimental studies on heterojunctions made of lattice-mismatched crystals are scarce. Here, we fabricate Josephson junction by van der Waals stacking NbSe2 flakes on freshly cleaved surfaces of Bi2Sr2CaCu2O8+x or Bi2Sr2-xLaxCuO6+y. We obtain pronounced Josephson currents across the heterojunctions at temperatures below 7 K. The Josephson coupling strength, characterized by the product of the critical Josephson current I_c and the normal state resistance R_n, can reach about 0.3 mV, much exceeding the values previously reported in Pb-Bi2Sr2CaCu2O8+x or Nb-Bi2Sr2CaCu2O8+x junctions. Microwave irradiation induces integer Shapiro steps. We also observe the Fraunhofer diffraction pattern by applying an in-plane magnetic field. We compare our results with the theoretical calculations that take into account the coherent tunneling and the order parameter mixing. Our work demonstrates the hybrid junctions as a distinctive platform for addressing pairing symmetry and emergent quantum phenomena.",
+   "categories": [
+    "cond-mat.supr-con"
+   ],
+   "submitted": "2026-10-21",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223249469"
+   },
+   "url": null,
+   "section": "computing",
+   "score": 14,
+   "why": "NbSe2 stacked on cuprates gives IcRn up to 0.3 mV across symmetry-mismatched van der Waals Josephson junctions.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "2610.28453",
+   "title": "Quantum Simulation of the Static Yukawa Model via Effective Particles on a Trapped-Ion Quantum Simulator",
+   "authors": [
+    "Qingfeng Wang",
+    "Christopher G. Yale",
+    "Edward C. Tortorici",
+    "Brian K. McFarland",
+    "Daniel Lobser",
+    "Melissa C. Revelle",
+    "Andrew J. Landahl",
+    "Susan M. Clark",
+    "Peter J. Love"
+   ],
+   "abstract": "Trapped-ion, neutral-atom, and circuit QED quantum computers naturally enable coupled qubit-boson simulations. Boson-fermion interactions arise in quantum field theory, where renormalization is required to obtain finite results. We study one of the simplest examples of a coupled fermion-boson system, the static Yukawa model, on the QSCOUT trapped-ion system. We use similarity renormalization to express the same physics in terms of effective particles described by different values of the renormalization parameter $s$. This enables us to map data taken in the window of bosonic occupancy that is experimentally accessible to larger occupancies of distinct effective particles. We use this to study strongly coupled, high-occupancy regimes despite limited readout ranges. Using a trapped-ion qubit-boson device on Sandia National Laboratories' QSCOUT platform, we demonstrate the time evolution of the static Yukawa model.",
+   "categories": [
+    "quant-ph"
+   ],
+   "submitted": "2026-10-20",
+   "pool": "A",
+   "tags": [
+    "platform:sc"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223158638"
+   },
+   "url": null,
+   "section": "computing",
+   "score": 8,
+   "why": "Static Yukawa model simulated on the QSCOUT trapped-ion system using similarity renormalization; no superconducting hardware.",
+   "kind": "E",
+   "eli5": null
+  },
+  {
+   "id": "W7221556276",
+   "title": "Correction: Fundamentals and applications of hybrid electro- and opto- mechanical system coupled to superconducting qubit: a short review",
+   "authors": [
+    "Roson Nongthombam",
+    "Urmimala Dewan",
+    "Amarendra K. Sarma"
+   ],
+   "abstract": "Correction: Discover Quantum Science (2026) 2:38 h t t p s : / / d o i . o r g / 1 0 . 1 0 0 7 / s 4 4 4 6 4 -0 2 6 -0 0 0 4 1 -9",
+   "categories": [],
+   "submitted": "2026-10-12",
+   "pool": "journal",
+   "tags": [
+    "source:openalex"
+   ],
+   "cite": {
+    "citationCount": 0,
+    "venue": "Discover Quantum Science",
+    "openalex": "https://openalex.org/W7221556276"
+   },
+   "url": "https://doi.org/10.1007/s44464-026-00046-4",
+   "section": "computing",
+   "score": 5,
+   "why": "Erratum to a short review of hybrid electro- and optomechanics with superconducting qubits; no new content.",
    "kind": "T",
    "eli5": null
   },
@@ -1041,7 +2214,11 @@
    "submitted": "2026-10-21",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7223235885"
+   },
    "url": null,
    "section": "C",
    "score": 3,

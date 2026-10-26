@@ -50,7 +50,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221110240"
+   },
    "url": null,
    "section": "computing",
    "score": 88,
@@ -81,7 +85,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220747059"
+   },
    "url": null,
    "section": "A",
    "score": 88,
@@ -117,7 +125,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221025531"
+   },
    "url": null,
    "section": "computing",
    "score": 84,
@@ -218,7 +230,11 @@
    "submitted": "2026-10-07",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221124638"
+   },
    "url": null,
    "section": "B",
    "score": 82,
@@ -246,7 +262,11 @@
    "submitted": "2026-10-07",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221042122"
+   },
    "url": null,
    "section": "C",
    "score": 82,
@@ -277,7 +297,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220966308"
+   },
    "url": null,
    "section": "computing",
    "score": 80,
@@ -308,7 +332,11 @@
    "submitted": "2026-10-08",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221174384"
+   },
    "url": null,
    "section": "B",
    "score": 80,
@@ -335,7 +363,11 @@
    "submitted": "2026-10-09",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221545179"
+   },
    "url": null,
    "section": "C",
    "score": 80,
@@ -361,7 +393,11 @@
    "submitted": "2026-10-06",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220912989"
+   },
    "url": null,
    "section": "C",
    "score": 78,
@@ -393,7 +429,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221121301"
+   },
    "url": null,
    "section": "computing",
    "score": 76,
@@ -419,7 +459,11 @@
    "submitted": "2026-10-07",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221113007"
+   },
    "url": null,
    "section": "C",
    "score": 76,
@@ -457,7 +501,11 @@
     "computing",
     "watch:Per Delsing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221163958"
+   },
    "url": null,
    "section": "computing",
    "score": 72,
@@ -501,7 +549,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221104902"
+   },
    "url": null,
    "section": "computing",
    "score": 72,
@@ -530,7 +582,11 @@
    "submitted": "2026-10-05",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220702850"
+   },
    "url": null,
    "section": "C",
    "score": 70,
@@ -566,7 +622,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220738489"
+   },
    "url": null,
    "section": "computing",
    "score": 68,
@@ -597,7 +657,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220944551"
+   },
    "url": null,
    "section": "A",
    "score": 66,
@@ -628,7 +692,11 @@
    "submitted": "2026-10-06",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220963301"
+   },
    "url": null,
    "section": "B",
    "score": 64,
@@ -660,7 +728,11 @@
    "submitted": "2026-10-05",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220675328"
+   },
    "url": null,
    "section": "B",
    "score": 62,
@@ -697,7 +769,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221173166"
+   },
    "url": null,
    "section": "computing",
    "score": 60,
@@ -724,7 +800,11 @@
    "submitted": "2026-10-07",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220978882"
+   },
    "url": null,
    "section": "B",
    "score": 60,
@@ -751,7 +831,11 @@
    "submitted": "2026-10-06",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220933004"
+   },
    "url": null,
    "section": "C",
    "score": 60,
@@ -778,7 +862,11 @@
    "submitted": "2026-10-02",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7214272164"
+   },
    "url": null,
    "section": "C",
    "score": 60,
@@ -812,7 +900,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220902930"
+   },
    "url": null,
    "section": "computing",
    "score": 58,
@@ -847,7 +939,11 @@
    "submitted": "2026-10-05",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220692218"
+   },
    "url": null,
    "section": "B",
    "score": 58,
@@ -908,7 +1004,11 @@
    "submitted": "2026-10-06",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220949249"
+   },
    "url": null,
    "section": "C",
    "score": 55,
@@ -944,7 +1044,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221111784"
+   },
    "url": null,
    "section": "computing",
    "score": 54,
@@ -968,7 +1072,11 @@
    "submitted": "2026-10-07",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220944208"
+   },
    "url": null,
    "section": "B",
    "score": 52,
@@ -996,7 +1104,11 @@
    "submitted": "2026-10-08",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221138225"
+   },
    "url": null,
    "section": "C",
    "score": 52,
@@ -1024,7 +1136,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221568654"
+   },
    "url": null,
    "section": "A",
    "score": 50,
@@ -1076,7 +1192,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221547981"
+   },
    "url": null,
    "section": "computing",
    "score": 50,
@@ -1101,7 +1221,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220913377"
+   },
    "url": null,
    "section": "computing",
    "score": 50,
@@ -1123,7 +1247,11 @@
    "submitted": "2026-10-07",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221041950"
+   },
    "url": null,
    "section": "B",
    "score": 50,
@@ -1153,7 +1281,11 @@
    "submitted": "2026-10-03",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220677337"
+   },
    "url": null,
    "section": "C",
    "score": 50,
@@ -1191,7 +1323,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220684110"
+   },
    "url": null,
    "section": "A",
    "score": 48,
@@ -1218,7 +1354,11 @@
    "submitted": "2026-10-04",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220705405"
+   },
    "url": null,
    "section": "B",
    "score": 48,
@@ -1248,7 +1388,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221549853"
+   },
    "url": null,
    "section": "computing",
    "score": 45,
@@ -1277,7 +1421,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221026906"
+   },
    "url": null,
    "section": "computing",
    "score": 45,
@@ -1302,7 +1450,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220960252"
+   },
    "url": null,
    "section": "computing",
    "score": 45,
@@ -1328,7 +1480,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220739027"
+   },
    "url": null,
    "section": "computing",
    "score": 45,
@@ -1350,7 +1506,11 @@
    "submitted": "2026-10-06",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220982932"
+   },
    "url": null,
    "section": "B",
    "score": 45,
@@ -1373,7 +1533,11 @@
    "submitted": "2026-10-05",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220921075"
+   },
    "url": null,
    "section": "B",
    "score": 45,
@@ -1395,7 +1559,11 @@
    "submitted": "2026-10-05",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220650764"
+   },
    "url": null,
    "section": "B",
    "score": 45,
@@ -1419,7 +1587,11 @@
    "submitted": "2026-10-05",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220665333"
+   },
    "url": null,
    "section": "B",
    "score": 45,
@@ -1450,7 +1622,11 @@
    "submitted": "2026-10-05",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221047320"
+   },
    "url": null,
    "section": "B",
    "score": 42,
@@ -1472,7 +1648,11 @@
    "submitted": "2026-10-03",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220676281"
+   },
    "url": null,
    "section": "B",
    "score": 42,
@@ -1501,7 +1681,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221132042"
+   },
    "url": null,
    "section": "computing",
    "score": 40,
@@ -1527,7 +1711,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220959228"
+   },
    "url": null,
    "section": "computing",
    "score": 40,
@@ -1557,7 +1745,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220964220"
+   },
    "url": null,
    "section": "computing",
    "score": 40,
@@ -1581,7 +1773,11 @@
    "submitted": "2026-10-08",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221521225"
+   },
    "url": null,
    "section": "B",
    "score": 40,
@@ -1602,7 +1798,11 @@
    "submitted": "2026-10-05",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220732223"
+   },
    "url": null,
    "section": "C",
    "score": 40,
@@ -1633,7 +1833,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220727842"
+   },
    "url": null,
    "section": "computing",
    "score": 38,
@@ -1656,7 +1860,11 @@
    "submitted": "2026-10-09",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221528759"
+   },
    "url": null,
    "section": "C",
    "score": 38,
@@ -1694,7 +1902,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221523817"
+   },
    "url": null,
    "section": "A",
    "score": 35,
@@ -1733,7 +1945,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221179558"
+   },
    "url": null,
    "section": "computing",
    "score": 35,
@@ -1761,7 +1977,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221009584"
+   },
    "url": null,
    "section": "computing",
    "score": 35,
@@ -1784,7 +2004,11 @@
    "submitted": "2026-10-06",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220972753"
+   },
    "url": null,
    "section": "B",
    "score": 35,
@@ -1812,7 +2036,11 @@
    "submitted": "2026-10-05",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220730125"
+   },
    "url": null,
    "section": "B",
    "score": 35,
@@ -1833,7 +2061,11 @@
    "submitted": "2026-10-04",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220694133"
+   },
    "url": null,
    "section": "B",
    "score": 35,
@@ -1859,7 +2091,11 @@
    "submitted": "2026-10-07",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220903492"
+   },
    "url": null,
    "section": "B",
    "score": 30,
@@ -1881,7 +2117,11 @@
    "submitted": "2026-10-06",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221017359"
+   },
    "url": null,
    "section": "B",
    "score": 30,
@@ -1908,7 +2148,11 @@
    "submitted": "2026-10-06",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221013521"
+   },
    "url": null,
    "section": "B",
    "score": 30,
@@ -1929,7 +2173,11 @@
    "submitted": "2026-10-04",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220741495"
+   },
    "url": null,
    "section": "C",
    "score": 30,
@@ -1956,7 +2204,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221565925"
+   },
    "url": null,
    "section": "computing",
    "score": 25,
@@ -1985,7 +2237,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221503683"
+   },
    "url": null,
    "section": "computing",
    "score": 25,
@@ -2037,7 +2293,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221177029"
+   },
    "url": null,
    "section": "computing",
    "score": 25,
@@ -2062,7 +2322,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220701795"
+   },
    "url": null,
    "section": "computing",
    "score": 25,
@@ -2111,7 +2375,11 @@
    "submitted": "2026-10-06",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221053663"
+   },
    "url": null,
    "section": "B",
    "score": 25,
@@ -2137,7 +2405,11 @@
    "submitted": "2026-10-03",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220721864"
+   },
    "url": null,
    "section": "B",
    "score": 25,
@@ -2158,7 +2430,11 @@
    "submitted": "2026-10-07",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220965140"
+   },
    "url": null,
    "section": "C",
    "score": 25,
@@ -2179,7 +2455,11 @@
    "submitted": "2026-10-05",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220961213"
+   },
    "url": null,
    "section": "C",
    "score": 25,
@@ -2205,7 +2485,11 @@
    "submitted": "2026-10-07",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221113352"
+   },
    "url": null,
    "section": "B",
    "score": 20,
@@ -2227,7 +2511,11 @@
    "submitted": "2026-10-04",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220742485"
+   },
    "url": null,
    "section": "C",
    "score": 20,
@@ -2250,7 +2538,11 @@
    "submitted": "2026-10-08",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221065746"
+   },
    "url": null,
    "section": "B",
    "score": 15,
@@ -2276,7 +2568,11 @@
    "submitted": "2026-10-06",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7220981013"
+   },
    "url": null,
    "section": "B",
    "score": 15,
@@ -2300,7 +2596,11 @@
    "submitted": "2026-10-05",
    "pool": "B",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221001183"
+   },
    "url": null,
    "section": "B",
    "score": 15,
@@ -2322,7 +2622,11 @@
    "submitted": "2026-10-07",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221150241"
+   },
    "url": null,
    "section": "C",
    "score": 15,
@@ -2366,7 +2670,11 @@
    "submitted": "2026-10-08",
    "pool": "C",
    "tags": [],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7221577026"
+   },
    "url": null,
    "section": "C",
    "score": 10,

@@ -55,7 +55,11 @@
     "computing",
     "watch:William Oliver"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7214187073"
+   },
    "url": null,
    "section": "computing",
    "score": 92,
@@ -89,7 +93,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7214391943"
+   },
    "url": null,
    "section": "computing",
    "score": 90,
@@ -121,7 +129,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7214201704"
+   },
    "url": null,
    "section": "computing",
    "score": 86,
@@ -232,7 +244,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7214236710"
+   },
    "url": null,
    "section": "computing",
    "score": 82,
@@ -314,7 +330,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7214377940"
+   },
    "url": null,
    "section": "computing",
    "score": 80,
@@ -376,7 +396,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7214199813"
+   },
    "url": null,
    "section": "computing",
    "score": 77,
@@ -410,7 +434,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7214307140"
+   },
    "url": null,
    "section": "computing",
    "score": 70,
@@ -526,7 +554,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7214348677"
+   },
    "url": null,
    "section": "computing",
    "score": 50,
@@ -554,7 +586,11 @@
     "platform:sc",
     "computing"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7214397564"
+   },
    "url": null,
    "section": "computing",
    "score": 48,
@@ -878,7 +914,11 @@
    "tags": [
     "platform:sc"
    ],
-   "cite": null,
+   "cite": {
+    "citationCount": 0,
+    "venue": "",
+    "openalex": "https://openalex.org/W7214298607"
+   },
    "url": null,
    "section": "computing",
    "score": 14,
