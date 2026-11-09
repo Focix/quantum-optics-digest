@@ -1172,7 +1172,7 @@
    "cite": {
     "citationCount": 0,
     "venue": "",
-    "openalex": "https://openalex.org/W7222643815"
+    "openalex": "https://openalex.org/W7222638049"
    },
    "url": null,
    "section": "B",
@@ -1300,7 +1300,7 @@
     "platform:sc"
    ],
    "cite": {
-    "citationCount": 0,
+    "citationCount": 1,
     "venue": "",
     "openalex": "https://openalex.org/W7222739446"
    },
@@ -1465,7 +1465,7 @@
    "pool": "B",
    "tags": [],
    "cite": {
-    "citationCount": 0,
+    "citationCount": 2,
     "venue": "",
     "openalex": "https://openalex.org/W7221767091"
    },
@@ -1853,7 +1853,7 @@
    "pool": "B",
    "tags": [],
    "cite": {
-    "citationCount": 0,
+    "citationCount": 2,
     "venue": "",
     "openalex": "https://openalex.org/W7221834464"
    },
@@ -2233,7 +2233,7 @@
    "cite": {
     "citationCount": 0,
     "venue": "",
-    "openalex": "https://openalex.org/W7221770181"
+    "openalex": "https://openalex.org/W7221505082"
    },
    "url": null,
    "section": "computing",
